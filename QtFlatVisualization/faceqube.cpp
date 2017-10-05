@@ -1,6 +1,11 @@
 #include "faceqube.h"
 
-FaceQube::FaceQube()
+FaceQube::FaceQube(QWidget *parent) : QFrame(parent)
+{
+
+}
+
+FaceQube::~FaceQube()
 {
 
 }
