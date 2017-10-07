@@ -16,7 +16,7 @@ class FaceCube2D : public QFrame
 public:
     explicit FaceCube2D(QWidget *parent = nullptr);
     explicit FaceCube2D(QWidget *parent, const QString & faceString);
-    virtual ~FaceCube2D();
+    //virtual ~FaceCube2D();
 
     virtual void paintEvent(QPaintEvent*pe) override;
     virtual void resizeEvent(QResizeEvent*re) override;

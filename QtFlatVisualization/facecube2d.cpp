@@ -2,7 +2,7 @@
 
 FaceCube2D::FaceCube2D(QWidget *parent) : QFrame(parent)
 {
-    mFace. = "UUUUUUUUU";
+    mFace = "UUUUUUUUU";
 
     setMinimumSize(100, 100);
     initRectMatrix();
@@ -11,7 +11,7 @@ FaceCube2D::FaceCube2D(QWidget *parent) : QFrame(parent)
 }
 
 FaceCube2D::FaceCube2D(QWidget *parent, const QString &faceString)
-    : QFrame(parent),mFace{faceString}
+    : QFrame(parent), mFace{faceString}
 {
     setMinimumSize(100, 100);
     initRectMatrix();
@@ -19,13 +19,13 @@ FaceCube2D::FaceCube2D(QWidget *parent, const QString &faceString)
     updateRectMatrix();
 }
 
-FaceCube2D::~FaceCube2D()
-{
-    delete mRect[0];
-    delete mRect[1];
-    delete mRect[2];
-    delete mRect;
-}
+//FaceCube2D::~FaceCube2D()
+//{
+//    delete mRect[0];
+//    delete mRect[1];
+//    delete mRect[2];
+//    delete mRect;
+//}
 
 void FaceCube2D::paintEvent(QPaintEvent *pe)
 {
@@ -116,7 +116,7 @@ void FaceCube2D::updateRectMatrix()
 
 QColor FaceCube2D::determineColorFromStringPosition(int pos)
 {
-    switch (mFace[pos]) {
+    switch (mFace.toStdString()[pos]) {
     case 'U':
     case 'u':
         return Qt::yellow;
