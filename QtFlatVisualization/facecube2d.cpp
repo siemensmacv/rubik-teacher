@@ -2,33 +2,34 @@
 
 FaceCube2D::FaceCube2D(QWidget *parent) : QFrame(parent)
 {
-    mFace = "UUUUUUUUU";
 
-    setMinimumSize(100, 100);
-    initRectMatrix();
-    recalculateDrawingPoint();
+    updateFrameSize();
+    initFaceMatrix();
     updateRectMatrix();
+}
+
+FaceCube2D::FaceCube2D(QWidget *parent, const std::string &faceString)
+    : QFrame(parent)
+{
+    updateFrameSize();
+    initFaceMatrix();
+    updateRectMatrix();
+    updateColorMatrix(faceString);
 }
 
 FaceCube2D::FaceCube2D(QWidget *parent, const QString &faceString)
-    : QFrame(parent), mFace{faceString}
+    : FaceCube2D(parent, faceString.toStdString())
 {
-    setMinimumSize(100, 100);
-    initRectMatrix();
-    recalculateDrawingPoint();
-    updateRectMatrix();
 }
 
+// to do
 //FaceCube2D::~FaceCube2D()
 //{
-//    delete mRect[0];
-//    delete mRect[1];
-//    delete mRect[2];
-//    delete mRect;
 //}
 
 void FaceCube2D::paintEvent(QPaintEvent *pe)
 {
+
     QPainter painter(this);
     painter.fillRect(rect(), Qt::black);
 
@@ -36,87 +37,112 @@ void FaceCube2D::paintEvent(QPaintEvent *pe)
     {
         for (unsigned j = 0; j < 3; ++j)
         {
-            QColor color = determineColorFromStringPosition(i * 3 + j);
-            painter.setPen(color);
-            painter.setBrush(color);
+            painter.setPen(mFaceMatrix[i][j].second);
+            painter.setBrush(mFaceMatrix[i][j].second);
 
-            painter.drawRect(mRect[i][j]);
+            painter.drawRect(mFaceMatrix[i][j].first);
         }
     }
 
 }
 
-void FaceCube2D::resizeEvent(QResizeEvent *re)
+QPair<QRect, QColor> *&FaceCube2D::operator[](int pos)
 {
-    recalculateDrawingPoint();
-    updateRectMatrix();
+    return mFaceMatrix[pos];
 }
 
-void FaceCube2D::setFaceString(const QString &faceString)
+QString FaceCube2D::toQString() const
 {
-    mFace = faceString;
-    //??
-    update();
+    return QString(toString().c_str());
+}
+
+std::string FaceCube2D::toString() const
+{
+    std::string sequence = "";
+    for (unsigned i = 0; i < 3; ++i)
+    {
+        for (unsigned j = 0; j < 3; ++j)
+        {
+            sequence += getCharFromColor((mFaceMatrix[i][j]).second);
+        }
+    }
+    sequence += '/0';
+    return sequence;
 }
 
 void FaceCube2D::setBorderWidth(int borderWidth)
 {
+    if (borderWidth == mBorderWidth)
+        return;
     mBorderWidth = borderWidth;
     updateRectMatrix();
     update();
 }
 
-void FaceCube2D::initRectMatrix()
+void FaceCube2D::setFrameSize(int frameSize)
 {
-    mRect = new QRect*[3];
-    mRect[0] = new QRect[3];
-    mRect[1] = new QRect[3];
-    mRect[2] = new QRect[3];
+    if (frameSize == mFrameSize)
+        return;
+    mFrameSize = frameSize;
+    updateFrameSize();
+    updateRectMatrix();
+    update();
 }
 
-void FaceCube2D::recalculateDrawingPoint()
+void FaceCube2D::updateColorMatrix(const QString &faceString)
 {
-    mMatrixDrawingPoint.setX(0);
-    mMatrixDrawingPoint.setY(0);
-    int widgetWidth = width();
-    int widgetHeight = height();
-    if (widgetWidth > widgetHeight)
+    updateColorMatrix(faceString.toStdString());
+}
+
+void FaceCube2D::updateColorMatrix(const std::string &faceString)
+{
+    for (unsigned i = 0; i < 3; ++i)
     {
-        mMatrixDrawingPoint.setX((widgetWidth - widgetHeight) / 2);
+        for (unsigned j = 0; j < 3; ++j)
+        {
+            int poz = i * 3 + j;
+            mFaceMatrix[i][j].second = getColorFromChar(faceString[poz]);
+        }
     }
-    else
+}
+
+void FaceCube2D::updateFrameSize()
+{
+    setMinimumSize(mFrameSize, mFrameSize);
+    setMaximumSize(mFrameSize, mFrameSize);
+}
+
+void FaceCube2D::initFaceMatrix()
+{
+    int smallSquareLength = (mFrameSize - 6 * mBorderWidth) / 3;
+    mFaceMatrix = new QPair<QRect, QColor>*[3];
+    for (unsigned i = 0; i < 3; ++i)
     {
-        mMatrixDrawingPoint.setY((widgetHeight - widgetWidth) / 2);
+        mFaceMatrix[i] = new QPair<QRect, QColor>[3];
+        for (unsigned j = 0; j < 3; ++j)
+            mFaceMatrix[i][j].second.setRgb(0, 0, 0);
     }
 }
 
 void FaceCube2D::updateRectMatrix()
 {
-    int squareLength = mMatrixDrawingPoint.x();
-    if (!squareLength)
-    {
-        squareLength = mMatrixDrawingPoint.y();
-    }
-
-
-    squareLength = (squareLength - 4 * mBorderWidth) / 3;
-
+    int smallSquareLength = (mFrameSize - 6 * mBorderWidth) / 3;
     for (unsigned i = 0; i < 3; ++i)
     {
         for (unsigned j = 0; j < 3; ++j)
         {
-            mRect[i][j].setRect(
-                        mMatrixDrawingPoint.x() + mBorderWidth + j * (squareLength + mBorderWidth),
-                        mMatrixDrawingPoint.y() + mBorderWidth + i * (squareLength + mBorderWidth),
-                        squareLength,
-                        squareLength);
+            mFaceMatrix[i][j].first.setRect(
+            2 * mBorderWidth + j * (mBorderWidth + smallSquareLength),
+            2 * mBorderWidth + i * (mBorderWidth + smallSquareLength),
+            smallSquareLength,
+            smallSquareLength);
         }
     }
 }
 
-QColor FaceCube2D::determineColorFromStringPosition(int pos)
+QColor FaceCube2D::getColorFromChar(char letter) const
 {
-    switch (mFace.toStdString()[pos]) {
+    switch (letter) {
     case 'U':
     case 'u':
         return Qt::yellow;
@@ -138,4 +164,21 @@ QColor FaceCube2D::determineColorFromStringPosition(int pos)
     default:
         return Qt::black;
     }
+}
+
+char FaceCube2D::getCharFromColor(QColor color) const
+{
+    if (color == Qt::yellow)
+        return 'U';
+    if (color == Qt::green)
+        return 'F';
+    if (color == Qt::red)
+        return 'L';
+    if (color == QColor(255, 165, 0))
+        return 'R';
+    if (color == Qt::blue)
+        return 'B';
+    if (color == Qt::white)
+        return 'D';
+    return 'x';
 }

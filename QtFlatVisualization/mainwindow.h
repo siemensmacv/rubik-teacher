@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QWidgetItem>
 #include "facecube2d.h"
 
 namespace Ui {
@@ -19,7 +18,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    FaceCube2D *face;
 };
 
 #endif // MAINWINDOW_H

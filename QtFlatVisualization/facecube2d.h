@@ -9,6 +9,8 @@
 #include <QPoint>
 #include <QColor>
 #include <QPainter>
+#include <QPair>
+#include <string>
 
 
 class FaceCube2D : public QFrame
@@ -16,27 +18,34 @@ class FaceCube2D : public QFrame
     Q_OBJECT
 public:
     explicit FaceCube2D(QWidget *parent = nullptr);
+    explicit FaceCube2D(QWidget *parent, const std::string & faceString);
     explicit FaceCube2D(QWidget *parent, const QString & faceString);
     //virtual ~FaceCube2D();
 
     virtual void paintEvent(QPaintEvent*pe) override;
-    virtual void resizeEvent(QResizeEvent*re) override;
+    //virtual void resizeEvent(QResizeEvent*re) override;
     //virtual void mousePressEvent(QMouseEvent*) override;
 
+    QPair<QRect, QColor>*& operator[](int pos);
+    QString toQString() const;
+    std::string toString() const;
+
 public slots:
-    void setFaceString(const QString &faceString);
     void setBorderWidth(int borderWidth);
+    void setFrameSize(int frameSize);
+    void updateColorMatrix(const QString & faceString);
+    void updateColorMatrix(const std::string & faceString);
 
 private:
-    void initRectMatrix();
-    void recalculateDrawingPoint();
+    void updateFrameSize();
+    void initFaceMatrix();
     void updateRectMatrix();
-    QColor determineColorFromStringPosition(int pos);
+    QColor getColorFromChar(char letter) const;
+    char getCharFromColor(QColor color) const;
 
     int mBorderWidth = 5;
-    QString mFace;
-    QRect **mRect;
-    QPoint mMatrixDrawingPoint;
+    int mFrameSize = 150;
+    QPair<QRect, QColor> **mFaceMatrix;
 };
 
 #endif // FACEQUBE_H
