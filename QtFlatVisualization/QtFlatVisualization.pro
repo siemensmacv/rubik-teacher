@@ -26,11 +26,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    faceqube.cpp
+    facecube2d.cpp
 
 HEADERS += \
         mainwindow.h \
-    faceqube.h
+    facecube2d.h
 
 FORMS += \
         mainwindow.ui
