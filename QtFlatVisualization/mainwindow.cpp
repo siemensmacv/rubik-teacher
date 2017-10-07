@@ -6,9 +6,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    face = new FaceCube2D(ui->gridLayoutWidget);
     ui->setupUi(this);
-    ui->gridLayout->addWidget(face, 1, 1);
+    face = new FaceCube2D(ui->gridLayoutWidget);
+    ui->gridLayout->addWidget(face, 0, 0);
 }
 
 MainWindow::~MainWindow()

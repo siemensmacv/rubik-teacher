@@ -10,6 +10,7 @@
 #include <QColor>
 #include <QPainter>
 
+
 class FaceCube2D : public QFrame
 {
     Q_OBJECT
