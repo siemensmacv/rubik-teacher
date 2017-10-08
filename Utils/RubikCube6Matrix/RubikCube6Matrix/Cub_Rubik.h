@@ -81,35 +81,31 @@ private:
 	}
 
 public:
-	Cub_Rubik& frontClock()
+	void frontClock()
 	{
 		clock(Front, Up, Down, Left, Right);
-		return *this;
 	}
-	Cub_Rubik& frontCounterClock()
+	void frontCounterClock()
 	{
 		counterclock(Front, Up, Down, Left, Right);
-		return *this;
 	}
-	Cub_Rubik& backClock()
+	void backClock()
 	{
 		matr_clock(matr_clock(Up));
 		matr_clock(matr_clock(Down));
 		clock(Back, Up, Down, Right, Left);
 		matr_clock(matr_clock(Up));
 		matr_clock(matr_clock(Down));
-		return *this;
 	}
-	Cub_Rubik& backCounterClock()
+	void backCounterClock()
 	{
 		matr_clock(matr_clock(Up));
 		matr_clock(matr_clock(Down));
 		counterclock(Back, Up, Down, Right, Left);
 		matr_clock(matr_clock(Up));
 		matr_clock(matr_clock(Down));
-		return *this;
 	}
-	Cub_Rubik& upClock()
+	void upClock()
 	{
 		matr_clock(matr_clock(Back));
 		matr_clock(Left);
@@ -118,9 +114,8 @@ public:
 		matr_clock(matr_clock(Back));
 		matr_counterclock(Left);
 		matr_clock(Right);
-		return *this;
 	}
-	Cub_Rubik& upCounterClock()
+	void upCounterClock()
 	{
 		matr_clock(matr_clock(Back));
 		matr_clock(Left);
@@ -129,9 +124,8 @@ public:
 		matr_clock(matr_clock(Back));
 		matr_counterclock(Left);
 		matr_clock(Right);
-		return *this;
 	}
-	Cub_Rubik& downClock()
+	void downClock()
 	{
 		matr_clock(matr_clock(Back));
 		matr_counterclock(Left);
@@ -140,9 +134,8 @@ public:
 		matr_clock(matr_clock(Back));
 		matr_clock(Left);
 		matr_counterclock(Right);
-		return *this;
 	}
-	Cub_Rubik& downCounterClock()
+	void downCounterClock()
 	{
 		matr_clock(matr_clock(Back));
 		matr_counterclock(Left);
@@ -151,12 +144,25 @@ public:
 		matr_clock(matr_clock(Back));
 		matr_clock(Left);
 		matr_counterclock(Right);
-		return *this;
 	}
-	Cub_Rubik& leftClock();
-	Cub_Rubik& leftCounterClock();
-	Cub_Rubik& rightClock();
-	Cub_Rubik& rightCounterClock();
+	void leftClock()
+	{
+		matr_counterclock(Up);
+		matr_clock(Down);
+		clock(Left, Up, Down, Back, Front);
+		matr_clock(Up);
+		matr_counterclock(Down);
+	}
+	void leftCounterClock()
+	{
+		matr_counterclock(Up);
+		matr_clock(Down);
+		counterclock(Left, Up, Down, Back, Front);
+		matr_clock(Up);
+		matr_counterclock(Down);
+	}
+	void rightClock();
+	void rightCounterClock();
 
 	void xAxisClock();
 	void xAxisCounterClock();
@@ -164,7 +170,5 @@ public:
 	void yAxisCounterClock();
 	void zAxisClock();
 	void zAxisCounterClock();
-
-	void repozitionare_cub();//necesar??
 
 };

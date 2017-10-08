@@ -210,29 +210,3 @@ void Cub_Rubik::xAxisCounterClock()
 	Back = (int **)aux;
 	solution += " xAxisCounterClock ";
 }
-
-void Cub_Rubik::repozitionare_cub()
-{
-	if (Up[1][1] != 45)
-	{
-		if (Front[1][1] == 45) xAxisClock();
-		if (Left[1][1] == 45) zAxisClock();
-		if (Back[1][1] == 45) xAxisCounterClock();
-		if (Right[1][1] == 45) zAxisCounterClock();
-		if (Down[1][1] == 45)
-		{
-			zAxisClock();
-			zAxisClock();
-		}
-	}
-	if (Front[1][1] != 55)
-	{
-		if (Left[1][1] == 55) yAxisCounterClock();
-		if (Right[1][1] == 55) yAxisClock();
-		if (Back[1][1] == 55)
-		{
-			yAxisClock();
-			yAxisClock();
-		}
-	}
-}
