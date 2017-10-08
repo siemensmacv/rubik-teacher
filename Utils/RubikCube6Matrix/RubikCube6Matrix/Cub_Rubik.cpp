@@ -123,7 +123,7 @@ inline void Cub_Rubik::counterclock(fata_cub & centru, fata_cub & sus, fata_cub 
 	matr_counterclock(centru);
 }
 
-void Cub_Rubik::clock_Front()
+void Cub_Rubik::frontClock()
 {
 	//counterclock(F, D, matr_clock(matr_clock(U)), matr_counterclock(L), matr_clock(R)); matr_clock(matr_clock(U)); matr_clock(L); matr_counterclock(R); printf(" F ");
 	matr_clock(matr_clock(Up));
@@ -136,7 +136,7 @@ void Cub_Rubik::clock_Front()
 	solution += " F ";
 }
 
-void Cub_Rubik::counterclock_Front()
+void Cub_Rubik::frontCounterClock()
 {
 	//clock(F, D, matr_clock(matr_clock(U)), matr_counterclock(L), matr_clock(R)); matr_clock(matr_clock(U)); matr_clock(L); matr_counterclock(R); printf(" F' ");
 	matr_clock(matr_clock(Up));
@@ -149,7 +149,7 @@ void Cub_Rubik::counterclock_Front()
 	solution += " F' ";
 }
 
-void Cub_Rubik::clock_Back()
+void Cub_Rubik::backClock()
 {
 	//counterclock(B, matr_clock(matr_clock(U)), D, matr_clock(L), matr_counterclock(R)); matr_clock(matr_clock(U)); matr_counterclock(L); matr_clock(R); printf(" B ");
 	matr_clock(matr_clock(Up));
@@ -162,7 +162,7 @@ void Cub_Rubik::clock_Back()
 	solution += " B ";
 }
 
-void Cub_Rubik::counterclock_Back()
+void Cub_Rubik::backCounterClock()
 {
 	//clock(B, matr_clock(matr_clock(U)), D, matr_clock(L), matr_counterclock(R)); matr_clock(matr_clock(U)); matr_counterclock(L); matr_clock(R); printf(" B' ");
 	matr_clock(matr_clock(Up));
@@ -175,7 +175,7 @@ void Cub_Rubik::counterclock_Back()
 	solution += " B' ";
 }
 
-void Cub_Rubik::clock_Up()
+void Cub_Rubik::upClock()
 {
 	//counterclock(U, matr_clock(matr_clock(B)), matr_clock(matr_clock(F)), R, L); matr_clock(matr_clock(B)); matr_clock(matr_clock(F)); printf(" U ");
 	matr_clock(matr_clock(Back));
@@ -186,7 +186,7 @@ void Cub_Rubik::clock_Up()
 	solution += " U ";
 }
 
-void Cub_Rubik::counterclock_Up()
+void Cub_Rubik::upCounterClock()
 {
 	//clock(U, matr_clock(matr_clock(B)), matr_clock(matr_clock(F)), R, L); matr_clock(matr_clock(B)); matr_clock(matr_clock(F)); printf(" U' ");
 	matr_clock(matr_clock(Back));
@@ -197,21 +197,21 @@ void Cub_Rubik::counterclock_Up()
 	solution += " U' ";
 }
 
-void Cub_Rubik::clock_Down()
+void Cub_Rubik::downClock()
 {
 	//counterclock(D, B, F, L, R); printf(" D ");
 	counterclock(Down, Back, Front, Left, Right);
 	solution += " D ";
 }
 
-void Cub_Rubik::counterclock_Down()
+void Cub_Rubik::downCounterClock()
 {
 	//clock(D, B, F, L, R); printf(" D' ");
 	clock(Down, Back, Front, Left, Right);
 	solution += " D' ";
 }
 
-void Cub_Rubik::clock_Left()
+void Cub_Rubik::leftClock()
 {
 	//counterclock(L, matr_counterclock(B), matr_clock(F), U, D); matr_clock(B); matr_counterclock(F); printf(" L ");
 	matr_counterclock(Back);
@@ -222,7 +222,7 @@ void Cub_Rubik::clock_Left()
 	solution += " L ";
 }
 
-void Cub_Rubik::counterclock_Left()
+void Cub_Rubik::leftCounterClock()
 {
 	//clock(L, matr_counterclock(B), matr_clock(F), U, D); matr_clock(B); matr_counterclock(F); printf(" L' ");
 	matr_counterclock(Back);
@@ -233,7 +233,7 @@ void Cub_Rubik::counterclock_Left()
 	solution += " L' ";
 }
 
-void Cub_Rubik::clock_Right()
+void Cub_Rubik::rightClock()
 {
 	//counterclock(R, matr_clock(B), matr_counterclock(F), D, U); matr_counterclock(B); matr_clock(F); printf(" R ");
 	matr_clock(Back);
@@ -244,7 +244,7 @@ void Cub_Rubik::clock_Right()
 	solution += " R ";
 }
 
-void Cub_Rubik::counterclock_Right()
+void Cub_Rubik::rightCounterClock()
 {
 	//clock(R, matr_clock(B), matr_counterclock(F), D, U); matr_counterclock(B); matr_clock(F); printf(" R' ");
 	matr_clock(Back);
@@ -255,7 +255,7 @@ void Cub_Rubik::counterclock_Right()
 	solution += " R' ";
 }
 
-void Cub_Rubik::cub_X_axis_stanga()
+void Cub_Rubik::zAxisCounterClock()
 {
 	void *aux;
 	matr_counterclock(Back); matr_clock(Front);
@@ -264,10 +264,10 @@ void Cub_Rubik::cub_X_axis_stanga()
 	Left = Up;
 	Up = Right;
 	Right = (int **)aux;
-	solution += " cub_X_axis_stanga ";
+	solution += " zAxisCounterClock ";
 }
 
-void Cub_Rubik::cub_X_axis_dreapta()
+void Cub_Rubik::zAxisClock()
 {
 	void *aux;
 	matr_clock(Back); matr_counterclock(Front);
@@ -276,10 +276,10 @@ void Cub_Rubik::cub_X_axis_dreapta()
 	Right = Up;
 	Up = Left;
 	Left = (int **)aux;
-	solution += " cub_X_axis_dreapta ";
+	solution += " zAxisClock ";
 }
 
-void Cub_Rubik::cub_Y_axis_clock()
+void Cub_Rubik::yAxisClock()
 {
 	void *aux;
 	matr_clock(Down); matr_counterclock(Up);
@@ -290,10 +290,10 @@ void Cub_Rubik::cub_Y_axis_clock()
 	Left = Front;
 	Front = Right;
 	Right = (int **)aux;
-	solution += " cub_Y_axis_clock ";
+	solution += " yAxisClock ";
 }
 
-void Cub_Rubik::cub_Y_axis_counterclock()
+void Cub_Rubik::yAxisCounterClock()
 {
 	void *aux;
 	matr_counterclock(Down); matr_clock(Up);
@@ -304,10 +304,10 @@ void Cub_Rubik::cub_Y_axis_counterclock()
 	Right = Front;
 	Front = Left;
 	Left = (int **)aux;
-	solution += " cub_Y_axis_counterclock ";
+	solution += " yAxisCounterClock ";
 }
 
-void Cub_Rubik::cub_Z_axis_inainte()
+void Cub_Rubik::xAxisClock()
 {
 	void *aux;
 	matr_clock(matr_clock(Front));  matr_clock(matr_clock(Up));
@@ -317,10 +317,10 @@ void Cub_Rubik::cub_Z_axis_inainte()
 	Back = Up;
 	Up = Front;
 	Front = (int **)aux;
-	solution += " cub_Z_axis_inainte ";
+	solution += " xAxisClock ";
 }
 
-void Cub_Rubik::cub_Z_axis_inapoi()
+void Cub_Rubik::xAxisCounterClock()
 {
 	void *aux;
 	matr_clock(matr_clock(Back));  matr_clock(matr_clock(Up));
@@ -330,31 +330,31 @@ void Cub_Rubik::cub_Z_axis_inapoi()
 	Front = Up;
 	Up = Back;
 	Back = (int **)aux;
-	solution += " cub_Z_axis_inapoi ";
+	solution += " xAxisCounterClock ";
 }
 
 void Cub_Rubik::repozitionare_cub()
 {
 	if (Up[1][1] != 45)
 	{
-		if (Front[1][1] == 45) cub_Z_axis_inainte();
-		if (Left[1][1] == 45) cub_X_axis_dreapta();
-		if (Back[1][1] == 45) cub_Z_axis_inapoi();
-		if (Right[1][1] == 45) cub_X_axis_stanga();
+		if (Front[1][1] == 45) xAxisClock();
+		if (Left[1][1] == 45) zAxisClock();
+		if (Back[1][1] == 45) xAxisCounterClock();
+		if (Right[1][1] == 45) zAxisCounterClock();
 		if (Down[1][1] == 45)
 		{
-			cub_X_axis_dreapta();
-			cub_X_axis_dreapta();
+			zAxisClock();
+			zAxisClock();
 		}
 	}
 	if (Front[1][1] != 55)
 	{
-		if (Left[1][1] == 55) cub_Y_axis_counterclock();
-		if (Right[1][1] == 55) cub_Y_axis_clock();
+		if (Left[1][1] == 55) yAxisCounterClock();
+		if (Right[1][1] == 55) yAxisClock();
 		if (Back[1][1] == 55)
 		{
-			cub_Y_axis_clock();
-			cub_Y_axis_clock();
+			yAxisClock();
+			yAxisClock();
 		}
 	}
 }
@@ -393,68 +393,68 @@ int Cub_Rubik::middle_layer(int origine, int poz_anter, int ordin_recurs)
 		{
 			if (poz_anter == Left[1][1])
 			{
-				while (Up[1][0] / 10 != Up[1][1] / 10 && Right[1][2] / 10 != Up[1][1] / 10) { clock_Up(); }
-				counterclock_Left(); clock_Up(); clock_Left(); clock_Up(); clock_Front(); counterclock_Up(); counterclock_Front();
+				while (Up[1][0] / 10 != Up[1][1] / 10 && Right[1][2] / 10 != Up[1][1] / 10) { upClock(); }
+				leftCounterClock(); upClock(); leftClock(); upClock(); frontClock(); upCounterClock(); frontCounterClock();
 			}
 			if (poz_anter == Back[1][1])
 			{
-				while (Up[2][1] / 10 != Up[1][1] / 10 && Front[2][1] / 10 != Up[1][1] / 10) { clock_Up(); }
-				counterclock_Back(); clock_Up(); clock_Back(); clock_Up(); clock_Left(); counterclock_Up(); counterclock_Left();
+				while (Up[2][1] / 10 != Up[1][1] / 10 && Front[2][1] / 10 != Up[1][1] / 10) { upClock(); }
+				backCounterClock(); upClock(); backClock(); upClock(); leftClock(); upCounterClock(); leftCounterClock();
 			}
 			if (poz_anter == Right[1][1])
 			{
-				while (Up[1][2] / 10 != Up[1][1] / 10 && Left[1][0] / 10 != Up[1][1] / 10) { clock_Up(); }
-				counterclock_Right(); clock_Up(); clock_Right(); clock_Up(); clock_Back(); counterclock_Up(); counterclock_Back();
+				while (Up[1][2] / 10 != Up[1][1] / 10 && Left[1][0] / 10 != Up[1][1] / 10) { upClock(); }
+				rightCounterClock(); upClock(); rightClock(); upClock(); backClock(); upCounterClock(); backCounterClock();
 			}
 		}
 	}
 
 	if (piesa_cautata == Left[2][1] || piesa_cautata == Front[1][0])
 	{
-		cub_Y_axis_counterclock();
+		yAxisCounterClock();
 		middle_layer(origine, Right[1][1], ++ordin_recurs);
-		cub_Y_axis_clock();
+		yAxisClock();
 	}
 
 	if (piesa_cautata == Back[1][0] || piesa_cautata == Left[0][1])
 	{
-		cub_Y_axis_counterclock();
-		cub_Y_axis_counterclock();
+		yAxisCounterClock();
+		yAxisCounterClock();
 		middle_layer(origine, Back[1][1], ++ordin_recurs);
-		cub_Y_axis_clock();
-		cub_Y_axis_clock();
+		yAxisClock();
+		yAxisClock();
 	}
 
 	if (piesa_cautata == Right[0][1] || piesa_cautata == Back[1][2])
 	{
-		cub_Y_axis_clock();
+		yAxisClock();
 		middle_layer(origine, Left[1][1], ++ordin_recurs);
-		cub_Y_axis_counterclock();
+		yAxisCounterClock();
 	}
 
-	if (piesa_cautata == Up[1][0]) { counterclock_Up(); }
-	if (piesa_cautata == Up[1][2]) { clock_Up(); }
-	if (piesa_cautata == Up[2][1]) { clock_Up(); clock_Up(); }
+	if (piesa_cautata == Up[1][0]) { upCounterClock(); }
+	if (piesa_cautata == Up[1][2]) { upClock(); }
+	if (piesa_cautata == Up[2][1]) { upClock(); upClock(); }
 	if (piesa_cautata == Up[0][1])
 	{
-		counterclock_Front(); clock_Up(); clock_Front(); clock_Up(); clock_Right(); counterclock_Up(); counterclock_Right(); 
+		frontCounterClock(); upClock(); frontClock(); upClock(); rightClock(); upCounterClock(); rightCounterClock(); 
 		return 0;
 	}
 
-	if (piesa_cautata == Back[0][1]) { counterclock_Up(); }
-	if (piesa_cautata == Right[1][2]) { clock_Up(); clock_Up(); }
-	if (piesa_cautata == Front[2][1]) { clock_Up(); }
+	if (piesa_cautata == Back[0][1]) { upCounterClock(); }
+	if (piesa_cautata == Right[1][2]) { upClock(); upClock(); }
+	if (piesa_cautata == Front[2][1]) { upClock(); }
 	if (piesa_cautata == Left[1][0])
 	{
-		clock_Right(); counterclock_Up(); counterclock_Right(); counterclock_Up(); counterclock_Front(); clock_Up(); clock_Front(); 
+		rightClock(); upCounterClock(); rightCounterClock(); upCounterClock(); frontCounterClock(); upClock(); frontClock(); 
 		return 0;
 	}
 
 	if (piesa_cautata == Right[2][1])
 	{
-		clock_Right(); counterclock_Up(); counterclock_Right(); counterclock_Up(); counterclock_Front(); clock_Up(); clock_Front();
-		counterclock_Up();
-		clock_Right(); counterclock_Up(); counterclock_Right(); counterclock_Up(); counterclock_Front(); clock_Up(); clock_Front(); 
+		rightClock(); upCounterClock(); rightCounterClock(); upCounterClock(); frontCounterClock(); upClock(); frontClock();
+		upCounterClock();
+		rightClock(); upCounterClock(); rightCounterClock(); upCounterClock(); frontCounterClock(); upClock(); frontClock(); 
 		return 0;
 	}
 }
@@ -468,24 +468,24 @@ void Cub_Rubik::Scramble()
 		int j = generator() % 18;
 		switch (j)
 		{
-		case 0: clock_Front(); continue;
-		case 1: clock_Back(); continue;
-		case 2: cub_X_axis_dreapta(); continue;
-		case 3:	clock_Up(); continue;
-		case 4: clock_Down(); continue;
-		case 5: cub_Y_axis_clock(); continue;
-		case 6:	clock_Left(); continue;
-		case 7: clock_Right(); continue;
-		case 8: cub_Z_axis_inainte(); continue;
-		case 9: counterclock_Front(); continue;
-		case 10: counterclock_Back(); continue;
-		case 11: cub_X_axis_stanga(); continue;
-		case 12: counterclock_Up(); continue;
-		case 13: counterclock_Down(); continue;
-		case 14: cub_Y_axis_counterclock(); continue;
-		case 15: counterclock_Left(); continue;
-		case 16: counterclock_Right(); continue;
-		case 17: cub_Z_axis_inapoi(); continue;
+		case 0: frontClock(); continue;
+		case 1: backClock(); continue;
+		case 2: zAxisClock(); continue;
+		case 3:	upClock(); continue;
+		case 4: downClock(); continue;
+		case 5: yAxisClock(); continue;
+		case 6:	leftClock(); continue;
+		case 7: rightClock(); continue;
+		case 8: xAxisClock(); continue;
+		case 9: frontCounterClock(); continue;
+		case 10: backCounterClock(); continue;
+		case 11: zAxisCounterClock(); continue;
+		case 12: upCounterClock(); continue;
+		case 13: downCounterClock(); continue;
+		case 14: yAxisCounterClock(); continue;
+		case 15: leftCounterClock(); continue;
+		case 16: rightCounterClock(); continue;
+		case 17: xAxisCounterClock(); continue;
 		}
 	}
 	out << solution << "\n\n\n";
@@ -510,39 +510,39 @@ void Cub_Rubik::Solve()
 	vector1[1] = Up[1][1] - 1;
 	vector1[2] = Up[1][1] + 3;
 	vector1[3] = Up[1][1] + 1;
-	cub_Y_axis_clock();
+	yAxisClock();
 	for (int i = 0; i < 4; ++i)
 	{
-		cub_Y_axis_counterclock();
+		yAxisCounterClock();
 		if (Up[0][1] != vector1[i])
 		{
-			if (vector1[i] == Down[0][1]) { clock_Back(); clock_Back(); continue; }
-			if (vector1[i] == Down[1][0]) { counterclock_Down(); clock_Back(); clock_Back(); continue; }
-			if (vector1[i] == Down[1][2]) { clock_Down(); clock_Back(); clock_Back(); continue; }
-			if (vector1[i] == Down[2][1]) { clock_Down(); clock_Down(); clock_Back(); clock_Back(); continue; }
+			if (vector1[i] == Down[0][1]) { backClock(); backClock(); continue; }
+			if (vector1[i] == Down[1][0]) { downCounterClock(); backClock(); backClock(); continue; }
+			if (vector1[i] == Down[1][2]) { downClock(); backClock(); backClock(); continue; }
+			if (vector1[i] == Down[2][1]) { downClock(); downClock(); backClock(); backClock(); continue; }
 
-			if (vector1[i] == Right[1][0]) { counterclock_Right(); clock_Back(); clock_Right(); continue; }
-			if (vector1[i] == Back[2][1]) { counterclock_Down(); counterclock_Right(); clock_Back(); clock_Right(); continue; }
-			if (vector1[i] == Front[0][1]) { clock_Down(); counterclock_Right(); clock_Back(); clock_Right(); continue; }
-			if (vector1[i] == Left[1][2]) { clock_Left(); counterclock_Back(); counterclock_Left(); continue; }
+			if (vector1[i] == Right[1][0]) { rightCounterClock(); backClock(); rightClock(); continue; }
+			if (vector1[i] == Back[2][1]) { downCounterClock(); rightCounterClock(); backClock(); rightClock(); continue; }
+			if (vector1[i] == Front[0][1]) { downClock(); rightCounterClock(); backClock(); rightClock(); continue; }
+			if (vector1[i] == Left[1][2]) { leftClock(); backCounterClock(); leftCounterClock(); continue; }
 
-			if (vector1[i] == Left[0][1]) { counterclock_Back(); continue; }
-			if (vector1[i] == Back[1][0]) { clock_Back(); counterclock_Down(); counterclock_Right(); clock_Back(); clock_Right(); continue; }
-			if (vector1[i] == Back[1][2]) { counterclock_Back(); counterclock_Down(); counterclock_Right(); clock_Back(); clock_Right(); continue; }
-			if (vector1[i] == Right[0][1]) { clock_Back(); continue; }
+			if (vector1[i] == Left[0][1]) { backCounterClock(); continue; }
+			if (vector1[i] == Back[1][0]) { backClock(); downCounterClock(); rightCounterClock(); backClock(); rightClock(); continue; }
+			if (vector1[i] == Back[1][2]) { backCounterClock(); downCounterClock(); rightCounterClock(); backClock(); rightClock(); continue; }
+			if (vector1[i] == Right[0][1]) { backClock(); continue; }
 
-			if (vector1[i] == Right[2][1]) { counterclock_Right(); counterclock_Right(); clock_Back(); counterclock_Right(); counterclock_Right(); continue; }
-			if (vector1[i] == Front[1][2]) { clock_Front(); clock_Down(); counterclock_Front(); counterclock_Right(); clock_Back(); clock_Right(); continue; }
-			if (vector1[i] == Front[1][0]) { counterclock_Front(); clock_Down(); clock_Front(); counterclock_Right(); clock_Back(); clock_Right(); continue; }
-			if (vector1[i] == Left[2][1]) { clock_Left(); clock_Left(); counterclock_Back(); clock_Left(); clock_Left(); continue; }
+			if (vector1[i] == Right[2][1]) { rightCounterClock(); rightCounterClock(); backClock(); rightCounterClock(); rightCounterClock(); continue; }
+			if (vector1[i] == Front[1][2]) { frontClock(); downClock(); frontCounterClock(); rightCounterClock(); backClock(); rightClock(); continue; }
+			if (vector1[i] == Front[1][0]) { frontCounterClock(); downClock(); frontClock(); rightCounterClock(); backClock(); rightClock(); continue; }
+			if (vector1[i] == Left[2][1]) { leftClock(); leftClock(); backCounterClock(); leftClock(); leftClock(); continue; }
 
-			if (vector1[i] == Back[0][1]) { clock_Back(); clock_Back(); counterclock_Down(); counterclock_Right(); clock_Back(); clock_Right(); continue; }
-			if (vector1[i] == Up[1][2]) { clock_Up(); continue; }
-			if (vector1[i] == Left[1][0]) { counterclock_Left(); counterclock_Back(); continue; }
-			if (vector1[i] == Up[2][1]) { clock_Front(); clock_Right(); clock_Right(); clock_Back(); continue; }
-			if (vector1[i] == Front[2][1]) { clock_Front(); clock_Front(); clock_Down(); counterclock_Right(); clock_Back(); clock_Right(); continue; }
-			if (vector1[i] == Up[1][0]) { clock_Right(); clock_Right(); clock_Down(); clock_Back(); clock_Back(); continue; }
-			if (vector1[i] == Right[1][2]) { clock_Right(); clock_Back(); continue; }
+			if (vector1[i] == Back[0][1]) { backClock(); backClock(); downCounterClock(); rightCounterClock(); backClock(); rightClock(); continue; }
+			if (vector1[i] == Up[1][2]) { upClock(); continue; }
+			if (vector1[i] == Left[1][0]) { leftCounterClock(); backCounterClock(); continue; }
+			if (vector1[i] == Up[2][1]) { frontClock(); rightClock(); rightClock(); backClock(); continue; }
+			if (vector1[i] == Front[2][1]) { frontClock(); frontClock(); downClock(); rightCounterClock(); backClock(); rightClock(); continue; }
+			if (vector1[i] == Up[1][0]) { rightClock(); rightClock(); downClock(); backClock(); backClock(); continue; }
+			if (vector1[i] == Right[1][2]) { rightClock(); backClock(); continue; }
 		}
 	}
 
@@ -553,73 +553,73 @@ void Cub_Rubik::Solve()
 	vector1[3] = Up[1][1] - 4;
 	for (int i = 0; i < 4; ++i)
 	{
-		cub_Y_axis_counterclock();
+		yAxisCounterClock();
 		if (Up[2][0] != vector1[i])
 		{
 			if (vector1[i] == Up[2][2] || vector1[i] == Left[2][0] || vector1[i] == Front[2][0])
 			{
-				clock_Left(); clock_Down(); counterclock_Left();
+				leftClock(); downClock(); leftCounterClock();
 			}
 			if (vector1[i] == Up[0][2] || vector1[i] == Left[0][0] || vector1[i] == Back[0][0])
 			{
-				counterclock_Left(); clock_Down(); clock_Down(); clock_Left();
+				leftCounterClock(); downClock(); downClock(); leftClock();
 			}
 			if (vector1[i] == Up[0][0] || vector1[i] == Right[0][2] || vector1[i] == Back[0][2])
 			{
-				counterclock_Back(); counterclock_Down(); clock_Back();
+				backCounterClock(); downCounterClock(); backClock();
 			}
 			if (vector1[i] == Down[2][0] || vector1[i] == Left[2][2] || vector1[i] == Front[0][0])
 			{
-				clock_Down();
+				downClock();
 			}
 			if (vector1[i] == Down[0][0] || vector1[i] == Left[0][2] || vector1[i] == Back[2][0])
 			{
-				clock_Down(); clock_Down();
+				downClock(); downClock();
 			}
 			if (vector1[i] == Down[0][2] || vector1[i] == Back[2][2] || vector1[i] == Right[0][0])
 			{
-				counterclock_Down();
+				downCounterClock();
 			}
 			if (vector1[i] == Right[2][2])
 			{
-				counterclock_Right(); counterclock_Down(); clock_Right(); clock_Down();
+				rightCounterClock(); downCounterClock(); rightClock(); downClock();
 			}
 			if (vector1[i] == Front[2][2])
 			{
-				clock_Front(); clock_Down(); counterclock_Front(); counterclock_Down();
+				frontClock(); downClock(); frontCounterClock(); downCounterClock();
 			}
 			if (vector1[i] == Down[2][2])
 			{
-				counterclock_Right(); clock_Down(); clock_Down(); clock_Right(); clock_Down();
+				rightCounterClock(); downClock(); downClock(); rightClock(); downClock();
 			}
 			if (vector1[i] == Right[2][0])
 			{
-				counterclock_Right(); counterclock_Down(); clock_Right(); continue;
+				rightCounterClock(); downCounterClock(); rightClock(); continue;
 			}
 			if (vector1[i] == Front[0][2])
 			{
-				clock_Front(); clock_Down(); counterclock_Front(); continue;
+				frontClock(); downClock(); frontCounterClock(); continue;
 			}
 		}
 	}
-	cub_Y_axis_counterclock();
+	yAxisCounterClock();
 
 	//Layer 2							//tine minte Y
-	cub_X_axis_stanga();
-	cub_X_axis_stanga();
+	zAxisCounterClock();
+	zAxisCounterClock();
 	vector1[0] = Front[1][1] - 1;
 	vector1[1] = Left[1][1] + 3;
 	vector1[2] = Back[1][1] + 1;
 	vector1[3] = Right[1][1] - 3;
-	cub_Y_axis_clock();
+	yAxisClock();
 	for (int i = 0; i < 4; ++i)
 	{
-		cub_Y_axis_counterclock();
+		yAxisCounterClock();
 		int ok = 0;
 		if (Front[1][2] != vector1[i])
 			middle_layer(Front[1][1], -1, ok);
 	}
-	cub_Y_axis_counterclock();
+	yAxisCounterClock();
 
 	//Layer 3
 	//Faza 1: Crucea 
@@ -628,8 +628,8 @@ void Cub_Rubik::Solve()
 		int ok = 1;
 		if (Up[0][1] / 10 != 2 && Up[1][0] / 10 != 2 && Up[1][2] / 10 != 2 && Up[2][1] / 10 != 2)  //nu e nicio piesa sus
 		{
-			counterclock_Right(); counterclock_Up(); counterclock_Front(); clock_Up(); clock_Front(); clock_Right();  //linie orizontala
-			clock_Front(); clock_Right(); clock_Up(); counterclock_Right(); counterclock_Up(); counterclock_Front();  //cruce
+			rightCounterClock(); upCounterClock(); frontCounterClock(); upClock(); frontClock(); rightClock();  //linie orizontala
+			frontClock(); rightClock(); upClock(); rightCounterClock(); upCounterClock(); frontCounterClock();  //cruce
 			ok = 0;
 		}
 		if (ok)
@@ -638,16 +638,16 @@ void Cub_Rubik::Solve()
 			{
 				if (Up[1][0] / 10 == 2) //si cea din dreapta
 				{
-					counterclock_Up();
+					upCounterClock();
 				}
 				if (Up[1][2] / 10 == 2) //si cea din stanga
 				{
-					clock_Front(); clock_Up(); clock_Right(); counterclock_Up(); counterclock_Right(); counterclock_Front();
+					frontClock(); upClock(); rightClock(); upCounterClock(); rightCounterClock(); frontCounterClock();
 					ok = 0;
 				}
 				if (Up[2][1] / 10 == 2 && ok) //si cea de jos
 				{
-					counterclock_Up(); clock_Front(); clock_Right(); clock_Up(); counterclock_Right(); counterclock_Up(); counterclock_Front();
+					upCounterClock(); frontClock(); rightClock(); upClock(); rightCounterClock(); upCounterClock(); frontCounterClock();
 				}
 			}
 			else
@@ -656,17 +656,17 @@ void Cub_Rubik::Solve()
 				{
 					if (Up[1][0] / 10 == 2) //si cea din dreapta
 					{
-						clock_Front(); clock_Right(); clock_Up(); counterclock_Right(); counterclock_Up(); counterclock_Front();
+						frontClock(); rightClock(); upClock(); rightCounterClock(); upCounterClock(); frontCounterClock();
 						ok = 0;
 					}
 					if (Up[2][1] / 10 == 2 && ok) //un simplu else aici //si cea de jos
 					{
-						clock_Up(); clock_Front(); clock_Up(); clock_Right(); counterclock_Up(); counterclock_Right(); counterclock_Front();
+						upClock(); frontClock(); upClock(); rightClock(); upCounterClock(); rightCounterClock(); frontCounterClock();
 					}
 				}
 				else //cea de jos si cea din dreapta
 				{
-					clock_Up(); clock_Up(); clock_Front(); clock_Up(); clock_Right(); counterclock_Up(); counterclock_Right(); counterclock_Front();
+					upClock(); upClock(); frontClock(); upClock(); rightClock(); upCounterClock(); rightCounterClock(); frontCounterClock();
 				}
 			}
 		}
@@ -675,36 +675,36 @@ void Cub_Rubik::Solve()
 	//Faza 2: Permutarea crucii
 	if (Back[0][1] != 8 || Right[1][2] != 16 || Left[1][0] != 34 || Front[2][1] != 52)
 	{
-		if (Left[1][0] == 8) { clock_Up(); }
-		if (Right[1][2] == 8) { counterclock_Up(); }
-		if (Front[2][1] == 8) { clock_Up(); clock_Up(); }  //am dus piesa corecta pe Back
+		if (Left[1][0] == 8) { upClock(); }
+		if (Right[1][2] == 8) { upCounterClock(); }
+		if (Front[2][1] == 8) { upClock(); upClock(); }  //am dus piesa corecta pe Back
 
 		if (Left[1][0] == 34 && Right[1][2] != 16) //daca piesa de la stanga e buna
 		{
-			clock_Back(); clock_Up(); counterclock_Back(); clock_Up(); clock_Back(); clock_Up(); clock_Up(); counterclock_Back(); clock_Up();
+			backClock(); upClock(); backCounterClock(); upClock(); backClock(); upClock(); upClock(); backCounterClock(); upClock();
 		}
 		if (Right[1][2] == 16 && Left[1][0] != 34) //daca piesa de la dreapta e buna
 		{
-			clock_Right(); clock_Up(); counterclock_Right(); clock_Up(); clock_Right(); clock_Up(); clock_Up(); counterclock_Right(); clock_Up();
+			rightClock(); upClock(); rightCounterClock(); upClock(); rightClock(); upClock(); upClock(); rightCounterClock(); upClock();
 		}
 		if (Front[2][1] == 52 && Left[1][0] != 34) //daca piesa din fata e buna
 		{
-			clock_Right(); clock_Up(); counterclock_Right(); clock_Up(); clock_Right(); clock_Up(); clock_Up(); counterclock_Right();
-			counterclock_Up();
-			clock_Right(); clock_Up(); counterclock_Right(); clock_Up(); clock_Right(); clock_Up(); clock_Up(); counterclock_Right(); clock_Up();
-			clock_Up();
+			rightClock(); upClock(); rightCounterClock(); upClock(); rightClock(); upClock(); upClock(); rightCounterClock();
+			upCounterClock();
+			rightClock(); upClock(); rightCounterClock(); upClock(); rightClock(); upClock(); upClock(); rightCounterClock(); upClock();
+			upClock();
 		}
 
 		if (Left[1][0] == 16 && Right[1][2] == 52) //rotire clockwise
 		{
-			clock_Right(); clock_Right(); clock_Up(); clock_Right(); clock_Up(); counterclock_Right(); counterclock_Up(); counterclock_Right(); counterclock_Up();
-			counterclock_Right(); clock_Up(); counterclock_Right();
+			rightClock(); rightClock(); upClock(); rightClock(); upClock(); rightCounterClock(); upCounterClock(); rightCounterClock(); upCounterClock();
+			rightCounterClock(); upClock(); rightCounterClock();
 		}
 
 		if (Left[1][0] == 52 && Right[1][2] == 34) //rotire counter-clockwise
 		{
-			clock_Right(); counterclock_Up(); clock_Right(); clock_Up(); clock_Right(); clock_Up(); clock_Right(); counterclock_Up(); counterclock_Right();
-			counterclock_Up(); clock_Right(); clock_Right();
+			rightClock(); upCounterClock(); rightClock(); upClock(); rightClock(); upClock(); rightClock(); upCounterClock(); rightCounterClock();
+			upCounterClock(); rightClock(); rightClock();
 		}
 	}
 
@@ -715,52 +715,52 @@ void Cub_Rubik::Solve()
 		do {
 			if ((Up[2][0] == 27 || Up[2][0] == 19 || Up[2][0] == 51) && ok)
 			{
-				clock_Up(); clock_Right(); counterclock_Up(); counterclock_Left(); clock_Up(); counterclock_Right(); counterclock_Up(); clock_Left();
+				upClock(); rightClock(); upCounterClock(); leftCounterClock(); upClock(); rightCounterClock(); upCounterClock(); leftClock();
 					if (Up[2][2] != 29 && Up[2][2] != 37 && Up[2][2] != 53)
 					{
-						clock_Up(); clock_Right(); counterclock_Up(); counterclock_Left(); clock_Up(); counterclock_Right(); counterclock_Up(); clock_Left();
+						upClock(); rightClock(); upCounterClock(); leftCounterClock(); upClock(); rightCounterClock(); upCounterClock(); leftClock();
 					}
 				ok = 0;
 			}
 			if ((Up[2][2] == 29 || Up[2][2] == 37 || Up[2][2] == 53) && ok)
 			{
-				cub_Y_axis_counterclock();
-				clock_Up(); clock_Right(); counterclock_Up(); counterclock_Left(); clock_Up(); counterclock_Right(); counterclock_Up(); clock_Left();
+				yAxisCounterClock();
+				upClock(); rightClock(); upCounterClock(); leftCounterClock(); upClock(); rightCounterClock(); upCounterClock(); leftClock();
 					if (Up[2][2] != 23 && Up[2][2] != 31 && Up[2][2] != 9)
 					{
-						clock_Up(); clock_Right(); counterclock_Up(); counterclock_Left(); clock_Up(); counterclock_Right(); counterclock_Up(); clock_Left();
+						upClock(); rightClock(); upCounterClock(); leftCounterClock(); upClock(); rightCounterClock(); upCounterClock(); leftClock();
 					}
-				cub_Y_axis_clock();
+				yAxisClock();
 				ok = 0;
 			}
 			if ((Up[0][2] == 23 || Up[0][2] == 31 || Up[0][2] == 9) && ok)
 			{
-				cub_Y_axis_counterclock();
-				cub_Y_axis_counterclock();
-				clock_Up(); clock_Right(); counterclock_Up(); counterclock_Left(); clock_Up(); counterclock_Right(); counterclock_Up(); clock_Left();
+				yAxisCounterClock();
+				yAxisCounterClock();
+				upClock(); rightClock(); upCounterClock(); leftCounterClock(); upClock(); rightCounterClock(); upCounterClock(); leftClock();
 					if (Up[2][2] != 21 && Up[2][2] != 13 && Up[2][2] != 7)
 					{
-						clock_Up(); clock_Right(); counterclock_Up(); counterclock_Left(); clock_Up(); counterclock_Right(); counterclock_Up(); clock_Left();
+						upClock(); rightClock(); upCounterClock(); leftCounterClock(); upClock(); rightCounterClock(); upCounterClock(); leftClock();
 					}
-				cub_Y_axis_clock();
-				cub_Y_axis_clock();
+				yAxisClock();
+				yAxisClock();
 				ok = 0;
 			}
 			if ((Up[0][0] == 21 || Up[0][0] == 13 || Up[0][0] == 7) && ok)
 			{
-				cub_Y_axis_clock();
-				clock_Up(); clock_Right(); counterclock_Up(); counterclock_Left(); clock_Up(); counterclock_Right(); counterclock_Up(); clock_Left();
+				yAxisClock();
+				upClock(); rightClock(); upCounterClock(); leftCounterClock(); upClock(); rightCounterClock(); upCounterClock(); leftClock();
 					if (Up[2][2] != 27 && Up[2][2] != 19 && Up[2][2] != 51)
 					{
-						clock_Up(); clock_Right(); counterclock_Up(); counterclock_Left(); clock_Up(); counterclock_Right(); counterclock_Up(); clock_Left();
+						upClock(); rightClock(); upCounterClock(); leftCounterClock(); upClock(); rightCounterClock(); upCounterClock(); leftClock();
 					}
-				cub_Y_axis_counterclock();
+				yAxisCounterClock();
 				ok = 0;
 			}
 
 			if (ok)
 			{
-				clock_Up(); clock_Right(); counterclock_Up(); counterclock_Left(); clock_Up(); counterclock_Right(); counterclock_Up(); clock_Left();
+				upClock(); rightClock(); upCounterClock(); leftCounterClock(); upClock(); rightCounterClock(); upCounterClock(); leftClock();
 			}
 		} while (ok);
 	}
@@ -772,28 +772,28 @@ void Cub_Rubik::Solve()
 		vector1[1] = 29;
 		vector1[2] = 23;
 		vector1[3] = 21;
-		cub_Y_axis_clock();
+		yAxisClock();
 		int ok = 0;
 		for (int i = 0; i < 4; ++i)
 		{
-			if (ok == 0) cub_Y_axis_counterclock();
-			else  counterclock_Up();
+			if (ok == 0) yAxisCounterClock();
+			else  upCounterClock();
 
 			if (Front[2][2] == vector1[i])
 			{
-				counterclock_Right(); counterclock_Down(); clock_Right(); clock_Down();
-				counterclock_Right(); counterclock_Down(); clock_Right(); clock_Down();
+				rightCounterClock(); downCounterClock(); rightClock(); downClock();
+				rightCounterClock(); downCounterClock(); rightClock(); downClock();
 			}
 			if (Right[2][2] == vector1[i])
 			{
-				counterclock_Right(); counterclock_Down(); clock_Right(); clock_Down();
-				counterclock_Right(); counterclock_Down(); clock_Right(); clock_Down();
+				rightCounterClock(); downCounterClock(); rightClock(); downClock();
+				rightCounterClock(); downCounterClock(); rightClock(); downClock();
 				ok += 1;
 			}
 		}
-		if (Front[1][1] == 55) { counterclock_Up(); }
-		if (Front[1][1] == 35) { clock_Up(); clock_Up(); }
-		if (Front[1][1] == 5) { clock_Up(); }
+		if (Front[1][1] == 55) { upCounterClock(); }
+		if (Front[1][1] == 35) { upClock(); upClock(); }
+		if (Front[1][1] == 5) { upClock(); }
 	}
 
 	//Afisarea:
