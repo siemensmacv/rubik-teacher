@@ -81,8 +81,16 @@ private:
 	}
 
 public:
-	void frontClock();
-	void frontCounterClock();
+	Cub_Rubik& frontClock()
+	{
+		clock(Front, Up, Down, Left, Right);
+		return *this;
+	}
+	Cub_Rubik& frontCounterClock()
+	{
+		counterclock(Front, Up, Down, Left, Right);
+		return *this;
+	}
 	void backClock();
 	void backCounterClock();
 	void upClock();
