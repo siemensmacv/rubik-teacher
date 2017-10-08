@@ -1,17 +1,11 @@
 #ifndef QRUBIKCUBE6MATRIX_H
 #define QRUBIKCUBE6MATRIX_H
 
-#include <QObject>
 
-class QRubikCube6Matrix : public QObject
+class QRubikCube6Matrix : public QBaseRubikCube6Matrix
 {
-    Q_OBJECT
 public:
-    explicit QRubikCube6Matrix(QObject *parent = nullptr);
-
-signals:
-
-public slots:
+    QRubikCube6Matrix();
 };
 
 #endif // QRUBIKCUBE6MATRIX_H
