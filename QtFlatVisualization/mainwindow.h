@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "facecube2d.h"
+#include "rubik2dhandler.h"
 
 namespace Ui {
 class MainWindow;

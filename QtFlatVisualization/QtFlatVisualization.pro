@@ -27,14 +27,16 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     facecube2d.cpp \
-    qbaserubikcube6matrix.cpp
+    qbaserubikcube6matrix.cpp \
+    rubik2dhandler.cpp
 
 HEADERS += \
         mainwindow.h \
     facecube2d.h \
     Cub_Rubik.h \
     qbaserubikcube6matrix.h \
-    qrubikcube6matrix.h
+    qrubikcube6matrix.h \
+    rubik2dhandler.h
 
 FORMS += \
         mainwindow.ui
