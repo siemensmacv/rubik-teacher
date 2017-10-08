@@ -2,9 +2,9 @@
 
 FaceCube2D::FaceCube2D(QWidget *parent) : QFrame(parent)
 {
-
     updateFrameSize();
-    initFaceMatrix();
+    initColorMatrix();
+    initRectMatrix();
     updateRectMatrix();
 }
 
@@ -12,7 +12,8 @@ FaceCube2D::FaceCube2D(QWidget *parent, const std::string &faceString)
     : QFrame(parent)
 {
     updateFrameSize();
-    initFaceMatrix();
+    initColorMatrix();
+    initRectMatrix();
     updateRectMatrix();
     updateColorMatrix(faceString);
 }
@@ -37,18 +38,18 @@ void FaceCube2D::paintEvent(QPaintEvent *pe)
     {
         for (unsigned j = 0; j < 3; ++j)
         {
-            painter.setPen(mFaceMatrix[i][j].second);
-            painter.setBrush(mFaceMatrix[i][j].second);
+            painter.setPen(mColorMatrix[i][j]);
+            painter.setBrush(mColorMatrix[i][j]);
 
-            painter.drawRect(mFaceMatrix[i][j].first);
+            painter.drawRect(mRectMatrix[i][j]);
         }
     }
 
 }
 
-QPair<QRect, QColor> *&FaceCube2D::operator[](int pos)
+QColor *&FaceCube2D::operator[](int pos)
 {
-    return mFaceMatrix[pos];
+    return mColorMatrix[pos];
 }
 
 QString FaceCube2D::toQString() const
@@ -63,10 +64,10 @@ std::string FaceCube2D::toString() const
     {
         for (unsigned j = 0; j < 3; ++j)
         {
-            sequence += getCharFromColor((mFaceMatrix[i][j]).second);
+            sequence += getCharFromColor(mColorMatrix[i][j]);
         }
     }
-    sequence += '/0';
+    sequence += '\0';
     return sequence;
 }
 
@@ -101,7 +102,7 @@ void FaceCube2D::updateColorMatrix(const std::string &faceString)
         for (unsigned j = 0; j < 3; ++j)
         {
             int poz = i * 3 + j;
-            mFaceMatrix[i][j].second = getColorFromChar(faceString[poz]);
+            mColorMatrix[i][j] = getColorFromChar(faceString[poz]);
         }
     }
 }
@@ -112,15 +113,23 @@ void FaceCube2D::updateFrameSize()
     setMaximumSize(mFrameSize, mFrameSize);
 }
 
-void FaceCube2D::initFaceMatrix()
+void FaceCube2D::initColorMatrix()
 {
-    int smallSquareLength = (mFrameSize - 6 * mBorderWidth) / 3;
-    mFaceMatrix = new QPair<QRect, QColor>*[3];
+    mColorMatrix = new QColor*[3];
     for (unsigned i = 0; i < 3; ++i)
     {
-        mFaceMatrix[i] = new QPair<QRect, QColor>[3];
+        mColorMatrix[i] = new QColor[3];
         for (unsigned j = 0; j < 3; ++j)
-            mFaceMatrix[i][j].second.setRgb(0, 0, 0);
+            mColorMatrix[i][j].setRgb(0, 0, 0);
+    }
+}
+
+void FaceCube2D::initRectMatrix()
+{
+    mRectMatrix = new QRect*[3];
+    for (unsigned i = 0; i < 3; ++i)
+    {
+        mRectMatrix[i] = new QRect[3];
     }
 }
 
@@ -131,7 +140,7 @@ void FaceCube2D::updateRectMatrix()
     {
         for (unsigned j = 0; j < 3; ++j)
         {
-            mFaceMatrix[i][j].first.setRect(
+            mRectMatrix[i][j].setRect(
             2 * mBorderWidth + j * (mBorderWidth + smallSquareLength),
             2 * mBorderWidth + i * (mBorderWidth + smallSquareLength),
             smallSquareLength,
