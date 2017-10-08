@@ -1,8 +1,4 @@
 #pragma once
-#include <iomanip>
-#include <random>
-#include <ctime>
-#include <string>
 
 template <class T>
 class Cub_Rubik
@@ -178,11 +174,77 @@ public:
 		matr_clock(Down);
 	}
 
-	void xAxisClock();
-	void xAxisCounterClock();
-	void yAxisClock();
-	void yAxisCounterClock();
-	void zAxisClock();
-	void zAxisCounterClock();
+	void xAxisClock()
+	{
+		matr_clock(matr_clock(Up));
+		matr_clock(matr_clock(Back));
+		matr_counterclock(Left);
+		matr_clock(Right);
+		T **aux = Front;
+		Front = Down;
+		Down = Back;
+		Back = Up;
+		Up = aux;
+	}
+	void xAxisCounterClock()
+	{
+		matr_clock(matr_clock(Back));
+		matr_clock(matr_clock(Down));
+		matr_clock(Left);
+		matr_counterclock(Right);
+		T **aux = Front;
+		Front = Up;
+		Up = Back;
+		Back = Down;
+		Down = aux;
+	}
+	void yAxisClock()
+	{
+		matr_clock(Up);
+		matr_counterclock(Down);
+		T **aux = Front;
+		Front = Right;
+		Right = Back;
+		Back = Left;
+		Left = aux;
+	}
+	void yAxisCounterClock()
+	{
+		matr_counterclock(Up);
+		matr_clock(Down);
+		T **aux = Front;
+		Front = Left;
+		Left = Back;
+		Back = Right;
+		Right = aux;
+	}
+	void zAxisClock()
+	{
+		matr_clock(Front);
+		matr_counterclock(Back);
+		matr_clock(Left);
+		matr_clock(Up);
+		matr_clock(Right);
+		matr_clock(Down);
+		T **aux = Up;
+		Up = Left;
+		Left = Down;
+		Down = Right;
+		Right = aux;
+	}
+	void zAxisCounterClock()
+	{
+		matr_counterclock(Front);
+		matr_clock(Back);
+		matr_counterclock(Left);
+		matr_counterclock(Up);
+		matr_counterclock(Right);
+		matr_counterclock(Down);
+		T **aux = Up;
+		Up = Right;
+		Right = Down;
+		Down = Left;
+		Left = aux;
+	}
 
 };
