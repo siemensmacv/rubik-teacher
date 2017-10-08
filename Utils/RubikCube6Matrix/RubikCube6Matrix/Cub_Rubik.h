@@ -15,11 +15,71 @@ public:
 	{}
 
 private:
-	inline void swap(T& a, T& b);
-	inline T**& matr_clock(T**& m);
-	inline T**& matr_counterclock(T**& m);
-	inline void clock(T**& centru, T**& sus, T**& jos, T**& stanga, T**& dreapta);
-	inline void counterclock(T**& centru, T**& sus, T**& jos, T**& stanga, T**& dreapta);
+	inline void swap(T& a, T& b)
+	{
+		T aux = a;
+		a = b;
+		b = aux;
+	}
+
+	inline T**& matr_clock(T**& matrix)
+	{
+		swap(matrix[0][0], matrix[0][2]);
+		swap(matrix[0][0], matrix[2][2]);
+		swap(matrix[0][0], matrix[2][0]);
+
+		swap(matrix[0][1], matrix[1][2]);
+		swap(matrix[0][1], matrix[2][1]);
+		swap(matrix[0][1], matrix[1][0]);
+		return matrix;
+	}
+
+	inline T**& matr_counterclock(T**& matrix)
+	{
+		swap(matrix[0][0], matrix[2][0]);
+		swap(matrix[0][0], matrix[2][2]);
+		swap(matrix[0][0], matrix[0][2]);
+
+		swap(matrix[0][1], matrix[1][0]);
+		swap(matrix[0][1], matrix[2][1]);
+		swap(matrix[0][1], matrix[1][2]);
+		return matrix;
+	}
+
+	inline void clock(T**& centre, T**& up, T**& down, T**& left, T**& right)
+	{
+		swap(up[2][0], right[0][0]);
+		swap(up[2][0], down[0][2]);
+		swap(up[2][0], left[2][2]);
+
+		swap(up[2][1], right[1][0]);
+		swap(up[2][1], down[0][1]);
+		swap(up[2][1], left[1][2]);
+
+		swap(up[2][2], right[2][0]);
+		swap(up[2][2], down[0][0]);
+		swap(up[2][2], left[0][2]);
+
+		matr_clock(centre);
+	}
+
+	inline void counterclock(T**& centre, T**& up, T**& down, T**& left, T**& right)
+	{
+		swap(up[2][0], left[2][2]);
+		swap(up[2][0], down[0][2]);
+		swap(up[2][0], right[0][0]);
+
+		swap(up[2][1], left[1][2]);
+		swap(up[2][1], down[0][1]);
+		swap(up[2][1], right[1][0]);
+
+		swap(up[2][2], left[0][2]);
+		swap(up[2][2], down[0][0]);
+		swap(up[2][2], right[2][0]);
+
+		matr_counterclock(centre);
+	}
+
 public:
 	void frontClock();
 	void frontCounterClock();
