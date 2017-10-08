@@ -131,8 +131,28 @@ public:
 		matr_clock(Right);
 		return *this;
 	}
-	Cub_Rubik& downClock();
-	Cub_Rubik& downCounterClock();
+	Cub_Rubik& downClock()
+	{
+		matr_clock(matr_clock(Back));
+		matr_counterclock(Left);
+		matr_clock(Right);
+		clock(Down, Front, Back, Left, Right);
+		matr_clock(matr_clock(Back));
+		matr_clock(Left);
+		matr_counterclock(Right);
+		return *this;
+	}
+	Cub_Rubik& downCounterClock()
+	{
+		matr_clock(matr_clock(Back));
+		matr_counterclock(Left);
+		matr_clock(Right);
+		counterclock(Down, Front, Back, Left, Right);
+		matr_clock(matr_clock(Back));
+		matr_clock(Left);
+		matr_counterclock(Right);
+		return *this;
+	}
 	Cub_Rubik& leftClock();
 	Cub_Rubik& leftCounterClock();
 	Cub_Rubik& rightClock();
