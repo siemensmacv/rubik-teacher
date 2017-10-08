@@ -161,8 +161,22 @@ public:
 		matr_clock(Up);
 		matr_counterclock(Down);
 	}
-	void rightClock();
-	void rightCounterClock();
+	void rightClock()
+	{
+		matr_clock(Up);
+		matr_counterclock(Down);
+		clock(Right, Up, Down, Front, Back);
+		matr_counterclock(Up);
+		matr_clock(Down);
+	}
+	void rightCounterClock()
+	{
+		matr_clock(Up);
+		matr_counterclock(Down);
+		counterclock(Right, Up, Down, Front, Back);
+		matr_counterclock(Up);
+		matr_clock(Down);
+	}
 
 	void xAxisClock();
 	void xAxisCounterClock();
