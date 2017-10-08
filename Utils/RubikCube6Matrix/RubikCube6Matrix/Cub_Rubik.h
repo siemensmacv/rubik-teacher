@@ -1,5 +1,4 @@
 #pragma once
-#include <fstream>
 #include <iomanip>
 #include <random>
 #include <ctime>
@@ -11,8 +10,10 @@ class Cub_Rubik
 	T** Front, Back, Up, Down, Left, Right;
 
 public:
-	Cub_Rubik();
-	~Cub_Rubik();
+	Cub_Rubik(T **front, T **back, T **up, T **down, T **left, T **right)
+		: Front{front}, Back{back}, Up{up}, Down{down}, Left{left}, Right{right}
+	{}
+
 private:
 	inline void swap(T& a, T& b);
 	inline T**& matr_clock(T**& m);
