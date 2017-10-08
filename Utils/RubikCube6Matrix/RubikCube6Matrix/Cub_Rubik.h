@@ -91,16 +91,32 @@ public:
 		counterclock(Front, Up, Down, Left, Right);
 		return *this;
 	}
-	void backClock();
-	void backCounterClock();
-	void upClock();
-	void upCounterClock();
-	void downClock();
-	void downCounterClock();
-	void leftClock();
-	void leftCounterClock();
-	void rightClock();
-	void rightCounterClock();
+	Cub_Rubik& backClock()
+	{
+		matr_clock(matr_clock(Up));
+		matr_clock(matr_clock(Down));
+		clock(Back, Up, Down, Right, Left);
+		matr_clock(matr_clock(Up));
+		matr_clock(matr_clock(Down));
+		return *this;
+	}
+	Cub_Rubik& backCounterClock()
+	{
+		matr_clock(matr_clock(Up));
+		matr_clock(matr_clock(Down));
+		counterclock(Back, Up, Down, Right, Left);
+		matr_clock(matr_clock(Up));
+		matr_clock(matr_clock(Down));
+		return *this;
+	}
+	Cub_Rubik& upClock();
+	Cub_Rubik& upCounterClock();
+	Cub_Rubik& downClock();
+	Cub_Rubik& downCounterClock();
+	Cub_Rubik& leftClock();
+	Cub_Rubik& leftCounterClock();
+	Cub_Rubik& rightClock();
+	Cub_Rubik& rightCounterClock();
 
 	void xAxisClock();
 	void xAxisCounterClock();
