@@ -27,8 +27,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     facecube2d.cpp \
-    qbaserubikcube6matrix.cpp \
-    qrubikcube6matrix.cpp
+    qbaserubikcube6matrix.cpp
 
 HEADERS += \
         mainwindow.h \
