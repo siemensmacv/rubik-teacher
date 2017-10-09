@@ -71,6 +71,11 @@ std::string FaceCube2D::toString() const
     return sequence;
 }
 
+QRect **FaceCube2D::getColorMatrix() const
+{
+    return mColorMatrix;
+}
+
 void FaceCube2D::setBorderWidth(int borderWidth)
 {
     if (borderWidth == mBorderWidth)

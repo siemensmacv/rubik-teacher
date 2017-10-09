@@ -29,6 +29,8 @@ public:
     QString toQString() const;
     std::string toString() const;
 
+    QRect **getColorMatrix() const;
+
 public slots:
     void setBorderWidth(int borderWidth);
     void setFrameSize(int frameSize);
