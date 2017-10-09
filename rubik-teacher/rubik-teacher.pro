@@ -5,7 +5,7 @@
 TEMPLATE = app
 TARGET = rubik-teacher
 DESTDIR = ../x64/Debug
-QT += core widgets gui qml
+QT += core widgets gui qml quick quickcontrols2
 CONFIG += debug
 DEFINES += WIN64 QT_DLL QT_QML_LIB QT_WIDGETS_LIB
 INCLUDEPATH += ./GeneratedFiles \
@@ -16,4 +16,8 @@ MOC_DIR += ./GeneratedFiles/debug
 OBJECTS_DIR += debug
 UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
+
+
+RESOURCES += MainWindow.qrc
+SOURCES += main.cpp
 include(rubik-teacher.pri)

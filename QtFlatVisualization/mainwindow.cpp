@@ -14,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->gridLayout->addWidget(new FaceCube2D(ui->gridLayoutWidget, QString("BBBBBBBBB")), 1, 2);
     ui->gridLayout->addWidget(new FaceCube2D(ui->gridLayoutWidget, QString("RRRRRRRRR")), 1, 3);
     ui->gridLayout->addWidget(new FaceCube2D(ui->gridLayoutWidget, QString("DDDDDDDDD")), 2, 1);
+
+
 }
 
 MainWindow::~MainWindow()

@@ -1,4 +1,7 @@
 <RCC>
-    <qresource prefix="MainWindow">
+    <qresource prefix="/MainWindow"/>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>menu.png</file>
     </qresource>
 </RCC>
