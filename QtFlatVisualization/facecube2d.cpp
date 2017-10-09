@@ -95,6 +95,14 @@ void FaceCube2D::setFrameSize(int frameSize)
     update();
 }
 
+void FaceCube2D::setColorMatrix(QColor **matrix)
+{
+    if (matrix != mColorMatrix)
+    {
+        mColorMatrix = matrix;
+    }
+}
+
 void FaceCube2D::updateColorMatrix(const QString &faceString)
 {
     updateColorMatrix(faceString.toStdString());

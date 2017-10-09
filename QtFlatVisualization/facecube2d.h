@@ -34,6 +34,7 @@ public:
 public slots:
     void setBorderWidth(int borderWidth);
     void setFrameSize(int frameSize);
+    void setColorMatrix(QColor **matrix);
     void updateColorMatrix(const QString & faceString);
     void updateColorMatrix(const std::string & faceString);
 
