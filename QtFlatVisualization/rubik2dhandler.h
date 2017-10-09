@@ -37,17 +37,16 @@ private:
     void initFaceCubes(const std::string & sequence
                   = "UUUUUUUUUFFFFFFFFFRRRRRRRRR"
                   + "DDDDDDDDDLLLLLLLLLBBBBBBBBB");
-    //to do
     void initCube();
-    void update();
+    // to do
+    void updateFaces();
 
     QGridLayout *mGridLayout;
     QWidget *mGridLayoutWidget;
     FaceCube2D *mUpFace, *mDownFace,
         *mLeftFace, *mRightFace,
         *mFrontFace, *mBackFace;
-    // to do
-    Cub_Rubik *mCube;
+    Cub_Rubik<QColor> *mCube;
 };
 
 #endif // RUBIK2DHANDLER_H

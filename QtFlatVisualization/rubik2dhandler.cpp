@@ -6,6 +6,7 @@ Rubik2DHandler::Rubik2DHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidg
       mGridLayoutWidget{gridLayoutQWidget}
 {
     initFaceCubes();
+    initCube();
 }
 
 Rubik2DHandler::Rubik2DHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidget, const std::string &sequence)
@@ -14,6 +15,7 @@ Rubik2DHandler::Rubik2DHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidg
       mGridLayoutWidget{gridLayoutQWidget}
 {
     initFaceCubes(sequence);
+    initCube();
 }
 
 Rubik2DHandler::Rubik2DHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidget, const QString &sequence)
@@ -86,4 +88,14 @@ void Rubik2DHandler::initFaceCubes(const std::string &sequence)
     mGridLayout->addWidget(mRightFace, 1, 2);
     mGridLayout->addWidget(mBackFace,  1, 3);
     mGridLayout->addWidget(mDownFace,  2, 1);
+}
+
+void Rubik2DHandler::initCube()
+{
+    mCube = new Cub_Rubik<QColor>(mFrontFace->getColorMatrix(),
+                                  mBackFace->getColorMatrix(),
+                                  mUpFace->getColorMatrix(),
+                                  mDownFace->getColorMatrix(),
+                                  mLeftFace->getColorMatrix(),
+                                  mRightFace->getColorMatrix());
 }
