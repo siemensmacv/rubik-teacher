@@ -43,7 +43,7 @@ void Rubik2DHandler::frontClock()
     if (mCube)
     {
         mCube->frontClock();
-        updateFaces();
+        refreshView();
     }
 
 }
@@ -53,7 +53,7 @@ void Rubik2DHandler::frontCounterClock()
    if (mCube)
    {
        mCube->frontCounterClock();
-       updateFaces();
+       refreshView();
    }
 }
 
@@ -62,7 +62,7 @@ void Rubik2DHandler::backClock()
     if (mCube)
     {
         mCube->backClock();
-        updateFaces();
+        refreshView();
     }
 
 }
@@ -72,7 +72,7 @@ void Rubik2DHandler::backCounterClock()
     if (mCube)
     {
         mCube->backCounterClock();
-        updateFaces();
+        refreshView();
     }
 }
 
@@ -81,7 +81,7 @@ void Rubik2DHandler::upClock()
     if (mCube)
     {
         mCube->upClock();
-        updateFaces();
+        refreshView();
     }
 
 }
@@ -91,7 +91,7 @@ void Rubik2DHandler::upCounterClock()
     if (mCube)
     {
         mCube->upCounterClock();
-        updateFaces();
+        refreshView();
     }
 }
 
@@ -100,7 +100,7 @@ void Rubik2DHandler::downClock()
     if (mCube)
     {
         mCube->downClock();
-        updateFaces();
+        refreshView();
     }
 }
 
@@ -109,7 +109,7 @@ void Rubik2DHandler::downCounterClock()
     if (mCube)
     {
         mCube->downCounterClock();
-        updateFaces();
+        refreshView();
     }
 }
 
@@ -118,7 +118,7 @@ void Rubik2DHandler::leftClock()
     if (mCube)
     {
         mCube->leftClock();
-        updateFaces();
+        refreshView();
     }
 }
 
@@ -127,7 +127,7 @@ void Rubik2DHandler::leftCounterClock()
     if (mCube)
     {
         mCube->leftCounterClock();
-        updateFaces();
+        refreshView();
     }
 }
 
@@ -136,7 +136,7 @@ void Rubik2DHandler::rightClock()
     if (mCube)
     {
         mCube->rightClock();
-        updateFaces();
+        refreshView();
     }
 }
 
@@ -145,7 +145,7 @@ void Rubik2DHandler::rightCounterClock()
     if (mCube)
     {
         mCube->rightCounterClock();
-        updateFaces();
+        refreshView();
     }
 }
 
@@ -154,7 +154,8 @@ void Rubik2DHandler::xAxisClock()
     if (mCube)
     {
         mCube->xAxisClock();
-        updateFaces();
+        getFacesFromCube();
+        refreshView();
     }
 }
 
@@ -163,7 +164,8 @@ void Rubik2DHandler::xAxisCounterClock()
     if (mCube)
     {
         mCube->xAxisCounterClock();
-        updateFaces();
+        getFacesFromCube();
+        refreshView();
     }
 }
 
@@ -172,7 +174,8 @@ void Rubik2DHandler::yAxisClock()
     if (mCube)
     {
         mCube->yAxisClock();
-        updateFaces();
+        getFacesFromCube();
+        refreshView();
     }
 }
 
@@ -181,7 +184,8 @@ void Rubik2DHandler::yAxisCounterClock()
     if (mCube)
     {
         mCube->yAxisCounterClock();
-        updateFaces();
+        getFacesFromCube();
+        refreshView();
     }
 }
 
@@ -190,7 +194,8 @@ void Rubik2DHandler::zAxisClock()
     if (mCube)
     {
         mCube->zAxisClock();
-        updateFaces();
+        getFacesFromCube();
+        refreshView();
     }
 }
 
@@ -199,7 +204,8 @@ void Rubik2DHandler::zAxisCounterClock()
     if (mCube)
     {
         mCube->zAxisCounterClock();
-        updateFaces();
+        getFacesFromCube();
+        refreshView();
     }
 }
 
@@ -265,7 +271,17 @@ void Rubik2DHandler::initCube()
                                   mRightFace->getColorMatrix());
 }
 
-void Rubik2DHandler::updateFaces()
+void Rubik2DHandler::getFacesFromCube()
+{
+    mUpFace->setColorMatrix(mCube->getUp());
+    mDownFace->setColorMatrix(mCube->getDown());
+    mFrontFace->setColorMatrix(mCube->getFront());
+    mBackFace->setColorMatrix(mCube->getBack());
+    mLeftFace->setColorMatrix(mCube->getLeft());
+    mRightFace->setColorMatrix(mCube->getRight());
+}
+
+void Rubik2DHandler::refreshView()
 {
     mUpFace->update();
     mDownFace->update();

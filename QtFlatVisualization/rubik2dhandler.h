@@ -56,8 +56,8 @@ private:
     void initFaceCubes(const std::string & sequence
                   = "UUUUUUUUUFFFFFFFFFRRRRRRRRRDDDDDDDDDLLLLLLLLLBBBBBBBBB");
     void initCube();
-    // to do
-    void updateFaces();
+    void getFacesFromCube();
+    void refreshView();
 
     QGridLayout *mGridLayout;
     QWidget *mGridLayoutWidget;
