@@ -28,6 +28,25 @@ public:
 signals:
 
 public slots:
+    void frontClock();
+    void frontCounterClock();
+    void backClock();
+    void backCounterClock();
+    void upClock();
+    void upCounterClock();
+    void downClock();
+    void downCounterClock();
+    void leftClock();
+    void leftCounterClock();
+    void rightClock();
+    void rightCounterClock();
+    void xAxisClock();
+    void xAxisCounterClock();
+    void yAxisClock();
+    void yAxisCounterClock();
+    void zAxisClock();
+    void zAxisCounterClock();
+
     void setBorderWidth(int borderWidth);
     void setFrameSize(int frameSize);
     void updateCube(const std::string & cubeString);

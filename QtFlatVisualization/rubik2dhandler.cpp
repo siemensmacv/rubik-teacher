@@ -38,6 +38,171 @@ QString Rubik2DHandler::toQString() const
     return QString(toString().c_str());
 }
 
+void Rubik2DHandler::frontClock()
+{
+    if (mCube)
+    {
+        mCube->frontClock();
+        updateFaces();
+    }
+
+}
+
+void Rubik2DHandler::frontCounterClock()
+{
+   if (mCube)
+   {
+       mCube->frontCounterClock();
+       updateFaces();
+   }
+}
+
+void Rubik2DHandler::backClock()
+{
+    if (mCube)
+    {
+        mCube->backClock();
+        updateFaces();
+    }
+
+}
+
+void Rubik2DHandler::backCounterClock()
+{
+    if (mCube)
+    {
+        mCube->backCounterClock();
+        updateFaces();
+    }
+}
+
+void Rubik2DHandler::upClock()
+{
+    if (mCube)
+    {
+        mCube->upClock();
+        updateFaces();
+    }
+
+}
+
+void Rubik2DHandler::upCounterClock()
+{
+    if (mCube)
+    {
+        mCube->upCounterClock();
+        updateFaces();
+    }
+}
+
+void Rubik2DHandler::downClock()
+{
+    if (mCube)
+    {
+        mCube->downClock();
+        updateFaces();
+    }
+}
+
+void Rubik2DHandler::downCounterClock()
+{
+    if (mCube)
+    {
+        mCube->downCounterClock();
+        updateFaces();
+    }
+}
+
+void Rubik2DHandler::leftClock()
+{
+    if (mCube)
+    {
+        mCube->leftClock();
+        updateFaces();
+    }
+}
+
+void Rubik2DHandler::leftCounterClock()
+{
+    if (mCube)
+    {
+        mCube->leftCounterClock();
+        updateFaces();
+    }
+}
+
+void Rubik2DHandler::rightClock()
+{
+    if (mCube)
+    {
+        mCube->rightClock();
+        updateFaces();
+    }
+}
+
+void Rubik2DHandler::rightCounterClock()
+{
+    if (mCube)
+    {
+        mCube->rightCounterClock();
+        updateFaces();
+    }
+}
+
+void Rubik2DHandler::xAxisClock()
+{
+    if (mCube)
+    {
+        mCube->xAxisClock();
+        updateFaces();
+    }
+}
+
+void Rubik2DHandler::xAxisCounterClock()
+{
+    if (mCube)
+    {
+        mCube->xAxisCounterClock();
+        updateFaces();
+    }
+}
+
+void Rubik2DHandler::yAxisClock()
+{
+    if (mCube)
+    {
+        mCube->yAxisClock();
+        updateFaces();
+    }
+}
+
+void Rubik2DHandler::yAxisCounterClock()
+{
+    if (mCube)
+    {
+        mCube->yAxisCounterClock();
+        updateFaces();
+    }
+}
+
+void Rubik2DHandler::zAxisClock()
+{
+    if (mCube)
+    {
+        mCube->zAxisClock();
+        updateFaces();
+    }
+}
+
+void Rubik2DHandler::zAxisCounterClock()
+{
+    if (mCube)
+    {
+        mCube->zAxisCounterClock();
+        updateFaces();
+    }
+}
+
 void Rubik2DHandler::setBorderWidth(int borderWidth)
 {
     mUpFace   ->setBorderWidth(borderWidth);
