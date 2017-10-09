@@ -9,6 +9,9 @@ class Cub_Rubik
 
 public:
     Cub_Rubik()	{}
+    Cub_Rubik(T **front, T **back, T **up, T **down, T **left, T **right)
+        : Front{front}, Back{back}, Up{up}, Down{down}, Lewft{left}, Right{right}
+    {}
 
     void setFront(T **front)
     {
