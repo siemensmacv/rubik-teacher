@@ -99,3 +99,13 @@ void Rubik2DHandler::initCube()
                                   mLeftFace->getColorMatrix(),
                                   mRightFace->getColorMatrix());
 }
+
+void Rubik2DHandler::updateFaces()
+{
+    mUpFace->update();
+    mDownFace->update();
+    mLeftFace->update();
+    mRightFace->update();
+    mFrontFace->update();
+    mBackFace->update();
+}
