@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "rubik2dhandler.h"
+#include <QPushButton>
 
 namespace Ui {
 class MainWindow;
@@ -18,6 +19,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    Rubik2DHandler *handler;
 };
 
 #endif // MAINWINDOW_H
