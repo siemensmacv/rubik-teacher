@@ -15,6 +15,6 @@ private slots:
     void on_myButton_pressed();
 
 private:
-    QPushButton myButton;
+    QPushButton *myButton;
 	Ui::MainWindowClass ui;
 };

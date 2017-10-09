@@ -12,7 +12,6 @@
 #include <QPair>
 #include <string>
 
-
 class FaceCube2D : public QFrame
 {
     Q_OBJECT
@@ -26,26 +25,31 @@ public:
     //virtual void resizeEvent(QResizeEvent*re) override;
     //virtual void mousePressEvent(QMouseEvent*) override;
 
-    QPair<QRect, QColor>*& operator[](int pos);
+    QColor *& operator[](int pos);
     QString toQString() const;
     std::string toString() const;
+
+    QColor **getColorMatrix() const;
 
 public slots:
     void setBorderWidth(int borderWidth);
     void setFrameSize(int frameSize);
+    void setColorMatrix(QColor **matrix);
     void updateColorMatrix(const QString & faceString);
     void updateColorMatrix(const std::string & faceString);
 
 private:
     void updateFrameSize();
-    void initFaceMatrix();
+    void initColorMatrix();
+    void initRectMatrix();
     void updateRectMatrix();
     QColor getColorFromChar(char letter) const;
     char getCharFromColor(QColor color) const;
 
     int mBorderWidth = 5;
     int mFrameSize = 150;
-    QPair<QRect, QColor> **mFaceMatrix;
+    QRect **mRectMatrix;
+    QColor **mColorMatrix;
 };
 
 #endif // FACEQUBE_H

@@ -26,11 +26,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    facecube2d.cpp
+    facecube2d.cpp \
+    qbaserubikcube6matrix.cpp \
+    rubik2dhandler.cpp
 
 HEADERS += \
         mainwindow.h \
-    facecube2d.h
+    facecube2d.h \
+    Cub_Rubik.h \
+    qbaserubikcube6matrix.h \
+    qrubikcube6matrix.h \
+    rubik2dhandler.h
 
 FORMS += \
         mainwindow.ui

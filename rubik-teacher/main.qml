@@ -95,8 +95,8 @@ ApplicationWindow {
                     textRole: "key"
                     model: ListModel{
                         ListElement{key: " First ";value: 123}
-                        ListElement{key: " Second ";value: 123}
-                        ListElement{key: " Third ";value: 123}
+                        ListElement{key: " Second ";value: 124}
+                        ListElement{key: " Third ";value: 125}
 
                     }
                     Component.onCompleted: {
@@ -132,7 +132,7 @@ ApplicationWindow {
                         anchors.centerIn: parent
                         text:{
                             if(swipeView.currentIndex==0){
-                                "Prajeler"
+                                "text0000"
                             }
                             else{
                                 "text1"
@@ -147,22 +147,7 @@ ApplicationWindow {
                     border.color: "black"
                     border.width: 3
                     radius: 10
-
-
                  }
-
-                Column {
-                    spacing: 40
-                    width: parent.width
-
-                    Label {
-                        width: parent.width
-                        wrapMode: Label.Wrap
-                        horizontalAlignment: Qt.AlignHCenter
-                        text: "TabBar is a bar with icons or text which allows the user"
-                              + " to switch between different subtasks, views, or modes."
-                    }
-                }
             }
         }
     }
