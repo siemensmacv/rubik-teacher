@@ -3,12 +3,37 @@
 template <class T>
 class Cub_Rubik
 {
-	T** Front, Back, Up, Down, Left, Right;
+    T** Front = nullptr, Back = nullptr,
+        Up = nullptr, Down = nullptr,
+        Left = nullptr, Right = nullptr;
 
 public:
-	Cub_Rubik(T **front, T **back, T **up, T **down, T **left, T **right)
-		: Front{front}, Back{back}, Up{up}, Down{down}, Left{left}, Right{right}
-	{}
+    Cub_Rubik()	{}
+
+    void setFront(T **front)
+    {
+        Front = front;
+    }
+    void setBack(T **back)
+    {
+        Back = back;
+    }
+    void setUp(T **up)
+    {
+        Up = up;
+    }
+    void setDown(T **down)
+    {
+        Down = down;
+    }
+    void setLeft(T **left)
+    {
+        Left = left;
+    }
+    void setRight(T **right)
+    {
+        Right = right;
+    }
 
 private:
 	inline void swap(T& a, T& b)
