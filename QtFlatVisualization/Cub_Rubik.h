@@ -4,8 +4,8 @@ template <class T>
 class Cub_Rubik
 {
     T **Front = nullptr, **Back = nullptr,
-      **Up = nullptr, **Down = nullptr,
-      **Left = nullptr, **Right = nullptr;
+      **Up = nullptr,    **Down = nullptr,
+      **Left = nullptr,  **Right = nullptr;
 
 public:
     Cub_Rubik()	{}
@@ -13,29 +13,29 @@ public:
         : Front{front}, Back{back}, Up{up}, Down{down}, Left{left}, Right{right}
     {}
 
-    void setFront(T **front)
+    T ** getFront() const
     {
-        Front = front;
+        return Front;
     }
-    void setBack(T **back)
+    T ** getBack() const
     {
-        Back = back;
+        return Back;
     }
-    void setUp(T **up)
+    T ** getUp() const
     {
-        Up = up;
+        return Up;
     }
-    void setDown(T **down)
+    T ** getDown() const
     {
-        Down = down;
+        return Down;
     }
-    void setLeft(T **left)
+    T ** getLeft() const
     {
-        Left = left;
+        return Left;
     }
-    void setRight(T **right)
+    T ** getRight() const
     {
-        Right = right;
+        return Right;
     }
 
 private:
