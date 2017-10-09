@@ -2,6 +2,7 @@
     <qresource prefix="/MainWindow"/>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>menu.png</file>
+        <file>images/menu.png</file>
+        <file>images/100x100bb.jpg</file>
     </qresource>
 </RCC>

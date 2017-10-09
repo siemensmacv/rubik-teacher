@@ -35,7 +35,7 @@ ApplicationWindow {
                     fillMode: Image.Pad
                     horizontalAlignment: Image.AlignHCenter
                     verticalAlignment: Image.AlignVCenter
-                    source: "menu.png"
+                    source: "images/menu.png"
                 }
                 onClicked: optionsMenu.open()
 
@@ -115,41 +115,40 @@ ApplicationWindow {
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
 
-        Repeater {
-            model: 4
+        //Repeater {
+          //  model: 4
 
             Pane {
                 id:pane1
-                 width: swipeView.width
-                 height: swipeView.height
-
-                 Rectangle {
-                     id:theShiet
-                    width: 100
-                    height: 100
-                    Label{
-                        id:textLabel
-                        anchors.centerIn: parent
-                        text:{
-                            if(swipeView.currentIndex==0){
-                                "text0000"
-                            }
-                            else{
-                                "text1"
-                            }
-                        }
-                        wrapMode:Text.WordWrap
-                    }
-
-                    x: window.width/2 - 55
-                    y: window.height - 300
-                    color: "red"
-                    border.color: "black"
-                    border.width: 3
-                    radius: 10
-                 }
+                width: swipeView.width
+                height: swipeView.height
             }
-        }
+            Pane {
+                id:pane2
+                width: swipeView.width
+                height: swipeView.height
+                Image{
+                    source:"images/menu.png"
+                }
+            }
+            Pane {
+                id:pane3
+                width: swipeView.width
+                height: swipeView.height
+                Image{
+                    source:"images/100x100bb.jpg"
+                }
+            }
+            Pane {
+                id:pane4
+                width: swipeView.width
+                height: swipeView.height
+                Image{
+                    source:"images/menu.png"
+                }
+            }
+      //  }
+
     }
 
     footer: TabBar {
