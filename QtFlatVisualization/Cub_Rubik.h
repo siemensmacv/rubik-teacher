@@ -3,14 +3,14 @@
 template <class T>
 class Cub_Rubik
 {
-    T** Front = nullptr, Back = nullptr,
-        Up = nullptr, Down = nullptr,
-        Left = nullptr, Right = nullptr;
+    T **Front = nullptr, **Back = nullptr,
+      **Up = nullptr, **Down = nullptr,
+      **Left = nullptr, **Right = nullptr;
 
 public:
     Cub_Rubik()	{}
     Cub_Rubik(T **front, T **back, T **up, T **down, T **left, T **right)
-        : Front{front}, Back{back}, Up{up}, Down{down}, Lewft{left}, Right{right}
+        : Front{front}, Back{back}, Up{up}, Down{down}, Left{left}, Right{right}
     {}
 
     void setFront(T **front)

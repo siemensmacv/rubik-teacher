@@ -54,8 +54,7 @@ public slots:
 
 private:
     void initFaceCubes(const std::string & sequence
-                  = "UUUUUUUUUFFFFFFFFFRRRRRRRRR"
-                  + "DDDDDDDDDLLLLLLLLLBBBBBBBBB");
+                  = "UUUUUUUUUFFFFFFFFFRRRRRRRRRDDDDDDDDDLLLLLLLLLBBBBBBBBB");
     void initCube();
     // to do
     void updateFaces();

@@ -29,7 +29,7 @@ public:
     QString toQString() const;
     std::string toString() const;
 
-    QRect **getColorMatrix() const;
+    QColor **getColorMatrix() const;
 
 public slots:
     void setBorderWidth(int borderWidth);
