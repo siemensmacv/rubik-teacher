@@ -25,109 +25,109 @@ public slots:
 
     virtual QBaseRubikCube6Matrix& frontClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->frontClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& frontCounterClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->frontCounterClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& backClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->backClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& backCounterClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->backCounterClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& upClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->upClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& upCounterClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->upCounterClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& downClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->downClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& downCounterClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->downCounterClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& leftClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->leftClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& leftCounterClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->leftCounterClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& rightClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->rightClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& rightCounterClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->rightCounterClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& xAxisClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->xAxisClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& xAxisCounterClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->xAxisCounterClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& yAxisClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->yAxisClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& yAxisCounterClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->yAxisCounterClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& zAxisClock() override
     {
-        if (mcube)
+        if (mCube)
             mCube->zAxisClock();
         return *this;
     }
     virtual QBaseRubikCube6Matrix& zAxisCounterClock()override
     {
-        if (mcube)
+        if (mCube)
             mCube->zAxisCounterClock();
         return *this;
     }
