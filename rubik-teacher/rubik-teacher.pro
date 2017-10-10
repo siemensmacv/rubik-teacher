@@ -18,6 +18,7 @@ UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
 
 
-RESOURCES += MainWindow.qrc
-SOURCES += main.cpp
+RESOURCES += MainWindow.qrc \
+        qtquickcontrols2.conf
+SOURCES +=
 include(rubik-teacher.pri)

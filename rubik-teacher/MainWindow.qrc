@@ -4,5 +4,6 @@
         <file>main.qml</file>
         <file>images/menu.png</file>
         <file>images/100x100bb.jpg</file>
+        <file>qtquickcontrols2.conf</file>
     </qresource>
 </RCC>

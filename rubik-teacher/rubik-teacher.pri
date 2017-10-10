@@ -11,4 +11,5 @@ HEADERS += ./MainWindow.h
 SOURCES += ./main.cpp \
     ./MainWindow.cpp
 FORMS += ./MainWindow.ui
-RESOURCES += MainWindow.qrc
+RESOURCES += MainWindow.qrc \
+        qtquickcontrols2.conf

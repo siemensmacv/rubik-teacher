@@ -13,6 +13,11 @@ ApplicationWindow {
     height: 768
     visible: true
 
+    Settings {
+        id: settings
+        property string style: "Default"
+    }
+
     header: ToolBar {
         Material.foreground: "white"
 
@@ -92,19 +97,22 @@ ApplicationWindow {
                 ComboBox {
                     id: styleBox
                     property int styleIndex: -1
-                    textRole: "key"
-                    model: ListModel{
-                        ListElement{key: " First ";value: 123}
-                        ListElement{key: " Second ";value: 124}
-                        ListElement{key: " Third ";value: 125}
-
-                    }
+                    model: availableStyles
                     Component.onCompleted: {
                         styleIndex = find(settings.style, Qt.MatchFixedString)
                         if (styleIndex !== -1)
                             currentIndex = styleIndex
                     }
                     Layout.fillWidth: true
+                }
+                Label {
+                    text: "Restart required"
+                    color: "#e41e25"
+                    opacity: styleBox.currentIndex !== styleBox.styleIndex ? 1.0 : 0.0
+                    horizontalAlignment: Label.AlignHCenter
+                    verticalAlignment: Label.AlignVCenter
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
                 }
             }
         }
