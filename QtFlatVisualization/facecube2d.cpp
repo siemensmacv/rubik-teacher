@@ -67,7 +67,7 @@ std::string FaceCube2D::toString() const
             sequence += getCharFromColor(mColorMatrix[i][j]);
         }
     }
-    sequence += '\0';
+    //sequence += '\0';
     return sequence;
 }
 

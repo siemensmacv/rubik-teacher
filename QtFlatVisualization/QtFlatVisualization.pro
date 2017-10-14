@@ -28,7 +28,12 @@ SOURCES += \
         mainwindow.cpp \
     facecube2d.cpp \
     qbaserubikcube6matrix.cpp \
-    rubik2dhandler.cpp
+    rubik2dhandler.cpp \
+    ../ckociemba/coordcube.c \
+    ../ckociemba/cubiecube.c \
+    ../ckociemba/facecube.c \
+    ../ckociemba/search.c \
+    ../ckociemba/solve.c
 
 HEADERS += \
         mainwindow.h \
@@ -36,7 +41,17 @@ HEADERS += \
     Cub_Rubik.h \
     qbaserubikcube6matrix.h \
     qrubikcube6matrix.h \
-    rubik2dhandler.h
+    rubik2dhandler.h \
+    Cub_Rubik.h \
+    facecube2d.h \
+    ../ckociemba/color.h \
+    ../ckociemba/coordcube.h \
+    ../ckociemba/corner.h \
+    ../ckociemba/cubiecube.h \
+    ../ckociemba/edge.h \
+    ../ckociemba/facecube.h \
+    ../ckociemba/facelet.h \
+    ../ckociemba/search.h
 
 FORMS += \
         mainwindow.ui

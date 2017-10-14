@@ -62,6 +62,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->pushButton_18, &QPushButton::clicked,
             handler, &Rubik2DHandler::zAxisCounterClock);
+
+    connect(ui->pushButton_19, &QPushButton::clicked,
+            handler, &Rubik2DHandler::Solve);
 }
 
 MainWindow::~MainWindow()

@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QWidget>
 #include <QGridLayout>
+#include <QLabel>
 #include "facecube2d.h"
 #include <QString>
 #include <string>
@@ -47,6 +48,8 @@ public slots:
     void zAxisClock();
     void zAxisCounterClock();
 
+    void Solve();
+
     void setBorderWidth(int borderWidth);
     void setFrameSize(int frameSize);
     void updateCube(const std::string & cubeString);
@@ -65,6 +68,8 @@ private:
         *mLeftFace, *mRightFace,
         *mFrontFace, *mBackFace;
     Cub_Rubik<QColor> *mCube;
+    QLabel *mLabelCubeRepresentation;
+    QLabel *mLabelSolution;
 };
 
 #endif // RUBIK2DHANDLER_H
