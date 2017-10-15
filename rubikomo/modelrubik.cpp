@@ -4,6 +4,5 @@
 
 ModelRubik::ModelRubik(QObject *parent) : QObject(parent)
 {
-    ModelRubik_Matrix matrix;
-    ModelRubik_CornersEdges corners_edges;
+
 }
