@@ -13,13 +13,6 @@ ModelRubik_Matrix::ModelRubik_Matrix()
                 _matrix[face][row][column] = (face+1)*10 + 3*row + column + 1;
         }
     }
-
-    _front = _matrix[static_cast<int>(RubikFace::Front)];
-    _back = _matrix[static_cast<int>(RubikFace::Back)];
-    _left = _matrix[static_cast<int>(RubikFace::Left)];
-    _right = _matrix[static_cast<int>(RubikFace::Right)];
-    _up = _matrix[static_cast<int>(RubikFace::Up)];
-    _down = _matrix[static_cast<int>(RubikFace::Down)];
 }
 
 ModelRubik_Matrix::~ModelRubik_Matrix()
@@ -153,186 +146,186 @@ void ModelRubik_Matrix::rotateFaceCounterClockwise(int**& front, int**& up, int*
 
 void ModelRubik_Matrix::rotateFrontClockwise()
 {
-    rotateFaceClockwise(_front, _up, _down, _left, _right);
+    rotateFaceClockwise(_matrix[static_cast<int>(RubikFace::Front)], _matrix[static_cast<int>(RubikFace::Up)], _matrix[static_cast<int>(RubikFace::Down)], _matrix[static_cast<int>(RubikFace::Left)], _matrix[static_cast<int>(RubikFace::Right)]);
 }
 
 void ModelRubik_Matrix::rotateFrontCounterClockwise()
 {
-    rotateFaceCounterClockwise(_front, _up, _down, _left, _right);
+    rotateFaceCounterClockwise(_matrix[static_cast<int>(RubikFace::Front)], _matrix[static_cast<int>(RubikFace::Up)], _matrix[static_cast<int>(RubikFace::Down)], _matrix[static_cast<int>(RubikFace::Left)], _matrix[static_cast<int>(RubikFace::Right)]);
 }
 
 void ModelRubik_Matrix::rotateBackClockwise()
 {
-    rotateMatrixClockwise(rotateMatrixClockwise(_up));
-    rotateMatrixClockwise(rotateMatrixClockwise(_down));
-    rotateFaceClockwise(_back, _up, _down, _right, _left);
-    rotateMatrixClockwise(rotateMatrixClockwise(_up));
-    rotateMatrixClockwise(rotateMatrixClockwise(_down));
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Up)]));
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Down)]));
+    rotateFaceClockwise(_matrix[static_cast<int>(RubikFace::Back)], _matrix[static_cast<int>(RubikFace::Up)], _matrix[static_cast<int>(RubikFace::Down)], _matrix[static_cast<int>(RubikFace::Right)], _matrix[static_cast<int>(RubikFace::Left)]);
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Up)]));
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Down)]));
 }
 
 void ModelRubik_Matrix::rotateBackCounterClockwise()
 {
-    rotateMatrixClockwise(rotateMatrixClockwise(_up));
-    rotateMatrixClockwise(rotateMatrixClockwise(_down));
-    rotateFaceCounterClockwise(_back, _up, _down, _right, _left);
-    rotateMatrixClockwise(rotateMatrixClockwise(_up));
-    rotateMatrixClockwise(rotateMatrixClockwise(_down));
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Up)]));
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Down)]));
+    rotateFaceCounterClockwise(_matrix[static_cast<int>(RubikFace::Back)], _matrix[static_cast<int>(RubikFace::Up)], _matrix[static_cast<int>(RubikFace::Down)], _matrix[static_cast<int>(RubikFace::Right)], _matrix[static_cast<int>(RubikFace::Left)]);
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Up)]));
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Down)]));
 }
 
 void ModelRubik_Matrix::rotateUpClockwise()
 {
-    rotateMatrixClockwise(rotateMatrixClockwise(_back));
-    rotateMatrixClockwise(_left);
-    rotateMatrixCounterClockwise(_right);
-    rotateFaceClockwise(_up, _back, _front, _left, _right);
-    rotateMatrixClockwise(rotateMatrixClockwise(_back));
-    rotateMatrixCounterClockwise(_left);
-    rotateMatrixClockwise(_right);
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Back)]));
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Left)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Right)]);
+    rotateFaceClockwise(_matrix[static_cast<int>(RubikFace::Up)], _matrix[static_cast<int>(RubikFace::Back)], _matrix[static_cast<int>(RubikFace::Front)], _matrix[static_cast<int>(RubikFace::Left)], _matrix[static_cast<int>(RubikFace::Right)]);
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Back)]));
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Left)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Right)]);
 }
 
 void ModelRubik_Matrix::rotateUpCounterClockwise()
 {
-    rotateMatrixClockwise(rotateMatrixClockwise(_back));
-    rotateMatrixClockwise(_left);
-    rotateMatrixCounterClockwise(_right);
-    rotateFaceCounterClockwise(_up, _back, _front, _left, _right);
-    rotateMatrixClockwise(rotateMatrixClockwise(_back));
-    rotateMatrixCounterClockwise(_left);
-    rotateMatrixClockwise(_right);
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Back)]));
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Left)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Right)]);
+    rotateFaceCounterClockwise(_matrix[static_cast<int>(RubikFace::Up)], _matrix[static_cast<int>(RubikFace::Back)], _matrix[static_cast<int>(RubikFace::Front)], _matrix[static_cast<int>(RubikFace::Left)], _matrix[static_cast<int>(RubikFace::Right)]);
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Back)]));
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Left)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Right)]);
 }
 
 void ModelRubik_Matrix::rotateDownClockwise()
 {
-    rotateMatrixClockwise(rotateMatrixClockwise(_back));
-    rotateMatrixCounterClockwise(_left);
-    rotateMatrixClockwise(_right);
-    rotateFaceClockwise(_down, _front, _back, _left, _right);
-    rotateMatrixClockwise(rotateMatrixClockwise(_back));
-    rotateMatrixClockwise(_left);
-    rotateMatrixCounterClockwise(_right);
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Back)]));
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Left)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Right)]);
+    rotateFaceClockwise(_matrix[static_cast<int>(RubikFace::Down)], _matrix[static_cast<int>(RubikFace::Front)], _matrix[static_cast<int>(RubikFace::Back)], _matrix[static_cast<int>(RubikFace::Left)], _matrix[static_cast<int>(RubikFace::Right)]);
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Back)]));
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Left)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Right)]);
 }
 
 void ModelRubik_Matrix::rotateDownCounterClockwise()
 {
-    rotateMatrixClockwise(rotateMatrixClockwise(_back));
-    rotateMatrixCounterClockwise(_left);
-    rotateMatrixClockwise(_right);
-    rotateFaceCounterClockwise(_down, _front, _back, _left, _right);
-    rotateMatrixClockwise(rotateMatrixClockwise(_back));
-    rotateMatrixClockwise(_left);
-    rotateMatrixCounterClockwise(_right);
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Back)]));
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Left)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Right)]);
+    rotateFaceCounterClockwise(_matrix[static_cast<int>(RubikFace::Down)], _matrix[static_cast<int>(RubikFace::Front)], _matrix[static_cast<int>(RubikFace::Back)], _matrix[static_cast<int>(RubikFace::Left)], _matrix[static_cast<int>(RubikFace::Right)]);
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Back)]));
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Left)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Right)]);
 }
 
 void ModelRubik_Matrix::rotateLeftClockwise()
 {
-    rotateMatrixCounterClockwise(_up);
-    rotateMatrixClockwise(_down);
-    rotateFaceClockwise(_left, _up, _down, _back, _front);
-    rotateMatrixClockwise(_up);
-    rotateMatrixCounterClockwise(_down);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Up)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Down)]);
+    rotateFaceClockwise(_matrix[static_cast<int>(RubikFace::Left)], _matrix[static_cast<int>(RubikFace::Up)], _matrix[static_cast<int>(RubikFace::Down)], _matrix[static_cast<int>(RubikFace::Back)], _matrix[static_cast<int>(RubikFace::Front)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Up)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Down)]);
 }
 
 void ModelRubik_Matrix::rotateLeftCounterClockwise()
 {
-    rotateMatrixCounterClockwise(_up);
-    rotateMatrixClockwise(_down);
-    rotateFaceCounterClockwise(_left, _up, _down, _back, _front);
-    rotateMatrixClockwise(_up);
-    rotateMatrixCounterClockwise(_down);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Up)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Down)]);
+    rotateFaceCounterClockwise(_matrix[static_cast<int>(RubikFace::Left)], _matrix[static_cast<int>(RubikFace::Up)], _matrix[static_cast<int>(RubikFace::Down)], _matrix[static_cast<int>(RubikFace::Back)], _matrix[static_cast<int>(RubikFace::Front)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Up)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Down)]);
 }
 
 void ModelRubik_Matrix::rotateRightClockwise()
 {
-    rotateMatrixClockwise(_up);
-    rotateMatrixCounterClockwise(_down);
-    rotateFaceClockwise(_right, _up, _down, _front, _back);
-    rotateMatrixCounterClockwise(_up);
-    rotateMatrixClockwise(_down);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Up)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Down)]);
+    rotateFaceClockwise(_matrix[static_cast<int>(RubikFace::Right)], _matrix[static_cast<int>(RubikFace::Up)], _matrix[static_cast<int>(RubikFace::Down)], _matrix[static_cast<int>(RubikFace::Front)], _matrix[static_cast<int>(RubikFace::Back)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Up)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Down)]);
 }
 
 void ModelRubik_Matrix::rotateRightCounterClockwise()
 {
-    rotateMatrixClockwise(_up);
-    rotateMatrixCounterClockwise(_down);
-    rotateFaceCounterClockwise(_right, _up, _down, _front, _back);
-    rotateMatrixCounterClockwise(_up);
-    rotateMatrixClockwise(_down);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Up)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Down)]);
+    rotateFaceCounterClockwise(_matrix[static_cast<int>(RubikFace::Right)], _matrix[static_cast<int>(RubikFace::Up)], _matrix[static_cast<int>(RubikFace::Down)], _matrix[static_cast<int>(RubikFace::Front)], _matrix[static_cast<int>(RubikFace::Back)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Up)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Down)]);
 }
 
 void ModelRubik_Matrix::rotateXAxisClockwise()
 {
-    rotateMatrixClockwise(rotateMatrixClockwise(_up));
-    rotateMatrixClockwise(rotateMatrixClockwise(_back));
-    rotateMatrixCounterClockwise(_left);
-    rotateMatrixClockwise(_right);
-    int **aux = _front;
-    _front = _down;
-    _down = _back;
-    _back = _up;
-    _up = aux;
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Up)]));
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Back)]));
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Left)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Right)]);
+    int **aux = _matrix[static_cast<int>(RubikFace::Front)];
+    _matrix[static_cast<int>(RubikFace::Front)] = _matrix[static_cast<int>(RubikFace::Down)];
+    _matrix[static_cast<int>(RubikFace::Down)] = _matrix[static_cast<int>(RubikFace::Back)];
+    _matrix[static_cast<int>(RubikFace::Back)] = _matrix[static_cast<int>(RubikFace::Up)];
+    _matrix[static_cast<int>(RubikFace::Up)] = aux;
 }
 
 void ModelRubik_Matrix::rotateXAxisCounterClockwise()
 {
-    rotateMatrixClockwise(rotateMatrixClockwise(_back));
-    rotateMatrixClockwise(rotateMatrixClockwise(_down));
-    rotateMatrixClockwise(_left);
-    rotateMatrixCounterClockwise(_right);
-    int **aux = _front;
-    _front = _up;
-    _up = _back;
-    _back = _down;
-    _down = aux;
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Back)]));
+    rotateMatrixClockwise(rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Down)]));
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Left)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Right)]);
+    int **aux = _matrix[static_cast<int>(RubikFace::Front)];
+    _matrix[static_cast<int>(RubikFace::Front)] = _matrix[static_cast<int>(RubikFace::Up)];
+    _matrix[static_cast<int>(RubikFace::Up)] = _matrix[static_cast<int>(RubikFace::Back)];
+    _matrix[static_cast<int>(RubikFace::Back)] = _matrix[static_cast<int>(RubikFace::Down)];
+    _matrix[static_cast<int>(RubikFace::Down)] = aux;
 }
 
 void ModelRubik_Matrix::rotateYAxisClockwise()
 {
-    rotateMatrixClockwise(_up);
-    rotateMatrixCounterClockwise(_down);
-    int **aux = _front;
-    _front = _right;
-    _right = _back;
-    _back = _left;
-    _left = aux;
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Up)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Down)]);
+    int **aux = _matrix[static_cast<int>(RubikFace::Front)];
+    _matrix[static_cast<int>(RubikFace::Front)] = _matrix[static_cast<int>(RubikFace::Right)];
+    _matrix[static_cast<int>(RubikFace::Right)] = _matrix[static_cast<int>(RubikFace::Back)];
+    _matrix[static_cast<int>(RubikFace::Back)] = _matrix[static_cast<int>(RubikFace::Left)];
+    _matrix[static_cast<int>(RubikFace::Left)] = aux;
 }
 
 void ModelRubik_Matrix::rotateYAxisCounterClockwise()
 {
-    rotateMatrixCounterClockwise(_up);
-    rotateMatrixClockwise(_down);
-    int **aux = _front;
-    _front = _left;
-    _left = _back;
-    _back = _right;
-    _right = aux;
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Up)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Down)]);
+    int **aux = _matrix[static_cast<int>(RubikFace::Front)];
+    _matrix[static_cast<int>(RubikFace::Front)] = _matrix[static_cast<int>(RubikFace::Left)];
+    _matrix[static_cast<int>(RubikFace::Left)] = _matrix[static_cast<int>(RubikFace::Back)];
+    _matrix[static_cast<int>(RubikFace::Back)] = _matrix[static_cast<int>(RubikFace::Right)];
+    _matrix[static_cast<int>(RubikFace::Right)] = aux;
 }
 
 void ModelRubik_Matrix::rotateZAxisClockwise()
 {
-    rotateMatrixClockwise(_front);
-    rotateMatrixCounterClockwise(_back);
-    rotateMatrixClockwise(_left);
-    rotateMatrixClockwise(_up);
-    rotateMatrixClockwise(_right);
-    rotateMatrixClockwise(_down);
-    int **aux = _up;
-    _up = _left;
-    _left = _down;
-    _down = _right;
-    _right = aux;
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Front)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Back)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Left)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Up)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Right)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Down)]);
+    int **aux = _matrix[static_cast<int>(RubikFace::Up)];
+    _matrix[static_cast<int>(RubikFace::Up)] = _matrix[static_cast<int>(RubikFace::Left)];
+    _matrix[static_cast<int>(RubikFace::Left)] = _matrix[static_cast<int>(RubikFace::Down)];
+    _matrix[static_cast<int>(RubikFace::Down)] = _matrix[static_cast<int>(RubikFace::Right)];
+    _matrix[static_cast<int>(RubikFace::Right)] = aux;
 }
 
 void ModelRubik_Matrix::rotateZAxisCounterClockwise()
 {
-    rotateMatrixCounterClockwise(_front);
-    rotateMatrixClockwise(_back);
-    rotateMatrixCounterClockwise(_left);
-    rotateMatrixCounterClockwise(_up);
-    rotateMatrixCounterClockwise(_right);
-    rotateMatrixCounterClockwise(_down);
-    int **aux = _up;
-    _up = _right;
-    _right = _down;
-    _down = _left;
-    _left = aux;
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Front)]);
+    rotateMatrixClockwise(_matrix[static_cast<int>(RubikFace::Back)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Left)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Up)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Right)]);
+    rotateMatrixCounterClockwise(_matrix[static_cast<int>(RubikFace::Down)]);
+    int **aux = _matrix[static_cast<int>(RubikFace::Up)];
+    _matrix[static_cast<int>(RubikFace::Up)] = _matrix[static_cast<int>(RubikFace::Right)];
+    _matrix[static_cast<int>(RubikFace::Right)] = _matrix[static_cast<int>(RubikFace::Down)];
+    _matrix[static_cast<int>(RubikFace::Down)] = _matrix[static_cast<int>(RubikFace::Left)];
+    _matrix[static_cast<int>(RubikFace::Left)] = aux;
 }

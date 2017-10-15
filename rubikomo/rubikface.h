@@ -1,7 +1,7 @@
 #pragma once
 enum class RubikFace
 {
-    Front,
+    Front = 0,
     Back,
     Left,
     Right,

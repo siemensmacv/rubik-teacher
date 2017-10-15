@@ -1,6 +1,7 @@
 #ifndef MODELRUBIK_MATRIX_H
 #define MODELRUBIK_MATRIX_H
 
+#include "rubikface.h"
 #include <algorithm>
 #include <vector>
 
@@ -8,14 +9,6 @@ class ModelRubik_Matrix
 {
 private:
     int ***_matrix = nullptr;
-    int **_front = nullptr;
-    int **_back = nullptr;
-    int **_left = nullptr;
-    int **_right = nullptr;
-    int **_up = nullptr;
-    int **_down = nullptr;
-
-	void init_matrix();
 
     int**& rotateMatrixClockwise(int**& matrix);
     int**& rotateMatrixCounterClockwise(int**& matrix);
@@ -41,16 +34,6 @@ private:
     void rotateZAxisCounterClockwise();
 
 public:
-    enum class RubikFace
-    {
-        Front,
-        Back,
-        Left,
-        Right,
-        Up,
-        Down
-    };
-
     ModelRubik_Matrix();
     ~ModelRubik_Matrix();
     int getMatrixValue(const RubikFace &face, const int &row, const int &column) const;
