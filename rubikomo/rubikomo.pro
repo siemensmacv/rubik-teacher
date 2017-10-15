@@ -34,7 +34,10 @@ HEADERS += \
         mainwindow.h \
     modelrubik.h \
     modelrubik_cornersedges.h \
-    modelrubik_matrix.h
+    modelrubik_matrix.h \
+    rubikface.h \
+    rubikedge.h \
+    rubikcorner.h
 
 FORMS += \
         mainwindow.ui
