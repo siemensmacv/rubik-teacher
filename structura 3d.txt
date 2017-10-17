@@ -1,0 +1,55 @@
+9*3 - 1 = 26 de cubulete
+26 + 6 + 12 * 2 + 8 * 3 = 80 de entitati geometrice
+26 de pointeri la cubulete, impartiti astfel: 6 vectori pentru fiecare fata a cate 9 pointeri pentru fiecare Cubie;
+fiecare pozitie in vectori si implicit pointerii pe care ii contin) reprezinta o pozitie virtuala pe cub
+
+cand se apasa pe un buton pentru o rotatie a unei fete, pointerii cubuletelor asociate acelei fete pornesc animatia de rotatie
+
+ce sunt cubuletele?
+o structura (Cubie) care contine un cub
+din Cubie se poate mosteni -> Centre care adauga un plan
+													 -> Edge care adauga 2 planuri
+                           -> Corner care adauga 3 planuri (fete)
+Motivatie pentru care nu se mosteneste Corner din Edge si Edge din Centre: din definitia mostenirii, un derivat este in acelasi timp
+un obiect de tip baza; in cazul nostru coltul nu e o muchie, iar muchia nu e un centru
+
+Cubie ca structura trebuie sa administreze animatiile si componentele de transform definitie pe entitile sale geometrice:
+						-> Cubie pentru cub
+            -> Centre pentru un plan
+            -> Edge pentru 2 planuri
+            -> Corner pentru 3 planuri
+            
+fiecare entitate geometrica (cub/plan) trebuie sa aiba un transform si 6 animatii implementate (3 axe * 2 sensuri) si sa le expuna
+
+Scenario: user press R, set animation for the 9 cubies on the R face to xClock animation
+
+Crearea Cubie-urilor:
+Se defineste clasa CubieFactory
+clasa are o metoda publica numita getCubie;
+parametrii lui getCubie: indexul in vectorul de unde provine Cubie-ul, valoarea de la acel index in vector, orientarea
+evident, pe functie se face overload pt parametrii specializati pentru Corner si Edge (pentru a sti cate planuri faci)
+s-ar putea sa fie nevoie de un overload si pentru centre
+
+functia ca implementare:
+un switch pe indexul din vector pentru a seta transformul entitatilor geometrice care compun structura Cubie
+un switch pe valoarea din vector care determina culorile pe care le vor avea planurile din Cubie (se poate lua ca default orientarea normala)
+un switch pe orientare pt care se face swap intre culorile planurilor pentru a verifica orientarea
+apoi la final se seteaza animatiile pe fiecare entitate geometrica
+
+switchurile nu influenteaza date comune, ceea ce e un avantaj pentru ca inseamna ca nu sunt imbricate
+
+Optional pentru a respecta design patternul de factory:
+facem interfata ICubie sa fie baza pentru ierarhia de cubulete
+cei 26 de pointeri ai cubului pot fi de tipul ICubie
+cei 26 de pointeri sunt initializati de catre factory
+
+
+Ierarhia Shape3d:
+Clasa abstracta Shape3d cu membrii transform, material, entity, AnimationHandler; optional: metodele intr-o interfata IShape3D
+Clasa Cuboid care mosteneste Shape3d si are ca membru cuboidMesh
+Clasa Plane care mosteneste Shape3d si are ca membru planeMesh
+
+Cubie are un cuboid
+Centre are un cuboid si 1 plan
+Edge are un cuboid si 2 planes
+Corner are un cuboid si 3 planes
