@@ -32,7 +32,7 @@ private:
     void rotateCornersCounterClockwise(int UR, int UL, int DL, int DR, const RubikFace &face);
 
     void rotateEdgesClockwise(int up, int right, int down, int left, const RubikFace &face);
-    void rotateEdgesCounterClockwise(int up, int right, int down, int left, const RubikFace &face);
+    void rotateEdgesCounterClockwise(int up, int left, int down, int right, const RubikFace &face);
 
     bool edgeValueInMiddleSlice(int index);
     bool edgeValueInEquatorSlice(int index);
