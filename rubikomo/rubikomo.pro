@@ -4,7 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT += core gui
+QT += 3dcore 3drender 3dinput 3dextras
+QT += widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,7 +31,13 @@ SOURCES += \
     modelrubik.cpp \
     modelrubik_cornersedges.cpp \
     modelrubik_matrix.cpp \
-    controllerrubik.cpp
+    controllerrubik.cpp \
+    rubikvalidator.cpp \
+    View3DSources/shape3d.cpp \
+    View3DSources/orbittransformcontroller.cpp \
+    View3DSources/rotatingeventhandler.cpp \
+    View3DSources/animationhandler.cpp \
+    View3DSources/cuboid.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +47,13 @@ HEADERS += \
     rubikface.h \
     rubikedge.h \
     rubikcorner.h \
-    controllerrubik.h
+    controllerrubik.h \
+    rubikvalidator.h \
+    View3DHeaders/shape3d.h \
+    View3DHeaders/animationhandler.h \
+    View3DHeaders/orbittransformcontroller.h \
+    View3DHeaders/rotatingeventhandler.h \
+    View3DHeaders/cuboid.h
 
 FORMS += \
         mainwindow.ui
