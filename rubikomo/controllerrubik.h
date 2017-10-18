@@ -24,9 +24,6 @@ public:
     void rotateYAxisCounterClockwise();
     void rotateZAxisClockwise();
     void rotateZAxisCounterClockwise();
-signals:
-
-public slots:
 };
 
 #endif // CONTROLLERRUBIK_H
