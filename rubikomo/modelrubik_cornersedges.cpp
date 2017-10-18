@@ -90,22 +90,28 @@ void ModelRubik_CornersEdges::rotateCounterClockwise(const RubikFace &face)
     switch(face)
     {
     case RubikFace::Back:
-        rotateBackCounterClockwise();
+        rotateCornersCounterClockwise(3, 0, 4, 7, face);
+        rotateEdgesCounterClockwise(0, 4, 8, 7, face);
         break;
     case RubikFace::Down:
-        rotateDownCounterClockwise();
+        rotateCornersCounterClockwise(5, 6, 7, 4, face);
+        rotateEdgesCounterClockwise(10, 11, 8, 9, face);
         break;
     case RubikFace::Front:
-        rotateFrontCounterClockwise();
+        rotateCornersCounterClockwise(1, 2, 6, 5, face);
+        rotateEdgesCounterClockwise(2, 6, 10, 5, face);
         break;
     case RubikFace::Left:
-        rotateLeftCounterClockwise();
+        rotateCornersCounterClockwise(2, 3, 7, 6, face);
+        rotateEdgesCounterClockwise(3, 7, 11, 6, face);
         break;
     case RubikFace::Right:
-        rotateRightCounterClockwise();
+        rotateCornersCounterClockwise(0, 1, 5, 4, face);
+        rotateEdgesCounterClockwise(1, 5, 9, 4, face);
         break;
     case RubikFace::Up:
-        rotateUpCounterClockwise();
+        rotateCornersCounterClockwise(0, 3, 2, 1, face);
+        rotateEdgesCounterClockwise(0, 3, 2, 1, face);
         break;
     }
 }
@@ -248,7 +254,7 @@ void ModelRubik_CornersEdges::rotateEdgesClockwise(int up, int right, int down, 
     edge_orientation[right] = aux;
 }
 
-void ModelRubik_CornersEdges::rotateEdgesCounterClockwise(int up, int right, int down, int left, const RubikFace &face)
+void ModelRubik_CornersEdges::rotateEdgesCounterClockwise(int up, int left, int down, int right, const RubikFace &face)
 {
     //change edge orientation
     switch (face) {
@@ -256,36 +262,36 @@ void ModelRubik_CornersEdges::rotateEdgesCounterClockwise(int up, int right, int
     case RubikFace::Right:
         if (edgeValueInMiddleSlice(up))
             !edge_orientation[up];
-        if (edgeValueInMiddleSlice(right))
-            !edge_orientation[right];
-        if (edgeValueInMiddleSlice(down))
-            !edge_orientation[down];
         if (edgeValueInMiddleSlice(left))
             !edge_orientation[left];
+        if (edgeValueInMiddleSlice(down))
+            !edge_orientation[down];
+        if (edgeValueInMiddleSlice(right))
+            !edge_orientation[right];
         break;
 
     case RubikFace::Front:
     case RubikFace::Back:
         if (edgeValueInStandingSlice(up))
             !edge_orientation[up];
-        if (edgeValueInStandingSlice(right))
-            !edge_orientation[right];
-        if (edgeValueInStandingSlice(down))
-            !edge_orientation[down];
         if (edgeValueInStandingSlice(left))
             !edge_orientation[left];
+        if (edgeValueInStandingSlice(down))
+            !edge_orientation[down];
+        if (edgeValueInStandingSlice(right))
+            !edge_orientation[right];
         break;
 
     case RubikFace::Up:
     case RubikFace::Down:
         if (edgeValueInEquatorSlice(up))
             !edge_orientation[up];
-        if (edgeValueInEquatorSlice(right))
-            !edge_orientation[right];
-        if (edgeValueInEquatorSlice(down))
-            !edge_orientation[down];
         if (edgeValueInEquatorSlice(left))
             !edge_orientation[left];
+        if (edgeValueInEquatorSlice(down))
+            !edge_orientation[down];
+        if (edgeValueInEquatorSlice(right))
+            !edge_orientation[right];
         break;
 
     default:
