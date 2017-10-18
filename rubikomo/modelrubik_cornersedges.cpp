@@ -59,23 +59,28 @@ void ModelRubik_CornersEdges::rotateClockwise(const RubikFace &face)
     switch(face)
     {
     case RubikFace::Back:
-        // rotate corners
-        // rotate edges
+        rotateCornersClockwise(0, 3, 7, 4, face);
+        rotateEdgesClockwise(0, 7, 8, 4, face);
         break;
     case RubikFace::Down:
-        rotateDownClockwise();
+        rotateCornersClockwise(6, 5, 4, 7, face);
+        rotateEdgesClockwise(10, 9, 8, 11, face);
         break;
     case RubikFace::Front:
-        rotateFrontClockwise();
+        rotateCornersClockwise(2, 1, 5, 6, face);
+        rotateEdgesClockwise(2, 5, 10, 6, face);
         break;
     case RubikFace::Left:
-        rotateLeftClockwise();
+        rotateCornersClockwise(3, 2, 6, 7, face);
+        rotateEdgesClockwise(3, 6, 11, 7, face);
         break;
     case RubikFace::Right:
-        rotateRightClockwise();
+        rotateCornersClockwise(1, 0, 4, 5, face);
+        rotateEdgesClockwise(1, 4, 9, 5, face);
         break;
     case RubikFace::Up:
-        rotateUpClockwise();
+        rotateCornersClockwise(3, 0, 1, 2, face);
+        rotateEdgesClockwise(0, 1, 2, 3, face);
         break;
     }
 }
