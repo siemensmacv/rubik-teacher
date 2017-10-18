@@ -229,7 +229,78 @@ void ModelRubik_CornersEdges::rotateEdgesClockwise(int up, int right, int down, 
     }
 
     //permutate edges positions
+    Edge aux = edge_position[up];
+    edge_position[up] = edge_position[left];
+    edge_position[left] = edge_position[down];
+    edge_position[down] = edge_position[right];
+    edge_position[right] = aux;
+
     //permutate edges orientation
+    EdgeOrientation aux = edge_orientation[up];
+    edge_orientation[up] = edge_orientation[left];
+    edge_orientation[left] = edge_orientation[down];
+    edge_orientation[down] = edge_orientation[right];
+    edge_orientation[right] = aux;
+}
+
+void ModelRubik_CornersEdges::rotateEdgesCounterClockwise(int up, int right, int down, int left, const RubikFace &face)
+{
+    //change edge orientation
+    switch (face) {
+    case RubikFace::Left:
+    case RubikFace::Right:
+        if (edgeValueInMiddleSlice(up))
+            !edge_orientation[up];
+        if (edgeValueInMiddleSlice(right))
+            !edge_orientation[right];
+        if (edgeValueInMiddleSlice(down))
+            !edge_orientation[down];
+        if (edgeValueInMiddleSlice(left))
+            !edge_orientation[left];
+        break;
+
+    case RubikFace::Front:
+    case RubikFace::Back:
+        if (edgeValueInStandingSlice(up))
+            !edge_orientation[up];
+        if (edgeValueInStandingSlice(right))
+            !edge_orientation[right];
+        if (edgeValueInStandingSlice(down))
+            !edge_orientation[down];
+        if (edgeValueInStandingSlice(left))
+            !edge_orientation[left];
+        break;
+
+    case RubikFace::Up:
+    case RubikFace::Down:
+        if (edgeValueInEquatorSlice(up))
+            !edge_orientation[up];
+        if (edgeValueInEquatorSlice(right))
+            !edge_orientation[right];
+        if (edgeValueInEquatorSlice(down))
+            !edge_orientation[down];
+        if (edgeValueInEquatorSlice(left))
+            !edge_orientation[left];
+        break;
+
+    default:
+        break;
+    }
+
+    //permutate edges positions
+    Edge aux = edge_position[up];
+    edge_position[up] = edge_position[right];
+    edge_position[right] = edge_position[down];
+    edge_position[down] = edge_position[left];
+    edge_position[left] = aux;
+
+    //permutate edges orientation
+    EdgeOrientation aux = edge_orientation[up];
+    edge_orientation[up] = edge_orientation[right];
+    edge_orientation[right] = edge_orientation[down];
+    edge_orientation[down] = edge_orientation[left];
+    edge_orientation[left] = aux;
+
 }
 
 
