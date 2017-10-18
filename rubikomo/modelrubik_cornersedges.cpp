@@ -303,5 +303,29 @@ void ModelRubik_CornersEdges::rotateEdgesCounterClockwise(int up, int right, int
 
 }
 
+bool ModelRubik_CornersEdges::edgeValueInMiddleSlice(int index)
+{
+    return edge_position[index] == Edge::UF
+        || edge_position[index] == Edge::DF
+        || edge_position[index] == Edge::DB
+        || edge_position[index] == Edge::UB;
+}
+
+bool ModelRubik_CornersEdges::edgeValueInEquatorSlice(int index)
+{
+    return edge_position[index] == Edge::UR
+        || edge_position[index] == Edge::UL
+        || edge_position[index] == Edge::DL
+        || edge_position[index] == Edge::DR;
+}
+
+bool ModelRubik_CornersEdges::edgeValueInStandingSlice(int index)
+{
+    return edge_position[index] == Edge::FL
+        || edge_position[index] == Edge::RF
+        || edge_position[index] == Edge::BR
+        || edge_position[index] == Edge::LB;
+}
+
 
 
