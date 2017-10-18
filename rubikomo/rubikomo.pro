@@ -28,7 +28,8 @@ SOURCES += \
         mainwindow.cpp \
     modelrubik.cpp \
     modelrubik_cornersedges.cpp \
-    modelrubik_matrix.cpp
+    modelrubik_matrix.cpp \
+    controllerrubik.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -37,7 +38,8 @@ HEADERS += \
     modelrubik_matrix.h \
     rubikface.h \
     rubikedge.h \
-    rubikcorner.h
+    rubikcorner.h \
+    controllerrubik.h
 
 FORMS += \
         mainwindow.ui
