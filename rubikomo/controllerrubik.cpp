@@ -7,7 +7,7 @@ ControllerRubik::ControllerRubik(QObject *parent) : QObject(parent)
 
 int ControllerRubik::getMatrixValue(const RubikFace &face, const int &row, const int &column) const
 {
-    model.matrix.getMatrixValue(face, row, column);
+    return model.matrix.getMatrixValue(face, row, column);
 }
 
 void ControllerRubik::setMatrixValue(const RubikFace &face, const int &row, const int &column, const int &value)
