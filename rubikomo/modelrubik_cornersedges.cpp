@@ -59,7 +59,8 @@ void ModelRubik_CornersEdges::rotateClockwise(const RubikFace &face)
     switch(face)
     {
     case RubikFace::Back:
-        rotateBackClockwise();
+        // rotate corners
+        // rotate edges
         break;
     case RubikFace::Down:
         rotateDownClockwise();
@@ -132,11 +133,101 @@ void ModelRubik_CornersEdges::init_centers()
 
 void ModelRubik_CornersEdges::rotateCornersClockwise(int UL, int UR, int DR, int DL, const RubikFace &face)
 {
-    // change corner orientation if
-    // permutate corners positions
-    // permutate corners orientation
+    // change corner orientation
+    if (face != RubikFace::Up && face != RubikFace::Down)
+    {
+        ++corner_orientation[UL];
+        --corner_orientation[UR];
+        ++corner_orientation[DR];
+        --corner_orientation[DL];
+    }
 
-    //change edge orientation if
+    // permutate corners positions
+    Corner aux = corner_position[UL];
+    corner_position[UL] = corner_position[DL];
+    corner_position[DL] = corner_position[DR];
+    corner_position[DR] = corner_position[UR];
+    corner_position[UR] = aux;
+
+    // permutate corners orientation
+    CornerOrientation aux = corner_orientation[UL];
+    corner_orientation[UL] = corner_orientation[DL];
+    corner_orientation[DL] = corner_orientation[DR];
+    corner_orientation[DR] = corner_orientation[UR];
+    corner_orientation[UR] = aux;
+
+}
+
+void ModelRubik_CornersEdges::rotateCornersCounterClockwise(int UR, int UL, int DL, int DR, const RubikFace &face)
+{
+    // change corner orientation
+    if (face != RubikFace::Up && face != RubikFace::Down)
+    {
+        ++corner_orientation[UL];
+        --corner_orientation[UR];
+        ++corner_orientation[DR];
+        --corner_orientation[DL];
+    }
+
+    // permutate corners positions
+    Corner aux = corner_position[UR];
+    corner_position[UR] = corner_position[DR];
+    corner_position[DR] = corner_position[DL];
+    corner_position[DL] = corner_position[UL];
+    corner_position[UL] = aux;
+
+    // permutate corners orientation
+    CornerOrientation aux = corner_orientation[UR];
+    corner_orientation[UR] = corner_orientation[DR];
+    corner_orientation[DR] = corner_orientation[DL];
+    corner_orientation[DL] = corner_orientation[UL];
+    corner_orientation[UL] = aux;
+}
+
+void ModelRubik_CornersEdges::rotateEdgesClockwise(int up, int right, int down, int left, const RubikFace &face)
+{
+    //change edge orientation
+    switch (face) {
+    case RubikFace::Left:
+    case RubikFace::Right:
+        if (edgeValueInMiddleSlice(up))
+            !edge_orientation[up];
+        if (edgeValueInMiddleSlice(right))
+            !edge_orientation[right];
+        if (edgeValueInMiddleSlice(down))
+            !edge_orientation[down];
+        if (edgeValueInMiddleSlice(left))
+            !edge_orientation[left];
+        break;
+
+    case RubikFace::Front:
+    case RubikFace::Back:
+        if (edgeValueInStandingSlice(up))
+            !edge_orientation[up];
+        if (edgeValueInStandingSlice(right))
+            !edge_orientation[right];
+        if (edgeValueInStandingSlice(down))
+            !edge_orientation[down];
+        if (edgeValueInStandingSlice(left))
+            !edge_orientation[left];
+        break;
+
+    case RubikFace::Up:
+    case RubikFace::Down:
+        if (edgeValueInEquatorSlice(up))
+            !edge_orientation[up];
+        if (edgeValueInEquatorSlice(right))
+            !edge_orientation[right];
+        if (edgeValueInEquatorSlice(down))
+            !edge_orientation[down];
+        if (edgeValueInEquatorSlice(left))
+            !edge_orientation[left];
+        break;
+
+    default:
+        break;
+    }
+
     //permutate edges positions
     //permutate edges orientation
 }
