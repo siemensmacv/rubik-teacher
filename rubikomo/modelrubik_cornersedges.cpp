@@ -130,7 +130,7 @@ void ModelRubik_CornersEdges::init_centers()
     }
 }
 
-void ModelRubik_CornersEdges::rotateFaceClockwise(int UL, int UR, int DR, int DL, const RubikFace &face)
+void ModelRubik_CornersEdges::rotateCornersClockwise(int UL, int UR, int DR, int DL, const RubikFace &face)
 {
     // change corner orientation if
     // permutate corners positions

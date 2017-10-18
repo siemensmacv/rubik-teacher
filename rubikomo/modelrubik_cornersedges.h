@@ -28,8 +28,15 @@ private:
 	void init_edges();
 	void init_centers();
 
-    void rotateFaceClockwise(int UL, int UR, int DR, int DL, const RubikFace &face);
-    void rotateFaceCounterClockwise(int UR, int UL, int DL, int DR, const RubikFace &face);
+    void rotateCornersClockwise(int UL, int UR, int DR, int DL, const RubikFace &face);
+    void rotateCornersCounterClockwise(int UR, int UL, int DL, int DR, const RubikFace &face);
+
+    void rotateEdgesClockwise(int up, int right, int down, int left, const RubikFace &face);
+    void rotateEdgesCounterClockwise(int up, int right, int down, int left, const RubikFace &face);
+
+    bool edgeValueInSet1(int index);
+    bool edgeValueInSet2(int index);
+    bool edgeValueInSet3(int index);
 
     Corner corner_position[8];
     Edge edge_position[12];
