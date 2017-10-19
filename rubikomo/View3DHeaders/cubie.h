@@ -7,6 +7,12 @@
 class Cubie : public ICubie{
 public:
     Cubie();
+    void startXAxisClockAnim();
+    void startXAxisCClockAnim();
+    void startYAxisClockAnim();
+    void startYAxisCClockAnim();
+    void startZAxisClockAnim();
+    void startZAxisCClockAnim();
 private:
     Cuboid *m_cuboid;
 };
