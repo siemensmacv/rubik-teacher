@@ -42,7 +42,8 @@ SOURCES += \
     View3DSources/plane.cpp \
     View3DSources/edge.cpp \
     View3DSources/corner.cpp \
-    View3DSources/centre.cpp
+    View3DSources/centre.cpp \
+    View3DSources/cube3d.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -64,7 +65,8 @@ HEADERS += \
     View3DHeaders/plane.h \
     View3DHeaders/edge.h \
     View3DHeaders/corner.h \
-    View3DHeaders/centre.h
+    View3DHeaders/centre.h \
+    View3DHeaders/cube3d.h
 
 FORMS += \
         mainwindow.ui
