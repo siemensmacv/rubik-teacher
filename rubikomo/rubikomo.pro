@@ -38,7 +38,11 @@ SOURCES += \
     View3DSources/rotatingeventhandler.cpp \
     View3DSources/animationhandler.cpp \
     View3DSources/cuboid.cpp \
-    View3DSources/cubie.cpp
+    View3DSources/cubie.cpp \
+    View3DSources/plane.cpp \
+    View3DSources/edge.cpp \
+    View3DSources/corner.cpp \
+    View3DSources/centre.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -56,7 +60,11 @@ HEADERS += \
     View3DHeaders/rotatingeventhandler.h \
     View3DHeaders/cuboid.h \
     View3DHeaders/cubie.h \
-    View3DHeaders/icubie.h
+    View3DHeaders/icubie.h \
+    View3DHeaders/plane.h \
+    View3DHeaders/edge.h \
+    View3DHeaders/corner.h \
+    View3DHeaders/centre.h
 
 FORMS += \
         mainwindow.ui
