@@ -8,30 +8,30 @@ Cubie::Cubie()
 
 void Cubie::startXAxisClockAnim()
 {
-    m_cuboid->m_animHandler->startXAxisClockAnim();
+    m_cuboid->animHandler()->startXAxisClockAnim();
 }
 
 void Cubie::startXAxisCClockAnim()
 {
-    m_cuboid->m_animHandler->startXAxisCClockAnim();
+    m_cuboid->animHandler()->startXAxisCClockAnim();
 }
 
 void Cubie::startYAxisClockAnim()
 {
-    m_cuboid->m_animHandler->startYAxisClockAnim();
+    m_cuboid->animHandler()->startYAxisClockAnim();
 }
 
 void Cubie::startYAxisCClockAnim()
 {
-    m_cuboid->m_animHandler->startYAxisCClockAnim();
+    m_cuboid->animHandler()->startYAxisCClockAnim();
 }
 
 void Cubie::startZAxisClockAnim()
 {
-    m_cuboid->m_animHandler->startZAxisClockAnim();
+    m_cuboid->animHandler()->startZAxisClockAnim();
 }
 
 void Cubie::startZAxisCClockAnim()
 {
-    m_cuboid->m_animHandler->startZAxisCClockAnim();
+    m_cuboid->animHandler()->startZAxisCClockAnim();
 }

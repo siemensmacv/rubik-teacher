@@ -17,6 +17,7 @@ public:
     void setShapeMaterial(Qt3DRender::QMaterial *shapeMaterial);
     void setShapeEntity(Qt3DCore::QEntity *shapeEntity);
     void setAnimHandler(AnimationHandler *animHandler);
+    AnimationHandler *animHandler() const;
 
 private:
     QTransform *m_shapeTransform;

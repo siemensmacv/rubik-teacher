@@ -24,3 +24,8 @@ void Shape3D::setAnimHandler(AnimationHandler *animHandler)
 {
     m_animHandler = animHandler;
 }
+
+AnimationHandler *Shape3D::animHandler() const
+{
+    return m_animHandler;
+}
