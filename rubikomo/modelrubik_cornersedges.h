@@ -12,10 +12,32 @@ class ModelRubik_CornersEdges
 public:
 	ModelRubik_CornersEdges();
 	~ModelRubik_CornersEdges();
+
+    void rotateClockwise(const RubikFace &face);
+    void rotateCounterClockwise(const RubikFace &face);
+
+    Corner getCorner(const Corner &position);
+    CornerOrientation getCornerOrientation(const Corner &position);
+
+    Edge getEdge(const Edge &position);
+    EdgeOrientation getEdgeOrientation(const Edge &position);
+
+    RubikFace getCenter(const RubikFace &position);
+private:
 	void init_corners();
 	void init_edges();
 	void init_centers();
-private:
+
+    void rotateCornersClockwise(int UL, int UR, int DR, int DL, const RubikFace &face);
+    void rotateCornersCounterClockwise(int UR, int UL, int DL, int DR, const RubikFace &face);
+
+    void rotateEdgesClockwise(int up, int right, int down, int left, const RubikFace &face);
+    void rotateEdgesCounterClockwise(int up, int right, int down, int left, const RubikFace &face);
+
+    bool edgeValueInSet1(int index);
+    bool edgeValueInSet2(int index);
+    bool edgeValueInSet3(int index);
+
     Corner corner_position[8];
     Edge edge_position[12];
     RubikFace center[6];
