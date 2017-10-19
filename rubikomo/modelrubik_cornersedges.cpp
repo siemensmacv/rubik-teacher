@@ -324,18 +324,18 @@ bool ModelRubik_CornersEdges::edgeValueInMiddleSlice(int index)
 
 bool ModelRubik_CornersEdges::edgeValueInEquatorSlice(int index)
 {
-    return edge_position[index] == Edge::UR
-        || edge_position[index] == Edge::UL
-        || edge_position[index] == Edge::DL
-        || edge_position[index] == Edge::DR;
-}
-
-bool ModelRubik_CornersEdges::edgeValueInStandingSlice(int index)
-{
     return edge_position[index] == Edge::FL
         || edge_position[index] == Edge::RF
         || edge_position[index] == Edge::BR
         || edge_position[index] == Edge::LB;
+}
+
+bool ModelRubik_CornersEdges::edgeValueInStandingSlice(int index)
+{
+    return edge_position[index] == Edge::UR
+        || edge_position[index] == Edge::UL
+        || edge_position[index] == Edge::DL
+        || edge_position[index] == Edge::DR;
 }
 
 
