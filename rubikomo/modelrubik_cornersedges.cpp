@@ -116,6 +116,31 @@ void ModelRubik_CornersEdges::rotateCounterClockwise(const RubikFace &face)
     }
 }
 
+Corner ModelRubik_CornersEdges::getCorner(const Corner &position)
+{
+    return corner_position[static_cast<int>(position)];
+}
+
+CornerOrientation ModelRubik_CornersEdges::getCornerOrientation(const Corner &position)
+{
+    return corner_orientation[static_cast<int>(position)]
+}
+
+Edge ModelRubik_CornersEdges::getEdge(const Edge &position)
+{
+    return edge_position[static_cast<int>(position)];
+}
+
+EdgeOrientation ModelRubik_CornersEdges::getEdgeOrientation(const Edge &position)
+{
+    return edge_orientation[static_cast<int>(position)];
+}
+
+RubikFace ModelRubik_CornersEdges::getCenter(const RubikFace &position)
+{
+    return center[static_cast<int>(position)];
+}
+
 void ModelRubik_CornersEdges::init_corners()
 {
 	for (int i = 0; i < 8; ++i)
