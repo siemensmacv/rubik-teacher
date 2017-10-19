@@ -37,7 +37,8 @@ SOURCES += \
     View3DSources/orbittransformcontroller.cpp \
     View3DSources/rotatingeventhandler.cpp \
     View3DSources/animationhandler.cpp \
-    View3DSources/cuboid.cpp
+    View3DSources/cuboid.cpp \
+    View3DSources/cubie.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -53,7 +54,9 @@ HEADERS += \
     View3DHeaders/animationhandler.h \
     View3DHeaders/orbittransformcontroller.h \
     View3DHeaders/rotatingeventhandler.h \
-    View3DHeaders/cuboid.h
+    View3DHeaders/cuboid.h \
+    View3DHeaders/cubie.h \
+    View3DHeaders/icubie.h
 
 FORMS += \
         mainwindow.ui
