@@ -32,11 +32,11 @@ private:
     void rotateCornersCounterClockwise(int UR, int UL, int DL, int DR, const RubikFace &face);
 
     void rotateEdgesClockwise(int up, int right, int down, int left, const RubikFace &face);
-    void rotateEdgesCounterClockwise(int up, int right, int down, int left, const RubikFace &face);
+    void rotateEdgesCounterClockwise(int up, int left, int down, int right, const RubikFace &face);
 
-    bool edgeValueInSet1(int index);
-    bool edgeValueInSet2(int index);
-    bool edgeValueInSet3(int index);
+    bool edgeValueInMiddleSlice(int index);
+    bool edgeValueInEquatorSlice(int index);
+    bool edgeValueInStandingSlice(int index);
 
     Corner corner_position[8];
     Edge edge_position[12];
