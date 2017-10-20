@@ -360,5 +360,6 @@ void Rubik2DHandler::refreshRepresentations()
     {
         sCubieCubeRepresentation = cCubieCubeRepresentation[i];
         mLabelCubeCubiecubeRepresentation[i]->setText(sCubieCubeRepresentation);
+        free(cCubieCubeRepresentation[i]);
     }
 }
