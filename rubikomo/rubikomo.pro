@@ -46,7 +46,8 @@ SOURCES += \
     View3DSources/cubiefactory.cpp \
     View3DSources/xorbittransformcontroller.cpp \
     View3DSources/zorbittransformcontroller.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    View3DSources/yorbittransformcontroller.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -72,7 +73,8 @@ HEADERS += \
     View3DHeaders/cube3d.h \
     View3DHeaders/cubiefactory.h \
     View3DHeaders/xorbittransformcontroller.h \
-    View3DHeaders/zorbittransformcontroller.h
+    View3DHeaders/zorbittransformcontroller.h \
+    View3DHeaders/yorbittransformcontroller.h
 
 FORMS += \
         mainwindow.ui
