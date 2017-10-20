@@ -6,6 +6,9 @@
 #include "rubikedge.h"
 #include "rubikface.h"
 #include "./View3DHeaders/corner3d.h"
+#include "./View3DHeaders/edge3d.h"
+#include "./View3DHeaders/centre3d.h"
+
 #include <Qt3DCore>
 
 class CubieFactory {
