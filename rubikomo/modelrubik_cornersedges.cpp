@@ -123,7 +123,7 @@ Corner ModelRubik_CornersEdges::getCorner(const Corner &position)
 
 CornerOrientation ModelRubik_CornersEdges::getCornerOrientation(const Corner &position)
 {
-    return corner_orientation[static_cast<int>(position)]
+    return corner_orientation[static_cast<int>(position)];
 }
 
 Edge ModelRubik_CornersEdges::getEdge(const Edge &position)
