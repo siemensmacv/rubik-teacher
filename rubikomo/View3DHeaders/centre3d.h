@@ -4,10 +4,10 @@
 #include "View3DHeaders/cubie.h"
 #include "View3DHeaders/plane.h"
 
-class Centre : public Cubie
+class Centre3D : public Cubie
 {
 public:
-    Centre();
+    Centre3D(Qt3DCore::QEntity *rootEntity);
 private:
     Plane *m_plane;
 };

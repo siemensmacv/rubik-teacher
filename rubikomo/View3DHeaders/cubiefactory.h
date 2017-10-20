@@ -5,12 +5,18 @@
 #include "rubikcorner.h"
 #include "rubikedge.h"
 #include "rubikface.h"
+#include "./View3DHeaders/corner3d.h"
+#include <Qt3DCore>
 
 class CubieFactory {
 public:
-    static ICubie* getCornerCubie(int index,Corner corner,CornerOrientation cornerOrient);
-    static ICubie* getEdgeCubie(int index,Edge edge,EdgeOrientation edgeOrient);
-    static ICubie* getCentreCubie(int index,RubikFace centre);
+    CubieFactory(Qt3DCore::QEntity *rootEntity);
+    ICubie* getCornerCubie(int index,Corner corner,CornerOrientation cornerOrient);
+    ICubie* getEdgeCubie(int index,Edge edge,EdgeOrientation edgeOrient);
+    ICubie* getCentreCubie(int index,RubikFace centre);
+
+    Qt3DCore::QEntity *m_rootEntity;
+
 
 };
 #endif // CUBIEFACTORY_H

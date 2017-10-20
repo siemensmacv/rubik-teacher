@@ -2,13 +2,15 @@
 #define ANIMATIONHANDLER_H
 
 #include "orbittransformcontroller.h"
+#include "./View3DHeaders/xorbittransformcontroller.h"
+#include "./View3DHeaders/yorbittransformcontroller.h"
+#include "./View3DHeaders/zorbittransformcontroller.h"
 
 #include <Qt3DCore>
 
 class AnimationHandler
 {
 public:
-    AnimationHandler();
     explicit AnimationHandler(Qt3DCore::QTransform *cuboidTranform);
 
     void startXAxisClockAnim();
@@ -18,12 +20,21 @@ public:
     void startZAxisClockAnim();
     void startZAxisCClockAnim();
 
-private:
-    OrbitTransformController *m_orbitTransform;
+    XOrbitTransformController *XOrbitTransform() const;
 
+    YOrbitTransformController *YOrbitTransform() const;
+
+    ZOrbitTransformController *ZOrbitTransform() const;
+
+private:
     QPropertyAnimation *XAnim;
+    XOrbitTransformController *m_XOrbitTransform;
+
     QPropertyAnimation *YAnim;
+    YOrbitTransformController *m_YOrbitTransform;
+
     QPropertyAnimation *ZAnim;
+    ZOrbitTransformController *m_ZOrbitTransform;
 };
 
 #endif // ANIMATIONHANDLER_H

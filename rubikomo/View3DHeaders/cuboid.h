@@ -7,7 +7,7 @@
 class Cuboid : public Shape3D
 {
 public:
-    Cuboid(Qt3DCore::QEntity *rootEntity);
+    explicit Cuboid(Qt3DCore::QEntity *rootEntity);
 
     AnimationHandler *animHandler() const;
 private:

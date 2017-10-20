@@ -27,3 +27,8 @@ void Shape3D::setShapeEntity(Qt3DCore::QEntity *shapeEntity)
 {
     m_shapeEntity = shapeEntity;
 }
+
+Qt3DCore::QTransform *Shape3D::shapeTransform() const
+{
+    return m_shapeTransform;
+}

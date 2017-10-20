@@ -39,15 +39,15 @@ SOURCES += \
     View3DSources/cuboid.cpp \
     View3DSources/cubie.cpp \
     View3DSources/plane.cpp \
-    View3DSources/edge.cpp \
-    View3DSources/corner.cpp \
-    View3DSources/centre.cpp \
     View3DSources/cube3d.cpp \
     View3DSources/cubiefactory.cpp \
     View3DSources/xorbittransformcontroller.cpp \
     View3DSources/zorbittransformcontroller.cpp \
     mainwindow.cpp \
-    View3DSources/yorbittransformcontroller.cpp
+    View3DSources/yorbittransformcontroller.cpp \
+    View3DSources/corner3d.cpp \
+    View3DSources/edge3d.cpp \
+    View3DSources/centre3d.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -67,14 +67,14 @@ HEADERS += \
     View3DHeaders/cubie.h \
     View3DHeaders/icubie.h \
     View3DHeaders/plane.h \
-    View3DHeaders/edge.h \
-    View3DHeaders/corner.h \
-    View3DHeaders/centre.h \
     View3DHeaders/cube3d.h \
     View3DHeaders/cubiefactory.h \
     View3DHeaders/xorbittransformcontroller.h \
     View3DHeaders/zorbittransformcontroller.h \
-    View3DHeaders/yorbittransformcontroller.h
+    View3DHeaders/yorbittransformcontroller.h \
+    View3DHeaders/corner3d.h \
+    View3DHeaders/edge3d.h \
+    View3DHeaders/centre3d.h
 
 FORMS += \
         mainwindow.ui

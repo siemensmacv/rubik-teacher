@@ -7,13 +7,16 @@
 
 class Cubie : public ICubie{
 public:
-    Cubie();
+    explicit Cubie(Qt3DCore::QEntity *rootEntity);
     void startXAxisClockAnim();
     void startXAxisCClockAnim();
     void startYAxisClockAnim();
     void startYAxisCClockAnim();
     void startZAxisClockAnim();
     void startZAxisCClockAnim();
+
+    Cuboid *cuboid() const;
+
 private:
     Cuboid *m_cuboid;
 };
