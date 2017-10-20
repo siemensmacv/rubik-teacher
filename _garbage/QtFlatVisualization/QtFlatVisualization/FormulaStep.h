@@ -12,6 +12,9 @@ public:
     FormulaStep( char desc[3] );
     FormulaStep( );
 
+    FormulaStepMoveEnum FSE() {return mFSE;}
+    FormulaStepTypeEnum FST() {return mFST;}
+
 private:
     FormulaStepMoveEnum mFSE;
     FormulaStepTypeEnum mFST;
