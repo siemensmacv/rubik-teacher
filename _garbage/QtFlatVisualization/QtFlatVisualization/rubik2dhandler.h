@@ -9,6 +9,9 @@
 #include <QString>
 #include <string>
 #include "Cub_Rubik.h"
+#include "../ckociemba/facecube.h"
+#include "../ckociemba/cubiecube.h"
+
 
 class Rubik2DHandler : public QObject
 {
@@ -22,6 +25,8 @@ public:
     explicit Rubik2DHandler(QGridLayout *gridLayout,
                             QWidget *gridLayoutQWidget,
                             const QString & sequence);
+
+    ~Rubik2DHandler();
 
     std::string toString() const;
     QString toQString() const;
@@ -61,6 +66,7 @@ private:
     void initCube();
     void getFacesFromCube();
     void refreshView();
+    void refreshRepresentations();
 
     QGridLayout *mGridLayout;
     QWidget *mGridLayoutWidget;
@@ -69,7 +75,11 @@ private:
         *mFrontFace, *mBackFace;
     Cub_Rubik<QColor> *mCube;
     QLabel *mLabelCubeRepresentation;
+    QLabel *mLabelCubeCubiecubeRepresentation[17];
     QLabel *mLabelSolution;
+
+    facecube_t *mFaceCube;
+    cubiecube_t *mCubieCube;
 };
 
 #endif // RUBIK2DHANDLER_H

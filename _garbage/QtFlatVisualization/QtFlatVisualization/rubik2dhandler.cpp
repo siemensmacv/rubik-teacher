@@ -1,6 +1,8 @@
 #include "rubik2dhandler.h"
 #include "../ckociemba/search.h"
 
+const int CUBIECUBE_REPRESENTATION_LINES = 17;
+
 Rubik2DHandler::Rubik2DHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidget)
     : QObject(gridLayoutQWidget),
       mGridLayout{gridLayout},
@@ -22,6 +24,13 @@ Rubik2DHandler::Rubik2DHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidg
 Rubik2DHandler::Rubik2DHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidget, const QString &sequence)
     : Rubik2DHandler(gridLayout, gridLayoutQWidget, sequence.toStdString())
 {
+}
+
+Rubik2DHandler::~Rubik2DHandler()
+{
+    free(mFaceCube);
+    free(mCubieCube);
+    delete(mCube);
 }
 
 std::string Rubik2DHandler::toString() const
@@ -270,8 +279,7 @@ void Rubik2DHandler::initFaceCubes(const std::string &sequence)
     mDownFace  = new FaceCube2D(mGridLayoutWidget, sequence.substr(27, 9));
     mLeftFace  = new FaceCube2D(mGridLayoutWidget, sequence.substr(36, 9));
     mBackFace  = new FaceCube2D(mGridLayoutWidget, sequence.substr(45, 9));
-    QString label(sequence.c_str());
-    mLabelCubeRepresentation = new QLabel(label);
+    mLabelCubeRepresentation = new QLabel();
     mLabelSolution = new QLabel("Solution: ");
 
     lGridLayoutFaces->addWidget(mUpFace,    0, 1);
@@ -281,8 +289,19 @@ void Rubik2DHandler::initFaceCubes(const std::string &sequence)
     lGridLayoutFaces->addWidget(mBackFace,  1, 3);
     lGridLayoutFaces->addWidget(mDownFace,  2, 1);
     mGridLayout->addLayout(lGridLayoutFaces, 0, 0);
+
     mGridLayout->addWidget(mLabelCubeRepresentation,  1, 0);
-    mGridLayout->addWidget(mLabelSolution,  2, 0);
+    mGridLayout->addWidget(mLabelSolution, 2, 0);
+
+    QGridLayout *lGridLayoutCubieRepresentation = new QGridLayout(mGridLayoutWidget);
+    for (int i = 0; i < CUBIECUBE_REPRESENTATION_LINES; i++)
+    {
+        mLabelCubeCubiecubeRepresentation[i] = new QLabel();
+        lGridLayoutCubieRepresentation->addWidget(mLabelCubeCubiecubeRepresentation[i], i, 0);
+    }
+    mGridLayout->addLayout(lGridLayoutCubieRepresentation, 0, 1);
+
+    refreshRepresentations();
 }
 
 void Rubik2DHandler::initCube()
@@ -293,6 +312,8 @@ void Rubik2DHandler::initCube()
                                   mDownFace->getColorMatrix(),
                                   mLeftFace->getColorMatrix(),
                                   mRightFace->getColorMatrix());
+    mFaceCube = nullptr;
+    mCubieCube = nullptr;
 }
 
 void Rubik2DHandler::getFacesFromCube()
@@ -314,7 +335,30 @@ void Rubik2DHandler::refreshView()
     mFrontFace->update();
     mBackFace->update();
 
-    QString sRepresentation = "Representation: ";
-    sRepresentation += toString().c_str();
-    mLabelCubeRepresentation->setText(sRepresentation);
+    refreshRepresentations();
+}
+
+void Rubik2DHandler::refreshRepresentations()
+{
+    free(mFaceCube);
+    free(mCubieCube);
+
+    char stringCube[60];
+    strcpy_s(stringCube, 60, toString().c_str());
+
+    mFaceCube = get_facecube_fromstring(stringCube);
+    mCubieCube = toCubieCube(mFaceCube);
+
+    QString sFlatRepresentation = "Flat Representation: ";
+    sFlatRepresentation += toString().c_str();
+    mLabelCubeRepresentation->setText(sFlatRepresentation);
+
+    char *cCubieCubeRepresentation[CUBIECUBE_REPRESENTATION_LINES];
+    cubiecubeToString2(mCubieCube, cCubieCubeRepresentation);
+    QString sCubieCubeRepresentation;
+    for (int i = 0; i < CUBIECUBE_REPRESENTATION_LINES; i++)
+    {
+        sCubieCubeRepresentation = cCubieCubeRepresentation[i];
+        mLabelCubeCubiecubeRepresentation[i]->setText(sCubieCubeRepresentation);
+    }
 }
