@@ -12,25 +12,21 @@ class Cube3D {
 public:
     Cube3D();
     Cube3D(ModelRubik_CornersEdges *model3D, Qt3DCore::QEntity *rootEntity);
+
+    //Rotations
 private:
+    void initCorners(ModelRubik_CornersEdges* model3D);
+    void initEdges(ModelRubik_CornersEdges* model3D);
+    void initCentres(ModelRubik_CornersEdges* model3D);
+
     QVector<ICubie*> m_frontFace;
     QVector<ICubie*> m_backFace;
     QVector<ICubie*> m_upFace;
     QVector<ICubie*> m_downFace;
     QVector<ICubie*> m_rightFace;
     QVector<ICubie*> m_leftFace;
-    CubieFactory *m_cf;
 
-//{
-//    for()
-//        switch()
-
-//    get urf
-//    set 0 0 0
-
-//    get urb
-
-//}
+    CubieFactory *m_cubieFactory;
 
 };
 #endif // CUBE3D_H
