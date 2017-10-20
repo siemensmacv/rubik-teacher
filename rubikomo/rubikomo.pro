@@ -27,7 +27,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
     modelrubik.cpp \
     modelrubik_cornersedges.cpp \
     modelrubik_matrix.cpp \
@@ -43,7 +42,11 @@ SOURCES += \
     View3DSources/edge.cpp \
     View3DSources/corner.cpp \
     View3DSources/centre.cpp \
-    View3DSources/cube3d.cpp
+    View3DSources/cube3d.cpp \
+    View3DSources/cubiefactory.cpp \
+    View3DSources/xorbittransformcontroller.cpp \
+    View3DSources/zorbittransformcontroller.cpp \
+    mainwindow.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -66,7 +69,10 @@ HEADERS += \
     View3DHeaders/edge.h \
     View3DHeaders/corner.h \
     View3DHeaders/centre.h \
-    View3DHeaders/cube3d.h
+    View3DHeaders/cube3d.h \
+    View3DHeaders/cubiefactory.h \
+    View3DHeaders/xorbittransformcontroller.h \
+    View3DHeaders/zorbittransformcontroller.h
 
 FORMS += \
         mainwindow.ui

@@ -19,8 +19,11 @@ public:
     void startZAxisCClockAnim();
 
 private:
-    Qt3DCore::QTransform *m_cuboidTransform;
     OrbitTransformController *m_orbitTransform;
+
+    QPropertyAnimation *XAnim;
+    QPropertyAnimation *YAnim;
+    QPropertyAnimation *ZAnim;
 };
 
 #endif // ANIMATIONHANDLER_H

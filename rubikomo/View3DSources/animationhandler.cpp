@@ -4,15 +4,20 @@ AnimationHandler::AnimationHandler(){
 
 }
 
-AnimationHandler::AnimationHandler(Qt3DCore::QTransform *cuboidTransform):
-    m_cuboidTransform(cuboidTransform)
+AnimationHandler::AnimationHandler(Qt3DCore::QTransform *cuboidTransform)
 {
 
+    XAnim = new QPropertyAnimation(m_orbitTransform->target());
+    YAnim = new QPropertyAnimation(m_orbitTransform->target());
+    ZAnim = new QPropertyAnimation(m_orbitTransform->target());
 }
 
 void AnimationHandler::startXAxisClockAnim()
 {
-
+    //xorbit.recalculateAngle()
+    //anim start value(xorbit.getangle)
+    //anim sttop value(angle + 90)
+    //anim.start
 }
 
 void AnimationHandler::startXAxisCClockAnim()

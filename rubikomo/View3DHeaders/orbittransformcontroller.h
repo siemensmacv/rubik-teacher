@@ -25,8 +25,7 @@ public:
     void setAngle(float angle);
     float angle() const;
 
-    void setPreviousMatrix(const QMatrix4x4 & previousMatrix);
-    QMatrix4x4 previousMatrix() const;
+    virtual void updateAngle() = 0;
 
 signals:
     void targetChanged();
@@ -34,11 +33,11 @@ signals:
     void angleChanged();
 
 protected:
-    void updateMatrix();
+    virtual QMatrix4x4 getCentreMatrix() = 0;
+    virtual void updateMatrix() = 0;
 
-private:
+
     Qt3DCore::QTransform *m_target;
-    QMatrix4x4 m_matrix, m_previousMatrix;
     float m_radius;
     float m_angle;
 };

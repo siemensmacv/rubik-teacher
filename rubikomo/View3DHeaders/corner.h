@@ -9,6 +9,6 @@ class Corner : public Cubie
 public:
       Corner();
 private:
-      Plane *m_plane,m_plane2,*m_plane3;
+      //Plane *m_plane,m_plane2,*m_plane3;
 };
 #endif // CORNER_H

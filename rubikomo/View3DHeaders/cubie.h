@@ -3,6 +3,7 @@
 
 #include "./View3DHeaders/cuboid.h"
 #include "./View3DHeaders/icubie.h"
+#include "./View3DHeaders/animationhandler.h"
 
 class Cubie : public ICubie{
 public:

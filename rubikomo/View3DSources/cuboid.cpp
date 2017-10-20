@@ -1,11 +1,15 @@
 #include "./View3DHeaders/cuboid.h"
 
-Cuboid::Cuboid()
+Cuboid::Cuboid(Qt3DCore::QEntity *rootEntity) :
+    Shape3D(rootEntity)
 {
+    m_cuboidMesh = new Qt3DExtras::QCuboidMesh(m_shapeEntity);
+    m_shapeEntity->addComponent(m_cuboidMesh);
 
+    m_animHandler = new AnimationHandler(m_shapeTransform);
 }
 
-void Cuboid::setCuboidMesh(Qt3DExtras::QCuboidMesh *cuboidMesh)
+AnimationHandler *Cuboid::animHandler() const
 {
-    m_cuboidMesh = cuboidMesh;
+    return m_animHandler;
 }
