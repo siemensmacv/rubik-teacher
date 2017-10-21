@@ -3,7 +3,7 @@
 View2D::View2D(QWidget *parent, ModelRubik_Matrix *model2D) : QWidget(parent)
 {
     m_model2D = model2D;
-    gridLayout = new QGridLayout(parent);
+    gridLayout = new QGridLayout();
     initFaceCubes(parent);
 }
 
@@ -19,12 +19,12 @@ QLayout* View2D::getLayout() const
 
 void View2D::initFaceCubes(QWidget *parent)
 {
-    mUpFace    = new FaceCube2D(parent);
-    mFrontFace = new FaceCube2D(parent);
-    mRightFace = new FaceCube2D(parent);
-    mDownFace  = new FaceCube2D(parent);
-    mLeftFace  = new FaceCube2D(parent);
-    mBackFace  = new FaceCube2D(parent);
+    mUpFace    = new FaceCube2D(parent, m_model2D, RubikFace::Up);
+    mFrontFace = new FaceCube2D(parent, m_model2D, RubikFace::Front);
+    mRightFace = new FaceCube2D(parent, m_model2D, RubikFace::Right);
+    mDownFace  = new FaceCube2D(parent, m_model2D, RubikFace::Down);
+    mLeftFace  = new FaceCube2D(parent, m_model2D, RubikFace::Left);
+    mBackFace  = new FaceCube2D(parent, m_model2D, RubikFace::Back);
 
     gridLayout->addWidget(mUpFace,    0, 1);
     gridLayout->addWidget(mLeftFace,  1, 0);
