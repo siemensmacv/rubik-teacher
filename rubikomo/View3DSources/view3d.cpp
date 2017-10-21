@@ -4,6 +4,9 @@ View3D::View3D(ModelRubik_CornersEdges *model3D, Ui::MainWindow *ui)
 {
     m_model3D = model3D;
     m_ui=ui;
+    timer=new QTimer(this);
+    connect(timer,&QTimer::timeout,
+            this,&View3D::onAnimationEnded);
     initCube3D();
 }
 
@@ -85,80 +88,84 @@ void View3D::UpC()
 {
     toggleAllButtons(false);
     theCube->UpC();
-    toggleAllButtons(true);
-
+    timer->start(ANIMATION_DURATION);
 }
 void View3D::UpCC()
 {
     toggleAllButtons(false);
     theCube->UpCC();
-    toggleAllButtons(true);
+    timer->start(ANIMATION_DURATION);
 }
 
 void View3D::DownC()
 {
     toggleAllButtons(false);
     theCube->DownC();
-    toggleAllButtons(true);
+    timer->start(ANIMATION_DURATION);
 }
 
 void View3D::DownCC()
 {
     toggleAllButtons(false);
     theCube->DownCC();
-    toggleAllButtons(true);
+    timer->start(ANIMATION_DURATION);
 }
 
 void View3D::FrontC()
 {
     toggleAllButtons(false);
     theCube->FrontC();
-    toggleAllButtons(true);
+    timer->start(ANIMATION_DURATION);
 }
 void View3D::FrontCC()
 {
     toggleAllButtons(false);
     theCube->FrontCC();
-    toggleAllButtons(true);
+    timer->start(ANIMATION_DURATION);
 }
 
 void View3D::BackC()
 {
     toggleAllButtons(false);
     theCube->BackC();
-    toggleAllButtons(true);
+    timer->start(ANIMATION_DURATION);
 }
 void View3D::BackCC()
 {
     toggleAllButtons(false);
     theCube->BackCC();
-    toggleAllButtons(true);
+    timer->start(ANIMATION_DURATION);
 }
 
 void View3D::RightC()
 {
     toggleAllButtons(false);
     theCube->RightC();
-    toggleAllButtons(true);
+    timer->start(ANIMATION_DURATION);
 }
 void View3D::RightCC()
 {
     toggleAllButtons(false);
     theCube->RightCC();
-    toggleAllButtons(true);
+    timer->start(ANIMATION_DURATION);
 }
 
 void View3D::LeftC()
 {
     toggleAllButtons(false);
     theCube->LeftC();
-    toggleAllButtons(true);
+    timer->start(ANIMATION_DURATION);
 }
 
 void View3D::LeftCC()
 {
     toggleAllButtons(false);
     theCube->LeftCC();
+    timer->start(ANIMATION_DURATION);
+}
+
+void View3D::onAnimationEnded()
+{
     toggleAllButtons(true);
 }
 

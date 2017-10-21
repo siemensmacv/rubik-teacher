@@ -8,8 +8,9 @@
 
 #include <Qt3DCore>
 
-class AnimationHandler
+class AnimationHandler : public QObject
 {
+    Q_OBJECT
 public:
     explicit AnimationHandler(Qt3DCore::QTransform *cuboidTranform,bool isCorner);
 
@@ -25,7 +26,8 @@ public:
     YOrbitTransformController *YOrbitTransform() const;
 
     ZOrbitTransformController *ZOrbitTransform() const;
-
+signals:
+    void animationEnded();
 private:
     QPropertyAnimation *XAnim;
     XOrbitTransformController *m_XOrbitTransform;

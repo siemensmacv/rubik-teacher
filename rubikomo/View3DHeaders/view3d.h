@@ -10,6 +10,8 @@
 #include <QMainWindow>
 #include "ui_mainwindow.h"
 
+#define ANIMATION_DURATION 1100
+
 namespace Ui {
 class MainWindow;
 };
@@ -36,9 +38,12 @@ public slots:
     void LeftC();
     void LeftCC();
 
+    void onAnimationEnded();
+
 private:
     void toggleAllButtons(bool toggle);
 
+    QTimer *timer;
     Ui::MainWindow *m_ui;
     void initCube3D();
     Cube3D *theCube;

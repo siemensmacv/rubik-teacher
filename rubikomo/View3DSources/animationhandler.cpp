@@ -29,8 +29,8 @@ AnimationHandler::AnimationHandler(Qt3DCore::QTransform *cuboidTransform, bool i
     ZAnim->setDuration(1000);
     ZAnim->setLoopCount(1);
 
-    connect(XAnim, &QPropertyAnimation::finished,
-                     m_view3D, &View3D::onAnimationEnded);
+    //connect(XAnim, &QPropertyAnimation::finished,
+     //                m_view3D, &View3D::onAnimationEnded);
 }
 
 void AnimationHandler::startXAxisClockAnim()

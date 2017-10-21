@@ -7,6 +7,8 @@ Cuboid::Cuboid(Qt3DCore::QEntity *rootEntity,bool isCorner) :
     m_cuboidMesh = new Qt3DExtras::QCuboidMesh(m_shapeEntity);
     m_shapeEntity->addComponent(m_cuboidMesh);
     m_animHandler = new AnimationHandler(m_shapeTransform,m_isCorner);
+
+
 }
 
 AnimationHandler *Cuboid::animHandler() const
