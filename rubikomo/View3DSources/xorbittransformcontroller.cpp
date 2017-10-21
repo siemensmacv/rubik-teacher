@@ -93,7 +93,7 @@ void XOrbitTransformController::updateMatrix()
         if(m_isCorner)
             matrix.rotate(45, QVector3D(-relativeVectorAxis, 0.0f, 0.0f));
     }
-
+    matrix.optimize();
     m_target->setMatrix(matrix);
 }
 
@@ -101,6 +101,10 @@ QMatrix4x4 XOrbitTransformController::getCentreMatrix()
 {
     QMatrix4x4 matrix;
     matrix.translate(m_target->translation().x(), 0.0f, 0.0f);
+
+    //=====
+    //QMatrix4x4 matrix=m_target->matrix();
     //matrix.translate(0.0f, -m_target->translation().y(), -m_target->translation().z());
+    //matrix.optimize();
     return matrix;
 }

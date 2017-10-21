@@ -5,6 +5,7 @@ Shape3D::Shape3D(Qt3DCore::QEntity *rootEntity)
     m_shapeEntity=new Qt3DCore::QEntity(rootEntity);
 
     m_shapeTransform=new Qt3DCore::QTransform(m_shapeEntity);
+    m_shapeTransform->matrix().optimize();
     m_shapeMaterial = new Qt3DExtras::QPhongMaterial(m_shapeEntity);
     m_shapeMaterial->setDiffuse(QColor(255,255,255));
 

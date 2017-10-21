@@ -24,7 +24,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-
+RESOURCES +=
 SOURCES += \
         main.cpp \
     modelrubik.cpp \
@@ -47,7 +47,7 @@ SOURCES += \
     View3DSources/corner3d.cpp \
     View3DSources/edge3d.cpp \
     View3DSources/centre3d.cpp \
-    View3DSources/view3d.cpp
+    View3DSources/view3d.cpp \
 
 HEADERS += \
         mainwindow.h \
@@ -75,7 +75,9 @@ HEADERS += \
     View3DHeaders/edge3d.h \
     View3DHeaders/centre3d.h \
     View3DHeaders/view3d.h \
-    View3DHeaders/matrixswap.h
+    View3DHeaders/matrixswap.h \
 
 FORMS += \
         mainwindow.ui
+
+DISTFILES +=
