@@ -1,7 +1,6 @@
 #include "FormulaHandler.h"
 #include <QPushButton>
 
-
 FormulaHandler::FormulaHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidget, QObject *rubikController)
     : QObject(gridLayoutQWidget),
       mGridLayout{gridLayout},
@@ -21,6 +20,17 @@ FormulaHandler::~FormulaHandler()
 void FormulaHandler::initFormula()
 {
     mGridLayoutFormulas = new QGridLayout(mGridLayoutWidget);
+
+    for (int i = 0; i < mFormula.Count(); i++)
+    {
+        FormulaStep fs = mFormula.FormulaStepAt(i);
+        char desc[3];
+        fs.GetDesc(desc);
+        QLabel *lLabel = new QLabel(desc);
+        mFormulaStepsLabels[i] = lLabel;
+        mGridLayoutFormulas->addWidget(lLabel, 0, i + 1);
+    }
+
     mGridLayout->addLayout(mGridLayoutFormulas, 0, 0);
 
     QGridLayout *lGridLayoutButtons = new QGridLayout(mGridLayoutWidget);
@@ -35,7 +45,7 @@ void FormulaHandler::initFormula()
     connect(buttonForward, &QPushButton::clicked, this, &FormulaHandler::forwardStep);
     lGridLayoutButtons->addWidget(buttonForward, 0, 2);
 
-    mGridLayout->addLayout(lGridLayoutButtons, 0, 0);
+    mGridLayout->addLayout(lGridLayoutButtons, 1, 0);
 }
 
 void FormulaHandler::backwardStep()

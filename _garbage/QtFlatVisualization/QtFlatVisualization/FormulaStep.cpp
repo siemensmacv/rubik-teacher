@@ -48,3 +48,8 @@ FormulaStep::FormulaStep( )
 {
 }
 
+void FormulaStep::GetDesc(char* cDesc)
+{
+    strcpy_s(cDesc, 3, mDesc);
+}
+

@@ -1,5 +1,6 @@
 #include "Formula.h"
 #include <string.h>
+#include <QException>
 
 const int MAX_STEPS = 30;
 
@@ -31,7 +32,6 @@ Formula::Formula(char* cFormula)
         while (cFormula[charindex] == ' ' && charindex < length)
             charindex++;
 
-        stepindex++;
    }
    m_nCount = stepindex;
    m_nIndex = 0;
@@ -49,6 +49,18 @@ bool Formula::bForwardStep(FormulaStep& fs)
         fs = FormulaStep();
     }
     return bResult;
+}
+
+int Formula::Count()
+{
+    return m_nCount;
+}
+
+FormulaStep Formula::FormulaStepAt(int index)
+{
+    if (index < 0 || index > m_nCount)
+        throw new QException();
+    return m_Steps[index];
 }
 
 // advance a step if possible and return it (return false if at the end of formula)

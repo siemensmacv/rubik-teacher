@@ -14,6 +14,7 @@ public:
 
     FormulaStepMoveEnum FSE() {return mFSE;}
     FormulaStepTypeEnum FST() {return mFST;}
+    void GetDesc( char* cDesc);
 
 private:
     FormulaStepMoveEnum mFSE;
