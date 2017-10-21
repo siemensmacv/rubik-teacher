@@ -1,0 +1,233 @@
+#include "FormulaHandler.h"
+#include <QPushButton>
+
+
+FormulaHandler::FormulaHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidget, QObject *rubikController)
+    : QObject(gridLayoutQWidget),
+      mGridLayout{gridLayout},
+      mGridLayoutWidget{gridLayoutQWidget},
+      mRubikController{rubikController},
+      mFormula{Formula("U R B")}
+{
+    initFormula();
+}
+
+
+FormulaHandler::~FormulaHandler()
+{
+
+}
+
+void FormulaHandler::initFormula()
+{
+    mGridLayoutFormulas = new QGridLayout(mGridLayoutWidget);
+    mGridLayout->addLayout(mGridLayoutFormulas, 0, 0);
+
+    QGridLayout *lGridLayoutButtons = new QGridLayout(mGridLayoutWidget);
+
+    QPushButton *buttonBackward = new QPushButton("<|", mGridLayoutWidget);
+    buttonBackward->setVisible(true);
+    connect(buttonBackward, &QPushButton::clicked, this, &FormulaHandler::backwardStep);
+    lGridLayoutButtons->addWidget(buttonBackward, 0, 1);
+
+    QPushButton *buttonForward = new QPushButton("|>", mGridLayoutWidget);
+    buttonForward->setVisible(true);
+    connect(buttonForward, &QPushButton::clicked, this, &FormulaHandler::forwardStep);
+    lGridLayoutButtons->addWidget(buttonForward, 0, 2);
+
+    mGridLayout->addLayout(lGridLayoutButtons, 0, 0);
+}
+
+void FormulaHandler::backwardStep()
+{
+    FormulaStep fs;
+    if (mFormula.bBackwardStep(fs))
+    {
+        performMove(fs);
+    }
+}
+
+void FormulaHandler::forwardStep()
+{
+    FormulaStep fs;
+    if (mFormula.bForwardStep(fs))
+    {
+        performMove(fs);
+    }
+}
+
+void FormulaHandler::performMove(FormulaStep fs)
+{
+
+}
+
+//void FormulaHandler::frontClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->frontClock();
+//        refreshView();
+//    }
+
+//}
+
+//void FormulaHandler::frontCounterClock()
+//{
+//   if (mCube)
+//   {
+//       mCube->frontCounterClock();
+//       refreshView();
+//   }
+//}
+
+//void FormulaHandler::backClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->backClock();
+//        refreshView();
+//    }
+
+//}
+
+//void FormulaHandler::backCounterClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->backCounterClock();
+//        refreshView();
+//    }
+//}
+
+//void FormulaHandler::upClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->upClock();
+//        refreshView();
+//    }
+
+//}
+
+//void FormulaHandler::upCounterClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->upCounterClock();
+//        refreshView();
+//    }
+//}
+
+//void FormulaHandler::downClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->downClock();
+//        refreshView();
+//    }
+//}
+
+//void FormulaHandler::downCounterClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->downCounterClock();
+//        refreshView();
+//    }
+//}
+
+//void FormulaHandler::leftClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->leftClock();
+//        refreshView();
+//    }
+//}
+
+//void FormulaHandler::leftCounterClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->leftCounterClock();
+//        refreshView();
+//    }
+//}
+
+//void FormulaHandler::rightClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->rightClock();
+//        refreshView();
+//    }
+//}
+
+//void FormulaHandler::rightCounterClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->rightCounterClock();
+//        refreshView();
+//    }
+//}
+
+//void FormulaHandler::xAxisClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->xAxisClock();
+//        getFacesFromCube();
+//        refreshView();
+//    }
+//}
+
+//void FormulaHandler::xAxisCounterClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->xAxisCounterClock();
+//        getFacesFromCube();
+//        refreshView();
+//    }
+//}
+
+//void FormulaHandler::yAxisClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->yAxisClock();
+//        getFacesFromCube();
+//        refreshView();
+//    }
+//}
+
+//void FormulaHandler::yAxisCounterClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->yAxisCounterClock();
+//        getFacesFromCube();
+//        refreshView();
+//    }
+//}
+
+//void FormulaHandler::zAxisClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->zAxisClock();
+//        getFacesFromCube();
+//        refreshView();
+//    }
+//}
+
+//void FormulaHandler::zAxisCounterClock()
+//{
+//    if (mCube)
+//    {
+//        mCube->zAxisCounterClock();
+//        getFacesFromCube();
+//        refreshView();
+//    }
+//}

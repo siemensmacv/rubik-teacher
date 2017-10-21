@@ -35,7 +35,8 @@ SOURCES += \
     ../ckociemba/search.c \
     ../ckociemba/solve.c \
     Formula.cpp \
-    FormulaStep.cpp
+    FormulaStep.cpp \
+    FormulaHandler.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -55,7 +56,8 @@ HEADERS += \
     ../ckociemba/facelet.h \
     ../ckociemba/search.h \
     Formula.h \
-    FormulaStep.h
+    FormulaStep.h \
+    FormulaHandler.h
 
 FORMS += \
         mainwindow.ui

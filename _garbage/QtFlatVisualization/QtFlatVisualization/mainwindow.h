@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "rubik2dhandler.h"
 #include <QPushButton>
+#include "FormulaHandler.h"
 
 namespace Ui {
 class MainWindow;
@@ -19,7 +20,8 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    Rubik2DHandler *handler;
+    Rubik2DHandler *mRubik2DHandler;
+    FormulaHandler *mFormulaHandler;
 };
 
 #endif // MAINWINDOW_H
