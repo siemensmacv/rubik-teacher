@@ -48,7 +48,7 @@ QColor FaceCube2D::getColorFromValue(int value) const
     case 3:
         return QColor(255, 0, 0);
     case 4:
-        return QColor(255, 69, 0);
+        return QColor(255, 165, 0);
     case 5:
         return QColor(255, 255, 0);
     case 6:
