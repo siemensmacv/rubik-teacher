@@ -9,7 +9,7 @@ class ColorInput : public QWidget
 
 public:
     Q_OBJECT
-    QList<Qt::GlobalColor>colorList;
+    QList<QColor>colorList;
     QList<int> rectColor;
     QList<QRect> rectangles;
 public:

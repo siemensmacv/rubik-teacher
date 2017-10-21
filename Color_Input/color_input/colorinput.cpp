@@ -5,12 +5,12 @@
 ColorInput::ColorInput(QWidget *parent) : QWidget(parent)
 {
 
-    colorList.push_back(Qt::yellow);
-    colorList.push_back(Qt::green);
-    colorList.push_back(Qt::red);
-    colorList.push_back(Qt::darkMagenta);
-    colorList.push_back(Qt::blue);
-    colorList.push_back(Qt::white);
+    colorList.push_back(QColor(255,255,0));
+    colorList.push_back(QColor(0,255,0));
+    colorList.push_back(QColor(255,0,0));
+    colorList.push_back(QColor(255,128,0));
+    colorList.push_back(QColor(0,0,255));
+    colorList.push_back(QColor(255,255,255));
 
     rectColor.push_back(0);
     rectColor.push_back(1);
