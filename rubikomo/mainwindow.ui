@@ -42,7 +42,7 @@
        <enum>QTabWidget::South</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideRight</enum>
@@ -159,14 +159,7 @@
           <height>610</height>
          </rect>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,0,0">
-         <item>
-          <layout class="QGridLayout" name="gridLayout_2">
-           <property name="sizeConstraint">
-            <enum>QLayout::SetDefaultConstraint</enum>
-           </property>
-          </layout>
-         </item>
+        <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
          <item>
           <spacer name="horizontalSpacer">
            <property name="orientation">
@@ -705,7 +698,7 @@
      <x>0</x>
      <y>0</y>
      <width>1186</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

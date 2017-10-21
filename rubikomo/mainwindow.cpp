@@ -5,6 +5,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    //m_view2D = new View2D(ui->horizontalLayoutWidget, &controllerRubik.model.matrix);
     m_view3D = new View3D(&controllerRubik.model.corners_edges);
 
     ui->setupUi(this);
@@ -17,6 +18,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->pushButton_23,&QPushButton::clicked,
             m_view3D,&View3D::test);
+
+    //ui->horizontalLayout->addLayout(m_view2D->getLayout());
 }
 
 MainWindow::~MainWindow()
