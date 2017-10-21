@@ -54,7 +54,7 @@ ModelRubik_CornersEdges::~ModelRubik_CornersEdges()
 {
 }
 
-void ModelRubik_CornersEdges::rotateClockwise(const RubikFace &face)
+void ModelRubik_CornersEdges::rotateFaceClockwise(const RubikFace &face)
 {
     switch(face)
     {
@@ -85,7 +85,7 @@ void ModelRubik_CornersEdges::rotateClockwise(const RubikFace &face)
     }
 }
 
-void ModelRubik_CornersEdges::rotateCounterClockwise(const RubikFace &face)
+void ModelRubik_CornersEdges::rotateFaceCounterClockwise(const RubikFace &face)
 {
     switch(face)
     {

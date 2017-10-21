@@ -48,7 +48,9 @@ SOURCES += \
     View3DSources/corner3d.cpp \
     View3DSources/edge3d.cpp \
     View3DSources/centre3d.cpp \
-    View3DSources/view3d.cpp
+    View3DSources/view3d.cpp \
+    View2DSources/view2d.cpp \
+    View2DSources/facecube2d.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -76,7 +78,9 @@ HEADERS += \
     View3DHeaders/corner3d.h \
     View3DHeaders/edge3d.h \
     View3DHeaders/centre3d.h \
-    View3DHeaders/view3d.h
+    View3DHeaders/view3d.h \
+    View2DHeaders/view2d.h \
+    View2DHeaders/facecube2d.h
 
 FORMS += \
         mainwindow.ui

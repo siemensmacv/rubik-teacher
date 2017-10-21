@@ -7,50 +7,45 @@ ControllerRubik::ControllerRubik(QObject *parent) : QObject(parent)
 
 int ControllerRubik::getMatrixValue(const RubikFace &face, const int &row, const int &column) const
 {
-    return model.matrix.getMatrixValue(face, row, column);
-}
-
-void ControllerRubik::setMatrixValue(const RubikFace &face, const int &row, const int &column, const int &value)
-{
-    model.matrix.setMatrixValue(face, row, column, value);
+    return model.getMatrixValue(face, row, column);
 }
 
 void ControllerRubik::rotateFaceClockwise(const RubikFace &face)
 {
-    model.matrix.rotateFaceClockwise(face);
+    model.rotateFaceClockwise(face);
 }
 
 void ControllerRubik::rotateFaceCounterClockwise(const RubikFace &face)
 {
-    model.matrix.rotateFaceCounterClockwise(face);
+    model.rotateFaceCounterClockwise(face);
 }
 
 void ControllerRubik::rotateXAxisClockwise()
 {
-    model.matrix.rotateXAxisClockwise();
+    model.rotateXAxisClockwise();
 }
 
 void ControllerRubik::rotateXAxisCounterClockwise()
 {
-    model.matrix.rotateXAxisCounterClockwise();
+    model.rotateXAxisCounterClockwise();
 }
 
 void ControllerRubik::rotateYAxisClockwise()
 {
-    model.matrix.rotateYAxisClockwise();
+    model.rotateYAxisClockwise();
 }
 
 void ControllerRubik::rotateYAxisCounterClockwise()
 {
-    model.matrix.rotateYAxisCounterClockwise();
+    model.rotateYAxisCounterClockwise();
 }
 
 void ControllerRubik::rotateZAxisClockwise()
 {
-    model.matrix.rotateZAxisClockwise();
+    model.rotateZAxisClockwise();
 }
 
 void ControllerRubik::rotateZAxisCounterClockwise()
 {
-    model.matrix.rotateZAxisCounterClockwise();
+    model.rotateZAxisCounterClockwise();
 }
