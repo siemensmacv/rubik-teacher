@@ -37,7 +37,7 @@ void ZOrbitTransformController::updateAngle()
         if (qFuzzyCompare(y, -scale) && qFuzzyCompare(x, 0.0f))
             m_angle = 270.0f;
 
-        if (qFuzzyCompare(y, -scale) && qFuzzyCompare(z, -scale))
+        if (qFuzzyCompare(y, -scale) && qFuzzyCompare(x, scale))
             m_angle = 315.0f;
     }
 

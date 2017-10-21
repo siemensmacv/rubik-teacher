@@ -2,17 +2,21 @@
 #define VIEW3D_H
 
 #include <QWidget>
+#include <QObject>
+
 #include "./View3DHeaders/cube3d.h"
 #include "modelrubik_cornersedges.h"
 #include <QHBoxLayout>
 
-class View3D{
+class View3D : public QObject{
+    Q_OBJECT
 public:
     View3D(ModelRubik_CornersEdges *model3D);
 
     QWidget *getContainer() const;
-
-public:
+public slots:
+    void test();
+private:
     void initCube3D();
     Cube3D *theCube;
     ModelRubik_CornersEdges* m_model3D;

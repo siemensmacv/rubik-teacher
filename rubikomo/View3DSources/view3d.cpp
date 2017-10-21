@@ -55,3 +55,8 @@ QWidget *View3D::getContainer() const
     return container;
 }
 
+void View3D::test()
+{
+    theCube->test();
+}
+

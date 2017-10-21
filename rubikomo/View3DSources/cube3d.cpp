@@ -17,6 +17,11 @@ Cube3D::Cube3D(ModelRubik_CornersEdges *model3D, Qt3DCore::QEntity *rootEntity)
 
 }
 
+void Cube3D::test()
+{
+    m_frontFace[8]->startZAxisClockAnim();
+}
+
 void Cube3D::initCorners(ModelRubik_CornersEdges *model3D)
 {
     m_upFace[2]=m_rightFace[2]=m_backFace[0]=
