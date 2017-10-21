@@ -14,7 +14,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->gridLayout_3->addWidget(m_view3D->getContainer());
     //for(int i=0;i<9;i++)
-        m_view3D->theCube->m_frontFace[8]->startZAxisClockAnim();
+
+    connect(ui->pushButton_23,&QPushButton::clicked,
+            m_view3D,&View3D::test);
 }
 
 MainWindow::~MainWindow()
