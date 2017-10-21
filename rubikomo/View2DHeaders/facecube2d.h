@@ -8,13 +8,13 @@
 #include <QPainter>
 #include <QPair>
 #include <string>
-#include <modelrubik_matrix.h>
+#include <controllerrubik.h>
 
 class FaceCube2D : public QFrame
 {
     Q_OBJECT
 public:
-    explicit FaceCube2D(QWidget *parent = nullptr, ModelRubik_Matrix *model2D = nullptr, RubikFace representing = RubikFace::Up);
+    explicit FaceCube2D(QWidget *parent = nullptr, ModelRubik *model = nullptr, RubikFace representing = RubikFace::Up);
     ~FaceCube2D();
     virtual void paintEvent(QPaintEvent *pe) override;
 
@@ -31,6 +31,6 @@ private:
     int mBorderWidth = 5;
     int mFrameSize = 150;
     QRect **mRectMatrix;
-    ModelRubik_Matrix *m_model2D;
+    ModelRubik *m_model;
     RubikFace m_representing;
 };

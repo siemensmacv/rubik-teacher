@@ -13,8 +13,14 @@ public:
 	ModelRubik_CornersEdges();
 	~ModelRubik_CornersEdges();
 
-    void rotateClockwise(const RubikFace &face);
-    void rotateCounterClockwise(const RubikFace &face);
+    void rotateFaceClockwise(const RubikFace &face);
+    void rotateFaceCounterClockwise(const RubikFace &face);
+    void rotateXAxisClockwise();
+    void rotateXAxisCounterClockwise();
+    void rotateYAxisClockwise();
+    void rotateYAxisCounterClockwise();
+    void rotateZAxisClockwise();
+    void rotateZAxisCounterClockwise();
 
     Corner getCorner(const Corner &position);
     CornerOrientation getCornerOrientation(const Corner &position);

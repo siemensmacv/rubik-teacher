@@ -1,8 +1,8 @@
 #include <View2DHeaders/facecube2d.h>
 
-FaceCube2D::FaceCube2D(QWidget *parent, ModelRubik_Matrix *model2D, RubikFace representing) : QFrame(parent)
+FaceCube2D::FaceCube2D(QWidget *parent, ModelRubik *model, RubikFace representing) : QFrame(parent)
 {
-    m_model2D = model2D;
+    m_model = model;
     m_representing = representing;
     updateFrameSize();
     initRectMatrix();
@@ -28,7 +28,7 @@ void FaceCube2D::paintEvent(QPaintEvent *pe)
     {
         for (unsigned j = 0; j < 3; ++j)
         {
-            QColor color = getColorFromValue(m_model2D->getMatrixValue(m_representing, i, j));
+            QColor color = getColorFromValue(m_model->getMatrixValue(m_representing, i, j));
             painter.setPen(color);
             painter.setBrush(color);
 
