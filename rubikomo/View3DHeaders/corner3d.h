@@ -4,11 +4,13 @@
 #include "./View3DHeaders/cubie.h"
 #include "./View3DHeaders/plane.h"
 
-class Corner : public Cubie
+class Corner3D : public Cubie
 {
 public:
-      Corner();
+    explicit Corner3D(Qt3DCore::QEntity *rootEntity);
 private:
-      Plane *m_plane,m_plane2,*m_plane3;
+    Plane *m_plane;
+    Plane *m_plane2;
+    Plane *m_plane3;
 };
 #endif // CORNER_H

@@ -1,6 +1,7 @@
 #include "./View3DHeaders/plane.h"
 
-Plane::Plane()
+Plane::Plane(Qt3DCore::QEntity *rootEntity) :
+    Shape3D(rootEntity)
 {
 
 }

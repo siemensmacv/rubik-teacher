@@ -11,19 +11,20 @@
 class Shape3D
 {
 public:
-    Shape3D();
+    explicit Shape3D(Qt3DCore::QEntity *rootEntity);
 
-    void setShapeTransform(QTransform *shapeTransform);
-    void setShapeMaterial(Qt3DRender::QMaterial *shapeMaterial);
+    void setShapeTransform(Qt3DCore::QTransform *shapeTransform);
+    void setShapeMaterial(Qt3DExtras::QPhongMaterial *shapeMaterial);
     void setShapeEntity(Qt3DCore::QEntity *shapeEntity);
-    void setAnimHandler(AnimationHandler *animHandler);
-    AnimationHandler *animHandler() const;
 
-private:
-    QTransform *m_shapeTransform;
-    Qt3DRender::QMaterial *m_shapeMaterial;
+
+    Qt3DCore::QTransform *shapeTransform() const;
+
+protected:
+    Qt3DCore::QTransform *m_shapeTransform;
+    Qt3DExtras::QPhongMaterial *m_shapeMaterial;
     Qt3DCore::QEntity *m_shapeEntity;
-    AnimationHandler *m_animHandler;
+
 };
 
 #endif // SHAPE3D_H

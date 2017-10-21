@@ -2,6 +2,7 @@
 #define ICUBIE_H
 
 class ICubie{
+public:
     virtual void startXAxisClockAnim() = 0;
     virtual void startXAxisCClockAnim() = 0;
     virtual void startYAxisClockAnim() = 0;

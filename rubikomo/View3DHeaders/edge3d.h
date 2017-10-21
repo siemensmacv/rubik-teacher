@@ -4,10 +4,10 @@
 #include "./View3DHeaders/cubie.h"
 #include "./View3DHeaders/plane.h"
 
-class Edge : public Cubie
+class Edge3D : public Cubie
 {
 public:
-    Edge();
+    Edge3D(Qt3DCore::QEntity *rootEntity);
 private:
     Plane *m_plane,*m_plane2;
 };

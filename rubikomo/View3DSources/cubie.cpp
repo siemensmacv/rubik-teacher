@@ -1,9 +1,9 @@
 #include "./View3DHeaders/cubie.h"
 
 
-Cubie::Cubie()
+Cubie::Cubie(Qt3DCore::QEntity *rootEntity)
 {
-
+    m_cuboid=new Cuboid(rootEntity);
 }
 
 void Cubie::startXAxisClockAnim()
@@ -34,4 +34,9 @@ void Cubie::startZAxisClockAnim()
 void Cubie::startZAxisCClockAnim()
 {
     m_cuboid->animHandler()->startZAxisCClockAnim();
+}
+
+Cuboid *Cubie::cuboid() const
+{
+    return m_cuboid;
 }

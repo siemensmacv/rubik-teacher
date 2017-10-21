@@ -3,16 +3,20 @@
 
 #include "./View3DHeaders/cuboid.h"
 #include "./View3DHeaders/icubie.h"
+#include "./View3DHeaders/animationhandler.h"
 
 class Cubie : public ICubie{
 public:
-    Cubie();
+    explicit Cubie(Qt3DCore::QEntity *rootEntity);
     void startXAxisClockAnim();
     void startXAxisCClockAnim();
     void startYAxisClockAnim();
     void startYAxisCClockAnim();
     void startZAxisClockAnim();
     void startZAxisCClockAnim();
+
+    Cuboid *cuboid() const;
+
 private:
     Cuboid *m_cuboid;
 };

@@ -6,7 +6,7 @@
 class Plane : public Shape3D
 {
 public:
-    Plane();
+    Plane(Qt3DCore::QEntity *rootEntity);
     void setPlaneMesh(Qt3DExtras::QPlaneMesh *planeMesh);
 private:
     Qt3DExtras::QPlaneMesh *m_planeMesh;
