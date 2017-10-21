@@ -159,14 +159,7 @@
           <height>610</height>
          </rect>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0">
-         <item>
-          <layout class="QGridLayout" name="gridLayout_2">
-           <property name="sizeConstraint">
-            <enum>QLayout::SetDefaultConstraint</enum>
-           </property>
-          </layout>
-         </item>
+        <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
          <item>
           <spacer name="horizontalSpacer">
            <property name="orientation">

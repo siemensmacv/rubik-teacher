@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tabWidget->setStyleSheet("QTabWidget QTabBar::tab{width:" + QString::number(tabWidth) + "px; }");
     ui->tabWidget->setCurrentIndex(2);
 
-    ui->horizontalLayout->addLayout(m_view2D->getLayout());
+    ui->horizontalLayout->insertLayout(0, m_view2D->getLayout());
     ui->gridLayout_3->addWidget(m_view3D->getContainer());
 
     connect(ui->pushButton_23,&QPushButton::clicked,
