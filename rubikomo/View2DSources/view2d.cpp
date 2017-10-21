@@ -7,11 +7,6 @@ View2D::View2D(QWidget *parent, ModelRubik_Matrix *model2D) : QWidget(parent)
     initFaceCubes(parent);
 }
 
-View2D::~View2D()
-{
-    delete gridLayout;
-}
-
 QLayout* View2D::getLayout() const
 {
     return gridLayout;

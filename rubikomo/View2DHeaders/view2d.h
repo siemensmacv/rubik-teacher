@@ -11,7 +11,6 @@ class View2D : public QWidget
     Q_OBJECT
 public:
     explicit View2D(QWidget *parent = nullptr, ModelRubik_Matrix *model2D = nullptr);
-    ~View2D();
     QLayout* getLayout() const;
 private:
     ModelRubik_Matrix *m_model2D;
