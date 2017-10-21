@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-10-05T11:05:38
+# Project created by QtCreator 2017-10-21T15:41:00
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = QtFlatVisualization
+TARGET = color_input
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -26,36 +26,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    facecube2d.cpp \
-    qbaserubikcube6matrix.cpp \
-    rubik2dhandler.cpp \
-    ../ckociemba/coordcube.c \
-    ../ckociemba/cubiecube.c \
-    ../ckociemba/facecube.c \
-    ../ckociemba/search.c \
-    ../ckociemba/solve.c \
-    Formula.cpp \
-    FormulaStep.cpp
+    colorinput.cpp
 
 HEADERS += \
         mainwindow.h \
-    facecube2d.h \
-    Cub_Rubik.h \
-    qbaserubikcube6matrix.h \
-    qrubikcube6matrix.h \
-    rubik2dhandler.h \
-    Cub_Rubik.h \
-    facecube2d.h \
-    ../ckociemba/color.h \
-    ../ckociemba/coordcube.h \
-    ../ckociemba/corner.h \
-    ../ckociemba/cubiecube.h \
-    ../ckociemba/edge.h \
-    ../ckociemba/facecube.h \
-    ../ckociemba/facelet.h \
-    ../ckociemba/search.h \
-    Formula.h \
-    FormulaStep.h
+    colorinput.h
 
 FORMS += \
         mainwindow.ui

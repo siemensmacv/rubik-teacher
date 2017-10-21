@@ -4,15 +4,15 @@
 #include "./View3DHeaders/icubie.h"
 #include "./View3DHeaders/cubiefactory.h"
 
-#include "modelrubik_cornersedges.h"
+#include "modelrubik.h"
 #include "./View3DHeaders/matrixswap.h"
 
 #include <Qt3DCore>
 
 class Cube3D {
 public:
-    Cube3D(ModelRubik_CornersEdges *model3D, Qt3DCore::QEntity *rootEntity);
-    void UpC();//
+    Cube3D(ModelRubik *model3D, Qt3DCore::QEntity *rootEntity);
+    void UpC();
     void UpCC();
     void DownC();
     void DownCC();
@@ -20,15 +20,15 @@ public:
     void FrontCC();
     void BackC();
     void BackCC();
-    void RightC();//
+    void RightC();
     void RightCC();
     void LeftC();
     void LeftCC();
 
 private:
-    void initCorners(ModelRubik_CornersEdges* model3D);
-    void initEdges(ModelRubik_CornersEdges* model3D);
-    void initCentres(ModelRubik_CornersEdges* model3D);
+    void initCorners(ModelRubik *model3D);
+    void initEdges(ModelRubik* model3D);
+    void initCentres(ModelRubik *model3D);
 
     ICubie*** m_frontFace;
     ICubie*** m_backFace;

@@ -7,16 +7,18 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
+<<<<<<< HEAD
+=======
     m_view2D = new View2D(ui->horizontalLayoutWidget_2, &controllerRubik.model);
     //m_view3D = new View3D(&controllerRubik.model);
 
-
+>>>>>>> master
     float tabWidth = (ui->tabWidget->width()*3-34);
     ui->tabWidget->setStyleSheet("QTabWidget QTabBar::tab{width:" + QString::number(tabWidth) + "px; }");
     ui->tabWidget->setCurrentIndex(2);
 
-    m_view3D = new View3D(&controllerRubik.model,ui);
+<<<<<<< HEAD
+     m_view3D = new View3D(&controllerRubik.model.corners_edges,ui);
 
     ui->gridLayout_3->addWidget(m_view3D->getContainer());
 
@@ -49,12 +51,12 @@ MainWindow::MainWindow(QWidget *parent) :
             m_view3D,&View3D::RightC);
     connect(ui->RR_PushButton_3D,&QPushButton::clicked,
             m_view3D,&View3D::RightCC);
-
+=======
     ui->horizontalLayout->insertLayout(0, m_view2D->getLayout());
-    ui->gridLayout_3->addWidget(m_view3D->getContainer());
+    //ui->gridLayout_3->addWidget(m_view3D->getContainer());
 
     connectFlatButtonsToSlots();
-
+>>>>>>> master
 }
 
 MainWindow::~MainWindow()

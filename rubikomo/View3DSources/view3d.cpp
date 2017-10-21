@@ -1,6 +1,6 @@
 #include "./View3DHeaders/view3d.h"
 
-View3D::View3D(ModelRubik_CornersEdges *model3D, Ui::MainWindow *ui)
+View3D::View3D(ModelRubik *model3D, Ui::MainWindow *ui)
 {
     m_model3D = model3D;
     m_ui=ui;

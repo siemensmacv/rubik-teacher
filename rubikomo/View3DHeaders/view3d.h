@@ -5,7 +5,7 @@
 #include <QObject>
 
 #include "./View3DHeaders/cube3d.h"
-#include "modelrubik_cornersedges.h"
+#include "modelrubik.h"
 #include <QHBoxLayout>
 #include <QMainWindow>
 #include "ui_mainwindow.h"
@@ -19,7 +19,7 @@ class MainWindow;
 class View3D : public QObject{
     Q_OBJECT
 public:
-    View3D(ModelRubik_CornersEdges *model3D,Ui::MainWindow *ui);
+    View3D(ModelRubik *model3D, Ui::MainWindow *ui);
 
     QWidget *getContainer() const;
 
@@ -47,7 +47,7 @@ private:
     Ui::MainWindow *m_ui;
     void initCube3D();
     Cube3D *theCube;
-    ModelRubik_CornersEdges* m_model3D;
+    ModelRubik* m_model3D;
     QWidget * container;
 
 };

@@ -1,7 +1,7 @@
 #include "./View3DHeaders/cube3d.h"
 #include <Qt3DExtras>
 
-Cube3D::Cube3D(ModelRubik_CornersEdges *model3D, Qt3DCore::QEntity *rootEntity)
+Cube3D::Cube3D(ModelRubik *model3D, Qt3DCore::QEntity *rootEntity)
 {
     auto alocmatr=[](){
         ICubie*** matr=new ICubie**[3];
@@ -27,7 +27,7 @@ Cube3D::Cube3D(ModelRubik_CornersEdges *model3D, Qt3DCore::QEntity *rootEntity)
 
 }
 
-void Cube3D::initCorners(ModelRubik_CornersEdges *model3D)
+void Cube3D::initCorners(ModelRubik *model3D)
 {
     m_upFace[0][2]=m_rightFace[0][2]=m_backFace[0][0]=
             m_cubieFactory->getCornerCubie(0,
@@ -73,7 +73,7 @@ void Cube3D::initCorners(ModelRubik_CornersEdges *model3D)
     dynamic_cast<Cubie*>(m_rightFace[0][0])->cuboid()->setColor(255,0,0);
 }
 
-void Cube3D::initEdges(ModelRubik_CornersEdges *model3D)
+void Cube3D::initEdges(ModelRubik *model3D)
 {
     m_upFace[0][1]=m_backFace[0][1]=
             m_cubieFactory->getEdgeCubie(0,
@@ -137,7 +137,7 @@ void Cube3D::initEdges(ModelRubik_CornersEdges *model3D)
                                          model3D->getEdgeOrientation(Edge::DL));
 }
 
-void Cube3D::initCentres(ModelRubik_CornersEdges *model3D)
+void Cube3D::initCentres(ModelRubik *model3D)
 {
     m_frontFace[1][1]=m_cubieFactory->getCentreCubie(0,model3D->getCenter(RubikFace::Front));
     m_backFace[1][1]=m_cubieFactory->getCentreCubie(1,model3D->getCenter(RubikFace::Back));
