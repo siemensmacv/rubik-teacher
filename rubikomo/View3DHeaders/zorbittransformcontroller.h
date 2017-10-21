@@ -7,10 +7,10 @@ class ZOrbitTransformController : public OrbitTransformController
 {
 public:
 public:
-    ZOrbitTransformController(QObject *parent = 0);
+    ZOrbitTransformController(QObject *parent ,bool isCorner);
 
     void updateAngle() override;
-
+    //bool isCorner();
 protected:
     void updateMatrix() override;
     QMatrix4x4 getCentreMatrix() override;

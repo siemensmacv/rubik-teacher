@@ -7,8 +7,8 @@
 class Cuboid : public Shape3D
 {
 public:
-    explicit Cuboid(Qt3DCore::QEntity *rootEntity);
-
+    explicit Cuboid(Qt3DCore::QEntity *rootEntity, bool isCorner);
+    bool m_isCorner;
     AnimationHandler *animHandler() const;
 private:
     Qt3DExtras::QCuboidMesh *m_cuboidMesh;

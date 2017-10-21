@@ -17,6 +17,7 @@ public:
     void setShapeMaterial(Qt3DExtras::QPhongMaterial *shapeMaterial);
     void setShapeEntity(Qt3DCore::QEntity *shapeEntity);
 
+    void setColor(int r,int g,int b);
 
     Qt3DCore::QTransform *shapeTransform() const;
 

@@ -1,10 +1,11 @@
 #include "./View3DHeaders/orbittransformcontroller.h"
 
-OrbitTransformController::OrbitTransformController(QObject *parent)
+OrbitTransformController::OrbitTransformController(QObject *parent, bool isCorner)
     : QObject(parent)
     , m_target(nullptr)
     , m_radius(1.0f)
     , m_angle(0.0f)
+    , m_isCorner(isCorner)
 {
 }
 
@@ -25,7 +26,6 @@ void OrbitTransformController::setRadius(float radius)
 {
     if (!qFuzzyCompare(radius, m_radius)) {
         m_radius = radius;
-        updateMatrix();
         emit radiusChanged();
     }
 }

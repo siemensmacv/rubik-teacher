@@ -76,7 +76,8 @@ HEADERS += \
     View3DHeaders/corner3d.h \
     View3DHeaders/edge3d.h \
     View3DHeaders/centre3d.h \
-    View3DHeaders/view3d.h
+    View3DHeaders/view3d.h \
+    View3DHeaders/matrixswap.h
 
 FORMS += \
         mainwindow.ui

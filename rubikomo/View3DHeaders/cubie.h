@@ -7,7 +7,7 @@
 
 class Cubie : public ICubie{
 public:
-    explicit Cubie(Qt3DCore::QEntity *rootEntity);
+    explicit Cubie(Qt3DCore::QEntity *rootEntity, bool isCorner);
     void startXAxisClockAnim();
     void startXAxisCClockAnim();
     void startYAxisClockAnim();

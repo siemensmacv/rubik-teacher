@@ -25,6 +25,10 @@ void View3D::initCube3D(){
     cameraEntity->setUpVector(QVector3D(0, 1, 0));
     cameraEntity->setViewCenter(QVector3D(0, 0, 0));
 
+    // For camera controls
+    Qt3DExtras::QFirstPersonCameraController *camController = new Qt3DExtras::QFirstPersonCameraController(rootEntity);
+    camController->setCamera(cameraEntity);
+
     // Lighting
     Qt3DCore::QEntity *lightEntity = new Qt3DCore::QEntity(rootEntity);
     Qt3DRender::QPointLight *light = new Qt3DRender::QPointLight(lightEntity);
@@ -55,8 +59,12 @@ QWidget *View3D::getContainer() const
     return container;
 }
 
-void View3D::test()
+void View3D::UpC()
 {
-    theCube->test();
+    theCube->UpC();
+}
+void View3D::RC()
+{
+    theCube->RC();
 }
 

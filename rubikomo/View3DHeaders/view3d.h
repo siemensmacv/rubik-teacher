@@ -14,8 +14,11 @@ public:
     View3D(ModelRubik_CornersEdges *model3D);
 
     QWidget *getContainer() const;
+
+    //to be destroyed
 public slots:
-    void test();
+    void UpC();
+    void RC();
 private:
     void initCube3D();
     Cube3D *theCube;

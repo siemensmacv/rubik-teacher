@@ -6,14 +6,13 @@
 class XOrbitTransformController : public OrbitTransformController
 {
 public:
-    XOrbitTransformController(QObject *parent = 0);
+    XOrbitTransformController(QObject *parent ,bool isCorner);
 
     void updateAngle() override;
 
 protected:
     void updateMatrix() override;
     QMatrix4x4 getCentreMatrix() override;
-
 
 };
 

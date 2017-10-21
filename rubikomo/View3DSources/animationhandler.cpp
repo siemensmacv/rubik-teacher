@@ -1,10 +1,10 @@
 #include "./View3DHeaders/animationhandler.h"
 
-AnimationHandler::AnimationHandler(Qt3DCore::QTransform *cuboidTransform)
+AnimationHandler::AnimationHandler(Qt3DCore::QTransform *cuboidTransform, bool isCorner)
 {
-    m_XOrbitTransform = new XOrbitTransformController(cuboidTransform);
-    m_YOrbitTransform = new YOrbitTransformController(cuboidTransform);
-    m_ZOrbitTransform = new ZOrbitTransformController(cuboidTransform);
+    m_XOrbitTransform = new XOrbitTransformController(cuboidTransform,isCorner);
+    m_YOrbitTransform = new YOrbitTransformController(cuboidTransform,isCorner);
+    m_ZOrbitTransform = new ZOrbitTransformController(cuboidTransform,isCorner);
 
     m_XOrbitTransform->setTarget(cuboidTransform);
     m_YOrbitTransform->setTarget(cuboidTransform);

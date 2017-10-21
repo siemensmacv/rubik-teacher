@@ -1,7 +1,7 @@
 #include "./View3DHeaders/yorbittransformcontroller.h"
 
-YOrbitTransformController::YOrbitTransformController(QObject *parent)
-    : OrbitTransformController(parent)
+YOrbitTransformController::YOrbitTransformController(QObject *parent, bool isCorner)
+    : OrbitTransformController(parent,isCorner)
 {
 
 }
@@ -79,13 +79,19 @@ void YOrbitTransformController::updateMatrix()
 
     if (m_target->translation().y() > 0)
     {
+        //up
         matrix.rotate(m_angle, QVector3D( 0.0f, relativeVectorAxis, 0.0f));
         matrix.translate(relativeRadius, 0.0f, 0.0f);
+        if(m_isCorner)
+            matrix.rotate(45, QVector3D( 0.0f, relativeVectorAxis, 0.0f));
     }
     else
     {
+        //down
         matrix.rotate(m_angle, QVector3D(0.0f, -relativeVectorAxis, 0.0f));
         matrix.translate(-relativeRadius, 0.0f, 0.0f);
+        if(m_isCorner)
+            matrix.rotate(45, QVector3D( 0.0f, -relativeVectorAxis, 0.0f));
     }
 
     m_target->setMatrix(matrix);

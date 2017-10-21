@@ -15,8 +15,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->gridLayout_3->addWidget(m_view3D->getContainer());
     //for(int i=0;i<9;i++)
 
-    connect(ui->pushButton_23,&QPushButton::clicked,
-            m_view3D,&View3D::test);
+    connect(ui->pushButton_19,&QPushButton::clicked,
+            m_view3D,&View3D::UpC);
+    connect(ui->pushButton_29,&QPushButton::clicked,
+            m_view3D,&View3D::RC);
 }
 
 MainWindow::~MainWindow()

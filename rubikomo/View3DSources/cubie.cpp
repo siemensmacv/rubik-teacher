@@ -1,9 +1,9 @@
 #include "./View3DHeaders/cubie.h"
 
 
-Cubie::Cubie(Qt3DCore::QEntity *rootEntity)
+Cubie::Cubie(Qt3DCore::QEntity *rootEntity,bool isCorner)
 {
-    m_cuboid=new Cuboid(rootEntity);
+    m_cuboid=new Cuboid(rootEntity,isCorner);
 }
 
 void Cubie::startXAxisClockAnim()

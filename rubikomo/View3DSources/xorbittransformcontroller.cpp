@@ -1,7 +1,7 @@
 #include "./View3DHeaders/xorbittransformcontroller.h"
 
-XOrbitTransformController::XOrbitTransformController(QObject *parent)
-    : OrbitTransformController(parent)
+XOrbitTransformController::XOrbitTransformController(QObject *parent, bool isCorner)
+    : OrbitTransformController(parent,isCorner)
 {
 
 }
@@ -67,6 +67,7 @@ void XOrbitTransformController::updateAngle()
         if (qFuzzyCompare(y, -scale) && qFuzzyCompare(z, scale))
             m_angle = 315.0f;
     }
+
 }
 
 void XOrbitTransformController::updateMatrix()
@@ -78,13 +79,19 @@ void XOrbitTransformController::updateMatrix()
 
     if (m_target->translation().x() > 0)
     {
+        //right
         matrix.rotate(m_angle, QVector3D(relativeVectorAxis, 0.0f, 0.0f));
         matrix.translate(0.0f, 0.0f, -relativeRadius);
+        if(m_isCorner)
+            matrix.rotate(45, QVector3D(relativeVectorAxis, 0.0f, 0.0f));
     }
     else
     {
+        //left
         matrix.rotate(m_angle, QVector3D(-relativeVectorAxis, 0.0f, 0.0f));
         matrix.translate(0.0f, 0.0f, relativeRadius);
+        if(m_isCorner)
+            matrix.rotate(45, QVector3D(-relativeVectorAxis, 0.0f, 0.0f));
     }
 
     m_target->setMatrix(matrix);

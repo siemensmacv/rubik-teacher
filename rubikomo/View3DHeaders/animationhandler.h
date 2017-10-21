@@ -11,7 +11,7 @@
 class AnimationHandler
 {
 public:
-    explicit AnimationHandler(Qt3DCore::QTransform *cuboidTranform);
+    explicit AnimationHandler(Qt3DCore::QTransform *cuboidTranform,bool isCorner);
 
     void startXAxisClockAnim();
     void startXAxisCClockAnim();

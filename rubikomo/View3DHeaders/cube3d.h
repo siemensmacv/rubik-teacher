@@ -5,26 +5,29 @@
 #include "./View3DHeaders/cubiefactory.h"
 
 #include "modelrubik_cornersedges.h"
+#include "./View3DHeaders/matrixswap.h"
 
 #include <Qt3DCore>
 
 class Cube3D {
 public:
     Cube3D(ModelRubik_CornersEdges *model3D, Qt3DCore::QEntity *rootEntity);
-    void test();
+    void UpC();
+    void RC();
     //Rotations
 private:
     void initCorners(ModelRubik_CornersEdges* model3D);
     void initEdges(ModelRubik_CornersEdges* model3D);
     void initCentres(ModelRubik_CornersEdges* model3D);
 
-    QVector<ICubie*> m_frontFace;
-    QVector<ICubie*> m_backFace;
-    QVector<ICubie*> m_upFace;
-    QVector<ICubie*> m_downFace;
-    QVector<ICubie*> m_rightFace;
-    QVector<ICubie*> m_leftFace;
+    ICubie*** m_frontFace;
+    ICubie*** m_backFace;
+    ICubie*** m_upFace;
+    ICubie*** m_downFace;
+    ICubie*** m_rightFace;
+    ICubie*** m_leftFace;
 
+    MatrixSwap *m_swaper;
     CubieFactory *m_cubieFactory;
 
 };

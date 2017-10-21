@@ -6,7 +6,7 @@
 class YOrbitTransformController : public OrbitTransformController
 {
 public:
-    YOrbitTransformController(QObject *parent = 0);
+    YOrbitTransformController(QObject *parent ,bool isCorner);
 
     void updateAngle() override;
 

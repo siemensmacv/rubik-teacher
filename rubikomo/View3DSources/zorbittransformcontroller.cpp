@@ -1,7 +1,7 @@
 #include "./View3DHeaders/zorbittransformcontroller.h"
 
-ZOrbitTransformController::ZOrbitTransformController(QObject *parent)
-    : OrbitTransformController(parent)
+ZOrbitTransformController::ZOrbitTransformController(QObject *parent, bool isCorner)
+    : OrbitTransformController(parent,isCorner)
 {
 
 }
@@ -67,6 +67,7 @@ void ZOrbitTransformController::updateAngle()
         if (qFuzzyCompare(y, -scale) && qFuzzyCompare(x, -scale))
             m_angle = 315.0f;
     }
+
 }
 
 void ZOrbitTransformController::updateMatrix()
@@ -78,13 +79,24 @@ void ZOrbitTransformController::updateMatrix()
 
     if (m_target->translation().z() > 0)
     {
+        //front
         matrix.rotate(m_angle, QVector3D(0.0f, 0.0f, relativeVectorAxis));
         matrix.translate(relativeRadius, 0.0f,0.0f );
+        //ajustare de 45 pe colturi
+        if(m_isCorner)
+        {
+            matrix.rotate(45.0f, QVector3D(0.0f, 0.0f, relativeVectorAxis));
+        }
     }
     else
     {
+        //back
         matrix.rotate(m_angle, QVector3D(0.0f, 0.0f, -relativeVectorAxis));
         matrix.translate(-relativeRadius, 0.0f, 0.0f);
+        if(m_isCorner)
+        {
+            matrix.rotate(45.0f, QVector3D(0.0f, 0.0f, -relativeVectorAxis));
+        }
     }
 
     m_target->setMatrix(matrix);
