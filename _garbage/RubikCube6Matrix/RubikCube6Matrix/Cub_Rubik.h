@@ -3,7 +3,7 @@
 template <class T>
 class Cub_Rubik
 {
-	T** Front, Back, Up, Down, Left, Right;
+	T** Front, **Back, **Up, **Down, **Left, **Right;
 
 public:
 	Cub_Rubik(T **front, T **back, T **up, T **down, T **left, T **right)
