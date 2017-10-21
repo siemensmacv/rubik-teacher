@@ -12,9 +12,19 @@
 class Cube3D {
 public:
     Cube3D(ModelRubik_CornersEdges *model3D, Qt3DCore::QEntity *rootEntity);
-    void UpC();
-    void RC();
-    //Rotations
+    void UpC();//
+    void UpCC();
+    void DownC();
+    void DownCC();
+    void FrontC();
+    void FrontCC();
+    void BackC();
+    void BackCC();
+    void RightC();//
+    void RightCC();
+    void LeftC();
+    void LeftCC();
+
 private:
     void initCorners(ModelRubik_CornersEdges* model3D);
     void initEdges(ModelRubik_CornersEdges* model3D);

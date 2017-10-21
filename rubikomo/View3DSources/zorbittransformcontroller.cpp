@@ -8,63 +8,63 @@ ZOrbitTransformController::ZOrbitTransformController(QObject *parent, bool isCor
 
 void ZOrbitTransformController::updateAngle()
 {
-    float scale = 1.1f;
+    int scale = 1;
 
-    float x = m_target->translation().x();
-    float y = m_target->translation().y();
-    float z = m_target->translation().z();
+    int x =static_cast<int>(m_target->translation().x());
+    int y =static_cast<int>(m_target->translation().y());
+    int z =static_cast<int>(m_target->translation().z());
 
-    if (qFuzzyCompare(z, scale))
+    if ( z  == scale)
     {
-        if (qFuzzyCompare(y, 0.0f) && qFuzzyCompare(x, scale))
+        if ( y  == 0.0f &&  x  == scale)
             m_angle = 0.0f;
 
-        if (qFuzzyCompare(y, scale) && qFuzzyCompare(x, scale))
+        if ( y  == scale &&  x  == scale)
             m_angle = 45.0f;
 
-        if (qFuzzyCompare(y, scale) && qFuzzyCompare(x, 0.0f))
+        if ( y  == scale &&  x  == 0.0f)
             m_angle = 90.0f;
 
-        if (qFuzzyCompare(y, scale) && qFuzzyCompare(x, -scale))
+        if ( y  == scale &&  x  == -scale)
             m_angle = 135.0f;
 
-        if (qFuzzyCompare(y, 0.0f) && qFuzzyCompare(x, -scale))
+        if ( y  == 0.0f &&  x  == -scale)
             m_angle = 180.0f;
 
-        if (qFuzzyCompare(y, -scale) && qFuzzyCompare(x, -scale))
+        if ( y  == -scale &&  x  == -scale)
             m_angle = 225.0f;
 
-        if (qFuzzyCompare(y, -scale) && qFuzzyCompare(x, 0.0f))
+        if ( y  == -scale &&  x  == 0.0f)
             m_angle = 270.0f;
 
-        if (qFuzzyCompare(y, -scale) && qFuzzyCompare(x, scale))
+        if ( y  == -scale &&  x  == scale)
             m_angle = 315.0f;
     }
 
-    if (qFuzzyCompare(z, -scale))
+    if ( z  == -scale)
     {
-        if (qFuzzyCompare(y, 0.0f) && qFuzzyCompare(x, -scale))
+        if ( y  == 0.0f &&  x  == -scale)
             m_angle = 0.0f;
 
-        if (qFuzzyCompare(y, scale) && qFuzzyCompare(x, -scale))
+        if ( y  == scale &&  x  == -scale)
             m_angle = 45.0f;
 
-        if (qFuzzyCompare(y, scale) && qFuzzyCompare(x, 0.0f))
+        if ( y  == scale &&  x  == 0.0f)
             m_angle = 90.0f;
 
-        if (qFuzzyCompare(y, scale) && qFuzzyCompare(x, scale))
+        if ( y  == scale &&  x  == scale)
             m_angle = 135.0f;
 
-        if (qFuzzyCompare(y, 0.0f) && qFuzzyCompare(x, scale))
+        if ( y  == 0.0f &&  x  == scale)
             m_angle = 180.0f;
 
-        if (qFuzzyCompare(y, -scale) && qFuzzyCompare(x, scale))
+        if ( y  == -scale &&  x  == scale)
             m_angle = 225.0f;
 
-        if (qFuzzyCompare(y, -scale) && qFuzzyCompare(x, 0.0f))
+        if ( y  == -scale &&  x  == 0.0f)
             m_angle = 270.0f;
 
-        if (qFuzzyCompare(y, -scale) && qFuzzyCompare(x, -scale))
+        if ( y  == -scale &&  x  == -scale)
             m_angle = 315.0f;
     }
 

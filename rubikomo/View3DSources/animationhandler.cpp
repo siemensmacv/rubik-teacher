@@ -28,6 +28,9 @@ AnimationHandler::AnimationHandler(Qt3DCore::QTransform *cuboidTransform, bool i
     ZAnim->setPropertyName("angle");
     ZAnim->setDuration(1000);
     ZAnim->setLoopCount(1);
+
+    connect(XAnim, &QPropertyAnimation::finished,
+                     m_view3D, &View3D::onAnimationEnded);
 }
 
 void AnimationHandler::startXAxisClockAnim()
@@ -91,6 +94,7 @@ void AnimationHandler::startZAxisClockAnim()
 void AnimationHandler::startZAxisCClockAnim()
 {
     m_ZOrbitTransform->updateAngle();
+
     ZAnim->setStartValue(m_ZOrbitTransform->angle() );
 
     ZAnim->setEndValue(m_ZOrbitTransform->angle() + 90);

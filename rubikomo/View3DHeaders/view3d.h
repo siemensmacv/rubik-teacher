@@ -7,19 +7,39 @@
 #include "./View3DHeaders/cube3d.h"
 #include "modelrubik_cornersedges.h"
 #include <QHBoxLayout>
+#include <QMainWindow>
+#include "ui_mainwindow.h"
+
+namespace Ui {
+class MainWindow;
+};
 
 class View3D : public QObject{
     Q_OBJECT
 public:
-    View3D(ModelRubik_CornersEdges *model3D);
+    View3D(ModelRubik_CornersEdges *model3D,Ui::MainWindow *ui);
 
     QWidget *getContainer() const;
 
     //to be destroyed
 public slots:
-    void UpC();
-    void RC();
+    void UpC();//
+    void UpCC();
+    void DownC();
+    void DownCC();
+    void FrontC();
+    void FrontCC();
+    void BackC();
+    void BackCC();
+    void RightC();//
+    void RightCC();
+    void LeftC();
+    void LeftCC();
+
 private:
+    void toggleAllButtons(bool toggle);
+
+    Ui::MainWindow *m_ui;
     void initCube3D();
     Cube3D *theCube;
     ModelRubik_CornersEdges* m_model3D;

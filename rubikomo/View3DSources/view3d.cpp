@@ -1,8 +1,9 @@
 #include "./View3DHeaders/view3d.h"
 
-View3D::View3D(ModelRubik_CornersEdges *model3D)
+View3D::View3D(ModelRubik_CornersEdges *model3D, Ui::MainWindow *ui)
 {
     m_model3D = model3D;
+    m_ui=ui;
     initCube3D();
 }
 
@@ -54,6 +55,27 @@ void View3D::initCube3D(){
     view->setRootEntity(rootEntity);
 }
 
+void View3D::toggleAllButtons(bool toggle)
+{
+    m_ui->U_PushButton_3D->setEnabled(toggle);
+    m_ui->UR_PushButton_3D->setEnabled(toggle);
+
+    m_ui->D_PushButton_3D->setEnabled(toggle);
+    m_ui->DR_PushButton_3D->setEnabled(toggle);
+
+    m_ui->F_PushButton_3D->setEnabled(toggle);
+    m_ui->FR_PushButton_3D->setEnabled(toggle);
+
+    m_ui->B_PushButton_3D->setEnabled(toggle);
+    m_ui->BR_PushButton_3D->setEnabled(toggle);
+
+    m_ui->L_PushButton_3D->setEnabled(toggle);
+    m_ui->LR_PushButton_3D->setEnabled(toggle);
+
+    m_ui->R_PushButton_3D->setEnabled(toggle);
+    m_ui->RR_PushButton_3D->setEnabled(toggle);
+}
+
 QWidget *View3D::getContainer() const
 {
     return container;
@@ -61,10 +83,82 @@ QWidget *View3D::getContainer() const
 
 void View3D::UpC()
 {
+    toggleAllButtons(false);
     theCube->UpC();
+    toggleAllButtons(true);
+
 }
-void View3D::RC()
+void View3D::UpCC()
 {
-    theCube->RC();
+    toggleAllButtons(false);
+    theCube->UpCC();
+    toggleAllButtons(true);
+}
+
+void View3D::DownC()
+{
+    toggleAllButtons(false);
+    theCube->DownC();
+    toggleAllButtons(true);
+}
+
+void View3D::DownCC()
+{
+    toggleAllButtons(false);
+    theCube->DownCC();
+    toggleAllButtons(true);
+}
+
+void View3D::FrontC()
+{
+    toggleAllButtons(false);
+    theCube->FrontC();
+    toggleAllButtons(true);
+}
+void View3D::FrontCC()
+{
+    toggleAllButtons(false);
+    theCube->FrontCC();
+    toggleAllButtons(true);
+}
+
+void View3D::BackC()
+{
+    toggleAllButtons(false);
+    theCube->BackC();
+    toggleAllButtons(true);
+}
+void View3D::BackCC()
+{
+    toggleAllButtons(false);
+    theCube->BackCC();
+    toggleAllButtons(true);
+}
+
+void View3D::RightC()
+{
+    toggleAllButtons(false);
+    theCube->RightC();
+    toggleAllButtons(true);
+}
+void View3D::RightCC()
+{
+    toggleAllButtons(false);
+    theCube->RightCC();
+    toggleAllButtons(true);
+}
+
+void View3D::LeftC()
+{
+    toggleAllButtons(false);
+    theCube->LeftC();
+    toggleAllButtons(true);
+}
+
+void View3D::LeftCC()
+{
+    toggleAllButtons(false);
+    theCube->LeftCC();
+    toggleAllButtons(true);
 }
 

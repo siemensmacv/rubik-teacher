@@ -457,7 +457,7 @@
             <enum>QLayout::SetDefaultConstraint</enum>
            </property>
            <item>
-            <widget class="QPushButton" name="pushButton_19">
+            <widget class="QPushButton" name="U_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -470,7 +470,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_20">
+            <widget class="QPushButton" name="UR_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -483,7 +483,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_21">
+            <widget class="QPushButton" name="D_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -496,7 +496,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_22">
+            <widget class="QPushButton" name="DR_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -509,7 +509,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_23">
+            <widget class="QPushButton" name="F_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -522,7 +522,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_24">
+            <widget class="QPushButton" name="FR_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -535,7 +535,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_25">
+            <widget class="QPushButton" name="B_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -548,7 +548,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_26">
+            <widget class="QPushButton" name="BR_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -561,7 +561,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_27">
+            <widget class="QPushButton" name="L_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -574,7 +574,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_28">
+            <widget class="QPushButton" name="LR_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -587,7 +587,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_29">
+            <widget class="QPushButton" name="R_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -600,7 +600,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_30">
+            <widget class="QPushButton" name="RR_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -613,7 +613,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_31">
+            <widget class="QPushButton" name="X_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -626,7 +626,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_32">
+            <widget class="QPushButton" name="XR_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -639,7 +639,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_33">
+            <widget class="QPushButton" name="Y_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -652,7 +652,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_34">
+            <widget class="QPushButton" name="YR_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -665,7 +665,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_35">
+            <widget class="QPushButton" name="Z_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -678,7 +678,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_36">
+            <widget class="QPushButton" name="ZR_PushButton_3D">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                <horstretch>0</horstretch>
