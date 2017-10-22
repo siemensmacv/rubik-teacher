@@ -67,6 +67,8 @@ MainWindow::MainWindow(QWidget *parent) :
             mRubik2DHandler, &Rubik2DHandler::Solve);
 
     mFormulaHandler = new FormulaHandler(ui->formulaLayout, ui->horizontalLayoutWidget, mRubik2DHandler);
+
+    connect(mRubik2DHandler, SIGNAL(FormulaChanged(Formula)), mFormulaHandler, SLOT(FormulaChanged(Formula)));
 }
 
 MainWindow::~MainWindow()

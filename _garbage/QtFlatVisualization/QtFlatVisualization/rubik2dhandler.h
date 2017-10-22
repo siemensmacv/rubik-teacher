@@ -12,6 +12,7 @@
 #include "../ckociemba/facecube.h"
 #include "../ckociemba/cubiecube.h"
 #include "rubikface.h"
+#include "Formula.h"
 
 
 class Rubik2DHandler : public QObject
@@ -36,6 +37,7 @@ public:
     void rotateFaceCounterClockwise(const RubikFace &face);
 
 signals:
+    void FormulaChanged(Formula f);
 
 public slots:
     void frontClock();

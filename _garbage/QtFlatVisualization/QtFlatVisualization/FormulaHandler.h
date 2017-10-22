@@ -18,8 +18,13 @@ public:
 
     ~FormulaHandler();
 
+public slots:
+    void FormulaChanged(Formula f);
+
 private:
     void initFormula();
+    void cleanFormula();
+    void createFormula();
 
     QGridLayout *mGridLayout;
     QGridLayout *mGridLayoutFormulas;

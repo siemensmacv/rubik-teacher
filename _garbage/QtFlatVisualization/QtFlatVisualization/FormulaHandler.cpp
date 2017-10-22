@@ -15,22 +15,14 @@ FormulaHandler::FormulaHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidg
 
 FormulaHandler::~FormulaHandler()
 {
-
+    cleanFormula();
 }
 
 void FormulaHandler::initFormula()
 {
     mGridLayoutFormulas = new QGridLayout(mGridLayoutWidget);
 
-    for (int i = 0; i < mFormula.Count(); i++)
-    {
-        FormulaStep fs = mFormula.FormulaStepAt(i);
-        char desc[3];
-        fs.GetDesc(desc);
-        QLabel *lLabel = new QLabel(desc);
-        mFormulaStepsLabels[i] = lLabel;
-        mGridLayoutFormulas->addWidget(lLabel, 0, i + 1);
-    }
+    createFormula();
 
     mGridLayout->addLayout(mGridLayoutFormulas, 0, 0);
 
@@ -47,6 +39,36 @@ void FormulaHandler::initFormula()
     lGridLayoutButtons->addWidget(buttonForward, 0, 2);
 
     mGridLayout->addLayout(lGridLayoutButtons, 1, 0);
+}
+
+void FormulaHandler::cleanFormula()
+{
+    for (int i = 0; i < mFormula.Count(); i++)
+    {
+        mGridLayoutFormulas->removeWidget(mFormulaStepsLabels[i]);
+        delete mFormulaStepsLabels[i];
+        mFormulaStepsLabels[i] = nullptr;
+    }
+}
+
+void FormulaHandler::createFormula()
+{
+    for (int i = 0; i < mFormula.Count(); i++)
+    {
+        FormulaStep fs = mFormula.FormulaStepAt(i);
+        char desc[3];
+        fs.GetDesc(desc);
+        QLabel *lLabel = new QLabel(desc);
+        mFormulaStepsLabels[i] = lLabel;
+        mGridLayoutFormulas->addWidget(lLabel, 0, i + 1);
+    }
+}
+
+void FormulaHandler::FormulaChanged(Formula f)
+{
+    cleanFormula();
+    mFormula = f;
+    createFormula();
 }
 
 void FormulaHandler::backwardStep()

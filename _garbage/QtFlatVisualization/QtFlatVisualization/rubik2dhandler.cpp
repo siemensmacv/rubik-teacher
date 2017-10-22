@@ -256,7 +256,11 @@ void Rubik2DHandler::Solve()
     if (sol == NULL)
         sSolution += "Unsolvable cube!";
     else
+    {
         sSolution += sol;
+        Formula f(sol);
+        FormulaChanged(f);
+    }
 
     mLabelSolution->setText(sSolution);
 }

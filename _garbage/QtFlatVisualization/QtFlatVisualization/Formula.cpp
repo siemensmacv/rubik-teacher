@@ -17,7 +17,7 @@ Formula::Formula(char* cFormula)
        if (charindex < length && cFormula[charindex] != ' ')
        {
            cStep[1] = cFormula[charindex++];
-           cStep[2] = cFormula[charindex++] = '\0';
+           cStep[2] = '\0';
        }
        else
            cStep[1] = '\0';

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>958</width>
-    <height>698</height>
+    <height>737</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -162,9 +162,6 @@
          </property>
         </widget>
        </item>
-       <item>
-        <layout class="QGridLayout" name="formulaLayout"/>
-       </item>
       </layout>
      </item>
     </layout>
@@ -181,6 +178,17 @@
     <property name="text">
      <string>Solve</string>
     </property>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>610</y>
+      <width>461</width>
+      <height>65</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="formulaLayout"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
