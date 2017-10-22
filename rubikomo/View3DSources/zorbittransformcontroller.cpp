@@ -1,7 +1,7 @@
 #include "./View3DHeaders/zorbittransformcontroller.h"
 
 ZOrbitTransformController::ZOrbitTransformController(QObject *parent, bool isCorner)
-    : OrbitTransformController(parent,isCorner)
+    : OrbitTransformController(parent,isCorner), m_zRotationAngle(0.0f)
 {
 
 }
@@ -76,27 +76,34 @@ void ZOrbitTransformController::updateMatrix()
 
     float relativeRadius = m_radius;
     float relativeVectorAxis = 1.0f;
+    float radians = qDegreesToRadians(m_angle);
 
     if (m_target->translation().z() > 0)
     {
         //front
-        matrix.rotate(m_angle, QVector3D(0.0f, 0.0f, relativeVectorAxis));
-        matrix.translate(relativeRadius, 0.0f,0.0f );
+        //matrix.rotate(m_angle, QVector3D(0.0f, 0.0f, relativeVectorAxis));
+        //matrix.translate(relativeRadius, 0.0f,0.0f );
         //ajustare de 45 pe colturi
-        if(m_isCorner)
-        {
-            matrix.rotate(45.0f, QVector3D(0.0f, 0.0f, relativeVectorAxis));
-        }
+        //if(m_isCorner)
+            //matrix.rotate(45.0f, QVector3D(0.0f, 0.0f, relativeVectorAxis));
+        matrix.translate(static_cast<float>(qCos(radians)) * relativeRadius,
+                         static_cast<float>(qSin(radians)) * relativeRadius,
+                          0.0f);
+        m_zRotationAngle += m_angleDifference;
+        matrix.rotate(m_zRotationAngle, QVector3D(0.0f, 0.0f, relativeVectorAxis));
     }
     else
     {
         //back
-        matrix.rotate(m_angle, QVector3D(0.0f, 0.0f, -relativeVectorAxis));
-        matrix.translate(-relativeRadius, 0.0f, 0.0f);
-        if(m_isCorner)
-        {
-            matrix.rotate(45.0f, QVector3D(0.0f, 0.0f, -relativeVectorAxis));
-        }
+        //matrix.rotate(m_angle, QVector3D(0.0f, 0.0f, -relativeVectorAxis));
+        //matrix.translate(-relativeRadius, 0.0f, 0.0f);
+        //if(m_isCorner)
+            //matrix.rotate(45.0f, QVector3D(0.0f, 0.0f, -relativeVectorAxis));
+        matrix.translate(static_cast<float>(qCos(radians)) * (-relativeRadius),
+                         static_cast<float>(qSin(radians)) * relativeRadius,
+                          0.0f);
+        m_zRotationAngle += m_angleDifference;
+        matrix.rotate(m_zRotationAngle, QVector3D(0.0f, 0.0f, -relativeVectorAxis));
     }
 
     m_target->setMatrix(matrix);

@@ -14,6 +14,9 @@ protected:
     void updateMatrix() override;
     QMatrix4x4 getCentreMatrix() override;
 
+private:
+    float m_xRotationAngle;
+
 };
 
 #endif // XORBITTRANSFORMCONTROLLER_H

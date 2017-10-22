@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QMatrix4x4>
-
+#include <QtMath>
 #include <Qt3DCore>
 
 class OrbitTransformController : public QObject
@@ -39,7 +39,7 @@ protected:
 
     Qt3DCore::QTransform *m_target;
     float m_radius;
-    float m_angle;
+    float m_angle, m_angleDifference;
     bool m_isCorner;
 };
 

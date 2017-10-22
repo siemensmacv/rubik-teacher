@@ -1,7 +1,7 @@
 #include "./View3DHeaders/yorbittransformcontroller.h"
 
 YOrbitTransformController::YOrbitTransformController(QObject *parent, bool isCorner)
-    : OrbitTransformController(parent,isCorner)
+    : OrbitTransformController(parent,isCorner), m_yRotationAngle(0.0f)
 {
 
 }
@@ -76,22 +76,33 @@ void YOrbitTransformController::updateMatrix()
 
     float relativeRadius = m_radius;
     float relativeVectorAxis = 1.0f;
+    float radians = qDegreesToRadians(m_angle);
 
     if (m_target->translation().y() > 0)
     {
         //up
-        matrix.rotate(m_angle, QVector3D( 0.0f, relativeVectorAxis, 0.0f));
-        matrix.translate(relativeRadius, 0.0f, 0.0f);
-        if(m_isCorner)
-            matrix.rotate(45, QVector3D( 0.0f, relativeVectorAxis, 0.0f));
+        //matrix.rotate(m_angle, QVector3D( 0.0f, relativeVectorAxis, 0.0f));
+        //matrix.translate(relativeRadius, 0.0f, 0.0f);
+        //if(m_isCorner)
+            //matrix.rotate(45, QVector3D( 0.0f, relativeVectorAxis, 0.0f));
+        matrix.translate(static_cast<float>(qCos(radians)) * relativeRadius,
+                         0.0f,
+                         static_cast<float>(qSin(radians)) * (-relativeRadius) );
+        m_yRotationAngle += m_angleDifference;
+        matrix.rotate(m_yRotationAngle, QVector3D(0.0f, relativeVectorAxis, 0.0f));
     }
     else
     {
         //down
-        matrix.rotate(m_angle, QVector3D(0.0f, -relativeVectorAxis, 0.0f));
-        matrix.translate(-relativeRadius, 0.0f, 0.0f);
-        if(m_isCorner)
-            matrix.rotate(45, QVector3D( 0.0f, -relativeVectorAxis, 0.0f));
+        //matrix.rotate(m_angle, QVector3D(0.0f, -relativeVectorAxis, 0.0f));
+        // matrix.translate(-relativeRadius, 0.0f, 0.0f);
+        //if(m_isCorner)
+            // matrix.rotate(45, QVector3D( 0.0f, -relativeVectorAxis, 0.0f));
+        matrix.translate(static_cast<float>(qCos(radians)) * (-relativeRadius),
+                         0.0f,
+                         static_cast<float>(qSin(radians)) * (-relativeRadius) );
+        m_yRotationAngle += m_angleDifference;
+        matrix.rotate(m_yRotationAngle, QVector3D(0.0f, -relativeVectorAxis, 0.0f));
     }
 
     m_target->setMatrix(matrix);

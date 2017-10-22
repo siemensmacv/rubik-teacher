@@ -5,6 +5,7 @@ OrbitTransformController::OrbitTransformController(QObject *parent, bool isCorne
     , m_target(nullptr)
     , m_radius(1.0f)
     , m_angle(0.0f)
+    , m_angleDifference(0.0f)
     , m_isCorner(isCorner)
 {
 }
@@ -38,6 +39,7 @@ float OrbitTransformController::radius() const
 void OrbitTransformController::setAngle(float angle)
 {
     if (!qFuzzyCompare(angle, m_angle)) {
+        m_angleDifference = angle - m_angle;
         m_angle = angle;
         updateMatrix();
         emit angleChanged();
