@@ -161,6 +161,32 @@ void Rubik2DHandler::rightCounterClock()
     }
 }
 
+void Rubik2DHandler::rotateFaceClockwise(const RubikFace &face)
+{
+    switch (face)
+    {
+    case RubikFace::Front: frontClock(); break;
+    case RubikFace::Back: backClock(); break;
+    case RubikFace::Left: leftClock(); break;
+    case RubikFace::Right: rightClock(); break;
+    case RubikFace::Up: upClock(); break;
+    case RubikFace::Down: downClock(); break;
+    }
+}
+
+void Rubik2DHandler::rotateFaceCounterClockwise(const RubikFace &face)
+{
+    switch (face)
+    {
+    case RubikFace::Front: frontCounterClock(); break;
+    case RubikFace::Back: backCounterClock(); break;
+    case RubikFace::Left: leftCounterClock(); break;
+    case RubikFace::Right: rightCounterClock(); break;
+    case RubikFace::Up: upCounterClock(); break;
+    case RubikFace::Down: downCounterClock(); break;
+    }
+}
+
 void Rubik2DHandler::xAxisClock()
 {
     if (mCube)

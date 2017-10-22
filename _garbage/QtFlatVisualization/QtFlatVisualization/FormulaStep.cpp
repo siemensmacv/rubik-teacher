@@ -1,17 +1,17 @@
 #include "FormulaStep.h"
 #include <string.h>
 
-FormulaStep::FormulaStep( FormulaStepMoveEnum FSE, FormulaStepTypeEnum FST )
-    : mFSE(FSE), mFST(FST)
+FormulaStep::FormulaStep( RubikFace face, FormulaStepTypeEnum FST )
+    : mFace(face), mFST(FST)
 {
-    switch (mFSE)
+    switch (mFace)
     {
-    case FSM_U: mDesc[0] = 'U'; break;
-    case FSM_D: mDesc[0] = 'D'; break;
-    case FSM_R: mDesc[0] = 'R'; break;
-    case FSM_F: mDesc[0] = 'F'; break;
-    case FSM_L: mDesc[0] = 'L'; break;
-    case FSM_B: mDesc[0] = 'B'; break;
+    case RubikFace::Up   : mDesc[0] = 'U'; break;
+    case RubikFace::Down : mDesc[0] = 'D'; break;
+    case RubikFace::Right: mDesc[0] = 'R'; break;
+    case RubikFace::Front: mDesc[0] = 'F'; break;
+    case RubikFace::Left : mDesc[0] = 'L'; break;
+    case RubikFace::Back : mDesc[0] = 'B'; break;
     }
 
     switch (mFST)
@@ -26,12 +26,12 @@ FormulaStep::FormulaStep( char desc[3] )
 {
     switch (desc[0])
     {
-    case 'U': mFSE = FSM_U; break;
-    case 'D': mFSE = FSM_D; break;
-    case 'R': mFSE = FSM_R; break;
-    case 'F': mFSE = FSM_F; break;
-    case 'L': mFSE = FSM_L; break;
-    case 'B': mFSE = FSM_B; break;
+    case 'U': mFace = RubikFace::Up   ; break;
+    case 'D': mFace = RubikFace::Down ; break;
+    case 'R': mFace = RubikFace::Right; break;
+    case 'F': mFace = RubikFace::Front; break;
+    case 'L': mFace = RubikFace::Left ; break;
+    case 'B': mFace = RubikFace::Back ; break;
     }
 
     if (strlen(desc) == 1)
@@ -44,7 +44,7 @@ FormulaStep::FormulaStep( char desc[3] )
 }
 
 FormulaStep::FormulaStep( )
- : mFSE(FSM_U), mFST(FST_CLOCK), mDesc("U")
+ : mFace(RubikFace::Up), mFST(FST_CLOCK), mDesc("U")
 {
 }
 

@@ -11,6 +11,7 @@
 #include "Cub_Rubik.h"
 #include "../ckociemba/facecube.h"
 #include "../ckociemba/cubiecube.h"
+#include "rubikface.h"
 
 
 class Rubik2DHandler : public QObject
@@ -30,6 +31,9 @@ public:
 
     std::string toString() const;
     QString toQString() const;
+
+    void rotateFaceClockwise(const RubikFace &face);
+    void rotateFaceCounterClockwise(const RubikFace &face);
 
 signals:
 

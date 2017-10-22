@@ -37,6 +37,18 @@ Formula::Formula(char* cFormula)
    m_nIndex = 0;
 }
 
+int Formula::Count()
+{
+    return m_nCount;
+}
+
+FormulaStep Formula::FormulaStepAt(int index)
+{
+    if (index < 0 || index > m_nCount)
+        throw new QException();
+    return m_Steps[index];
+}
+
 // advance a step if possible and return it (return false if at the end of formula)
 bool Formula::bForwardStep(FormulaStep& fs)
 {
@@ -51,32 +63,21 @@ bool Formula::bForwardStep(FormulaStep& fs)
     return bResult;
 }
 
-int Formula::Count()
-{
-    return m_nCount;
-}
-
-FormulaStep Formula::FormulaStepAt(int index)
-{
-    if (index < 0 || index > m_nCount)
-        throw new QException();
-    return m_Steps[index];
-}
-
 // advance a step if possible and return it (return false if at the end of formula)
 bool Formula::bBackwardStep(FormulaStep& fs)
 {
     bool bResult = (m_nIndex > 0);
     if (bResult)
     {
-        FormulaStep::FormulaStepMoveEnum move = m_Steps[m_nIndex].FSE();
+        m_nIndex--;
+        RubikFace face = m_Steps[m_nIndex].Face();
         FormulaStep::FormulaStepTypeEnum type = m_Steps[m_nIndex].FST();
         if (type == FormulaStep::FST_CLOCK)
             type = FormulaStep::FST_COUNTER;
         else if (type == FormulaStep::FST_COUNTER)
             type = FormulaStep::FST_CLOCK;
-        fs = FormulaStep(move, type);
-        m_nIndex--;
+        fs = FormulaStep(face, type);
+        ;
     } else
     {
         fs = FormulaStep();

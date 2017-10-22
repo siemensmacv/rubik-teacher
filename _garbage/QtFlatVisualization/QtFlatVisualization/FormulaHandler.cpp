@@ -1,5 +1,6 @@
 #include "FormulaHandler.h"
 #include <QPushButton>
+#include "rubik2dhandler.h"
 
 FormulaHandler::FormulaHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidget, QObject *rubikController)
     : QObject(gridLayoutQWidget),
@@ -68,7 +69,24 @@ void FormulaHandler::forwardStep()
 
 void FormulaHandler::performMove(FormulaStep fs)
 {
+    RubikFace face = fs.Face();
 
+    // TODO replace this hardcoded cast with a proper member of type IControllerRubik
+    Rubik2DHandler *rubik2DHandler = (Rubik2DHandler*) mRubikController;
+
+    switch (fs.FST())
+    {
+    case FormulaStep::FST_CLOCK:
+        rubik2DHandler->rotateFaceClockwise(face);
+        break;
+    case FormulaStep::FST_COUNTER:
+        rubik2DHandler->rotateFaceCounterClockwise(face);
+        break;
+    case FormulaStep::FST_DOUBLE:
+        rubik2DHandler->rotateFaceClockwise(face);
+        rubik2DHandler->rotateFaceClockwise(face);
+        break;
+    }
 }
 
 //void FormulaHandler::frontClock()

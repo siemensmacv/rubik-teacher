@@ -57,7 +57,8 @@ HEADERS += \
     ../ckociemba/search.h \
     Formula.h \
     FormulaStep.h \
-    FormulaHandler.h
+    FormulaHandler.h \
+    rubikface.h
 
 FORMS += \
         mainwindow.ui
