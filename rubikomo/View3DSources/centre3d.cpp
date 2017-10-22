@@ -9,3 +9,8 @@ Centre3D::Centre3D(Qt3DCore::QEntity *rootEntity):
 
     //set plane radius
 }
+
+Plane *Centre3D::plane()
+{
+    return m_plane;
+}

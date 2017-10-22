@@ -1,6 +1,9 @@
 #ifndef ICUBIE_H
 #define ICUBIE_H
 
+#include "./View3DHeaders/plane.h"
+
+
 class ICubie{
 public:
     virtual void startXAxisClockAnim() = 0;
@@ -9,5 +12,6 @@ public:
     virtual void startYAxisCClockAnim() = 0;
     virtual void startZAxisClockAnim() = 0;
     virtual void startZAxisCClockAnim() = 0;
+    virtual Plane* plane()=0;
 };
 #endif // ICUBIE_H

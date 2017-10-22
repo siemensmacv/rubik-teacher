@@ -9,6 +9,8 @@ class Corner3D : public Cubie
 public:
     explicit Corner3D(Qt3DCore::QEntity *rootEntity);
     static const bool isCorner=true;
+    Plane *plane();
+
 private:
     Plane *m_plane;
     Plane *m_plane2;

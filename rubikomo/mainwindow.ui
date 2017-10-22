@@ -42,7 +42,7 @@
        <enum>QTabWidget::South</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideRight</enum>
@@ -698,7 +698,7 @@
      <x>0</x>
      <y>0</y>
      <width>1186</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
