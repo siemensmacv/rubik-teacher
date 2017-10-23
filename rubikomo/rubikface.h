@@ -2,11 +2,11 @@
 enum class RubikFace
 {
 	Up = 0,
+    Right,
+    Front,
+    Down,
 	Left,
-	Front,
-	Right,
-	Back,
-	Down
+    Back
 };
 
 #ifdef __cplusplus

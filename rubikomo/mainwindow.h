@@ -8,6 +8,7 @@
 #include "ui_mainwindow.h"
 
 #include "./View2DHeaders/view2d.h"
+#include "rubikvalidator.h"
 
 namespace Ui {
 class MainWindow;
@@ -35,6 +36,7 @@ private:
 private slots:
     void handleButton();
     void handleInputRadio();
+    void validateAndLoadInput();
 };
 
 #endif // MAINWINDOW_H

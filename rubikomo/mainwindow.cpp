@@ -204,3 +204,12 @@ void MainWindow::handleInputRadio()
         m_colorinput->setInputColor(RubikFace::Up);
     }
 }
+
+void MainWindow::validateAndLoadInput()
+{
+    RubikValidator validator(m_inputmodel.getModel());
+    if(validator() == true)
+        controllerRubik.setModel(m_inputmodel.getModel());
+    else
+        qInfo("Nem");
+}
