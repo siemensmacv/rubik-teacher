@@ -9,7 +9,7 @@ class Centre3D : public Cubie
 public:
     Centre3D(Qt3DCore::QEntity *rootEntity);
     static const bool isCorner=false;
-    Plane *plane();
+    Plane *upDownPlane();
 
 private:
     Plane *m_plane;

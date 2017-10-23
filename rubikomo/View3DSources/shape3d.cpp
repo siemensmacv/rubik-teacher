@@ -5,7 +5,6 @@ Shape3D::Shape3D(Qt3DCore::QEntity *rootEntity)
     m_shapeEntity=new Qt3DCore::QEntity(rootEntity);
 
     m_shapeTransform=new Qt3DCore::QTransform(m_shapeEntity);
-    m_shapeTransform->matrix().optimize();
     m_shapeMaterial = new Qt3DExtras::QPhongMaterial(m_shapeEntity);
     m_shapeMaterial->setDiffuse(QColor(255,255,255));
 
@@ -37,4 +36,9 @@ void Shape3D::setColor(int r, int g, int b)
 Qt3DCore::QTransform *Shape3D::shapeTransform() const
 {
     return m_shapeTransform;
+}
+
+Qt3DCore::QEntity *Shape3D::entity() const
+{
+    return m_shapeEntity;
 }

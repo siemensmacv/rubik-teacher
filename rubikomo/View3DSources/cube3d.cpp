@@ -160,9 +160,6 @@ void Cube3D::UpCC()
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
             m_upFace[i][j]->startYAxisCClockAnim();
-
-    m_upFace[2][0]->plane()->test();
-
     m_swaper->upCounterClock();
 
 }

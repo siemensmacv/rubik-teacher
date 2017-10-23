@@ -36,6 +36,12 @@ ICubie* CubieFactory::getCornerCubie(int index, Corner corner, CornerOrientation
         newCorner->cuboid()->shapeTransform()->setTranslation(QVector3D(-scale,-scale,-scale));
         break;
     };
+
+//    switch(corner){
+
+//    }
+
+    newCorner->setUpPlanes();
     return newCorner;
 }
 
@@ -81,6 +87,7 @@ ICubie *CubieFactory::getEdgeCubie(int index, Edge edge, EdgeOrientation edgeOri
         newEdge->cuboid()->shapeTransform()->setTranslation(QVector3D(-scale,-scale,0.0f));
         break;
     };
+
     return newEdge;
 }
 

@@ -7,10 +7,12 @@ Centre3D::Centre3D(Qt3DCore::QEntity *rootEntity):
     cuboid()->animHandler()->YOrbitTransform()->setRadius(0.0f);
     cuboid()->animHandler()->ZOrbitTransform()->setRadius(0.0f);
 
-    //set plane radius
+    //set plane
+
+    //m_plane=new Plane(cuboid()->entity());
 }
 
-Plane *Centre3D::plane()
+Plane *Centre3D::upDownPlane()
 {
     return m_plane;
 }

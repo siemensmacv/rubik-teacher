@@ -9,7 +9,7 @@ class Edge3D : public Cubie
 public:
     Edge3D(Qt3DCore::QEntity *rootEntity);
     static const bool isCorner=false;
-    Plane *plane();
+    Plane *upDownPlane();
 
 private:
     Plane *m_plane,*m_plane2;

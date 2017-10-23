@@ -21,6 +21,8 @@ public:
 
     Qt3DCore::QTransform *shapeTransform() const;
 
+    Qt3DCore::QEntity *entity() const;
+
 protected:
     Qt3DCore::QTransform *m_shapeTransform;
     Qt3DExtras::QPhongMaterial *m_shapeMaterial;

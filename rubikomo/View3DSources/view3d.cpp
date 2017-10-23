@@ -14,7 +14,7 @@ void View3D::initCube3D(){
     Qt3DExtras::Qt3DWindow *view = new Qt3DExtras::Qt3DWindow();
 
 
-    view->defaultFrameGraph()->setClearColor(QColor(QRgb(0x00AA00)));
+    view->defaultFrameGraph()->setClearColor(QColor(QRgb(0xAAAAAA)));
     container = QWidget::createWindowContainer(view);
 
 

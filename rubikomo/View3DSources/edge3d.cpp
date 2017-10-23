@@ -11,7 +11,7 @@ Edge3D::Edge3D(Qt3DCore::QEntity *rootEntity):
     //set plane radius
 }
 
-Plane *Edge3D::plane()
+Plane *Edge3D::upDownPlane()
 {
-    return m_plane;
+ return m_plane;
 }
