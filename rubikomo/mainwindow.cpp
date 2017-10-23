@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     setWindowState(windowState() & ~(Qt::WindowMinimized | Qt::WindowFullScreen) | Qt::WindowMaximized);
 
-    m_view2D = new View2D(ui->horizontalLayoutWidget_2, &controllerRubik.model);
+    m_view2D = new View2D(this, &controllerRubik.model);
 
     float tabWidth = (ui->tabWidget->width()*3-34);
     ui->tabWidget->setStyleSheet("QTabWidget QTabBar::tab{width:" + QString::number(tabWidth) + "px; }");
@@ -54,8 +54,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connectFlatButtonsToSlots();
 
-    m_colorinput = new View2D(ui->horizontalLayoutWidget, &m_inputmodel);
+    m_colorinput = new View2D(this, &m_inputmodel);
     ui->horizontalLayout_4->insertLayout(0, m_colorinput->getLayout());
+    connect(m_colorinput, &View2D::clicked, m_colorinput, &View2D::onClicked);
 }
 
 MainWindow::~MainWindow()
