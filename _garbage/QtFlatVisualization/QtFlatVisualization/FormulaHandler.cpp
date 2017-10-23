@@ -1,6 +1,7 @@
 #include "FormulaHandler.h"
 #include <QPushButton>
 #include <QIcon>
+#include <QStyle>
 #include "rubik2dhandler.h"
 
 FormulaHandler::FormulaHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidget, QObject *rubikController)
@@ -89,6 +90,7 @@ void FormulaHandler::backwardStep()
     if (mFormula.bBackwardStep(fs))
     {
         performMove(fs);
+        mFormulaStepsLabels[mFormula.Index()]->setStyleSheet("QLabel { color : black; }");
     }
 }
 
@@ -98,6 +100,7 @@ void FormulaHandler::forwardStep()
     if (mFormula.bForwardStep(fs))
     {
         performMove(fs);
+        mFormulaStepsLabels[mFormula.Index() - 1]->setStyleSheet("QLabel { color : red; }");
     }
 }
 

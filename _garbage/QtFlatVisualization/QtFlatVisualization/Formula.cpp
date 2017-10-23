@@ -42,6 +42,11 @@ int Formula::Count()
     return m_nCount;
 }
 
+int Formula::Index()
+{
+    return m_nIndex;
+}
+
 FormulaStep Formula::FormulaStepAt(int index)
 {
     if (index < 0 || index > m_nCount)
