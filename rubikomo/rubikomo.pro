@@ -50,7 +50,8 @@ SOURCES += \
     View3DSources/view3d.cpp \
     View2DSources/view2d.cpp \
     View2DSources/facecube2d.cpp \
-    colorinput2d.cpp
+    colorinput2d.cpp \
+    rubikface.cpp
 
 HEADERS += \
         mainwindow.h \

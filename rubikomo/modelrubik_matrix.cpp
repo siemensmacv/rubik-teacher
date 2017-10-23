@@ -31,60 +31,6 @@ int ModelRubik_Matrix::getMatrixValue(const RubikFace &face, const int &row, con
     return _matrix[static_cast<int>(face)][row][column];
 }
 
-int ModelRubik_Matrix::colorLetterToDigit(char c)
-{
-	RubikFace face;
-    switch(c)
-    {
-        case 'U':
-            face = RubikFace::Up;
-			break;
-        case 'R':
-			face = RubikFace::Right;
-			break;
-        case 'F':
-			face = RubikFace::Front;
-			break;
-        case 'D':
-			face = RubikFace::Down;
-			break;
-        case 'L':
-			face = RubikFace::Left;
-			break;
-        case 'B':
-			face = RubikFace::Back;
-			break;
-    }
-
-    return static_cast<int>(face) + 1;
-}
-
-char ModelRubik_Matrix::colorDigitToLetter(int d)
-{
-    RubikFace face = static_cast<RubikFace>(d - 1);
-    switch(face)
-    {
-        case RubikFace::Up:
-            return 'U';
-			break;
-        case RubikFace::Right:
-            return 'R';
-			break;
-		case RubikFace::Front:
-            return 'F';
-			break;
-        case RubikFace::Down:
-            return 'D';
-			break;
-        case RubikFace::Left:
-            return 'L';
-			break;
-        case RubikFace::Back:
-            return 'B';
-			break;
-    }
-}
-
 void ModelRubik_Matrix::setMatrixValue(const RubikFace &face, const int &row, const int &column, const int &value)
 {
     _matrix[static_cast<int>(face)][row][column] = value;

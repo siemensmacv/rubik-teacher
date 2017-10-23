@@ -29,8 +29,6 @@ private:
     void _rotateRightCounterClockwise();
 
     void setMatrixValue(const RubikFace &face, const int &row, const int &column, const int &value);
-    int colorLetterToDigit(char c);
-    char colorDigitToLetter(int d);
 public:
     ModelRubik_Matrix();
     ~ModelRubik_Matrix();
