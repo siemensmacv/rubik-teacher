@@ -96,8 +96,12 @@
                <height>50</height>
               </size>
              </property>
+             <property name="acceptDrops">
+              <bool>false</bool>
+             </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(0, 255, 0);</string>
+              <string notr="true">background-color: rgb(0, 255, 0);
+color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
@@ -116,7 +120,8 @@
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(0, 0, 255);</string>
+              <string notr="true">background-color: rgb(0, 0, 255);
+color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
@@ -132,7 +137,8 @@
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 0, 0);</string>
+              <string notr="true">background-color: rgb(255, 0, 0);
+color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
@@ -148,7 +154,8 @@
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 165, 0);</string>
+              <string notr="true">background-color: rgb(255, 165, 0);
+color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
@@ -164,7 +171,8 @@
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 255, 0);</string>
+              <string notr="true">background-color: rgb(255, 255, 0);
+color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
@@ -180,7 +188,8 @@
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 255, 255);</string>
+              <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
              </property>
              <property name="text">
               <string/>
