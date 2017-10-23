@@ -36,7 +36,7 @@ AnimationHandler::AnimationHandler(Qt3DCore::QTransform *cuboidTransform, bool i
 void AnimationHandler::startXAxisClockAnim()
 {
 
-    m_XOrbitTransform->updateAngle();
+   // m_XOrbitTransform->updateAngle();
 
     XAnim->setStartValue(m_XOrbitTransform->angle() );
 

@@ -36,6 +36,16 @@ void Cubie::startZAxisCClockAnim()
     m_cuboid->animHandler()->startZAxisCClockAnim();
 }
 
+Qt3DCore::QEntity *Cubie::entity()
+{
+    return m_cuboid->entity();
+}
+
+Qt3DCore::QTransform *Cubie::transf()
+{
+    return m_cuboid->shapeTransform();
+}
+
 Cuboid *Cubie::cuboid() const
 {
     return m_cuboid;

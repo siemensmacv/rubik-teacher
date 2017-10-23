@@ -13,5 +13,7 @@ public:
     virtual void startZAxisClockAnim() = 0;
     virtual void startZAxisCClockAnim() = 0;
     virtual Plane* upDownPlane()=0;
+    virtual Qt3DCore::QEntity* entity()=0;
+    virtual Qt3DCore::QTransform* transf()=0;
 };
 #endif // ICUBIE_H

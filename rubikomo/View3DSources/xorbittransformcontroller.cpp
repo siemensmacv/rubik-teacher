@@ -91,10 +91,12 @@ void XOrbitTransformController::updateMatrix()
         //matrix.translate(1.1f, 0.0f, -relativeRadius);
         //if(m_isCorner)
             //matrix.rotate(-45, QVector3D(relativeVectorAxis, 0.0f, 0.0f));
-        matrix.translate(0.0f,
-                         static_cast<float>(qSin(radians)) * relativeRadius,
-                         static_cast<float>(qCos(radians)) * (-relativeRadius) );
+
+//        matrix.translate(0.0f,
+//                         static_cast<float>(qSin(radians)) * relativeRadius,
+//                         static_cast<float>(qCos(radians)) * (-relativeRadius) );
         m_xRotationAngle += m_angleDifference;
+
         matrix.rotate(m_xRotationAngle, QVector3D(relativeVectorAxis, 0.0f, 0.0f));
 
     }
@@ -111,10 +113,13 @@ void XOrbitTransformController::updateMatrix()
         //matrix.translate(-1.1f, 0.0f, relativeRadius);
         //if(m_isCorner)
             //matrix.rotate(-45, QVector3D(-relativeVectorAxis, 0.0f, 0.0f));
-        matrix.translate(0.0f,
-                         static_cast<float>(qSin(radians)) * relativeRadius,
-                         static_cast<float>(qCos(radians)) * relativeRadius );
+
+
+//        matrix.translate(0.0f,
+//                         static_cast<float>(qSin(radians)) * relativeRadius,
+//                         static_cast<float>(qCos(radians)) * relativeRadius );
         m_xRotationAngle += m_angleDifference;
+
         matrix.rotate(m_xRotationAngle, QVector3D(-relativeVectorAxis, 0.0f, 0.0f));
 
     }

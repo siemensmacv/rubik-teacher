@@ -37,6 +37,8 @@ private:
     ICubie*** m_rightFace;
     ICubie*** m_leftFace;
 
+    //Centre3D *centre;
+    Qt3DCore::QEntity *root;
     MatrixSwap *m_swaper;
     CubieFactory *m_cubieFactory;
 

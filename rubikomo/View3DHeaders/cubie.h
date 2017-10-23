@@ -15,6 +15,9 @@ public:
     void startZAxisClockAnim();
     void startZAxisCClockAnim();
 
+    Qt3DCore::QEntity* entity();
+    Qt3DCore::QTransform* transf();
+
     Cuboid *cuboid() const;
 
 private:
