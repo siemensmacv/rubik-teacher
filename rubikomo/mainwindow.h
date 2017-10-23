@@ -30,9 +30,11 @@ private:
     ModelRubik m_inputmodel;
 
     void connectFlatButtonsToSlots();
+    void connectRadioButtonsToSlots();
 
 private slots:
     void handleButton();
+    void handleInputRadio();
 };
 
 #endif // MAINWINDOW_H

@@ -53,10 +53,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->gridLayout_3->addWidget(m_view3D->getContainer());
 
     connectFlatButtonsToSlots();
+    connectRadioButtonsToSlots();
 
-    m_colorinput = new View2D(this, &m_inputmodel);
+    m_colorinput = new View2D(this, &m_inputmodel, true);
     ui->horizontalLayout_4->insertLayout(0, m_colorinput->getLayout());
-    //connect(m_colorinput, &View2D::clicked, m_colorinput, &View2D::onClicked);
+
+    ui->radioButton_Green->toggle();
+    m_colorinput->setInputColor(RubikFace::Front);
 }
 
 MainWindow::~MainWindow()
@@ -84,6 +87,16 @@ void MainWindow::connectFlatButtonsToSlots()
     connect(ui->pushButton_Y_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
     connect(ui->pushButton_ZR_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
     connect(ui->pushButton_Z_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
+}
+
+void MainWindow::connectRadioButtonsToSlots()
+{
+    connect(ui->radioButton_Blue, &QRadioButton::toggled, this, &MainWindow::handleInputRadio);
+    connect(ui->radioButton_Green, &QRadioButton::toggled, this, &MainWindow::handleInputRadio);
+    connect(ui->radioButton_Orange, &QRadioButton::toggled, this, &MainWindow::handleInputRadio);
+    connect(ui->radioButton_Red, &QRadioButton::toggled, this, &MainWindow::handleInputRadio);
+    connect(ui->radioButton_White, &QRadioButton::toggled, this, &MainWindow::handleInputRadio);
+    connect(ui->radioButton_Yellow, &QRadioButton::toggled, this, &MainWindow::handleInputRadio);
 }
 
 void MainWindow::handleButton()
@@ -160,5 +173,34 @@ void MainWindow::handleButton()
     else if(senderName == "pushButton_ZR_2D")
     {
         controllerRubik.rotateZAxisCounterClockwise();
+    }
+}
+
+void MainWindow::handleInputRadio()
+{
+    QString senderName = sender()->objectName();
+    if(senderName == "radioButton_Blue")
+    {
+        m_colorinput->setInputColor(RubikFace::Back);
+    }
+    else if(senderName == "radioButton_Green")
+    {
+        m_colorinput->setInputColor(RubikFace::Front);
+    }
+    else if(senderName == "radioButton_Orange")
+    {
+        m_colorinput->setInputColor(RubikFace::Right);
+    }
+    else if(senderName == "radioButton_Red")
+    {
+        m_colorinput->setInputColor(RubikFace::Left);
+    }
+    else if(senderName == "radioButton_White")
+    {
+        m_colorinput->setInputColor(RubikFace::Down);
+    }
+    else if(senderName == "radioButton_Yellow")
+    {
+        m_colorinput->setInputColor(RubikFace::Up);
     }
 }

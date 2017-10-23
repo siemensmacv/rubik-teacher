@@ -15,6 +15,7 @@ public:
     explicit ModelRubik(QObject *parent = nullptr);
 
     int getMatrixValue(const RubikFace &face, const int &row, const int &column) const;
+    void setMatrixValue(const RubikFace &face, const int &row, const int &column, const int &value);
     void setModel(std::string input);
     std::string getModel();
     void rotateFaceClockwise(const RubikFace &face);

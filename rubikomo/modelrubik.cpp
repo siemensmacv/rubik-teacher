@@ -26,6 +26,12 @@ int ModelRubik::getMatrixValue(const RubikFace &face, const int &row, const int 
     return matrix.getMatrixValue(face, row, column);
 }
 
+void ModelRubik::setMatrixValue(const RubikFace &face, const int &row, const int &column, const int &value)
+{
+    matrix.setMatrixValue(face, row, column, value);
+    emit cubeChanged();
+}
+
 void ModelRubik::setModel(std::string input)
 {
     matrix.setMatrix(input);

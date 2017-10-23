@@ -27,12 +27,11 @@ private:
     void _rotateLeftCounterClockwise();
     void _rotateRightClockwise();
     void _rotateRightCounterClockwise();
-
-    void setMatrixValue(const RubikFace &face, const int &row, const int &column, const int &value);
 public:
     ModelRubik_Matrix();
     ~ModelRubik_Matrix();
     int getMatrixValue(const RubikFace &face, const int &row, const int &column) const;
+    void setMatrixValue(const RubikFace &face, const int &row, const int &column, const int &value);
     void setMatrix(std::string input);
     std::string getMatrix();
 

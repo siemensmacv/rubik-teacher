@@ -9,18 +9,21 @@ class View2D : public QWidget
 {
     Q_OBJECT
 public:
-    explicit View2D(QWidget *parent = nullptr, ModelRubik *model = nullptr);
+    explicit View2D(QWidget *parent = nullptr, ModelRubik *model = nullptr, bool enableInput = false);
     QLayout* getLayout() const;
+    void setInputColor(RubikFace color);
 private:
     ModelRubik *m_model;
     QGridLayout *gridLayout;
     FaceCube2D *mUpFace, *mDownFace,
         *mLeftFace, *mRightFace,
         *mFrontFace, *mBackFace;
+    int m_inputColor = -1;
     void initFaceCubes(QWidget *parent = nullptr);
 
 private slots:
     void refresh();
+    void onFaceCubeClicked(RubikFace face, int row, int column);
 };
 
 #endif // VIEW2D_H

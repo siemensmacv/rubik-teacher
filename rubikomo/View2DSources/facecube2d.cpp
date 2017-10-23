@@ -44,6 +44,21 @@ void FaceCube2D::paintEvent(QPaintEvent *pe)
     painter.drawText(mRectMatrix[1][1], Qt::AlignCenter, letter);
 }
 
+void FaceCube2D::mousePressEvent(QMouseEvent *event)
+{
+    for(int row = 0; row < 3; ++row)
+    {
+        for(int col = 0; col < 3; ++col)
+        {
+            if(mRectMatrix[row][col].contains(event->x(), event->y(), true))
+            {
+                emit frameClicked(m_representing, row, col);
+                break;
+            }
+        }
+    }
+}
+
 QColor FaceCube2D::getColorFromValue(int value) const
 {
     RubikFace face = static_cast<RubikFace>(value);
