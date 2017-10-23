@@ -74,6 +74,8 @@ void YOrbitTransformController::updateMatrix()
 {
     QMatrix4x4 matrix = getCentreMatrix();
 
+    //matrix.rotate(90,QVector3D(0.0f,1.0f,0.0f));
+    //matrix.rotate(-90,QVector3D(0.0f,0.0f,1.0f));
     float relativeRadius = m_radius;
     float relativeVectorAxis = 1.0f;
     float radians = qDegreesToRadians(m_angle);

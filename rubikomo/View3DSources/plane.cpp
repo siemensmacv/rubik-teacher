@@ -9,7 +9,6 @@ Plane::Plane(Qt3DCore::QEntity *rootEntity) :
 
 
     setColor(0,0,255);
-    //m_animHandler = new AnimationHandler(m_shapeTransform, false);
 
 }
 

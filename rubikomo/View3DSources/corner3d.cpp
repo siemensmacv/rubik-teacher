@@ -25,33 +25,33 @@ void Corner3D::setUpPlanes()
     if(cuboid()->shapeTransform()->translation().x()>0){
         //right
         m_leftRightPlane->shapeTransform()->setRotationZ(-90);
-        m_leftRightPlane->shapeTransform()->setTranslation(QVector3D(0.60f,0.0f,0.0f));
+        m_leftRightPlane->shapeTransform()->setTranslation(QVector3D(0.51f,0.0f,0.0f));
     }
     else{
         //left
         m_leftRightPlane->shapeTransform()->setRotationZ(90);
-        m_leftRightPlane->shapeTransform()->setTranslation(QVector3D(-0.61f,0.0f,0.0f));
+        m_leftRightPlane->shapeTransform()->setTranslation(QVector3D(-0.51f,0.0f,0.0f));
     }
 
     if(cuboid()->shapeTransform()->translation().y()>0){
         //up
-        m_upDownPlane->shapeTransform()->setTranslation(QVector3D(0.0f,0.61f,0.0f));
+        m_upDownPlane->shapeTransform()->setTranslation(QVector3D(0.0f,0.51f,0.0f));
     }
     else{
         //down
         m_upDownPlane->shapeTransform()->setRotationZ(180);
-        m_upDownPlane->shapeTransform()->setTranslation(QVector3D(0.0f,-0.61f,0.0f));
+        m_upDownPlane->shapeTransform()->setTranslation(QVector3D(0.0f,-0.51f,0.0f));
     }
 
     if(cuboid()->shapeTransform()->translation().z()>0){
         //front
         m_frontBackPlane->shapeTransform()->setRotationX(90);
-        m_frontBackPlane->shapeTransform()->setTranslation(QVector3D(0.0f,0.0f,0.61f));
+        m_frontBackPlane->shapeTransform()->setTranslation(QVector3D(0.0f,0.0f,0.51f));
     }
     else{
         //back
         m_frontBackPlane->shapeTransform()->setRotationX(-90);
-        m_frontBackPlane->shapeTransform()->setTranslation(QVector3D(0.0f,0.0f,-0.61f));
+        m_frontBackPlane->shapeTransform()->setTranslation(QVector3D(0.0f,0.0f,-0.51f));
     }
 
     m_upDownPlane->setColor(255,0,0);

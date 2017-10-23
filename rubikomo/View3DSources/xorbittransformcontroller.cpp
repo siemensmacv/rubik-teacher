@@ -73,7 +73,6 @@ void XOrbitTransformController::updateAngle()
 void XOrbitTransformController::updateMatrix()
 {
     QMatrix4x4 matrix = getCentreMatrix();
-
     float relativeRadius = m_radius;
     float relativeVectorAxis = 1.0f;
     float radians = qDegreesToRadians(m_angle);
@@ -86,7 +85,7 @@ void XOrbitTransformController::updateMatrix()
 
         //if(m_isCorner)
         //    matrix.rotate(45, QVector3D(relativeVectorAxis, 0.0f, 0.0f));
-       // no matrix.rotate(-m_angle, QVector3D(relativeVectorAxis, 0.0f, 0.0f));
+        // no matrix.rotate(-m_angle, QVector3D(relativeVectorAxis, 0.0f, 0.0f));
         //matrix = Qt3DCore::QTransform::rotateAround(QVector3D(1.0f, 0.0f, 0.0f),
         //m_angle,QVector3D(relativeVectorAxis, 0.0f, 0.0f));
         //matrix.translate(1.1f, 0.0f, -relativeRadius);
