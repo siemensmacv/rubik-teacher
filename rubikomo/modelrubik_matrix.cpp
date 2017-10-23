@@ -56,12 +56,12 @@ int ModelRubik_Matrix::colorLetterToDigit(char c)
 			break;
     }
 
-	return static_cast<int>(face);
+    return static_cast<int>(face) + 1;
 }
 
 char ModelRubik_Matrix::colorDigitToLetter(int d)
 {
-	RubikFace face = static_cast<RubikFace>(d);
+    RubikFace face = static_cast<RubikFace>(d - 1);
     switch(face)
     {
         case RubikFace::Up:

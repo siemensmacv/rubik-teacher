@@ -39,7 +39,7 @@ void FaceCube2D::paintEvent(QPaintEvent *pe)
 
 QColor FaceCube2D::getColorFromValue(int value) const
 {
-	RubikFace face = static_cast<RubikFace>(value/10);
+    RubikFace face = static_cast<RubikFace>(value/10 - 1);
     switch(face)
     {
 	case RubikFace::Up:
