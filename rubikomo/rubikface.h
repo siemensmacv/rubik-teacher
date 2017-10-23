@@ -14,6 +14,7 @@ extern "C" {
 #endif
 int colorLetterToDigit(char c);
 char colorDigitToLetter(int d);
+char colorEnumToLetter(RubikFace face);
 #ifdef __cplusplus
 }
 #endif

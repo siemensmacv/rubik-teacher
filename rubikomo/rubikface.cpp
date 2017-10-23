@@ -47,3 +47,22 @@ char colorDigitToLetter(int d)
         return 'B';
     }
 }
+
+char colorEnumToLetter(RubikFace face)
+{
+    switch(face)
+    {
+    case RubikFace::Back:
+        return 'B';
+    case RubikFace::Down:
+        return 'D';
+    case RubikFace::Front:
+        return 'F';
+    case RubikFace::Left:
+        return 'L';
+    case RubikFace::Right:
+        return 'R';
+    case RubikFace::Up:
+        return 'U';
+    }
+}

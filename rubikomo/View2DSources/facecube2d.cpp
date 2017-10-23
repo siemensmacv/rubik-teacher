@@ -31,10 +31,17 @@ void FaceCube2D::paintEvent(QPaintEvent *pe)
             QColor color = getColorFromValue(m_model->getMatrixValue(m_representing, i, j));
             painter.setPen(color);
             painter.setBrush(color);
-
             painter.drawRect(mRectMatrix[i][j]);
         }
     }
+
+    QString letter = colorEnumToLetter(m_representing);
+    QFont font = painter.font();
+    painter.setPen(Qt::black);
+    font.setPointSize(12);
+    font.setBold(true);
+    painter.setFont(font);
+    painter.drawText(mRectMatrix[1][1], Qt::AlignCenter, letter);
 }
 
 QColor FaceCube2D::getColorFromValue(int value) const
