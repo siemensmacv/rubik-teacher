@@ -26,6 +26,17 @@ int ModelRubik::getMatrixValue(const RubikFace &face, const int &row, const int 
     return matrix.getMatrixValue(face, row, column);
 }
 
+void ModelRubik::setModel(std::string input)
+{
+    matrix.setMatrix(input);
+    emit cubeChanged();
+}
+
+std::string ModelRubik::getModel()
+{
+    return matrix.getMatrix();
+}
+
 void ModelRubik::rotateXAxisClockwise()
 {
     matrix.rotateXAxisClockwise();

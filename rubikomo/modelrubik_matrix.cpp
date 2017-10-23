@@ -31,9 +31,102 @@ int ModelRubik_Matrix::getMatrixValue(const RubikFace &face, const int &row, con
     return _matrix[static_cast<int>(face)][row][column];
 }
 
+int ModelRubik_Matrix::colorLetterToDigit(char c)
+{
+	RubikFace face;
+    switch(c)
+    {
+        case 'U':
+            face = RubikFace::Up;
+			break;
+        case 'R':
+			face = RubikFace::Right;
+			break;
+        case 'F':
+			face = RubikFace::Front;
+			break;
+        case 'D':
+			face = RubikFace::Down;
+			break;
+        case 'L':
+			face = RubikFace::Left;
+			break;
+        case 'B':
+			face = RubikFace::Back;
+			break;
+    }
+
+	return static_cast<int>(face);
+}
+
+char ModelRubik_Matrix::colorDigitToLetter(int d)
+{
+	RubikFace face = static_cast<RubikFace>(d);
+    switch(face)
+    {
+        case RubikFace::Up:
+            return 'U';
+			break;
+        case RubikFace::Right:
+            return 'R';
+			break;
+		case RubikFace::Front:
+            return 'F';
+			break;
+        case RubikFace::Down:
+            return 'D';
+			break;
+        case RubikFace::Left:
+            return 'L';
+			break;
+        case RubikFace::Back:
+            return 'B';
+			break;
+    }
+}
+
 void ModelRubik_Matrix::setMatrixValue(const RubikFace &face, const int &row, const int &column, const int &value)
 {
     _matrix[static_cast<int>(face)][row][column] = value;
+}
+
+void ModelRubik_Matrix::setMatrix(std::string input)
+{
+    int pos = 0;
+    int row = 0;
+    int col = 0;
+    while(pos < 54)
+    {
+        row = 0;
+        while(row < 3)
+        {
+            col = 0;
+            while(col < 3)
+            {
+                _matrix[pos/9][row][col] = colorLetterToDigit(input[pos]) * 10 + row*3 + col + 1;
+                ++col;
+                ++pos;
+            }
+            ++row;
+        }
+    }
+}
+
+std::string ModelRubik_Matrix::getMatrix()
+{
+    std::string output;
+    for(int face = 0; face < 6; ++face)
+    {
+        for(int row = 0; row < 3; ++row)
+        {
+            for(int col = 0; col < 3; ++col)
+            {
+                output += colorDigitToLetter(_matrix[face][row][col]);
+            }
+        }
+    }
+
+    return output;
 }
 
 void ModelRubik_Matrix::rotateFaceClockwise(const RubikFace &face)

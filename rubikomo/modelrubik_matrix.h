@@ -4,6 +4,7 @@
 #include "rubikface.h"
 #include <algorithm>
 #include <vector>
+#include <qstring.h>
 
 class ModelRubik_Matrix
 {
@@ -28,10 +29,14 @@ private:
     void _rotateRightCounterClockwise();
 
     void setMatrixValue(const RubikFace &face, const int &row, const int &column, const int &value);
+    int colorLetterToDigit(char c);
+    char colorDigitToLetter(int d);
 public:
     ModelRubik_Matrix();
     ~ModelRubik_Matrix();
     int getMatrixValue(const RubikFace &face, const int &row, const int &column) const;
+    void setMatrix(std::string input);
+    std::string getMatrix();
 
     void rotateFaceClockwise(const RubikFace &face);
     void rotateFaceCounterClockwise(const RubikFace &face);

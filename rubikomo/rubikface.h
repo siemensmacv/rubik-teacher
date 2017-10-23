@@ -1,10 +1,10 @@
 #pragma once
 enum class RubikFace
 {
-    Front = 0,
-    Back,
-    Left,
-    Right,
-    Up,
-    Down
+	Up = 0,
+	Left,
+	Front,
+	Right,
+	Back,
+	Down
 };

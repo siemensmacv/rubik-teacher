@@ -5,6 +5,16 @@ ControllerRubik::ControllerRubik(QObject *parent) : QObject(parent)
 
 }
 
+void ControllerRubik::setModel(std::string input)
+{
+    model.setModel(input);
+}
+
+std::string ControllerRubik::getModel()
+{
+    return model.getModel();
+}
+
 int ControllerRubik::getMatrixValue(const RubikFace &face, const int &row, const int &column) const
 {
     return model.getMatrixValue(face, row, column);

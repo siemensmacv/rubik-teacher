@@ -39,21 +39,20 @@ void FaceCube2D::paintEvent(QPaintEvent *pe)
 
 QColor FaceCube2D::getColorFromValue(int value) const
 {
-    switch(value/10)
+	RubikFace face = static_cast<RubikFace>(value/10);
+    switch(face)
     {
-    case 1:
-        return QColor(0, 255, 0);
-    case 2:
-        return QColor(0, 0, 255);
-    case 3:
-        return QColor(255, 0, 0);
-    case 4:
-        return QColor(255, 165, 0);
-    case 5:
+	case RubikFace::Up:
         return QColor(255, 255, 0);
-    case 6:
-        return QColor(255, 255, 255);
-    default:
+	case RubikFace::Left:
+        return QColor(255, 0, 0);
+	case RubikFace::Front:
+        return QColor(0, 255, 0);
+	case RubikFace::Right:
+        return QColor(255, 165, 0);
+	case RubikFace::Back:
+        return QColor(0, 0, 255);
+	case RubikFace::Down:
         return QColor(255, 255, 255);
     }
 }
