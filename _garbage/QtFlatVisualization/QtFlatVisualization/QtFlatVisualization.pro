@@ -62,9 +62,3 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
-
-DISTFILES += \
-    ../icons/Play.png
-
-RESOURCES += \
-    icons.qrc
