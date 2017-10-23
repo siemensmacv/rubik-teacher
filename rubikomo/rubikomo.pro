@@ -49,7 +49,8 @@ SOURCES += \
     View3DSources/centre3d.cpp \
     View3DSources/view3d.cpp \
     View2DSources/view2d.cpp \
-    View2DSources/facecube2d.cpp
+    View2DSources/facecube2d.cpp \
+    colorinput2d.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -79,7 +80,8 @@ HEADERS += \
     View3DHeaders/view3d.h \
     View3DHeaders/matrixswap.h \
     View2DHeaders/view2d.h \
-    View2DHeaders/facecube2d.h
+    View2DHeaders/facecube2d.h \
+    colorinput2d.h
 
 FORMS += \
         mainwindow.ui
