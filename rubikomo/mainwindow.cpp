@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     float tabWidth = (ui->tabWidget->width()*3-34);
     ui->tabWidget->setStyleSheet("QTabWidget QTabBar::tab{width:" + QString::number(tabWidth) + "px; }");
-    ui->tabWidget->setCurrentIndex(2);
+    ui->tabWidget->setCurrentIndex(0);
 
     m_view3D = new View3D(&controllerRubik.model,ui);
 
@@ -48,6 +48,8 @@ MainWindow::MainWindow(QWidget *parent) :
             m_view3D,&View3D::RightC);
     connect(ui->RR_PushButton_3D,&QPushButton::clicked,
             m_view3D,&View3D::RightCC);
+
+    connect(ui->pushButton_Load, &QPushButton::clicked, this, &MainWindow::validateAndLoadInput);
 
     ui->horizontalLayout->insertLayout(0, m_view2D->getLayout());
     ui->gridLayout_3->addWidget(m_view3D->getContainer());
@@ -211,5 +213,9 @@ void MainWindow::validateAndLoadInput()
     if(validator() == true)
         controllerRubik.setModel(m_inputmodel.getModel());
     else
-        qInfo("Nem");
+    {
+        QMessageBox messagebox;
+        messagebox.setText("Validation stage not passed! Please make sure the cube has a correct configuration.");
+        messagebox.exec();
+    }
 }

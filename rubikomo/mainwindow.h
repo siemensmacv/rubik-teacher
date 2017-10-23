@@ -9,6 +9,7 @@
 
 #include "./View2DHeaders/view2d.h"
 #include "rubikvalidator.h"
+#include <QMessageBox>
 
 namespace Ui {
 class MainWindow;
