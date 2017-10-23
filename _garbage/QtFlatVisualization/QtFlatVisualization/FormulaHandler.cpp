@@ -1,5 +1,6 @@
 #include "FormulaHandler.h"
 #include <QPushButton>
+#include <QIcon>
 #include "rubik2dhandler.h"
 
 FormulaHandler::FormulaHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidget, QObject *rubikController)
@@ -18,6 +19,17 @@ FormulaHandler::~FormulaHandler()
     cleanFormula();
 }
 
+QPushButton* createBitmapButton(QString sPath, QWidget *parent)
+{
+    QPixmap pixmap(sPath);
+    QIcon buttonIcon(pixmap);
+    QPushButton *button = new QPushButton(parent);
+    button->setIcon(buttonIcon);
+    button->setIconSize(pixmap.rect().size());
+
+    return button;
+}
+
 void FormulaHandler::initFormula()
 {
     mGridLayoutFormulas = new QGridLayout(mGridLayoutWidget);
@@ -28,12 +40,12 @@ void FormulaHandler::initFormula()
 
     QGridLayout *lGridLayoutButtons = new QGridLayout(mGridLayoutWidget);
 
-    QPushButton *buttonBackward = new QPushButton("<|", mGridLayoutWidget);
+    QPushButton *buttonBackward = createBitmapButton(":/icons/playBack.png", mGridLayoutWidget);
     buttonBackward->setVisible(true);
     connect(buttonBackward, &QPushButton::clicked, this, &FormulaHandler::backwardStep);
     lGridLayoutButtons->addWidget(buttonBackward, 0, 1);
 
-    QPushButton *buttonForward = new QPushButton("|>", mGridLayoutWidget);
+    QPushButton *buttonForward = createBitmapButton(":/icons/play.png", mGridLayoutWidget);
     buttonForward->setVisible(true);
     connect(buttonForward, &QPushButton::clicked, this, &FormulaHandler::forwardStep);
     lGridLayoutButtons->addWidget(buttonForward, 0, 2);
