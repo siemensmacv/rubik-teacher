@@ -10,7 +10,7 @@ ModelRubik_Matrix::ModelRubik_Matrix()
         {
             _matrix[face][row] = new int[3];
             for(auto column = 0; column < 3; ++column)
-                _matrix[face][row][column] = (face+1)*10 + 3*row + column + 1;
+                _matrix[face][row][column] = face;
         }
     }
 }
@@ -49,7 +49,7 @@ void ModelRubik_Matrix::setMatrix(std::string input)
             col = 0;
             while(col < 3)
             {
-                _matrix[pos/9][row][col] = colorLetterToDigit(input[pos]) * 10 + row*3 + col + 1;
+                _matrix[pos/9][row][col] = colorLetterToDigit(input[pos]);
                 ++col;
                 ++pos;
             }

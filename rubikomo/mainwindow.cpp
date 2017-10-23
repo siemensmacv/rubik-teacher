@@ -56,7 +56,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     m_colorinput = new View2D(this, &m_inputmodel);
     ui->horizontalLayout_4->insertLayout(0, m_colorinput->getLayout());
-    connect(m_colorinput, &View2D::clicked, m_colorinput, &View2D::onClicked);
+    //connect(m_colorinput, &View2D::clicked, m_colorinput, &View2D::onClicked);
 }
 
 MainWindow::~MainWindow()

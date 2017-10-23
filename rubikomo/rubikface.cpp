@@ -25,12 +25,12 @@ int colorLetterToDigit(char c)
         break;
     }
 
-    return static_cast<int>(face) + 1;
+    return static_cast<int>(face);
 }
 
 char colorDigitToLetter(int d)
 {
-    RubikFace face = static_cast<RubikFace>(d - 1);
+    RubikFace face = static_cast<RubikFace>(d);
     switch(face)
     {
     case RubikFace::Up:
