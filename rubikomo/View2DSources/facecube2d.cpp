@@ -52,7 +52,8 @@ void FaceCube2D::mousePressEvent(QMouseEvent *event)
         {
             if(mRectMatrix[row][col].contains(event->x(), event->y(), true))
             {
-                emit frameClicked(m_representing, row, col);
+                if(row != 1 || col != 1)
+                    emit frameClicked(m_representing, row, col);
                 break;
             }
         }
