@@ -28,8 +28,10 @@ Rubik2DHandler::Rubik2DHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidg
 
 Rubik2DHandler::~Rubik2DHandler()
 {
-    free(mFaceCube);
-    free(mCubieCube);
+    if (mFaceCube != nullptr)
+        free(mFaceCube);
+    if (mCubieCube != nullptr)
+        free(mCubieCube);
     delete(mCube);
 }
 
@@ -370,8 +372,11 @@ void Rubik2DHandler::refreshView()
 
 void Rubik2DHandler::refreshRepresentations()
 {
-    free(mFaceCube);
-    free(mCubieCube);
+    // we have a crash here
+//    if (mFaceCube != nullptr)
+//        free(mFaceCube);
+//    if (mCubieCube != nullptr)
+//        free(mCubieCube);
 
     char stringCube[60];
     strcpy_s(stringCube, 60, toString().c_str());
