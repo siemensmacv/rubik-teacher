@@ -85,12 +85,6 @@ void MainWindow::connectFlatButtonsToSlots()
     connect(ui->pushButton_R_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
     connect(ui->pushButton_UR_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
     connect(ui->pushButton_U_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
-    connect(ui->pushButton_XR_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
-    connect(ui->pushButton_X_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
-    connect(ui->pushButton_YR_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
-    connect(ui->pushButton_Y_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
-    connect(ui->pushButton_ZR_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
-    connect(ui->pushButton_Z_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
     connect(ui->loadButton, &QPushButton::clicked,this, &MainWindow::openFileButtonClicked);
     connect(ui->saveButton, &QPushButton::clicked,this, &MainWindow::saveFileButtonClicked);
     connect(ui->shuffleButton, &QPushButton::clicked,this, &MainWindow::shuffleRubikCube);

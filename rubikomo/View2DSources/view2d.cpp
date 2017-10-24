@@ -37,12 +37,14 @@ void View2D::initFaceCubes(QWidget *parent)
     mLeftFace  = new FaceCube2D(parent, m_model, RubikFace::Left);
     mBackFace  = new FaceCube2D(parent, m_model, RubikFace::Back);
 
-    gridLayout->addWidget(mUpFace,    0, 1);
-    gridLayout->addWidget(mLeftFace,  1, 0);
-    gridLayout->addWidget(mFrontFace, 1, 1);
-    gridLayout->addWidget(mRightFace, 1, 2);
-    gridLayout->addWidget(mBackFace,  1, 3);
-    gridLayout->addWidget(mDownFace,  2, 1);
+    gridLayout->addItem(new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding), 0, 0);
+    gridLayout->addWidget(mUpFace,    1, 1);
+    gridLayout->addWidget(mLeftFace,  2, 0);
+    gridLayout->addWidget(mFrontFace, 2, 1);
+    gridLayout->addWidget(mRightFace, 2, 2);
+    gridLayout->addWidget(mBackFace,  2, 3);
+    gridLayout->addWidget(mDownFace,  3, 1);
+    gridLayout->addItem(new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding), 4, 0);
 }
 
 void View2D::refresh()
