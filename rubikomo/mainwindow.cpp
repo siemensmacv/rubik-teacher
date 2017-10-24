@@ -89,6 +89,8 @@ void MainWindow::connectFlatButtonsToSlots()
     connect(ui->pushButton_Y_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
     connect(ui->pushButton_ZR_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
     connect(ui->pushButton_Z_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
+    connect(ui->loadButton, &QPushButton::clicked,this,&MainWindow::openFileButtonClicked);
+    connect(ui->saveButton, &QPushButton::clicked,this,&MainWindow::saveFileButtonClicked);
 }
 
 void MainWindow::connectRadioButtonsToSlots()
@@ -224,4 +226,29 @@ void MainWindow::validateAndLoadInput()
         messagebox.setText("Validation stage not passed! Please make sure the cube has a correct configuration.\nInput: "   + QString::fromStdString(model));
         messagebox.exec();
     }
+}
+
+void MainWindow::openFileButtonClicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,"Select a text file");
+    QFile inputFile(fileName);
+    if(inputFile.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        QTextStream textStream(&inputFile);
+        std::string fileContent = textStream.readAll().toStdString();
+        m_inputmodel.setModel(fileContent);
+    }
+}
+
+void MainWindow::saveFileButtonClicked()
+{
+    QString fileName = QFileDialog::getSaveFileName(this,"Select a text file");
+    QFile outputFile(fileName);
+    if(outputFile.open(QIODevice::Append | QIODevice::Text))
+    {
+        QTextStream textStream(&outputFile);
+        std::string fileContent = m_inputmodel.getModel();    //toPlainText();
+        textStream<<QString::fromStdString(fileContent)<<endl;
+    }
+
 }

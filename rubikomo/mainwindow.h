@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QFileDialog>
 #include "./View3DHeaders/view3d.h"
 #include "controllerrubik.h"
 
@@ -38,6 +39,9 @@ private slots:
     void handleButton();
     void handleInputRadio();
     void validateAndLoadInput();
+    void openFileButtonClicked();
+    void saveFileButtonClicked();
+
 };
 
 #endif // MAINWINDOW_H
