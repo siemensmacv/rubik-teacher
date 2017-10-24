@@ -1,4 +1,7 @@
 #pragma once
+#include <array>
+#include <string>
+
 enum class EdgeOrientation
 {
 	Normal,
@@ -20,3 +23,5 @@ enum class Edge
 	DF,
 	DL
 };
+
+static const std::array<std::string, 12> proper_edges = {"UB", "UR", "UF", "UL", "BR", "RF", "FL", "LB", "DB", "DR", "DF", "DL"};

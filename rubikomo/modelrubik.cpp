@@ -35,6 +35,7 @@ void ModelRubik::setMatrixValue(const RubikFace &face, const int &row, const int
 void ModelRubik::setModel(std::string input)
 {
     matrix.setMatrix(input);
+    corners_edges.setCornersEdges(input);
     emit cubeChanged();
 }
 
