@@ -209,13 +209,19 @@ void MainWindow::handleInputRadio()
 
 void MainWindow::validateAndLoadInput()
 {
-    RubikValidator validator(m_inputmodel.getModel());
+    std::string model = m_inputmodel.getModel();
+    RubikValidator validator(model);
     if(validator() == true)
-        controllerRubik.setModel(m_inputmodel.getModel());
+    {
+        controllerRubik.setModel(model);
+        QMessageBox messagebox;
+        messagebox.setText("Validation stage passed!\nInput: " + QString::fromStdString(model));
+        messagebox.exec();
+    }
     else
     {
         QMessageBox messagebox;
-        messagebox.setText("Validation stage not passed! Please make sure the cube has a correct configuration.");
+        messagebox.setText("Validation stage not passed! Please make sure the cube has a correct configuration.\nInput: "   + QString::fromStdString(model));
         messagebox.exec();
     }
 }
