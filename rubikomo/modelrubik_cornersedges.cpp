@@ -372,7 +372,7 @@ void ModelRubik_CornersEdges::setCornersEdges(std::string input)
 {
     std::string corners[8] = {
         std::string() + input[2] + input[53] + input[11],
-        std::string() + input[8] + input[18] + input[20],
+        std::string() + input[8] + input[9] + input[20],
         std::string() + input[6] + input[18] + input[38],
         std::string() + input[0] + input[36] + input[47],
         std::string() + input[35] + input[17] + input[51],
@@ -423,19 +423,43 @@ void ModelRubik_CornersEdges::setCornersEdges(std::string input)
 
     for(int pos=0; pos<8; ++pos)
     {
-        while(std::find_if(proper_corners.begin(), proper_corners.end(), [&corners, &pos](std::string str){return str == corners[pos];}) == proper_corners.end())
+        auto it = std::find_if(proper_corners.begin(),
+                               proper_corners.end(),
+                               [&corners, &pos](std::string str){return str == corners[pos];}
+        );
+
+        while(it == proper_corners.end())
         {
             corners[pos] = permutateStringForward(corners[pos]);
             corners_orientation[pos]++;
+            it = std::find_if(proper_corners.begin(),
+                                           proper_corners.end(),
+                                           [&corners, &pos](std::string str){return str == corners[pos];}
+            );
         }
+
+        corner_position[pos] = static_cast<Corner>(std::distance(it, proper_corners.begin()));
+        corner_orientation[pos] = corner_orientation[pos];
     }
 
     for(int pos=0; pos<12; ++pos)
     {
-        while(std::find_if(proper_edges.begin(), proper_edges.end(), [&edges, &pos](std::string str){return str == edges[pos];}) == proper_edges.end())
+        auto it = std::find_if(proper_edges.begin(),
+                               proper_edges.end(),
+                               [&edges, &pos](std::string str){return str == edges[pos];}
+        );
+
+        while(it == proper_edges.end())
         {
             edges[pos] = permutateStringForward(edges[pos]);
             edges_orientation[pos] = !edges_orientation[pos];
+            it = std::find_if(proper_edges.begin(),
+                              proper_edges.end(),
+                              [&edges, &pos](std::string str){return str == edges[pos];}
+            );
         }
+
+        edge_position[pos] = static_cast<Edge>(std::distance(it, proper_edges.begin()));
+        edge_orientation[pos] = edges_orientation[pos];
     }
 }

@@ -4,6 +4,7 @@
 #include "rubikface.h"
 #include <string>
 #include <algorithm>
+#include <iterator>
 
 CornerOrientation& operator++(CornerOrientation& variable, int);
 CornerOrientation& operator--(CornerOrientation& variable, int);
