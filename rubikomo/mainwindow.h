@@ -11,6 +11,7 @@
 #include "./View2DHeaders/view2d.h"
 #include "rubikvalidator.h"
 #include <QMessageBox>
+#include <random>
 
 namespace Ui {
 class MainWindow;
@@ -41,6 +42,7 @@ private slots:
     void validateAndLoadInput();
     void openFileButtonClicked();
     void saveFileButtonClicked();
+    void shuffleRubikCube();
 
 };
 

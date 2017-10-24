@@ -62,6 +62,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->radioButton_Green->toggle();
     m_colorinput->setInputColor(RubikFace::Front);
+
+    //connect(ui->shuffleSpinBox, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), ui->shuffleButton, &MainWindow::shuffleRubikCube());
 }
 
 MainWindow::~MainWindow()
@@ -89,8 +91,9 @@ void MainWindow::connectFlatButtonsToSlots()
     connect(ui->pushButton_Y_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
     connect(ui->pushButton_ZR_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
     connect(ui->pushButton_Z_2D, &QPushButton::clicked, this, &MainWindow::handleButton);
-    connect(ui->loadButton, &QPushButton::clicked,this,&MainWindow::openFileButtonClicked);
-    connect(ui->saveButton, &QPushButton::clicked,this,&MainWindow::saveFileButtonClicked);
+    connect(ui->loadButton, &QPushButton::clicked,this, &MainWindow::openFileButtonClicked);
+    connect(ui->saveButton, &QPushButton::clicked,this, &MainWindow::saveFileButtonClicked);
+    connect(ui->shuffleButton, &QPushButton::clicked,this, &MainWindow::shuffleRubikCube);
 }
 
 void MainWindow::connectRadioButtonsToSlots()
@@ -251,4 +254,32 @@ void MainWindow::saveFileButtonClicked()
         textStream<<QString::fromStdString(fileContent)<<endl;
     }
 
+}
+
+void MainWindow::shuffleRubikCube()
+{
+    int whichFunction = 0, whichFaceOfCube = 0, stepsForShuffle = 0;
+
+    stepsForShuffle = ui->shuffleSpinBox->value();
+    std::default_random_engine generator;
+    std::uniform_int_distribution<int> distribution1(0,1);
+    std::uniform_int_distribution<int> distribution2(0,5);
+
+    for(int i = 1; i <= stepsForShuffle; ++i)
+    {
+
+        whichFunction = distribution1(generator);
+        whichFaceOfCube = distribution2(generator);
+
+        if(whichFunction == 0)
+        {
+            m_inputmodel.rotateFaceClockwise(RubikFace(whichFaceOfCube));
+
+        }
+        else
+            if(whichFunction == 1)
+            {
+                m_inputmodel.rotateFaceCounterClockwise(RubikFace(whichFaceOfCube));
+            }
+    }
 }
