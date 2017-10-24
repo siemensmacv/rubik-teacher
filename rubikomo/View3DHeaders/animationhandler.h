@@ -1,10 +1,7 @@
 #ifndef ANIMATIONHANDLER_H
 #define ANIMATIONHANDLER_H
 
-#include "orbittransformcontroller.h"
-#include "./View3DHeaders/xorbittransformcontroller.h"
-#include "./View3DHeaders/yorbittransformcontroller.h"
-#include "./View3DHeaders/zorbittransformcontroller.h"
+#include "./View3DHeaders/cuboid.h"
 
 #include <Qt3DCore>
 
@@ -12,31 +9,36 @@ class AnimationHandler : public QObject
 {
     Q_OBJECT
 public:
-    explicit AnimationHandler(Qt3DCore::QTransform *cuboidTranform,bool isCorner);
+    explicit AnimationHandler(Cuboid *cuboid);
 
-    void startXAxisClockAnim();
-    void startXAxisCClockAnim();
-    void startYAxisClockAnim();
-    void startYAxisCClockAnim();
-    void startZAxisClockAnim();
-    void startZAxisCClockAnim();
+    static void UpC();//
+    void UpCC();
+    void DownC();
+    void DownCC();
+    void FrontC();
+    void FrontCC();
+    void BackC();
+    void BackCC();
+    void RightC();//
+    void RightCC();
+    void LeftC();
+    void LeftCC();
 
-    XOrbitTransformController *XOrbitTransform() const;
-
-    YOrbitTransformController *YOrbitTransform() const;
-
-    ZOrbitTransformController *ZOrbitTransform() const;
 signals:
     void animationEnded();
 private:
-    QPropertyAnimation *XAnim;
-    XOrbitTransformController *m_XOrbitTransform;
+    Qt3DCore::QTransform *transform;
 
-    QPropertyAnimation *YAnim;
-    YOrbitTransformController *m_YOrbitTransform;
+    int count = 0;
+    QTimer *timer;
 
-    QPropertyAnimation *ZAnim;
-    ZOrbitTransformController *m_ZOrbitTransform;
+    Cuboid* m_cube;
+    QMatrix4x4 rotationMatrix;
+
+    //map corner
+    //map edge
+    void rotate();
+
 };
 
 #endif // ANIMATIONHANDLER_H

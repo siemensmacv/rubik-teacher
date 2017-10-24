@@ -154,8 +154,10 @@ void Cube3D::initCentres(ModelRubik *model3D)
 void Cube3D::UpC()
 {
     for(int i=0;i<3;i++)
-        for(int j=0;j<3;j++)
-            m_upFace[i][j]->startYAxisClockAnim();
+        for(int j=0;j<3;j++){
+            m_upFace[i][j]->UpC();
+
+        }
     m_swaper->upClock();
 }
 

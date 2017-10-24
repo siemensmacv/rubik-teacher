@@ -6,14 +6,22 @@
 
 class ICubie{
 public:
-    virtual void startXAxisClockAnim() = 0;
-    virtual void startXAxisCClockAnim() = 0;
-    virtual void startYAxisClockAnim() = 0;
-    virtual void startYAxisCClockAnim() = 0;
-    virtual void startZAxisClockAnim() = 0;
-    virtual void startZAxisCClockAnim() = 0;
+   virtual void UpC()=0;//
+   virtual void UpCC()=0;
+   virtual void DownC()=0;
+   virtual void DownCC()=0;
+   virtual void FrontC()=0;
+   virtual void FrontCC()=0;
+   virtual void BackC()=0;
+   virtual void BackCC()=0;
+   virtual void RightC()=0;//
+   virtual void RightCC()=0;
+   virtual void LeftC()=0;
+   virtual void LeftCC()=0;
+
     virtual Plane* upDownPlane()=0;
     virtual Qt3DCore::QEntity* entity()=0;
     virtual Qt3DCore::QTransform* transf()=0;
+    virtual Cuboid* cuboid()=0;
 };
 #endif // ICUBIE_H

@@ -1,118 +1,53 @@
 #include "./View3DHeaders/animationhandler.h"
 
-AnimationHandler::AnimationHandler(Qt3DCore::QTransform *cuboidTransform, bool isCorner)
+AnimationHandler::AnimationHandler(Cuboid *cuboid)
 {
-    m_XOrbitTransform = new XOrbitTransformController(cuboidTransform,isCorner);
-    m_YOrbitTransform = new YOrbitTransformController(cuboidTransform,isCorner);
-    m_ZOrbitTransform = new ZOrbitTransformController(cuboidTransform,isCorner);
-
-    m_XOrbitTransform->setTarget(cuboidTransform);
-    m_YOrbitTransform->setTarget(cuboidTransform);
-    m_ZOrbitTransform->setTarget(cuboidTransform);
-
-    XAnim = new QPropertyAnimation( m_XOrbitTransform->target());
-    YAnim = new QPropertyAnimation( m_YOrbitTransform->target());
-    ZAnim = new QPropertyAnimation( m_ZOrbitTransform->target());
-
-    XAnim->setTargetObject(m_XOrbitTransform);
-    XAnim->setPropertyName("angle");
-    XAnim->setDuration(1000);
-    XAnim->setLoopCount(1);
-
-    YAnim->setTargetObject(m_YOrbitTransform);
-    YAnim->setPropertyName("angle");
-    YAnim->setDuration(1000);
-    YAnim->setLoopCount(1);
-
-    ZAnim->setTargetObject(m_ZOrbitTransform);
-    ZAnim->setPropertyName("angle");
-    ZAnim->setDuration(1000);
-    ZAnim->setLoopCount(1);
-
-    //connect(XAnim, &QPropertyAnimation::finished,
-     //                m_view3D, &View3D::onAnimationEnded);
+    m_cube=cuboid;
 }
 
-void AnimationHandler::startXAxisClockAnim()
+void AnimationHandler::rotate()
 {
-
-   // m_XOrbitTransform->updateAngle();
-
-    XAnim->setStartValue(m_XOrbitTransform->angle() );
-
-    XAnim->setEndValue(m_XOrbitTransform->angle() - 90);
-
-    XAnim->start();
+    QMatrix4x4 m = transform->matrix();
+    m = m * rotationMatrix;
+    transform->setMatrix(m);
 }
 
-void AnimationHandler::startXAxisCClockAnim()
+void AnimationHandler::UpC()// 1 functie
 {
+    float x = round(transform->translation().x());
+    float y = round(transform->translation().y());
+    float z = round(transform->translation().z());
 
-    m_XOrbitTransform->updateAngle();
+    int index=0;
 
-    XAnim->setStartValue(m_XOrbitTransform->angle() );
+//    if(x<=0.1 && z>=0.9)
+//        index=5;
+//    if(x<=0.1 && z<=-0.9)
+//        index=4;
+//    if(x<=-0.9 && z<=0.1)
+//        index =0;
+//    if(x>=0.9 && z<=0.1)
+//        index=1;
 
-    XAnim->setEndValue(m_XOrbitTransform->angle() + 90);
+    if(abs(x)+abs(y)+abs(z) == 3)
+        //pair(index,index2) = corner map
+    if(abs(x)+abs(y)+abs(z) == 2)
+        //index = edge map
+    if(abs(x)+abs(y)+abs(z) == 1)
+        //index = centre map
 
-    XAnim->start();
+    rotationMatrix = Qt3DCore::QTransform::rotateAround(
+                m_cube->relativeAxis->axis[index],
+                -0.09,
+                m_cube->m_axisHandler->axis[2]
+                );
+
+    m_cube->m_axisHandler->yClock();
+
+    for (int i = 0; i < 1000; ++i)
+    {
+        QTimer::singleShot(i, this, &RotatingEventHandler::rotate);
+    }
 }
 
-void AnimationHandler::startYAxisClockAnim()
-{
 
-    m_YOrbitTransform->updateAngle();
-
-    YAnim->setStartValue(m_YOrbitTransform->angle() );
-
-    YAnim->setEndValue(m_YOrbitTransform->angle() - 90);
-
-    YAnim->start();
-}
-
-void AnimationHandler::startYAxisCClockAnim()
-{
-    m_YOrbitTransform->updateAngle();
-
-    YAnim->setStartValue(m_YOrbitTransform->angle() );
-
-    YAnim->setEndValue(m_YOrbitTransform->angle() + 90);
-
-    YAnim->start();
-}
-
-void AnimationHandler::startZAxisClockAnim()
-{
-    m_ZOrbitTransform->updateAngle();
-
-    ZAnim->setStartValue(m_ZOrbitTransform->angle() );
-
-    ZAnim->setEndValue(m_ZOrbitTransform->angle() - 90);
-
-    ZAnim->start();
-}
-
-void AnimationHandler::startZAxisCClockAnim()
-{
-    m_ZOrbitTransform->updateAngle();
-
-    ZAnim->setStartValue(m_ZOrbitTransform->angle() );
-
-    ZAnim->setEndValue(m_ZOrbitTransform->angle() + 90);
-
-    ZAnim->start();
-}
-
-XOrbitTransformController *AnimationHandler::XOrbitTransform() const
-{
-    return m_XOrbitTransform;
-}
-
-YOrbitTransformController *AnimationHandler::YOrbitTransform() const
-{
-    return m_YOrbitTransform;
-}
-
-ZOrbitTransformController *AnimationHandler::ZOrbitTransform() const
-{
-    return m_ZOrbitTransform;
-}

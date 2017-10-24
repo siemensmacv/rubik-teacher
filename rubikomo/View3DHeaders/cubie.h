@@ -8,12 +8,18 @@
 class Cubie : public ICubie{
 public:
     explicit Cubie(Qt3DCore::QEntity *rootEntity, bool isCorner);
-    void startXAxisClockAnim();
-    void startXAxisCClockAnim();
-    void startYAxisClockAnim();
-    void startYAxisCClockAnim();
-    void startZAxisClockAnim();
-    void startZAxisCClockAnim();
+    void UpC();//
+    void UpCC();
+    void DownC();
+    void DownCC();
+    void FrontC();
+    void FrontCC();
+    void BackC();
+    void BackCC();
+    void RightC();//
+    void RightCC();
+    void LeftC();
+    void LeftCC();
 
     Qt3DCore::QEntity* entity();
     Qt3DCore::QTransform* transf();
@@ -22,5 +28,6 @@ public:
 
 private:
     Cuboid *m_cuboid;
+    AnimationHandler *h;
 };
 #endif // CUBIE_H

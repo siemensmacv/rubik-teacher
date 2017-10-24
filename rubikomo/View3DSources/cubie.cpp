@@ -4,37 +4,14 @@
 Cubie::Cubie(Qt3DCore::QEntity *rootEntity,bool isCorner)
 {
     m_cuboid=new Cuboid(rootEntity,isCorner);
+    h=new AnimationHandler(m_cuboid);
 }
 
-void Cubie::startXAxisClockAnim()
+void Cubie::UpC()
 {
-    m_cuboid->animHandler()->startXAxisClockAnim();
+    h->UpC();
 }
 
-void Cubie::startXAxisCClockAnim()
-{
-    m_cuboid->animHandler()->startXAxisCClockAnim();
-}
-
-void Cubie::startYAxisClockAnim()
-{
-    m_cuboid->animHandler()->startYAxisClockAnim();
-}
-
-void Cubie::startYAxisCClockAnim()
-{
-    m_cuboid->animHandler()->startYAxisCClockAnim();
-}
-
-void Cubie::startZAxisClockAnim()
-{
-    m_cuboid->animHandler()->startZAxisClockAnim();
-}
-
-void Cubie::startZAxisCClockAnim()
-{
-    m_cuboid->animHandler()->startZAxisCClockAnim();
-}
 
 Qt3DCore::QEntity *Cubie::entity()
 {

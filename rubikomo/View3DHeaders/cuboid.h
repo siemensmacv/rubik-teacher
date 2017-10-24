@@ -2,16 +2,16 @@
 #define CUBOID_H
 
 #include "./View3DHeaders/shape3d.h"
-#include "./View3DHeaders/animationhandler.h"
+#include "./View3DHeaders/axishandler.h"
 
 class Cuboid : public Shape3D
 {
 public:
     explicit Cuboid(Qt3DCore::QEntity *rootEntity, bool isCorner);
     bool m_isCorner;
-    AnimationHandler *animHandler() const;
+    AxisHandler *axisHandler() const;
 private:
     Qt3DExtras::QCuboidMesh *m_cuboidMesh;
-    AnimationHandler *m_animHandler;
+    AxisHandler *m_axisHandler;
 };
 #endif // CUBOID_H

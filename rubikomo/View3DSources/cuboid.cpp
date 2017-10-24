@@ -6,12 +6,12 @@ Cuboid::Cuboid(Qt3DCore::QEntity *rootEntity,bool isCorner) :
     m_isCorner=isCorner;
     m_cuboidMesh = new Qt3DExtras::QCuboidMesh(m_shapeEntity);
     m_shapeEntity->addComponent(m_cuboidMesh);
-    m_animHandler = new AnimationHandler(m_shapeTransform,m_isCorner);
+    m_axisHandler = new AxisHandler();
 
 
 }
 
-AnimationHandler *Cuboid::animHandler() const
+AxisHandler *Cuboid::axisHandler() const
 {
-    return m_animHandler;
+    return m_axisHandler;
 }

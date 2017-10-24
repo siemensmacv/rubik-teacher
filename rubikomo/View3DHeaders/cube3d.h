@@ -41,6 +41,7 @@ private:
     Qt3DCore::QEntity *root;
     MatrixSwap *m_swaper;
     CubieFactory *m_cubieFactory;
+     AnimationHandler *h;
 
 };
 #endif // CUBE3D_H
