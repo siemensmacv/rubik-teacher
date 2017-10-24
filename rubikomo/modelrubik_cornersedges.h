@@ -2,6 +2,8 @@
 #include "rubikcorner.h"
 #include "rubikedge.h"
 #include "rubikface.h"
+#include <string>
+#include <algorithm>
 
 CornerOrientation& operator++(CornerOrientation& variable, int);
 CornerOrientation& operator--(CornerOrientation& variable, int);
@@ -21,6 +23,8 @@ public:
     void rotateYAxisCounterClockwise();
     void rotateZAxisClockwise();
     void rotateZAxisCounterClockwise();
+
+    void setCornersEdges(std::string input);
 
     Corner getCorner(const Corner &position) const;
     CornerOrientation getCornerOrientation(const Corner &position) const;
@@ -43,6 +47,8 @@ private:
     bool edgeValueInMiddleSlice(int index);
     bool edgeValueInEquatorSlice(int index);
     bool edgeValueInStandingSlice(int index);
+
+    std::string permutateStringForward(std::string input);
 
     Corner corner_position[8];
     Edge edge_position[12];

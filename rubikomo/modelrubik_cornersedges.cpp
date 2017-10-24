@@ -363,5 +363,79 @@ bool ModelRubik_CornersEdges::edgeValueInStandingSlice(int index)
         || edge_position[index] == Edge::DR;
 }
 
+std::string ModelRubik_CornersEdges::permutateStringForward(std::string input)
+{
+    return std::string() + input[input.length() - 1] + input.substr(0, input.length() - 1);
+}
 
+void ModelRubik_CornersEdges::setCornersEdges(std::string input)
+{
+    std::string corners[8] = {
+        std::string() + input[2] + input[53] + input[11],
+        std::string() + input[8] + input[18] + input[20],
+        std::string() + input[6] + input[18] + input[38],
+        std::string() + input[0] + input[36] + input[47],
+        std::string() + input[35] + input[17] + input[51],
+        std::string() + input[29] + input[26] + input[15],
+        std::string() + input[27] + input[44] + input[24],
+        std::string() + input[33] + input[53] + input[42]
+    };
 
+    std::string edges[12] = {
+        std::string() + input[1] + input[46],
+        std::string() + input[5] + input[10],
+        std::string() + input[7] + input[19],
+        std::string() + input[3] + input[37],
+        std::string() + input[48] + input[14],
+        std::string() + input[12] + input[23],
+        std::string() + input[21] + input[41],
+        std::string() + input[39] + input[50],
+        std::string() + input[34] + input[52],
+        std::string() + input[32] + input[16],
+        std::string() + input[28] + input[25],
+        std::string() + input[30] + input[43]
+    };
+
+    CornerOrientation corners_orientation[8] = {
+        CornerOrientation::Normal,
+        CornerOrientation::Normal,
+        CornerOrientation::Normal,
+        CornerOrientation::Normal,
+        CornerOrientation::Normal,
+        CornerOrientation::Normal,
+        CornerOrientation::Normal,
+        CornerOrientation::Normal
+    };
+    EdgeOrientation edges_orientation[12] = {
+        EdgeOrientation::Normal,
+        EdgeOrientation::Normal,
+        EdgeOrientation::Normal,
+        EdgeOrientation::Normal,
+        EdgeOrientation::Normal,
+        EdgeOrientation::Normal,
+        EdgeOrientation::Normal,
+        EdgeOrientation::Normal,
+        EdgeOrientation::Normal,
+        EdgeOrientation::Normal,
+        EdgeOrientation::Normal,
+        EdgeOrientation::Normal
+    };
+
+    for(int pos=0; pos<8; ++pos)
+    {
+        while(std::find_if(proper_corners.begin(), proper_corners.end(), [&corners, &pos](std::string str){return str == corners[pos];}) == proper_corners.end())
+        {
+            corners[pos] = permutateStringForward(corners[pos]);
+            corners_orientation[pos]++;
+        }
+    }
+
+    for(int pos=0; pos<12; ++pos)
+    {
+        while(std::find_if(proper_edges.begin(), proper_edges.end(), [&edges, &pos](std::string str){return str == edges[pos];}) == proper_edges.end())
+        {
+            edges[pos] = permutateStringForward(edges[pos]);
+            edges_orientation[pos] = !edges_orientation[pos];
+        }
+    }
+}
