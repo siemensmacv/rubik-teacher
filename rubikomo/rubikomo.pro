@@ -55,7 +55,8 @@ SOURCES += \
     formula.cpp \
     formulahandler.cpp \
     formulastep.cpp \
-    View3DSources/axishandler.cpp
+    View3DSources/axishandler.cpp \
+    colorbutton.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -93,7 +94,8 @@ HEADERS += \
     formula.h \
     formulahandler.h \
     formulastep.h \
-    View3DHeaders/axishandler.h
+    View3DHeaders/axishandler.h \
+    colorbutton.h
 
 FORMS += \
         mainwindow.ui
