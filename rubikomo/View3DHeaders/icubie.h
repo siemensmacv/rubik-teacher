@@ -3,7 +3,7 @@
 
 #include "./View3DHeaders/plane.h"
 #include "./View3DHeaders/cuboid.h"
-
+#include "modelrubik.h"
 class ICubie{
 public:
     virtual void UpC()=0;
@@ -18,6 +18,10 @@ public:
     virtual void RightCC()=0;
     virtual void LeftC()=0;
     virtual void LeftCC()=0;
+
+    virtual void updateColors(Corner corner,CornerOrientation orient)=0;
+    virtual void updateColors(Edge edge,EdgeOrientation orient)=0;
+    virtual void updateColors(RubikFace centre)=0;
 
     virtual Plane* upDownPlane()=0;
     virtual Qt3DCore::QEntity* entity()=0;

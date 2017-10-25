@@ -8,7 +8,7 @@ Plane::Plane(Qt3DCore::QEntity *rootEntity) :
     m_shapeEntity->addComponent(m_planeMesh);
 
 
-    setColor(0,0,255);
+    setColor(QColor(0,0,255));
 
 }
 

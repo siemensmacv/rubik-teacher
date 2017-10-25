@@ -13,6 +13,10 @@ public:
 
     void setUpPlanes();
 
+    void updateColors(Corner corner,CornerOrientation orient){}
+    void updateColors(Edge edge,EdgeOrientation orient){}
+    void updateColors(RubikFace centre);
+
 private:
     Plane *m_plane;
 };

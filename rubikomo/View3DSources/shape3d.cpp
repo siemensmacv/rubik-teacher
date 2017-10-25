@@ -30,9 +30,9 @@ void Shape3D::setShapeEntity(Qt3DCore::QEntity *shapeEntity)
     m_shapeEntity = shapeEntity;
 }
 
-void Shape3D::setColor(int r, int g, int b)
+void Shape3D::setColor(QColor color)
 {
-    m_shapeMaterial->setDiffuse(QColor(r,g,b));
+    m_shapeMaterial->setDiffuse(color);
 }
 
 Qt3DCore::QTransform *Shape3D::shapeTransform() const

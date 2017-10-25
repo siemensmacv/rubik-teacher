@@ -7,7 +7,16 @@ View3D::View3D(ModelRubik *model3D, Ui::MainWindow *ui)
     timer=new QTimer(this);
     connect(timer,&QTimer::timeout,
             this,&View3D::onAnimationEnded);
+    //connect(m_ui->loadButton,&QPushButton::clicked,
+      //      this,&View3D::onInput);
+
     initCube3D();
+}
+
+
+void View3D::onInput()
+{
+    theCube->updateColors(m_model3D);
 }
 
 void View3D::initCube3D(){

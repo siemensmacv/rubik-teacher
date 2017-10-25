@@ -4,6 +4,7 @@
 #include "./View3DHeaders/cuboid.h"
 #include "./View3DHeaders/icubie.h"
 #include "./View3DHeaders/animationhandler.h"
+#include "modelrubik.h"
 
 class Cubie : public ICubie{
 public:
@@ -20,6 +21,10 @@ public:
     void RightCC();
     void LeftC();
     void LeftCC();
+
+    void updateColors(Corner corner,CornerOrientation orient)=0;
+    void updateColors(Edge edge,EdgeOrientation orient)=0;
+    void updateColors(RubikFace centre)=0;
 
     Qt3DCore::QEntity* entity();
     Qt3DCore::QTransform* transf();
