@@ -438,7 +438,7 @@ void ModelRubik_CornersEdges::setCornersEdges(std::string input)
             );
         }
 
-        corner_position[pos] = static_cast<Corner>(std::distance(it, proper_corners.begin()));
+        corner_position[pos] = static_cast<Corner>(std::distance(proper_corners.begin(), it));
         corner_orientation[pos] = corner_orientation[pos];
     }
 
@@ -459,7 +459,7 @@ void ModelRubik_CornersEdges::setCornersEdges(std::string input)
             );
         }
 
-        edge_position[pos] = static_cast<Edge>(std::distance(it, proper_edges.begin()));
+        edge_position[pos] = static_cast<Edge>(std::distance(proper_edges.begin(), it));
         edge_orientation[pos] = edges_orientation[pos];
     }
 }
