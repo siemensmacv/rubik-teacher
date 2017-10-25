@@ -12,6 +12,8 @@
 #include "rubikvalidator.h"
 #include <QMessageBox>
 #include <random>
+#include "formulahandler.h"
+#include "ckociemba/search.h"
 
 namespace Ui {
 class MainWindow;
@@ -30,6 +32,7 @@ private:
     View2D* m_view2D;
     View3D* m_view3D;
     View2D* m_colorinput;
+    FormulaHandler* m_viewFormula;
     ControllerRubik controllerRubik;
     ModelRubik m_inputmodel;
 	std::default_random_engine generator;
@@ -44,6 +47,10 @@ private slots:
     void openFileButtonClicked();
     void saveFileButtonClicked();
     void shuffleRubikCube();
+    void handleSolve();
+
+signals:
+    void formulaChanged(Formula);
 
 };
 

@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -63,7 +62,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->radioButton_Green->toggle();
     m_colorinput->setInputColor(RubikFace::Front);
 
-    //connect(ui->shuffleSpinBox, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), ui->shuffleButton, &MainWindow::shuffleRubikCube());
+    m_viewFormula = new FormulaHandler(ui->gridLayoutFormula, ui->centralWidget, &controllerRubik);
+    connect(ui->buttonSolve, &QPushButton::clicked, this, &MainWindow::handleSolve);
+    connect(this, &MainWindow::formulaChanged, m_viewFormula, &FormulaHandler::FormulaChanged);
 }
 
 MainWindow::~MainWindow()
@@ -213,6 +214,7 @@ void MainWindow::validateAndLoadInput()
     if(validator() == true)
     {
         controllerRubik.setModel(model);
+        ui->tabWidget->setCurrentIndex(1);
         QMessageBox messagebox;
         messagebox.setText("Validation stage passed!\nInput: " + QString::fromStdString(model));
         messagebox.setStyleSheet("background-color:rgb(0, 85, 127);color:rgb(255, 255, 255);selection-color:rgb(255, 255, 255);selection-background-color:rgb(255, 255, 255);");
@@ -289,4 +291,11 @@ void MainWindow::shuffleRubikCube()
                 m_inputmodel.rotateFaceCounterClockwise(RubikFace(whichFaceOfCube));
             }
     }
+}
+
+void MainWindow::handleSolve()
+{
+    char* sol = solution(const_cast<char*>(controllerRubik.getModel().c_str()), 20, 2000, 0, "cache");
+    if(sol != nullptr)
+        emit formulaChanged(Formula(sol));
 }

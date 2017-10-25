@@ -24,7 +24,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-RESOURCES +=
+RESOURCES += \
+    resources.qrc
 SOURCES += \
         main.cpp \
     modelrubik.cpp \
@@ -33,13 +34,17 @@ SOURCES += \
     controllerrubik.cpp \
     rubikvalidator.cpp \
     View3DSources/shape3d.cpp \
+    View3DSources/orbittransformcontroller.cpp \
     View3DSources/animationhandler.cpp \
     View3DSources/cuboid.cpp \
     View3DSources/cubie.cpp \
     View3DSources/plane.cpp \
     View3DSources/cube3d.cpp \
     View3DSources/cubiefactory.cpp \
+    View3DSources/xorbittransformcontroller.cpp \
+    View3DSources/zorbittransformcontroller.cpp \
     mainwindow.cpp \
+    View3DSources/yorbittransformcontroller.cpp \
     View3DSources/corner3d.cpp \
     View3DSources/edge3d.cpp \
     View3DSources/centre3d.cpp \
@@ -47,7 +52,13 @@ SOURCES += \
     View2DSources/view2d.cpp \
     View2DSources/facecube2d.cpp \
     rubikface.cpp \
-    View3DSources/axishandler.cpp
+    ckociemba/coordcube.c \
+    ckociemba/cubiecube.c \
+    ckociemba/facecube.c \
+    ckociemba/search.c \
+    formula.cpp \
+    formulahandler.cpp \
+    formulastep.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -61,12 +72,16 @@ HEADERS += \
     rubikvalidator.h \
     View3DHeaders/shape3d.h \
     View3DHeaders/animationhandler.h \
+    View3DHeaders/orbittransformcontroller.h \
     View3DHeaders/cuboid.h \
     View3DHeaders/cubie.h \
     View3DHeaders/icubie.h \
     View3DHeaders/plane.h \
     View3DHeaders/cube3d.h \
     View3DHeaders/cubiefactory.h \
+    View3DHeaders/xorbittransformcontroller.h \
+    View3DHeaders/zorbittransformcontroller.h \
+    View3DHeaders/yorbittransformcontroller.h \
     View3DHeaders/corner3d.h \
     View3DHeaders/edge3d.h \
     View3DHeaders/centre3d.h \
@@ -74,7 +89,17 @@ HEADERS += \
     View3DHeaders/matrixswap.h \
     View2DHeaders/view2d.h \
     View2DHeaders/facecube2d.h \
-    View3DHeaders/axishandler.h
+    ckociemba/color.h \
+    ckociemba/coordcube.h \
+    ckociemba/corner.h \
+    ckociemba/cubiecube.h \
+    ckociemba/edge.h \
+    ckociemba/facecube.h \
+    ckociemba/facelet.h \
+    ckociemba/search.h \
+    formula.h \
+    formulahandler.h \
+    formulastep.h
 
 FORMS += \
         mainwindow.ui
