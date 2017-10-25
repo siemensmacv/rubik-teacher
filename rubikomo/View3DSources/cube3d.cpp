@@ -117,8 +117,6 @@ void Cube3D::initCorners(ModelRubik *model3D)
                                            model3D->getCorner(Corner::DBL),
                                            model3D->getCornerOrientation(Corner::DBL));
 
-    //color UFL
-    //dynamic_cast<Cubie*>(m_rightFace[0][0])->m_cuboid->setColor(255,0,0);
 }
 
 void Cube3D::initEdges(ModelRubik *model3D)
@@ -188,7 +186,6 @@ void Cube3D::initEdges(ModelRubik *model3D)
 void Cube3D::initCentres(ModelRubik *model3D)
 {
     m_frontFace[1][1]=m_cubieFactory->getCentreCubie(0,model3D->getCenter(RubikFace::Front));
-    m_frontFace[1][1]->updateColors(model3D->getCenter(RubikFace::Front));
     m_backFace[1][1]=m_cubieFactory->getCentreCubie(1,model3D->getCenter(RubikFace::Back));
     m_leftFace[1][1]=m_cubieFactory->getCentreCubie(2,model3D->getCenter(RubikFace::Left));
     m_rightFace[1][1]=m_cubieFactory->getCentreCubie(3,model3D->getCenter(RubikFace::Right));

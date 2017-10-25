@@ -6,5 +6,6 @@ Cuboid::Cuboid(Qt3DCore::QEntity *rootEntity,bool isCorner) :
     m_isCorner=isCorner;
     m_cuboidMesh = new Qt3DExtras::QCuboidMesh(m_shapeEntity);
     m_shapeEntity->addComponent(m_cuboidMesh);
+    m_shapeMaterial->setDiffuse(QColor(0,0,0));
     m_axisHandler = new AxisHandler();
 }

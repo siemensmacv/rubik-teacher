@@ -6,9 +6,7 @@ Plane::Plane(Qt3DCore::QEntity *rootEntity) :
 
     m_planeMesh = new Qt3DExtras::QPlaneMesh();
     m_shapeEntity->addComponent(m_planeMesh);
-
-
-    setColor(QColor(0,0,255));
+    m_shapeTransform->setScale(0.9f);
 
 }
 
