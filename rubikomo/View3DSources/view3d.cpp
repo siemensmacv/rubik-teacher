@@ -54,7 +54,7 @@ void View3D::initCube3D(){
     Qt3DCore::QEntity *lightEntity2 = new Qt3DCore::QEntity(rootEntity);
     Qt3DRender::QPointLight *light2 = new Qt3DRender::QPointLight(lightEntity2);
     light2->setColor("white");
-    light2->setIntensity(2);
+    light2->setIntensity(1);
     lightEntity2->addComponent(light);
     Qt3DCore::QTransform *lightTransform2 = new Qt3DCore::QTransform(lightEntity2);
     lightTransform2->setTranslation(QVector3D(5.0f, 0.0f, 0.0f));
@@ -64,18 +64,18 @@ void View3D::initCube3D(){
     Qt3DCore::QEntity *lightEntity3 = new Qt3DCore::QEntity(rootEntity);
     Qt3DRender::QPointLight *light3 = new Qt3DRender::QPointLight(lightEntity3);
     light3->setColor("white");
-    light3->setIntensity(2);
+    light3->setIntensity(1);
     lightEntity3->addComponent(light3);
     Qt3DCore::QTransform *lightTransform3 = new Qt3DCore::QTransform(lightEntity3);
     lightTransform3->setTranslation(QVector3D(0.0f, 5.0f, 0.0f));
     lightEntity3->addComponent(lightTransform3);
 
 
-    // Lighting 2
+    // Lighting 4
     Qt3DCore::QEntity *lightEntity4 = new Qt3DCore::QEntity(rootEntity);
     Qt3DRender::QPointLight *light4 = new Qt3DRender::QPointLight(lightEntity4);
     light4->setColor("white");
-    light4->setIntensity(2);
+    light4->setIntensity(1);
     lightEntity4->addComponent(light4);
     Qt3DCore::QTransform *lightTransform4 = new Qt3DCore::QTransform(lightEntity4);
     lightTransform4->setTranslation(QVector3D(-3.0f, -3.0f, -3.0f));
