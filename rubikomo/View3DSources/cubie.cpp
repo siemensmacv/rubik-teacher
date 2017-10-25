@@ -1,42 +1,85 @@
 #include "./View3DHeaders/cubie.h"
 
 
-Cubie::Cubie(Qt3DCore::QEntity *rootEntity,bool isCorner)
+Cubie::Cubie(Qt3DCore::QEntity *rootEntity)
 {
-    m_cuboid=new Cuboid(rootEntity,isCorner);
+    m_cuboid=new Cuboid(rootEntity);
+    animHandler=new AnimationHandler(m_cuboid);
 }
 
-void Cubie::startXAxisClockAnim()
+void Cubie::UpC()
 {
-    m_cuboid->animHandler()->startXAxisClockAnim();
+    animHandler->UpC();
 }
 
-void Cubie::startXAxisCClockAnim()
+void Cubie::UpCC()
 {
-    m_cuboid->animHandler()->startXAxisCClockAnim();
+    animHandler->UpCC();
 }
 
-void Cubie::startYAxisClockAnim()
+void Cubie::DownC()
 {
-    m_cuboid->animHandler()->startYAxisClockAnim();
+    animHandler->DownC();
 }
 
-void Cubie::startYAxisCClockAnim()
+void Cubie::DownCC()
 {
-    m_cuboid->animHandler()->startYAxisCClockAnim();
+    animHandler->DownCC();
 }
 
-void Cubie::startZAxisClockAnim()
+void Cubie::FrontC()
 {
-    m_cuboid->animHandler()->startZAxisClockAnim();
+    animHandler->FrontC();
 }
 
-void Cubie::startZAxisCClockAnim()
+void Cubie::FrontCC()
 {
-    m_cuboid->animHandler()->startZAxisCClockAnim();
+    animHandler->FrontCC();
 }
 
-Cuboid *Cubie::cuboid() const
+void Cubie::BackC()
 {
-    return m_cuboid;
+    animHandler->BackC();
 }
+
+void Cubie::BackCC()
+{
+    animHandler->BackCC();
+}
+
+void Cubie::RightC()
+{
+    animHandler->RightC();
+}
+
+void Cubie::RightCC()
+{
+    animHandler->RightCC();
+}
+
+void Cubie::LeftC()
+{
+    animHandler->LeftC();
+}
+
+void Cubie::LeftCC()
+{
+    animHandler->LeftCC();
+}
+
+
+Qt3DCore::QEntity *Cubie::entity()
+{
+    return m_cuboid->entity();
+}
+
+Qt3DCore::QTransform *Cubie::transf()
+{
+    return m_cuboid->shapeTransform();
+}
+
+void Cubie::setTranslation(QVector3D trans)
+{
+    m_cuboid->shapeTransform()->setTranslation(trans);
+}
+

@@ -1,10 +1,14 @@
 #ifndef ANIMATIONHANDLER_H
 #define ANIMATIONHANDLER_H
 
-#include "orbittransformcontroller.h"
-#include "./View3DHeaders/xorbittransformcontroller.h"
-#include "./View3DHeaders/yorbittransformcontroller.h"
-#include "./View3DHeaders/zorbittransformcontroller.h"
+#include "./View3DHeaders/cuboid.h"
+#include <iostream>
+
+#include <utility>
+#include <map>
+#include "rubikface.h"
+#include "rubikcorner.h"
+#include "rubikedge.h"
 
 #include <Qt3DCore>
 
@@ -12,31 +16,43 @@ class AnimationHandler : public QObject
 {
     Q_OBJECT
 public:
-    explicit AnimationHandler(Qt3DCore::QTransform *cuboidTranform,bool isCorner);
+    AnimationHandler(Cuboid *cuboid);
 
-    void startXAxisClockAnim();
-    void startXAxisCClockAnim();
-    void startYAxisClockAnim();
-    void startYAxisCClockAnim();
-    void startZAxisClockAnim();
-    void startZAxisCClockAnim();
+    void UpC();
+    void UpCC();
+    void DownC();
+    void DownCC();
+    void FrontC();
+    void FrontCC();
+    void BackC();
+    void BackCC();
+    void RightC();
+    void RightCC();
+    void LeftC();
+    void LeftCC();
 
-    XOrbitTransformController *XOrbitTransform() const;
-
-    YOrbitTransformController *YOrbitTransform() const;
-
-    ZOrbitTransformController *ZOrbitTransform() const;
-signals:
-    void animationEnded();
 private:
-    QPropertyAnimation *XAnim;
-    XOrbitTransformController *m_XOrbitTransform;
+    Qt3DCore::QTransform *transform;
 
-    QPropertyAnimation *YAnim;
-    YOrbitTransformController *m_YOrbitTransform;
+    int count = 0;
+    QTimer *timer;
 
-    QPropertyAnimation *ZAnim;
-    ZOrbitTransformController *m_ZOrbitTransform;
+    Cuboid* m_cube;
+    QMatrix4x4 rotationMatrix;
+
+    std::map <std::tuple<RubikFace, int, int, int>, int> m_edgeMap;
+    std::map <std::tuple<RubikFace, int, int, int>, std::pair<int, int>> m_cornerMap;
+
+    void insertInMap(RubikFace face, int x, int y, int z, int index);
+    void initializeEdgeMap();
+
+    void insertInMap(RubikFace face, int x, int y, int z, int index1, int index2);
+    void initializeCornerMap();
+
+    void updateRotationMatrix(RubikFace face,bool way);
+    void swapAxis(int axis,bool way);
+    void rotate();
+
 };
 
 #endif // ANIMATIONHANDLER_H

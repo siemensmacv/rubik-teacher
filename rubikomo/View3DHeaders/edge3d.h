@@ -8,7 +8,12 @@ class Edge3D : public Cubie
 {
 public:
     Edge3D(Qt3DCore::QEntity *rootEntity);
-    static const bool isCorner=false;
+
+    void setUpPlanes();
+    void updateColors(Corner corner,CornerOrientation orient){}
+    void updateColors(Edge edge,EdgeOrientation orient);
+    void updateColors(RubikFace centre){}
+
 private:
     Plane *m_plane,*m_plane2;
 };

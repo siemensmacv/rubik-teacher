@@ -25,6 +25,8 @@ public:
     void LeftC();
     void LeftCC();
 
+    void updateColors(ModelRubik* model3D);
+
 private:
     void initCorners(ModelRubik *model3D);
     void initEdges(ModelRubik* model3D);
@@ -37,6 +39,7 @@ private:
     ICubie*** m_rightFace;
     ICubie*** m_leftFace;
 
+    Qt3DCore::QEntity *root;
     MatrixSwap *m_swaper;
     CubieFactory *m_cubieFactory;
 

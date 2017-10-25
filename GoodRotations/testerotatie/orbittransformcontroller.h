@@ -3,8 +3,10 @@
 
 #include <QObject>
 #include <QMatrix4x4>
-#include <QtMath>
-#include <Qt3DCore>
+
+namespace Qt3DCore {
+class QTransform;
+}
 
 class OrbitTransformController : public QObject
 {
@@ -14,7 +16,7 @@ class OrbitTransformController : public QObject
     Q_PROPERTY(float angle READ angle WRITE setAngle NOTIFY angleChanged)
 
 public:
-    OrbitTransformController(QObject *parent ,bool isCorner);
+    OrbitTransformController(QObject *parent = 0);
 
     void setTarget(Qt3DCore::QTransform *target);
     Qt3DCore::QTransform *target() const;
@@ -25,7 +27,8 @@ public:
     void setAngle(float angle);
     float angle() const;
 
-    virtual void updateAngle() = 0;
+    void setPreviousMatrix(const QMatrix4x4 & previousMatrix);
+    QMatrix4x4 previousMatrix() const;
 
 signals:
     void targetChanged();
@@ -33,14 +36,13 @@ signals:
     void angleChanged();
 
 protected:
-    virtual QMatrix4x4 getCentreMatrix() = 0;
-    virtual void updateMatrix() = 0;
+    void updateMatrix();
 
-
+private:
     Qt3DCore::QTransform *m_target;
+    QMatrix4x4 m_matrix, m_previousMatrix;
     float m_radius;
-    float m_angle, m_angleDifference;
-    bool m_isCorner;
+    float m_angle;
 };
 
 #endif // ORBITTRANSFORMCONTROLLER_H

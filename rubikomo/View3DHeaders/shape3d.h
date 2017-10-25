@@ -1,8 +1,6 @@
 #ifndef SHAPE3D_H
 #define SHAPE3D_H
 
-#include "animationhandler.h"
-
 #include <Qt3DCore>
 #include <Qt3DRender>
 #include <Qt3DExtras>
@@ -11,15 +9,13 @@
 class Shape3D
 {
 public:
-    explicit Shape3D(Qt3DCore::QEntity *rootEntity);
+    Shape3D(Qt3DCore::QEntity *rootEntity);
 
-    void setShapeTransform(Qt3DCore::QTransform *shapeTransform);
-    void setShapeMaterial(Qt3DExtras::QPhongMaterial *shapeMaterial);
-    void setShapeEntity(Qt3DCore::QEntity *shapeEntity);
-
-    void setColor(int r,int g,int b);
+    void setColor(QColor color);
 
     Qt3DCore::QTransform *shapeTransform() const;
+
+    Qt3DCore::QEntity *entity() const;
 
 protected:
     Qt3DCore::QTransform *m_shapeTransform;

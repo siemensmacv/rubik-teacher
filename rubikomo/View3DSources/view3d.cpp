@@ -7,14 +7,23 @@ View3D::View3D(ModelRubik *model3D, Ui::MainWindow *ui)
     timer=new QTimer(this);
     connect(timer,&QTimer::timeout,
             this,&View3D::onAnimationEnded);
+    //connect(m_ui->loadButton,&QPushButton::clicked,
+      //      this,&View3D::onInput);
+
     initCube3D();
+}
+
+
+void View3D::onInput()
+{
+    theCube->updateColors(m_model3D);
 }
 
 void View3D::initCube3D(){
     Qt3DExtras::Qt3DWindow *view = new Qt3DExtras::Qt3DWindow();
 
 
-    view->defaultFrameGraph()->setClearColor(QColor(QRgb(0x00AA00)));
+    view->defaultFrameGraph()->setClearColor(QColor(QRgb(0xAAAAAA)));
     container = QWidget::createWindowContainer(view);
 
 

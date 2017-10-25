@@ -9,6 +9,10 @@ Cube3D::Cube3D(ModelRubik *model3D, Qt3DCore::QEntity *rootEntity)
             matr[i]=new ICubie*[3];
         return matr;
     };
+    root=rootEntity;
+
+    //centre=new Centre3D(rootEntity);
+
 
     m_upFace=alocmatr();
     m_downFace=alocmatr();
@@ -27,12 +31,56 @@ Cube3D::Cube3D(ModelRubik *model3D, Qt3DCore::QEntity *rootEntity)
 
 }
 
+void Cube3D::updateColors(ModelRubik *model3D)
+{
+    m_upFace[0][0]->updateColors(model3D->getCorner(Corner::ULB),model3D->getCornerOrientation(Corner::ULB));
+    m_upFace[0][1]->updateColors(model3D->getEdge(Edge::UB),model3D->getEdgeOrientation(Edge::UB));
+    m_upFace[0][2]->updateColors(model3D->getCorner(Corner::UBR),model3D->getCornerOrientation(Corner::UBR));
+
+    m_upFace[1][0]->updateColors(model3D->getEdge(Edge::UL),model3D->getEdgeOrientation(Edge::UL));
+    m_upFace[1][1]->updateColors(model3D->getCenter(RubikFace::Up));
+    m_upFace[1][2]->updateColors(model3D->getEdge(Edge::UR),model3D->getEdgeOrientation(Edge::UR));
+
+    m_upFace[2][0]->updateColors(model3D->getCorner(Corner::UFL),model3D->getCornerOrientation(Corner::UFL));
+    m_upFace[2][1]->updateColors(model3D->getEdge(Edge::UF),model3D->getEdgeOrientation(Edge::UF));
+    m_upFace[2][2]->updateColors(model3D->getCorner(Corner::URF),model3D->getCornerOrientation(Corner::URF));
+
+
+    m_downFace[0][0]->updateColors(model3D->getCorner(Corner::DLF),model3D->getCornerOrientation(Corner::DLF));
+    m_downFace[0][1]->updateColors(model3D->getEdge(Edge::DF),model3D->getEdgeOrientation(Edge::DF));
+    m_downFace[0][2]->updateColors(model3D->getCorner(Corner::DFR),model3D->getCornerOrientation(Corner::DFR));
+
+    m_downFace[1][0]->updateColors(model3D->getEdge(Edge::DL),model3D->getEdgeOrientation(Edge::DL));
+    m_downFace[1][1]->updateColors(model3D->getCenter(RubikFace::Down));
+    m_downFace[1][2]->updateColors(model3D->getEdge(Edge::DR),model3D->getEdgeOrientation(Edge::DR));
+
+    m_downFace[2][0]->updateColors(model3D->getCorner(Corner::DBL),model3D->getCornerOrientation(Corner::DBL));
+    m_downFace[2][1]->updateColors(model3D->getEdge(Edge::DB),model3D->getEdgeOrientation(Edge::DB));
+    m_downFace[2][2]->updateColors(model3D->getCorner(Corner::DRB),model3D->getCornerOrientation(Corner::DRB));
+
+    m_frontFace[1][0]->updateColors(model3D->getEdge(Edge::FL),model3D->getEdgeOrientation(Edge::FL));
+    m_frontFace[1][1]->updateColors(model3D->getCenter(RubikFace::Front));
+    m_frontFace[1][2]->updateColors(model3D->getEdge(Edge::RF),model3D->getEdgeOrientation(Edge::RF));
+
+    m_backFace[1][0]->updateColors(model3D->getEdge(Edge::BR),model3D->getEdgeOrientation(Edge::BR));
+    m_backFace[1][1]->updateColors(model3D->getCenter(RubikFace::Back));
+    m_backFace[1][2]->updateColors(model3D->getEdge(Edge::LB),model3D->getEdgeOrientation(Edge::LB));
+
+    m_leftFace[1][1]->updateColors(model3D->getCenter(RubikFace::Left));
+    m_rightFace[1][1]->updateColors(model3D->getCenter(RubikFace::Right));
+}
+
 void Cube3D::initCorners(ModelRubik *model3D)
 {
     m_upFace[0][2]=m_rightFace[0][2]=m_backFace[0][0]=
             m_cubieFactory->getCornerCubie(0,
                                            model3D->getCorner(Corner::UBR),
                                            model3D->getCornerOrientation(Corner::UBR));
+
+    m_upFace[0][2]->updateColors(model3D->getCorner(Corner::UBR),model3D->getCornerOrientation(Corner::UBR));
+    // corner = cubieF get
+    //corner update
+
 
     m_upFace[2][2]=m_frontFace[0][2]=m_rightFace[0][0]=
             m_cubieFactory->getCornerCubie(1,
@@ -69,8 +117,6 @@ void Cube3D::initCorners(ModelRubik *model3D)
                                            model3D->getCorner(Corner::DBL),
                                            model3D->getCornerOrientation(Corner::DBL));
 
-    //color UFL
-    dynamic_cast<Cubie*>(m_rightFace[0][0])->cuboid()->setColor(255,0,0);
 }
 
 void Cube3D::initEdges(ModelRubik *model3D)
@@ -150,17 +196,18 @@ void Cube3D::initCentres(ModelRubik *model3D)
 void Cube3D::UpC()
 {
     for(int i=0;i<3;i++)
-        for(int j=0;j<3;j++)
-            m_upFace[i][j]->startYAxisClockAnim();
+        for(int j=0;j<3;j++){
+            m_upFace[i][j]->UpC();
+        }
     m_swaper->upClock();
 }
 
 void Cube3D::UpCC()
 {
     for(int i=0;i<3;i++)
-        for(int j=0;j<3;j++)
-            m_upFace[i][j]->startYAxisCClockAnim();
-
+        for(int j=0;j<3;j++){
+            m_upFace[i][j]->UpCC();
+        }
     m_swaper->upCounterClock();
 }
 
@@ -168,7 +215,7 @@ void Cube3D::DownC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_downFace[i][j]->startYAxisClockAnim();
+            m_downFace[i][j]->DownC();
     m_swaper->downClock();
 }
 
@@ -176,7 +223,7 @@ void Cube3D::DownCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_downFace[i][j]->startYAxisCClockAnim();
+            m_downFace[i][j]->DownCC();
     m_swaper->downCounterClock();
 }
 
@@ -184,7 +231,7 @@ void Cube3D::FrontC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_frontFace[i][j]->startZAxisClockAnim();
+            m_frontFace[i][j]->FrontC();
     m_swaper->frontClock();
 }
 
@@ -192,7 +239,7 @@ void Cube3D::FrontCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_frontFace[i][j]->startZAxisCClockAnim();
+            m_frontFace[i][j]->FrontCC();
     m_swaper->frontCounterClock();
 }
 
@@ -200,7 +247,7 @@ void Cube3D::BackC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_backFace[i][j]->startZAxisClockAnim();
+            m_backFace[i][j]->BackC();
     m_swaper->backClock();
 }
 
@@ -208,7 +255,7 @@ void Cube3D::BackCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_backFace[i][j]->startZAxisCClockAnim();
+            m_backFace[i][j]->BackCC();
     m_swaper->backCounterClock();
 }
 
@@ -216,7 +263,7 @@ void Cube3D::RightC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_rightFace[i][j]->startXAxisClockAnim();
+            m_rightFace[i][j]->RightC();
     m_swaper->rightClock();
 }
 
@@ -224,7 +271,7 @@ void Cube3D::RightCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_rightFace[i][j]->startXAxisCClockAnim();
+            m_rightFace[i][j]->RightCC();
     m_swaper->rightCounterClock();
 }
 
@@ -232,7 +279,7 @@ void Cube3D::LeftC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_leftFace[i][j]->startXAxisClockAnim();
+            m_leftFace[i][j]->LeftC();
     m_swaper->leftClock();
 }
 
@@ -240,8 +287,9 @@ void Cube3D::LeftCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_leftFace[i][j]->startXAxisCClockAnim();
+            m_leftFace[i][j]->LeftCC();
     m_swaper->leftCounterClock();
 }
+
 
 \

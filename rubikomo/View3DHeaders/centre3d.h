@@ -8,7 +8,13 @@ class Centre3D : public Cubie
 {
 public:
     Centre3D(Qt3DCore::QEntity *rootEntity);
-    static const bool isCorner=false;
+
+    void setUpPlanes();
+
+    void updateColors(Corner corner,CornerOrientation orient){}
+    void updateColors(Edge edge,EdgeOrientation orient){}
+    void updateColors(RubikFace centre);
+
 private:
     Plane *m_plane;
 };
