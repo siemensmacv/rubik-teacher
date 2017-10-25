@@ -40,7 +40,7 @@ public slots:
 
     void onAnimationEnded();
 
-    void onInput();
+    void onInput(int load);
 
 private:
     void toggleAllButtons(bool toggle);

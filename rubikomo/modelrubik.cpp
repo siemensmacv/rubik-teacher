@@ -16,14 +16,14 @@ void ModelRubik::rotateFaceClockwise(const RubikFace &face)
 {
     matrix.rotateFaceClockwise(face);
     corners_edges.rotateFaceClockwise(face);
-    emit cubeChanged();
+    emit cubeChanged(1);
 }
 
 void ModelRubik::rotateFaceCounterClockwise(const RubikFace &face)
 {
     matrix.rotateFaceCounterClockwise(face);
     corners_edges.rotateFaceCounterClockwise(face);
-    emit cubeChanged();
+    emit cubeChanged(1);
 }
 
 int ModelRubik::getMatrixValue(const RubikFace &face, const int &row, const int &column) const
@@ -35,7 +35,7 @@ void ModelRubik::setMatrixValue(const RubikFace &face, const int &row, const int
 {
     matrix.setMatrixValue(face, row, column, value);
     solution = "";
-    emit cubeChanged();
+    emit cubeChanged(1);
 }
 
 void ModelRubik::setModel(std::string input)
@@ -43,7 +43,7 @@ void ModelRubik::setModel(std::string input)
     matrix.setMatrix(input);
     corners_edges.setCornersEdges(input);
     solution = "";
-    emit cubeChanged();
+    emit cubeChanged(0);
 }
 
 std::string ModelRubik::getModel()

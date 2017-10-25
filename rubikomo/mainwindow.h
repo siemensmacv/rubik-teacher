@@ -33,7 +33,7 @@ private:
     View3D* m_view3D;
     View2D* m_colorinput;
     FormulaHandler* m_viewFormula;
-    ControllerRubik controllerRubik;
+    ControllerRubik *controllerRubik;
     ModelRubik m_inputmodel;
 	std::default_random_engine generator;
 

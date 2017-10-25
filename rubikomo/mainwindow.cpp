@@ -7,14 +7,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     setWindowState(windowState() & ~(Qt::WindowMinimized | Qt::WindowFullScreen) | Qt::WindowMaximized);
+    controllerRubik = new ControllerRubik();
 
-    m_view2D = new View2D(this, &controllerRubik.model);
+    m_view2D = new View2D(this, &controllerRubik->model);
 
     float tabWidth = (ui->tabWidget->width()*3-34);
     ui->tabWidget->setStyleSheet("QTabWidget QTabBar::tab{width:" + QString::number(tabWidth) + "px; }");
     ui->tabWidget->setCurrentIndex(0);
 
-    m_view3D = new View3D(&controllerRubik.model,ui);
+    m_view3D = new View3D(&controllerRubik->model,ui);
+
+    controllerRubik->setView3D(m_view3D);
 
     ui->gridLayout_3->addWidget(m_view3D->getContainer());
 
@@ -62,7 +65,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->radioButton_Green->toggle();
     m_colorinput->setInputColor(RubikFace::Front);
 
-    m_viewFormula = new FormulaHandler(ui->gridLayoutFormula, ui->centralWidget, &controllerRubik);
+    m_viewFormula = new FormulaHandler(ui->gridLayoutFormula, ui->centralWidget, controllerRubik);
     connect(ui->buttonSolve, &QPushButton::clicked, this, &MainWindow::handleSolve);
     connect(this, &MainWindow::formulaChanged, m_viewFormula, &FormulaHandler::FormulaChanged);
 }
@@ -106,51 +109,51 @@ void MainWindow::handleButton()
     QString senderName = sender()->objectName();
     if(senderName == "pushButton_U_2D")
     {
-        controllerRubik.rotateFaceClockwise(RubikFace::Up);
+        controllerRubik->rotateFaceClockwise(RubikFace::Up);
     }
     else if(senderName == "pushButton_UR_2D")
     {
-        controllerRubik.rotateFaceCounterClockwise(RubikFace::Up);
+        controllerRubik->rotateFaceCounterClockwise(RubikFace::Up);
     }
     else if(senderName == "pushButton_D_2D")
     {
-        controllerRubik.rotateFaceClockwise(RubikFace::Down);
+        controllerRubik->rotateFaceClockwise(RubikFace::Down);
     }
     else if(senderName == "pushButton_DR_2D")
     {
-        controllerRubik.rotateFaceCounterClockwise(RubikFace::Down);
+        controllerRubik->rotateFaceCounterClockwise(RubikFace::Down);
     }
     else if(senderName == "pushButton_F_2D")
     {
-        controllerRubik.rotateFaceClockwise(RubikFace::Front);
+        controllerRubik->rotateFaceClockwise(RubikFace::Front);
     }
     else if(senderName == "pushButton_FR_2D")
     {
-        controllerRubik.rotateFaceCounterClockwise(RubikFace::Front);
+        controllerRubik->rotateFaceCounterClockwise(RubikFace::Front);
     }
     else if(senderName == "pushButton_B_2D")
     {
-        controllerRubik.rotateFaceClockwise(RubikFace::Back);
+        controllerRubik->rotateFaceClockwise(RubikFace::Back);
     }
     else if(senderName == "pushButton_BR_2D")
     {
-        controllerRubik.rotateFaceCounterClockwise(RubikFace::Back);
+        controllerRubik->rotateFaceCounterClockwise(RubikFace::Back);
     }
     else if(senderName == "pushButton_L_2D")
     {
-        controllerRubik.rotateFaceClockwise(RubikFace::Left);
+        controllerRubik->rotateFaceClockwise(RubikFace::Left);
     }
     else if(senderName == "pushButton_LR_2D")
     {
-        controllerRubik.rotateFaceCounterClockwise(RubikFace::Left);
+        controllerRubik->rotateFaceCounterClockwise(RubikFace::Left);
     }
     else if(senderName == "pushButton_R_2D")
     {
-        controllerRubik.rotateFaceClockwise(RubikFace::Right);
+        controllerRubik->rotateFaceClockwise(RubikFace::Right);
     }
     else if(senderName == "pushButton_RR_2D")
     {
-        controllerRubik.rotateFaceCounterClockwise(RubikFace::Right);
+        controllerRubik->rotateFaceCounterClockwise(RubikFace::Right);
     }
 }
 
@@ -189,7 +192,7 @@ void MainWindow::validateAndLoadInput()
     RubikValidator validator(model);
     if(validator() == true)
     {
-        controllerRubik.setModel(model);
+        controllerRubik->setModel(model);
         ui->tabWidget->setCurrentIndex(1);
         QMessageBox messagebox;
         messagebox.setText("Validation stage passed!\nInput: " + QString::fromStdString(model));
@@ -271,8 +274,8 @@ void MainWindow::shuffleRubikCube()
 
 void MainWindow::handleSolve()
 {
-    char* sol = solution(const_cast<char*>(controllerRubik.getModel().c_str()), 20, 2000, 0, "cache");
-    controllerRubik.model.setSolution(std::string(sol));
+    char* sol = solution(const_cast<char*>(controllerRubik->getModel().c_str()), 20, 2000, 0, "cache");
+    controllerRubik->model.setSolution(std::string(sol));
     if(sol != nullptr)
         emit formulaChanged(Formula(sol));
 }

@@ -39,7 +39,7 @@ private:
     std::string solution;
 
 signals:
-    void cubeChanged();
+    void cubeChanged(int load);
 
 public slots:
 };
