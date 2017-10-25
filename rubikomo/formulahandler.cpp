@@ -2,7 +2,6 @@
 #include <QPushButton>
 #include <QIcon>
 #include <QStyle>
-#include "rubik2dhandler.h"
 
 FormulaHandler::FormulaHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidget, QObject *rubikController)
     : QObject(gridLayoutQWidget),
