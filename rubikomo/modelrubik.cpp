@@ -92,4 +92,5 @@ std::string ModelRubik::nextStepInSolution()
     size_t delimiterPosition = solution.find(delimiter);
     std::string nextStep = solution.substr(0, delimiterPosition);
     solution.erase(0, delimiterPosition+1);
+    return nextStep;
 }
