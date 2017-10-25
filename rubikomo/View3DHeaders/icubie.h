@@ -20,9 +20,9 @@ public:
     virtual void LeftC()=0;
     virtual void LeftCC()=0;
 
-    virtual void updateColors(Corner corner,CornerOrientation orient)=0;
-    virtual void updateColors(Edge edge,EdgeOrientation orient)=0;
-    virtual void updateColors(RubikFace centre)=0;
+    virtual void updateColors(QColor upDownColor, QColor frontBackColor, QColor leftRightColor)=0;
+    virtual void updateColors(QColor plane1Color, QColor plane2Color)=0;
+    virtual void updateColors(QColor color)=0;
 
     virtual Qt3DCore::QEntity* entity()=0;
     virtual Qt3DCore::QTransform* transf()=0;

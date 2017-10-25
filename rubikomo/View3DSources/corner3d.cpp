@@ -61,80 +61,88 @@ void Corner3D::setUpPlanes()
 
 }
 
-void Corner3D::updateColors(Corner corner, CornerOrientation orient)
+void Corner3D::updateColors(QColor upDownColor, QColor frontBackColor, QColor leftRightColor)
 {
-    QVector<QColor> vColors;
-    switch(corner){
-    case Corner::URF:
-        vColors.push_back(QColor(255,255,0));
-        vColors.push_back(QColor(0,255,0));
-        vColors.push_back(QColor(255,130,0));
-        break;
+    //ud plane
+    //fb plane
+    //lr plane
 
-    case Corner::UFL:
-        vColors.push_back(QColor(255,255,0));
-        vColors.push_back(QColor(0,255,0));
-        vColors.push_back(QColor(255,0,0));
-        break;
+    m_upDownPlane->setColor(upDownColor);
+    m_frontBackPlane->setColor(frontBackColor);
+    m_leftRightPlane->setColor(leftRightColor);
 
-    case Corner::ULB:
-        vColors.push_back(QColor(255,255,0));
-        vColors.push_back(QColor(0,0,255));
-        vColors.push_back(QColor(255,0,0));
-        break;
+//    QVector<QColor> vColors;
+//    switch(upDownColor){
+//    case Corner::URF:
+//        vColors.push_back(QColor(255,255,0));
+//        vColors.push_back(QColor(0,255,0));
+//        vColors.push_back(QColor(255,130,0));
+//        break;
 
-    case Corner::UBR:
-        vColors.push_back(QColor(255,255,0));
-        vColors.push_back(QColor(0,0,255));
-        vColors.push_back(QColor(255,130,0));
-        break;
+//    case Corner::UFL:
+//        vColors.push_back(QColor(255,255,0));
+//        vColors.push_back(QColor(0,255,0));
+//        vColors.push_back(QColor(255,0,0));
+//        break;
 
-    case Corner::DFR:
-        vColors.push_back(QColor(255,255,255));
-        vColors.push_back(QColor(0,255,0));
-        vColors.push_back(QColor(255,130,0));
-        break;
+//    case Corner::ULB:
+//        vColors.push_back(QColor(255,255,0));
+//        vColors.push_back(QColor(0,0,255));
+//        vColors.push_back(QColor(255,0,0));
+//        break;
 
-    case Corner::DLF:
-        vColors.push_back(QColor(255,255,255));
-        vColors.push_back(QColor(0,255,0));
-        vColors.push_back(QColor(255,0,0));
-        break;
+//    case Corner::UBR:
+//        vColors.push_back(QColor(255,255,0));
+//        vColors.push_back(QColor(0,0,255));
+//        vColors.push_back(QColor(255,130,0));
+//        break;
 
-    case Corner::DBL:
-        vColors.push_back(QColor(255,255,255));
-        vColors.push_back(QColor(0,0,255));
-        vColors.push_back(QColor(255,0,0));
-        break;
+//    case Corner::DFR:
+//        vColors.push_back(QColor(255,255,255));
+//        vColors.push_back(QColor(0,255,0));
+//        vColors.push_back(QColor(255,130,0));
+//        break;
 
-    case Corner::DRB:
-        vColors.push_back(QColor(255,255,255));
-        vColors.push_back(QColor(0,0,255));
-        vColors.push_back(QColor(255,130,0));
-        break;
-    };
+//    case Corner::DLF:
+//        vColors.push_back(QColor(255,255,255));
+//        vColors.push_back(QColor(0,255,0));
+//        vColors.push_back(QColor(255,0,0));
+//        break;
+
+//    case Corner::DBL:
+//        vColors.push_back(QColor(255,255,255));
+//        vColors.push_back(QColor(0,0,255));
+//        vColors.push_back(QColor(255,0,0));
+//        break;
+
+//    case Corner::DRB:
+//        vColors.push_back(QColor(255,255,255));
+//        vColors.push_back(QColor(0,0,255));
+//        vColors.push_back(QColor(255,130,0));
+//        break;
+//    };
 
 
-    if(orient == CornerOrientation::Normal){
-        m_upDownPlane->setColor(vColors[0]);
-        m_frontBackPlane->setColor(vColors[1]);
-        m_leftRightPlane->setColor(vColors[2]);
-        return;
-    }
+//    if(frontBackColor == CornerOrientation::Normal){
+//        m_upDownPlane->setColor(vColors[0]);
+//        m_frontBackPlane->setColor(vColors[1]);
+//        m_leftRightPlane->setColor(vColors[2]);
+//        return;
+//    }
 
-    if(orient == CornerOrientation::Clockwise)
-    {
-        m_upDownPlane->setColor(vColors[1]);
-        m_frontBackPlane->setColor(vColors[2]);
-        m_leftRightPlane->setColor(vColors[0]);
-        return;
-    }
+//    if(frontBackColor == CornerOrientation::Clockwise)
+//    {
+//        m_upDownPlane->setColor(vColors[1]);
+//        m_frontBackPlane->setColor(vColors[2]);
+//        m_leftRightPlane->setColor(vColors[0]);
+//        return;
+//    }
 
-    if(orient == CornerOrientation::CounterClockwise)
-    {
-        m_upDownPlane->setColor(vColors[2]);
-        m_frontBackPlane->setColor(vColors[0]);
-        m_leftRightPlane->setColor(vColors[1]);
-        return;
-    }
+//    if(frontBackColor == CornerOrientation::CounterClockwise)
+//    {
+//        m_upDownPlane->setColor(vColors[2]);
+//        m_frontBackPlane->setColor(vColors[0]);
+//        m_leftRightPlane->setColor(vColors[1]);
+//        return;
+//    }
 }

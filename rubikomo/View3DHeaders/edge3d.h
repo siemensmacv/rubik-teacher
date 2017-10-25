@@ -10,9 +10,9 @@ public:
     Edge3D(Qt3DCore::QEntity *rootEntity);
 
     void setUpPlanes();
-    void updateColors(Corner corner,CornerOrientation orient){}
-    void updateColors(Edge edge,EdgeOrientation orient);
-    void updateColors(RubikFace centre){}
+    void updateColors(QColor, QColor, QColor){}
+    void updateColors(QColor plane1Color, QColor plane2Color);
+    void updateColors(QColor){}
 
 private:
     Plane *m_plane,*m_plane2;

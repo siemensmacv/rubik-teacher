@@ -32,13 +32,13 @@ void View3D::initCube3D(){
     Qt3DRender::QCamera *cameraEntity = view->camera();
 
     cameraEntity->lens()->setPerspectiveProjection(45.0f, 16.0f/9.0f, 0.1f, 100.0f);
-    cameraEntity->setPosition(QVector3D(3.0f, 5.0f, 5.0f));
+    cameraEntity->setPosition(QVector3D(5.0f, 5.0f, 5.0f));
     cameraEntity->setUpVector(QVector3D(0, 1, 0));
     cameraEntity->setViewCenter(QVector3D(0, 0, 0));
 
     // For camera controls
-    //Qt3DExtras::QFirstPersonCameraController *camController = new Qt3DExtras::QFirstPersonCameraController(rootEntity);
-   // camController->setCamera(cameraEntity);
+    Qt3DExtras::QFirstPersonCameraController *camController = new Qt3DExtras::QFirstPersonCameraController(rootEntity);
+    camController->setCamera(cameraEntity);
 
     // Lighting
     Qt3DCore::QEntity *lightEntity = new Qt3DCore::QEntity(rootEntity);
@@ -70,6 +70,16 @@ void View3D::initCube3D(){
     lightTransform3->setTranslation(QVector3D(0.0f, 5.0f, 0.0f));
     lightEntity3->addComponent(lightTransform3);
 
+
+    // Lighting 2
+    Qt3DCore::QEntity *lightEntity4 = new Qt3DCore::QEntity(rootEntity);
+    Qt3DRender::QPointLight *light4 = new Qt3DRender::QPointLight(lightEntity4);
+    light4->setColor("white");
+    light4->setIntensity(2);
+    lightEntity4->addComponent(light4);
+    Qt3DCore::QTransform *lightTransform4 = new Qt3DCore::QTransform(lightEntity4);
+    lightTransform4->setTranslation(QVector3D(-3.0f, -3.0f, -3.0f));
+    lightEntity4->addComponent(lightTransform4);
 
     theCube=new Cube3D(m_model3D,rootEntity);
     // Set root object of the scene

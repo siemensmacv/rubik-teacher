@@ -11,9 +11,9 @@ public:
 
     void setUpPlanes();
 
-    void updateColors(Corner corner,CornerOrientation orient);
-    void updateColors(Edge edge,EdgeOrientation orient){}
-    void updateColors(RubikFace centre){}
+    void updateColors(QColor upDownColor, QColor frontBackColor, QColor leftRightColor);
+    void updateColors(QColor, QColor){}
+    void updateColors(QColor){}
 
 private:
     Plane *m_upDownPlane;

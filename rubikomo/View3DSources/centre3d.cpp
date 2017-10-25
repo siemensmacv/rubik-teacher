@@ -50,26 +50,7 @@ void Centre3D::setUpPlanes()
     }
 }
 
-void Centre3D::updateColors(RubikFace centre)
+void Centre3D::updateColors(QColor color)
 {
-    switch(centre){
-    case RubikFace::Up:
-        m_plane->setColor(QColor(255,255,0));
-        break;
-    case RubikFace::Down:
-        m_plane->setColor(QColor(255,255,255));
-        break;
-    case RubikFace::Left:
-        m_plane->setColor(QColor(255,0,0));
-        break;
-    case RubikFace::Right:
-        m_plane->setColor(QColor(255,130,0));
-        break;
-    case RubikFace::Front:
-        m_plane->setColor(QColor(0,255,0));
-        break;
-    case RubikFace::Back:
-        m_plane->setColor(QColor(0,0,255));
-        break;
-    }
+    m_plane->setColor(color);
 }

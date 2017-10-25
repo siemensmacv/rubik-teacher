@@ -1,4 +1,6 @@
 #pragma once
+#include <QColor>
+
 enum class RubikFace
 {
 	Up = 0,
@@ -15,6 +17,8 @@ extern "C" {
 int colorLetterToDigit(char c);
 char colorDigitToLetter(int d);
 char colorEnumToLetter(RubikFace face);
+QColor colorDigitToQColor(int d);
+QColor colorEnumToQColor(RubikFace face);
 #ifdef __cplusplus
 }
 #endif

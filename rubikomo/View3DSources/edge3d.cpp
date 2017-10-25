@@ -62,68 +62,70 @@ void Edge3D::setUpPlanes()
     }
 }
 
-void Edge3D::updateColors(Edge edge, EdgeOrientation orient)
+void Edge3D::updateColors(QColor plane1Color, QColor plane2Color)
 {
-    QVector<QColor> vColors;
-    switch(edge){
-    case Edge::UB:
-        vColors.push_back(QColor(255,255,0));
-        vColors.push_back(QColor(0,0,255));
-        break;
-    case Edge::UR:
-        vColors.push_back(QColor(255,255,0));
-        vColors.push_back(QColor(255,130,0));
-        break;
-    case Edge::UF:
-        vColors.push_back(QColor(255,255,0));
-        vColors.push_back(QColor(0,255,0));
-        break;
-    case Edge::UL:
-        vColors.push_back(QColor(255,255,0));
-        vColors.push_back(QColor(255,0,0));
-        break;
-    case Edge::FL:
-        vColors.push_back(QColor(255,0,0));
-        vColors.push_back(QColor(0,255,0));
-        break;
-    case Edge::RF:
-        vColors.push_back(QColor(255,130,0));
-        vColors.push_back(QColor(0,255,0));
-        break;
-    case Edge::BR:
-        vColors.push_back(QColor(255,130,0));
-        vColors.push_back(QColor(0,0,255));
-        break;
-    case Edge::LB:
-        vColors.push_back(QColor(255,0,0));
-        vColors.push_back(QColor(0,0,255));
-        break;
-    case Edge::DB:
-        vColors.push_back(QColor(255,255,255));
-        vColors.push_back(QColor(0,0,255));
-        break;
-    case Edge::DR:
-        vColors.push_back(QColor(255,255,255));
-        vColors.push_back(QColor(255,130,0));
-        break;
-    case Edge::DF:
-        vColors.push_back(QColor(255,255,255));
-        vColors.push_back(QColor(0,255,0));
-        break;
-    case Edge::DL:
-        vColors.push_back(QColor(255,255,255));
-        vColors.push_back(QColor(255,0,0));
-        break;
-    };
-    if(orient == EdgeOrientation::Normal)
-    {
-        m_plane->setColor(vColors[0]);
-        m_plane2->setColor(vColors[1]);
-    }
-    else
-    {
-        m_plane->setColor(vColors[1]);
-        m_plane2->setColor(vColors[0]);
-    }
+    m_plane->setColor(plane1Color);
+    m_plane2->setColor(plane2Color);
+//    QVector<QColor> vColors;
+//    switch(plane1Color){
+//    case Edge::UB:
+//        vColors.push_back(QColor(255,255,0));
+//        vColors.push_back(QColor(0,0,255));
+//        break;
+//    case Edge::UR:
+//        vColors.push_back(QColor(255,255,0));
+//        vColors.push_back(QColor(255,130,0));
+//        break;
+//    case Edge::UF:
+//        vColors.push_back(QColor(255,255,0));
+//        vColors.push_back(QColor(0,255,0));
+//        break;
+//    case Edge::UL:
+//        vColors.push_back(QColor(255,255,0));
+//        vColors.push_back(QColor(255,0,0));
+//        break;
+//    case Edge::FL:
+//        vColors.push_back(QColor(255,0,0));
+//        vColors.push_back(QColor(0,255,0));
+//        break;
+//    case Edge::RF:
+//        vColors.push_back(QColor(255,130,0));
+//        vColors.push_back(QColor(0,255,0));
+//        break;
+//    case Edge::BR:
+//        vColors.push_back(QColor(255,130,0));
+//        vColors.push_back(QColor(0,0,255));
+//        break;
+//    case Edge::LB:
+//        vColors.push_back(QColor(255,0,0));
+//        vColors.push_back(QColor(0,0,255));
+//        break;
+//    case Edge::DB:
+//        vColors.push_back(QColor(255,255,255));
+//        vColors.push_back(QColor(0,0,255));
+//        break;
+//    case Edge::DR:
+//        vColors.push_back(QColor(255,255,255));
+//        vColors.push_back(QColor(255,130,0));
+//        break;
+//    case Edge::DF:
+//        vColors.push_back(QColor(255,255,255));
+//        vColors.push_back(QColor(0,255,0));
+//        break;
+//    case Edge::DL:
+//        vColors.push_back(QColor(255,255,255));
+//        vColors.push_back(QColor(255,0,0));
+//        break;
+//    };
+//    if(plane2Color == EdgeOrientation::Normal)
+//    {
+//        m_plane->setColor(vColors[0]);
+//        m_plane2->setColor(vColors[1]);
+//    }
+//    else
+//    {
+//        m_plane->setColor(vColors[1]);
+//        m_plane2->setColor(vColors[0]);
+//    }
 
 }

@@ -22,9 +22,9 @@ public:
     void LeftC();
     void LeftCC();
 
-    void updateColors(Corner corner,CornerOrientation orient)=0;
-    void updateColors(Edge edge,EdgeOrientation orient)=0;
-    void updateColors(RubikFace centre)=0;
+    void updateColors(QColor upDownColor, QColor frontBackColor, QColor leftRightColor)=0;
+    void updateColors(QColor plane1Color, QColor plane2Color)=0;
+    void updateColors(QColor color)=0;
 
     Qt3DCore::QEntity* entity();
     Qt3DCore::QTransform* transf();
