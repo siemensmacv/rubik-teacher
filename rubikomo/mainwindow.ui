@@ -24,7 +24,53 @@
     </sizepolicy>
    </property>
    <layout class="QGridLayout" name="gridLayout_5">
-    <item row="1" column="0">
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayoutFormula">
+      <item row="0" column="1">
+       <widget class="QPushButton" name="buttonSolve">
+        <property name="minimumSize">
+         <size>
+          <width>103</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Solve</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="2">
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Preferred</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>12</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -85,6 +131,12 @@
              <layout class="QVBoxLayout" name="verticalLayout_5">
               <item>
                <widget class="QPushButton" name="loadButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string>Load</string>
                 </property>
@@ -92,6 +144,12 @@
               </item>
               <item>
                <widget class="QPushButton" name="saveButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string>Save</string>
                 </property>
@@ -136,6 +194,12 @@
               </item>
               <item>
                <widget class="QPushButton" name="shuffleButton">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string>Shuffle</string>
                 </property>
@@ -340,6 +404,12 @@ color: rgb(0, 0, 0);</string>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="text">
                <string>U</string>
               </property>
@@ -352,6 +422,12 @@ color: rgb(0, 0, 0);</string>
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
               </property>
               <property name="text">
                <string>U'</string>
@@ -366,6 +442,12 @@ color: rgb(0, 0, 0);</string>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="text">
                <string>D</string>
               </property>
@@ -378,6 +460,12 @@ color: rgb(0, 0, 0);</string>
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
               </property>
               <property name="text">
                <string>D'</string>
@@ -392,6 +480,12 @@ color: rgb(0, 0, 0);</string>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="text">
                <string>F</string>
               </property>
@@ -404,6 +498,12 @@ color: rgb(0, 0, 0);</string>
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
               </property>
               <property name="text">
                <string>F'</string>
@@ -418,6 +518,12 @@ color: rgb(0, 0, 0);</string>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="text">
                <string>B</string>
               </property>
@@ -430,6 +536,12 @@ color: rgb(0, 0, 0);</string>
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
               </property>
               <property name="text">
                <string>B'</string>
@@ -444,6 +556,12 @@ color: rgb(0, 0, 0);</string>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="text">
                <string>L</string>
               </property>
@@ -456,6 +574,12 @@ color: rgb(0, 0, 0);</string>
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
               </property>
               <property name="text">
                <string>L'</string>
@@ -470,6 +594,12 @@ color: rgb(0, 0, 0);</string>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="text">
                <string>R</string>
               </property>
@@ -482,6 +612,12 @@ color: rgb(0, 0, 0);</string>
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
               </property>
               <property name="text">
                <string>R'</string>
@@ -553,6 +689,12 @@ color: rgb(0, 0, 0);</string>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="text">
                <string>U</string>
               </property>
@@ -565,6 +707,12 @@ color: rgb(0, 0, 0);</string>
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
               </property>
               <property name="text">
                <string>U'</string>
@@ -579,6 +727,12 @@ color: rgb(0, 0, 0);</string>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="text">
                <string>D</string>
               </property>
@@ -591,6 +745,12 @@ color: rgb(0, 0, 0);</string>
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
               </property>
               <property name="text">
                <string>D'</string>
@@ -605,6 +765,12 @@ color: rgb(0, 0, 0);</string>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="text">
                <string>F</string>
               </property>
@@ -617,6 +783,12 @@ color: rgb(0, 0, 0);</string>
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
               </property>
               <property name="text">
                <string>F'</string>
@@ -631,6 +803,12 @@ color: rgb(0, 0, 0);</string>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="text">
                <string>B</string>
               </property>
@@ -643,6 +821,12 @@ color: rgb(0, 0, 0);</string>
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
               </property>
               <property name="text">
                <string>B'</string>
@@ -657,6 +841,12 @@ color: rgb(0, 0, 0);</string>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="text">
                <string>L</string>
               </property>
@@ -669,6 +859,12 @@ color: rgb(0, 0, 0);</string>
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
               </property>
               <property name="text">
                <string>L'</string>
@@ -683,6 +879,12 @@ color: rgb(0, 0, 0);</string>
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="text">
                <string>R</string>
               </property>
@@ -695,6 +897,12 @@ color: rgb(0, 0, 0);</string>
                 <horstretch>0</horstretch>
                 <verstretch>0</verstretch>
                </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>103</width>
+                <height>0</height>
+               </size>
               </property>
               <property name="text">
                <string>R'</string>
@@ -721,9 +929,6 @@ color: rgb(0, 0, 0);</string>
        </layout>
       </widget>
      </widget>
-    </item>
-    <item row="0" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayoutFormula"/>
     </item>
    </layout>
   </widget>
