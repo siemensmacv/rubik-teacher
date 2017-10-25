@@ -4,19 +4,19 @@
 
 const int MAX_STEPS = 30;
 
-Formula::Formula(char* cFormula)
+Formula::Formula(std::string formula)
 {
    char cStep[3];
 
    int stepindex = 0;
    int charindex = 0;
-   int length = strlen(cFormula);
+   int length = formula.length();
    while (stepindex < MAX_STEPS && charindex < length)
    {
-       cStep[0] = cFormula[charindex++];
-       if (charindex < length && cFormula[charindex] != ' ')
+       cStep[0] = formula[charindex++];
+       if (charindex < length && formula[charindex] != ' ')
        {
-           cStep[1] = cFormula[charindex++];
+           cStep[1] = formula[charindex++];
            cStep[2] = '\0';
        }
        else
@@ -26,10 +26,10 @@ Formula::Formula(char* cFormula)
         m_Steps[stepindex++] = fs;
 
         // interate more not spacing characters
-        while (cFormula[charindex] != ' ' && charindex < length)
+        while (formula[charindex] != ' ' && charindex < length)
             charindex++;
         // interate then the spacing characters
-        while (cFormula[charindex] == ' ' && charindex < length)
+        while (formula[charindex] == ' ' && charindex < length)
             charindex++;
 
    }

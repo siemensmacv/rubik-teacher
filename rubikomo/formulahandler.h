@@ -6,6 +6,7 @@
 #include <QGridLayout>
 #include <QLabel>
 #include "formula.h"
+#include "controllerrubik.h"
 
 class FormulaHandler : public QObject
 {
@@ -13,7 +14,7 @@ class FormulaHandler : public QObject
 public:
     explicit FormulaHandler(QGridLayout *gridLayout,
                             QWidget *gridLayoutQWidget,
-                            QObject *rubikController);
+                            ControllerRubik *rubikController);
 
 
     ~FormulaHandler();
@@ -29,7 +30,7 @@ private:
     QGridLayout *mGridLayout;
     QGridLayout *mGridLayoutFormulas;
     QWidget *mGridLayoutWidget;
-    QObject *mRubikController;
+    ControllerRubik *mRubikController;
     QLabel *mFormulaStepsLabels[30];
 
     Formula mFormula;

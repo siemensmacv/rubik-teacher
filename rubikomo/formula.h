@@ -1,12 +1,13 @@
 #pragma once
 
 #include "formulastep.h"
+#include <string>
 
 // define a formula with several steps;
 class Formula
 {
 public:
-    Formula(char* cFormula);
+    Formula(std::string formula);
 
     int Count();
     int Index();
