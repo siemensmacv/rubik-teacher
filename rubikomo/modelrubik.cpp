@@ -7,6 +7,11 @@ ModelRubik::ModelRubik(QObject *parent) : QObject(parent)
 
 }
 
+ModelRubik_Matrix* ModelRubik::getMatrix()
+{
+    return &matrix;
+}
+
 void ModelRubik::rotateFaceClockwise(const RubikFace &face)
 {
     matrix.rotateFaceClockwise(face);

@@ -14,6 +14,7 @@ class ModelRubik : public QObject
 public:
     explicit ModelRubik(QObject *parent = nullptr);
 
+    ModelRubik_Matrix* getMatrix();
     int getMatrixValue(const RubikFace &face, const int &row, const int &column) const;
     void setMatrixValue(const RubikFace &face, const int &row, const int &column, const int &value);
     void setModel(std::string input);

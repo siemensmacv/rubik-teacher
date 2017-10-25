@@ -233,7 +233,7 @@ void MainWindow::openFileButtonClicked()
     {
         QTextStream textStream(&inputFile);
         std::string fileContent = textStream.readAll().toStdString();
-        m_inputmodel.setModel(fileContent);
+        m_inputmodel.getMatrix()->setMatrix(fileContent);
     }
 }
 

@@ -371,7 +371,7 @@ std::string ModelRubik_CornersEdges::permutateStringForward(std::string input)
 void ModelRubik_CornersEdges::setCornersEdges(std::string input)
 {
     std::string corners[8] = {
-        std::string() + input[2] + input[53] + input[11],
+        std::string() + input[2] + input[45] + input[11],
         std::string() + input[8] + input[9] + input[20],
         std::string() + input[6] + input[18] + input[38],
         std::string() + input[0] + input[36] + input[47],
