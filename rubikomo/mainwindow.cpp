@@ -72,7 +72,14 @@ MainWindow::MainWindow(QWidget *parent) :
     redButton = new ColorButton(this, QColor(255,0,0));
     blueButton = new ColorButton(this, QColor(0,0,255));
 
-    ui->verticalLayout_4->addWidget(yellowButton);
+	yellowButton->setObjectName("yellowButton");
+	orangeButton->setObjectName("orangeButton");
+	greenButton->setObjectName("greenButton");
+	whiteButton->setObjectName("whiteButton");
+	redButton->setObjectName("redButton");
+	blueButton->setObjectName("blueButton");
+
+    ui->verticalLayout_4->insertWidget(0,yellowButton);
     ui->verticalLayout_4->insertWidget(0,orangeButton);
     ui->verticalLayout_4->insertWidget(0,greenButton);
     ui->verticalLayout_4->insertWidget(0,whiteButton);

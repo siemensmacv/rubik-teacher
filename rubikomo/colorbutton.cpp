@@ -15,8 +15,7 @@ void ColorButton::mousePressEvent(QMouseEvent *event)
 
 void ColorButton::paintEvent(QPaintEvent *event)
 {
-   QPainter painter;
-   painter.fillRect(rect(),m_color);
-
+   QPainter painter(this);
+   painter.fillRect(rect(), m_color);
 }
 

@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QPainter>
+#include <QPaintEvent>
 
 class ColorButton : public QWidget
 {
