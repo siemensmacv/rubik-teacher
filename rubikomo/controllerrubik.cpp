@@ -29,33 +29,3 @@ void ControllerRubik::rotateFaceCounterClockwise(const RubikFace &face)
 {
     model.rotateFaceCounterClockwise(face);
 }
-
-void ControllerRubik::rotateXAxisClockwise()
-{
-    model.rotateXAxisClockwise();
-}
-
-void ControllerRubik::rotateXAxisCounterClockwise()
-{
-    model.rotateXAxisCounterClockwise();
-}
-
-void ControllerRubik::rotateYAxisClockwise()
-{
-    model.rotateYAxisClockwise();
-}
-
-void ControllerRubik::rotateYAxisCounterClockwise()
-{
-    model.rotateYAxisCounterClockwise();
-}
-
-void ControllerRubik::rotateZAxisClockwise()
-{
-    model.rotateZAxisClockwise();
-}
-
-void ControllerRubik::rotateZAxisCounterClockwise()
-{
-    model.rotateZAxisCounterClockwise();
-}

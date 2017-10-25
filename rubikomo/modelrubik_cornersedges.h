@@ -18,12 +18,6 @@ public:
 
     void rotateFaceClockwise(const RubikFace &face);
     void rotateFaceCounterClockwise(const RubikFace &face);
-    void rotateXAxisClockwise();
-    void rotateXAxisCounterClockwise();
-    void rotateYAxisClockwise();
-    void rotateYAxisCounterClockwise();
-    void rotateZAxisClockwise();
-    void rotateZAxisCounterClockwise();
 
     void setCornersEdges(std::string input);
 

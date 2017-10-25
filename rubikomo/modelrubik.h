@@ -14,6 +14,9 @@ class ModelRubik : public QObject
 public:
     explicit ModelRubik(QObject *parent = nullptr);
 
+    std::string nextStepInSolution();
+    void setSolution(std::string solution);
+    std::string getSolution() const;
     ModelRubik_Matrix* getMatrix();
     int getMatrixValue(const RubikFace &face, const int &row, const int &column) const;
     void setMatrixValue(const RubikFace &face, const int &row, const int &column, const int &value);
@@ -21,12 +24,6 @@ public:
     std::string getModel();
     void rotateFaceClockwise(const RubikFace &face);
     void rotateFaceCounterClockwise(const RubikFace &face);
-    void rotateXAxisClockwise();
-    void rotateXAxisCounterClockwise();
-    void rotateYAxisClockwise();
-    void rotateYAxisCounterClockwise();
-    void rotateZAxisClockwise();
-    void rotateZAxisCounterClockwise();
 
     Corner getCorner(const Corner &position) const;
     CornerOrientation getCornerOrientation(const Corner &position) const;
@@ -39,6 +36,7 @@ public:
 private:
     ModelRubik_Matrix matrix;
     ModelRubik_CornersEdges corners_edges;
+    std::string solution;
 
 signals:
     void cubeChanged();

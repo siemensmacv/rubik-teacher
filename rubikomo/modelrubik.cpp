@@ -34,6 +34,7 @@ int ModelRubik::getMatrixValue(const RubikFace &face, const int &row, const int 
 void ModelRubik::setMatrixValue(const RubikFace &face, const int &row, const int &column, const int &value)
 {
     matrix.setMatrixValue(face, row, column, value);
+    solution = "";
     emit cubeChanged();
 }
 
@@ -41,48 +42,13 @@ void ModelRubik::setModel(std::string input)
 {
     matrix.setMatrix(input);
     corners_edges.setCornersEdges(input);
+    solution = "";
     emit cubeChanged();
 }
 
 std::string ModelRubik::getModel()
 {
     return matrix.getMatrix();
-}
-
-void ModelRubik::rotateXAxisClockwise()
-{
-    matrix.rotateXAxisClockwise();
-    emit cubeChanged();
-}
-
-void ModelRubik::rotateXAxisCounterClockwise()
-{
-    matrix.rotateXAxisCounterClockwise();
-    emit cubeChanged();
-}
-
-void ModelRubik::rotateYAxisClockwise()
-{
-    matrix.rotateYAxisClockwise();
-    emit cubeChanged();
-}
-
-void ModelRubik::rotateYAxisCounterClockwise()
-{
-    matrix.rotateYAxisCounterClockwise();
-    emit cubeChanged();
-}
-
-void ModelRubik::rotateZAxisClockwise()
-{
-    matrix.rotateZAxisClockwise();
-    emit cubeChanged();
-}
-
-void ModelRubik::rotateZAxisCounterClockwise()
-{
-    matrix.rotateZAxisCounterClockwise();
-    emit cubeChanged();
 }
 
 Corner ModelRubik::getCorner(const Corner &position) const
@@ -108,4 +74,22 @@ EdgeOrientation ModelRubik::getEdgeOrientation(const Edge &position) const
 RubikFace ModelRubik::getCenter(const RubikFace &position) const
 {
     return corners_edges.getCenter(position);
+}
+
+void ModelRubik::setSolution(std::string solution)
+{
+    this->solution = solution;
+}
+
+std::string ModelRubik::getSolution() const
+{
+    return solution;
+}
+
+std::string ModelRubik::nextStepInSolution()
+{
+    std::string delimiter = " ";
+    size_t delimiterPosition = solution.find(delimiter);
+    std::string nextStep = solution.substr(0, delimiterPosition);
+    solution.erase(0, delimiterPosition+1);
 }

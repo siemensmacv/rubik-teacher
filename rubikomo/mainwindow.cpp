@@ -152,30 +152,6 @@ void MainWindow::handleButton()
     {
         controllerRubik.rotateFaceCounterClockwise(RubikFace::Right);
     }
-    else if(senderName == "pushButton_X_2D")
-    {
-        controllerRubik.rotateXAxisClockwise();
-    }
-    else if(senderName == "pushButton_XR_2D")
-    {
-        controllerRubik.rotateXAxisCounterClockwise();
-    }
-    else if(senderName == "pushButton_Y_2D")
-    {
-        controllerRubik.rotateYAxisClockwise();
-    }
-    else if(senderName == "pushButton_YR_2D")
-    {
-        controllerRubik.rotateYAxisCounterClockwise();
-    }
-    else if(senderName == "pushButton_Z_2D")
-    {
-        controllerRubik.rotateZAxisClockwise();
-    }
-    else if(senderName == "pushButton_ZR_2D")
-    {
-        controllerRubik.rotateZAxisCounterClockwise();
-    }
 }
 
 void MainWindow::handleInputRadio()
@@ -296,6 +272,7 @@ void MainWindow::shuffleRubikCube()
 void MainWindow::handleSolve()
 {
     char* sol = solution(const_cast<char*>(controllerRubik.getModel().c_str()), 20, 2000, 0, "cache");
+    controllerRubik.model.setSolution(std::string(sol));
     if(sol != nullptr)
         emit formulaChanged(Formula(sol));
 }
