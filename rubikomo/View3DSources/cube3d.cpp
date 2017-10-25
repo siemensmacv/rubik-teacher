@@ -163,17 +163,17 @@ void Cube3D::UpC()
 void Cube3D::UpCC()
 {
     for(int i=0;i<3;i++)
-        for(int j=0;j<3;j++)
-            //m_upFace[i][j]->startYAxisCClockAnim();
+        for(int j=0;j<3;j++){
+            m_upFace[i][j]->UpCC();
+        }
     m_swaper->upCounterClock();
-
 }
 
 void Cube3D::DownC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            //m_downFace[i][j]->startYAxisClockAnim();
+            m_downFace[i][j]->DownC();
     m_swaper->downClock();
 }
 
@@ -181,7 +181,7 @@ void Cube3D::DownCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            //m_downFace[i][j]->startYAxisCClockAnim();
+            m_downFace[i][j]->DownCC();
     m_swaper->downCounterClock();
 }
 
@@ -189,7 +189,7 @@ void Cube3D::FrontC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            //m_frontFace[i][j]->startZAxisClockAnim();
+            m_frontFace[i][j]->FrontC();
     m_swaper->frontClock();
 }
 
@@ -197,16 +197,15 @@ void Cube3D::FrontCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            //m_frontFace[i][j]->startZAxisCClockAnim();
+            m_frontFace[i][j]->FrontCC();
     m_swaper->frontCounterClock();
 }
 
 void Cube3D::BackC()
 {
-
-
-
-
+    for(int i=0;i<3;i++)
+        for(int j=0;j<3;j++)
+            m_backFace[i][j]->BackC();
     m_swaper->backClock();
 }
 
@@ -214,15 +213,15 @@ void Cube3D::BackCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            //m_backFace[i][j]->startZAxisCClockAnim();
+            m_backFace[i][j]->BackCC();
     m_swaper->backCounterClock();
 }
 
 void Cube3D::RightC()
 {
-
-
-
+    for(int i=0;i<3;i++)
+        for(int j=0;j<3;j++)
+            m_rightFace[i][j]->RightC();
     m_swaper->rightClock();
 }
 
@@ -230,7 +229,7 @@ void Cube3D::RightCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            //m_rightFace[i][j]->startXAxisCClockAnim();
+            m_rightFace[i][j]->RightCC();
     m_swaper->rightCounterClock();
 }
 
@@ -238,7 +237,7 @@ void Cube3D::LeftC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-           // m_leftFace[i][j]->startXAxisClockAnim();
+            m_leftFace[i][j]->LeftC();
     m_swaper->leftClock();
 }
 
@@ -246,7 +245,7 @@ void Cube3D::LeftCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-           // m_leftFace[i][j]->startXAxisCClockAnim();
+            m_leftFace[i][j]->LeftCC();
     m_swaper->leftCounterClock();
 }
 

@@ -7,6 +7,8 @@ Shape3D::Shape3D(Qt3DCore::QEntity *rootEntity)
     m_shapeTransform=new Qt3DCore::QTransform(m_shapeEntity);
     m_shapeMaterial = new Qt3DExtras::QPhongMaterial(m_shapeEntity);
     m_shapeMaterial->setDiffuse(QColor(255,255,255));
+    //m_shapeMaterial->setSpecular((QColor(255,255,255));
+    m_shapeMaterial->setShininess(0.0f);
 
     m_shapeEntity->addComponent(m_shapeMaterial);
     m_shapeEntity->addComponent(m_shapeTransform);

@@ -9,7 +9,7 @@ CubieFactory::CubieFactory(Qt3DCore::QEntity *rootEntity)
 ICubie* CubieFactory::getCornerCubie(int index, Corner corner, CornerOrientation cornerOrient)
 {
     Corner3D* newCorner = new Corner3D(m_rootEntity);
-    float scale=1.1f;
+    float scale=1.0f;
     switch(index){
     case 0:
         newCorner->setTranslation(QVector3D(scale,scale,-scale));
@@ -41,14 +41,14 @@ ICubie* CubieFactory::getCornerCubie(int index, Corner corner, CornerOrientation
 
 //    }
 
-    newCorner->setUpPlanes();
+    newCorner->setUpPlanes(corner,cornerOrient);
     return newCorner;
 }
 
 ICubie *CubieFactory::getEdgeCubie(int index, Edge edge, EdgeOrientation edgeOrient)
 {
     Edge3D* newEdge = new Edge3D(m_rootEntity);
-    float scale=1.1f;
+    float scale=1.0f;
     switch(index){
     case 0:
         newEdge->setTranslation(QVector3D(0.0f,scale,-scale));
@@ -95,7 +95,7 @@ ICubie *CubieFactory::getEdgeCubie(int index, Edge edge, EdgeOrientation edgeOri
 ICubie *CubieFactory::getCentreCubie(int index, RubikFace centre)
 {
     Centre3D* newCentre = new Centre3D(m_rootEntity);
-    float scale=1.1f;
+    float scale=1.0f;
     switch(index){
     case 0:
         newCentre->setTranslation(QVector3D(0.0f,0.0f,scale));

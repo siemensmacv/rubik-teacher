@@ -7,6 +7,8 @@
 #include <utility>
 #include <map>
 #include "rubikface.h"
+#include "rubikcorner.h"
+#include "rubikedge.h"
 
 #include <Qt3DCore>
 

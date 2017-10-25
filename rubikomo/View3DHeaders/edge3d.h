@@ -11,6 +11,7 @@ public:
     static const bool isCorner=false;
     Plane *upDownPlane();
 
+    void setUpPlanes();
 private:
     Plane *m_plane,*m_plane2;
 };

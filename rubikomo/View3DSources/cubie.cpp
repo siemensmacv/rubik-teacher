@@ -12,6 +12,61 @@ void Cubie::UpC()
     animHandler->UpC();
 }
 
+void Cubie::UpCC()
+{
+    animHandler->UpCC();
+}
+
+void Cubie::DownC()
+{
+    animHandler->DownC();
+}
+
+void Cubie::DownCC()
+{
+    animHandler->DownCC();
+}
+
+void Cubie::FrontC()
+{
+    animHandler->FrontC();
+}
+
+void Cubie::FrontCC()
+{
+    animHandler->FrontCC();
+}
+
+void Cubie::BackC()
+{
+    animHandler->BackC();
+}
+
+void Cubie::BackCC()
+{
+    animHandler->BackCC();
+}
+
+void Cubie::RightC()
+{
+    animHandler->RightC();
+}
+
+void Cubie::RightCC()
+{
+    animHandler->RightCC();
+}
+
+void Cubie::LeftC()
+{
+    animHandler->LeftC();
+}
+
+void Cubie::LeftCC()
+{
+    animHandler->LeftCC();
+}
+
 
 Qt3DCore::QEntity *Cubie::entity()
 {

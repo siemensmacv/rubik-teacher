@@ -3,6 +3,7 @@
 AnimationHandler::AnimationHandler(Cuboid *cuboid)
 {
     m_cube=cuboid;
+    transform=m_cube->shapeTransform();
     initializeCornerMap();
     initializeEdgeMap();
 }
@@ -20,7 +21,8 @@ void AnimationHandler::updateRotationMatrix(RubikFace face,bool way){
     float z = round(transform->translation().z());
 
     QVector3D centrePoint;
-    auto mapKey=std::make_tuple(face,x,y,z);
+
+    auto mapKey=std::make_tuple(face,(int)x,int(y),int(z));
     if(abs(x)+abs(y)+abs(z) == 3){
         //pair(index,index2) = corner map
         auto indexPair=m_cornerMap[mapKey];
@@ -36,11 +38,11 @@ void AnimationHandler::updateRotationMatrix(RubikFace face,bool way){
         centrePoint=QVector3D(0.0f,0.0f,0.0f);
     }
 
-    float angle=0.09f;
-    int axis;
+    float angle=0.9f;
+    int axis=0;
 
     if(way)
-        angle=-0.09f;
+        angle=-0.9f;
 
     switch(face){
     case RubikFace::Up:
@@ -109,9 +111,64 @@ void AnimationHandler::swapAxis(int axis,bool way){
             m_cube->m_axisHandler->zClock();
     }
 }
-void AnimationHandler::UpC()// 1 functie
+void AnimationHandler::UpC()
 {
     updateRotationMatrix(RubikFace::Up,true);
+}
+
+void AnimationHandler::UpCC()
+{
+    updateRotationMatrix(RubikFace::Up,false);
+}
+
+void AnimationHandler::DownC()
+{
+    updateRotationMatrix(RubikFace::Down,true);
+}
+
+void AnimationHandler::DownCC()
+{
+    updateRotationMatrix(RubikFace::Down,false);
+}
+
+void AnimationHandler::FrontC()
+{
+    updateRotationMatrix(RubikFace::Front,true);
+}
+
+void AnimationHandler::FrontCC()
+{
+    updateRotationMatrix(RubikFace::Front,false);
+}
+
+void AnimationHandler::BackC()
+{
+    updateRotationMatrix(RubikFace::Back,true);
+}
+
+void AnimationHandler::BackCC()
+{
+    updateRotationMatrix(RubikFace::Back,false);
+}
+
+void AnimationHandler::RightC()
+{
+    updateRotationMatrix(RubikFace::Right,true);
+}
+
+void AnimationHandler::RightCC()
+{
+    updateRotationMatrix(RubikFace::Right,false);
+}
+
+void AnimationHandler::LeftC()
+{
+    updateRotationMatrix(RubikFace::Left,true);
+}
+
+void AnimationHandler::LeftCC()
+{
+    updateRotationMatrix(RubikFace::Left,false);
 }
 
 void AnimationHandler::insertInMap(RubikFace face, int x, int y, int z, int index)
