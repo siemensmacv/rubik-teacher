@@ -12,12 +12,10 @@ View3D::View3D(ModelRubik *model3D, Ui::MainWindow *ui)
     initCube3D();
 }
 
-
 void View3D::onInput(int load)
 {
     if(load==0)
         theCube->updateColors(m_model3D);
-
 }
 
 void View3D::initCube3D(){

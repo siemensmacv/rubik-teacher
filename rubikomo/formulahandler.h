@@ -39,6 +39,10 @@ private:
     void forwardStep();
 
     void performMove(FormulaStep fs);
+
+    RubikFace fac;
+    void f();
+
 };
 
 #endif // FORMULAHANDLER_H

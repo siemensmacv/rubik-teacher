@@ -108,6 +108,7 @@ void FormulaHandler::forwardStep()
 void FormulaHandler::performMove(FormulaStep fs)
 {
     RubikFace face = fs.Face();
+    fac=face;
 
     switch (fs.FST())
     {
@@ -119,7 +120,11 @@ void FormulaHandler::performMove(FormulaStep fs)
         break;
     case FormulaStep::FST_DOUBLE:
         mRubikController->rotateFaceClockwise(face);
-        mRubikController->rotateFaceClockwise(face);
+        QTimer::singleShot(1010,this,&FormulaHandler::f);
         break;
     }
+}
+
+void FormulaHandler::f(){
+    mRubikController->rotateFaceClockwise(fac);
 }
