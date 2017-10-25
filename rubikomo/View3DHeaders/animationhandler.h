@@ -2,6 +2,11 @@
 #define ANIMATIONHANDLER_H
 
 #include "./View3DHeaders/cuboid.h"
+#include <iostream>
+
+#include <utility>
+#include <map>
+#include "rubikface.h"
 
 #include <Qt3DCore>
 
@@ -9,9 +14,9 @@ class AnimationHandler : public QObject
 {
     Q_OBJECT
 public:
-    explicit AnimationHandler(Cuboid *cuboid);
+    AnimationHandler(Cuboid *cuboid);
 
-    static void UpC();//
+    void UpC();//
     void UpCC();
     void DownC();
     void DownCC();
@@ -24,8 +29,6 @@ public:
     void LeftC();
     void LeftCC();
 
-signals:
-    void animationEnded();
 private:
     Qt3DCore::QTransform *transform;
 
@@ -35,8 +38,17 @@ private:
     Cuboid* m_cube;
     QMatrix4x4 rotationMatrix;
 
-    //map corner
-    //map edge
+    std::map <std::tuple<RubikFace, int, int, int>, int> m_edgeMap;
+    std::map <std::tuple<RubikFace, int, int, int>, std::pair<int, int>> m_cornerMap;
+
+    void insertInMap(RubikFace face, int x, int y, int z, int index);
+    void initializeEdgeMap();
+
+    void insertInMap(RubikFace face, int x, int y, int z, int index1, int index2);
+    void initializeCornerMap();
+
+    void updateRotationMatrix(RubikFace face,bool way);
+    void swapAxis(int axis,bool way);
     void rotate();
 
 };

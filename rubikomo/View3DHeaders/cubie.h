@@ -9,25 +9,25 @@ class Cubie : public ICubie{
 public:
     explicit Cubie(Qt3DCore::QEntity *rootEntity, bool isCorner);
     void UpC();//
-    void UpCC();
-    void DownC();
-    void DownCC();
-    void FrontC();
-    void FrontCC();
-    void BackC();
-    void BackCC();
-    void RightC();//
-    void RightCC();
-    void LeftC();
-    void LeftCC();
+//    void UpCC();
+//    void DownC();
+//    void DownCC();
+//    void FrontC();
+//    void FrontCC();
+//    void BackC();
+//    void BackCC();
+//    void RightC();//
+//    void RightCC();
+//    void LeftC();
+//    void LeftCC();
 
     Qt3DCore::QEntity* entity();
     Qt3DCore::QTransform* transf();
 
-    Cuboid *cuboid() const;
+    void setTranslation(QVector3D trans);
 
-private:
+protected:
     Cuboid *m_cuboid;
-    AnimationHandler *h;
+    AnimationHandler *animHandler;
 };
 #endif // CUBIE_H

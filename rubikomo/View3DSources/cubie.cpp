@@ -4,12 +4,12 @@
 Cubie::Cubie(Qt3DCore::QEntity *rootEntity,bool isCorner)
 {
     m_cuboid=new Cuboid(rootEntity,isCorner);
-    h=new AnimationHandler(m_cuboid);
+    animHandler=new AnimationHandler(m_cuboid);
 }
 
 void Cubie::UpC()
 {
-    h->UpC();
+    animHandler->UpC();
 }
 
 
@@ -23,7 +23,8 @@ Qt3DCore::QTransform *Cubie::transf()
     return m_cuboid->shapeTransform();
 }
 
-Cuboid *Cubie::cuboid() const
+void Cubie::setTranslation(QVector3D trans)
 {
-    return m_cuboid;
+    m_cuboid->shapeTransform()->setTranslation(trans);
 }
+

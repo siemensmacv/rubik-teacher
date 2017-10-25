@@ -3,11 +3,7 @@
 Corner3D::Corner3D(Qt3DCore::QEntity *rootEntity):
     Cubie(rootEntity,isCorner)
 {
-    cuboid()->m_isCorner=isCorner;
-    cuboid()->animHandler()->XOrbitTransform()->setRadius(1.555f);
-    cuboid()->animHandler()->YOrbitTransform()->setRadius(1.555f);
-    cuboid()->animHandler()->ZOrbitTransform()->setRadius(1.555f);
-
+    m_cuboid->m_isCorner=isCorner;
 
 }
 
@@ -18,11 +14,11 @@ Plane *Corner3D::upDownPlane()
 
 void Corner3D::setUpPlanes()
 {
-    m_upDownPlane  = new Plane(cuboid()->entity());
-    m_frontBackPlane = new Plane(cuboid()->entity());
-    m_leftRightPlane = new Plane(cuboid()->entity());
+    m_upDownPlane  = new Plane(m_cuboid->entity());
+    m_frontBackPlane = new Plane(m_cuboid->entity());
+    m_leftRightPlane = new Plane(m_cuboid->entity());
 
-    if(cuboid()->shapeTransform()->translation().x()>0){
+    if(m_cuboid->shapeTransform()->translation().x()>0){
         //right
         m_leftRightPlane->shapeTransform()->setRotationZ(-90);
         m_leftRightPlane->shapeTransform()->setTranslation(QVector3D(0.51f,0.0f,0.0f));
@@ -33,7 +29,7 @@ void Corner3D::setUpPlanes()
         m_leftRightPlane->shapeTransform()->setTranslation(QVector3D(-0.51f,0.0f,0.0f));
     }
 
-    if(cuboid()->shapeTransform()->translation().y()>0){
+    if(m_cuboid->shapeTransform()->translation().y()>0){
         //up
         m_upDownPlane->shapeTransform()->setTranslation(QVector3D(0.0f,0.51f,0.0f));
     }
@@ -43,7 +39,7 @@ void Corner3D::setUpPlanes()
         m_upDownPlane->shapeTransform()->setTranslation(QVector3D(0.0f,-0.51f,0.0f));
     }
 
-    if(cuboid()->shapeTransform()->translation().z()>0){
+    if(m_cuboid->shapeTransform()->translation().z()>0){
         //front
         m_frontBackPlane->shapeTransform()->setRotationX(90);
         m_frontBackPlane->shapeTransform()->setTranslation(QVector3D(0.0f,0.0f,0.51f));

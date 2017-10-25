@@ -74,7 +74,7 @@ void Cube3D::initCorners(ModelRubik *model3D)
                                            model3D->getCornerOrientation(Corner::DBL));
 
     //color UFL
-    dynamic_cast<Cubie*>(m_rightFace[0][0])->cuboid()->setColor(255,0,0);
+    //dynamic_cast<Cubie*>(m_rightFace[0][0])->m_cuboid->setColor(255,0,0);
 }
 
 void Cube3D::initEdges(ModelRubik *model3D)
@@ -156,7 +156,6 @@ void Cube3D::UpC()
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++){
             m_upFace[i][j]->UpC();
-
         }
     m_swaper->upClock();
 }
@@ -165,7 +164,7 @@ void Cube3D::UpCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_upFace[i][j]->startYAxisCClockAnim();
+            //m_upFace[i][j]->startYAxisCClockAnim();
     m_swaper->upCounterClock();
 
 }
@@ -174,7 +173,7 @@ void Cube3D::DownC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_downFace[i][j]->startYAxisClockAnim();
+            //m_downFace[i][j]->startYAxisClockAnim();
     m_swaper->downClock();
 }
 
@@ -182,7 +181,7 @@ void Cube3D::DownCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_downFace[i][j]->startYAxisCClockAnim();
+            //m_downFace[i][j]->startYAxisCClockAnim();
     m_swaper->downCounterClock();
 }
 
@@ -190,7 +189,7 @@ void Cube3D::FrontC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_frontFace[i][j]->startZAxisClockAnim();
+            //m_frontFace[i][j]->startZAxisClockAnim();
     m_swaper->frontClock();
 }
 
@@ -198,54 +197,16 @@ void Cube3D::FrontCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_frontFace[i][j]->startZAxisCClockAnim();
+            //m_frontFace[i][j]->startZAxisCClockAnim();
     m_swaper->frontCounterClock();
 }
 
 void Cube3D::BackC()
 {
-//    QVector3D backup[3][3];
 
-//    for(int i=0;i<3;i++)
-//        for(int j=0;j<3;j++)
-//            m_backFace[i][j]->entity()->setParent(root);
 
-      Centre3D *centre = new Centre3D(root);
 
-//    for(int i=0;i<3;i++)
-//        for(int j=0;j<3;j++)
-//        {
-//            m_rightFace[i][j]->entity()->setParent(root);
-//            m_leftFace[i][j]->entity()->setParent(root);
-//            m_upFace[i][j]->entity()->setParent(root);
-//            m_downFace[i][j]->entity()->setParent(root);
-//            m_frontFace[i][j]->entity()->setParent(root);
-//            m_backFace[i][j]->entity()->setParent(root);
 
-//        }
-
-    //for(int i=0;i<centre->entity()->children().size();i++)
-        //qDebug()<<centre->entity()->children().at(i);
-       // centre->entity()->children().pop_back();
-    for(int i=0;i<3;i++)
-        for(int j=0;j<3;j++)
-//            if(!(i==1 && j==1)){
-//                backup[i][j]=m_backFace[i][j]->transf()->translation();
-//                m_backFace[i][j]->transf()->setTranslation(QVector3D(m_backFace[i][j]->transf()->translation().x(),
-//                        m_backFace[i][j]->transf()->translation().y(),
-//                        0.0f));
-                m_backFace[i][j]->entity()->setParent(centre->entity());
-//            }
-    centre->startZAxisClockAnim();
-//    for(int i=0;i<3;i++)
-//        for(int j=0;j<3;j++)
-//            if(!(i==1 && j==1)){
-//                m_backFace[i][j]->transf()->setTranslation(backup[i][j]);
-//            }
-
-//    for(int i=0;i<3;i++)
-//        for(int j=0;j<3;j++)
-//            m_backFace[i][j]->entity()->setParent(root);
     m_swaper->backClock();
 }
 
@@ -253,7 +214,7 @@ void Cube3D::BackCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_backFace[i][j]->startZAxisCClockAnim();
+            //m_backFace[i][j]->startZAxisCClockAnim();
     m_swaper->backCounterClock();
 }
 
@@ -261,29 +222,6 @@ void Cube3D::RightC()
 {
 
 
-    for(int i=0;i<3;i++)
-        for(int j=0;j<3;j++)
-        {
-            m_rightFace[i][j]->entity()->setParent(root);
-            m_leftFace[i][j]->entity()->setParent(root);
-            m_upFace[i][j]->entity()->setParent(root);
-            m_downFace[i][j]->entity()->setParent(root);
-            m_frontFace[i][j]->entity()->setParent(root);
-            m_backFace[i][j]->entity()->setParent(root);
-        }
-    //for(int i=0;i<centre->entity()->children().size();i++)
-        //qDebug()<<centre->entity()->children().at(i);
-    Centre3D *centre = new Centre3D(root);
-    for(int i=0;i<3;i++)
-        for(int j=0;j<3;j++)
-//            if(!(i==1 && j==1)){
-//                m_rightFace[i][j]->transf()->setTranslation(QVector3D(0.0f,
-//                        m_rightFace[i][j]->transf()->translation().y(),m_rightFace[i][j]->transf()->translation().z()));
-                m_rightFace[i][j]->entity()->setParent(centre->entity());
-
-//            }
-    centre->startXAxisClockAnim();
-    //for(int i=0;i<100000000000;i++);
 
     m_swaper->rightClock();
 }
@@ -292,7 +230,7 @@ void Cube3D::RightCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_rightFace[i][j]->startXAxisCClockAnim();
+            //m_rightFace[i][j]->startXAxisCClockAnim();
     m_swaper->rightCounterClock();
 }
 
@@ -300,7 +238,7 @@ void Cube3D::LeftC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_leftFace[i][j]->startXAxisClockAnim();
+           // m_leftFace[i][j]->startXAxisClockAnim();
     m_swaper->leftClock();
 }
 
@@ -308,7 +246,7 @@ void Cube3D::LeftCC()
 {
     for(int i=0;i<3;i++)
         for(int j=0;j<3;j++)
-            m_leftFace[i][j]->startXAxisCClockAnim();
+           // m_leftFace[i][j]->startXAxisCClockAnim();
     m_swaper->leftCounterClock();
 }
 

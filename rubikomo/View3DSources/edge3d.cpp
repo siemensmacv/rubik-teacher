@@ -3,10 +3,8 @@
 Edge3D::Edge3D(Qt3DCore::QEntity *rootEntity):
     Cubie(rootEntity,isCorner)
 {
-    cuboid()->m_isCorner=isCorner;
-    cuboid()->animHandler()->XOrbitTransform()->setRadius(1.1f);
-    cuboid()->animHandler()->YOrbitTransform()->setRadius(1.1f);
-    cuboid()->animHandler()->ZOrbitTransform()->setRadius(1.1f);
+    m_cuboid->m_isCorner=isCorner;
+
 
     //set plane radius
 }

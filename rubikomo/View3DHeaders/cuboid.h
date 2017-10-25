@@ -3,15 +3,16 @@
 
 #include "./View3DHeaders/shape3d.h"
 #include "./View3DHeaders/axishandler.h"
+#include <Qt3DCore>
 
 class Cuboid : public Shape3D
 {
 public:
-    explicit Cuboid(Qt3DCore::QEntity *rootEntity, bool isCorner);
+    Cuboid(Qt3DCore::QEntity *rootEntity, bool isCorner);
     bool m_isCorner;
-    AxisHandler *axisHandler() const;
+    AxisHandler *m_axisHandler;
 private:
     Qt3DExtras::QCuboidMesh *m_cuboidMesh;
-    AxisHandler *m_axisHandler;
+
 };
 #endif // CUBOID_H
