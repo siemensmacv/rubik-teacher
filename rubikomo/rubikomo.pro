@@ -50,7 +50,11 @@ SOURCES += \
     View3DSources/view3d.cpp \
     View2DSources/view2d.cpp \
     View2DSources/facecube2d.cpp \
-    rubikface.cpp
+    rubikface.cpp \
+    ckociemba/coordcube.c \
+    ckociemba/cubiecube.c \
+    ckociemba/facecube.c \
+    ckociemba/search.c
 
 HEADERS += \
         mainwindow.h \
@@ -80,7 +84,15 @@ HEADERS += \
     View3DHeaders/view3d.h \
     View3DHeaders/matrixswap.h \
     View2DHeaders/view2d.h \
-    View2DHeaders/facecube2d.h
+    View2DHeaders/facecube2d.h \
+    ckociemba/color.h \
+    ckociemba/coordcube.h \
+    ckociemba/corner.h \
+    ckociemba/cubiecube.h \
+    ckociemba/edge.h \
+    ckociemba/facecube.h \
+    ckociemba/facelet.h \
+    ckociemba/search.h
 
 FORMS += \
         mainwindow.ui
