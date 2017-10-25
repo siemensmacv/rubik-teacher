@@ -65,6 +65,7 @@ MainWindow::MainWindow(QWidget *parent) :
     m_viewFormula = new FormulaHandler(ui->gridLayoutFormula, ui->centralWidget, &controllerRubik);
     connect(ui->buttonSolve, &QPushButton::clicked, this, &MainWindow::handleSolve);
     connect(this, &MainWindow::formulaChanged, m_viewFormula, &FormulaHandler::FormulaChanged);
+    // push branch to origin
 }
 
 MainWindow::~MainWindow()
