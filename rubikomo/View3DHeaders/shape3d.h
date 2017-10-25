@@ -11,10 +11,6 @@ class Shape3D
 public:
     Shape3D(Qt3DCore::QEntity *rootEntity);
 
-    void setShapeTransform(Qt3DCore::QTransform *shapeTransform);
-    void setShapeMaterial(Qt3DExtras::QPhongMaterial *shapeMaterial);
-    void setShapeEntity(Qt3DCore::QEntity *shapeEntity);
-
     void setColor(QColor color);
 
     Qt3DCore::QTransform *shapeTransform() const;

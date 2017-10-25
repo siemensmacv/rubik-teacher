@@ -1,9 +1,9 @@
 #include "./View3DHeaders/cubie.h"
 
 
-Cubie::Cubie(Qt3DCore::QEntity *rootEntity,bool isCorner)
+Cubie::Cubie(Qt3DCore::QEntity *rootEntity)
 {
-    m_cuboid=new Cuboid(rootEntity,isCorner);
+    m_cuboid=new Cuboid(rootEntity);
     animHandler=new AnimationHandler(m_cuboid);
 }
 

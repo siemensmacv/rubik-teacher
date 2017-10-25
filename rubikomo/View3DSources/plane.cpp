@@ -10,8 +10,3 @@ Plane::Plane(Qt3DCore::QEntity *rootEntity) :
 
 }
 
-void Plane::setPlaneMesh(Qt3DExtras::QPlaneMesh *planeMesh)
-{
-    m_planeMesh = planeMesh;
-}
-

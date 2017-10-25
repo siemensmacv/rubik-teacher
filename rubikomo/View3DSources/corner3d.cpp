@@ -1,17 +1,10 @@
 #include "./View3DHeaders/corner3d.h"
 
 Corner3D::Corner3D(Qt3DCore::QEntity *rootEntity):
-    Cubie(rootEntity,isCorner)
+    Cubie(rootEntity)
 {
-    m_cuboid->m_isCorner=isCorner;
 
 }
-
-Plane *Corner3D::upDownPlane()
-{
-    return m_upDownPlane;
-}
-
 
 void Corner3D::setUpPlanes()
 {

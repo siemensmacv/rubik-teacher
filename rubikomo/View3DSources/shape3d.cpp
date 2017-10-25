@@ -15,21 +15,6 @@ Shape3D::Shape3D(Qt3DCore::QEntity *rootEntity)
 
 }
 
-void Shape3D::setShapeTransform(Qt3DCore::QTransform *shapeTransform)
-{
-    m_shapeTransform = shapeTransform;
-}
-
-void Shape3D::setShapeMaterial(Qt3DExtras::QPhongMaterial *shapeMaterial)
-{
-    m_shapeMaterial = shapeMaterial;
-}
-
-void Shape3D::setShapeEntity(Qt3DCore::QEntity *shapeEntity)
-{
-    m_shapeEntity = shapeEntity;
-}
-
 void Shape3D::setColor(QColor color)
 {
     m_shapeMaterial->setDiffuse(color);

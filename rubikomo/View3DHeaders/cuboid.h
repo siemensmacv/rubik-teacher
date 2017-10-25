@@ -8,8 +8,7 @@
 class Cuboid : public Shape3D
 {
 public:
-    Cuboid(Qt3DCore::QEntity *rootEntity, bool isCorner);
-    bool m_isCorner;
+    Cuboid(Qt3DCore::QEntity *rootEntity);
     AxisHandler *m_axisHandler;
 private:
     Qt3DExtras::QCuboidMesh *m_cuboidMesh;

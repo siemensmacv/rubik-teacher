@@ -18,7 +18,7 @@ class AnimationHandler : public QObject
 public:
     AnimationHandler(Cuboid *cuboid);
 
-    void UpC();//
+    void UpC();
     void UpCC();
     void DownC();
     void DownCC();
@@ -26,7 +26,7 @@ public:
     void FrontCC();
     void BackC();
     void BackCC();
-    void RightC();//
+    void RightC();
     void RightCC();
     void LeftC();
     void LeftCC();

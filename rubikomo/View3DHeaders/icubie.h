@@ -4,6 +4,7 @@
 #include "./View3DHeaders/plane.h"
 #include "./View3DHeaders/cuboid.h"
 #include "modelrubik.h"
+
 class ICubie{
 public:
     virtual void UpC()=0;
@@ -23,7 +24,6 @@ public:
     virtual void updateColors(Edge edge,EdgeOrientation orient)=0;
     virtual void updateColors(RubikFace centre)=0;
 
-    virtual Plane* upDownPlane()=0;
     virtual Qt3DCore::QEntity* entity()=0;
     virtual Qt3DCore::QTransform* transf()=0;
     virtual void setTranslation(QVector3D vec)=0;

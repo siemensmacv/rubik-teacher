@@ -8,7 +8,7 @@
 
 class Cubie : public ICubie{
 public:
-    explicit Cubie(Qt3DCore::QEntity *rootEntity, bool isCorner);
+    explicit Cubie(Qt3DCore::QEntity *rootEntity);
     void UpC();
     void UpCC();
     void DownC();

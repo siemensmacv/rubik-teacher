@@ -1,14 +1,9 @@
 #include "View3DHeaders/centre3d.h"
 
 Centre3D::Centre3D(Qt3DCore::QEntity *rootEntity):
-    Cubie(rootEntity,isCorner)
+    Cubie(rootEntity)
 {
 
-}
-
-Plane *Centre3D::upDownPlane()
-{
-    return m_plane;
 }
 
 void Centre3D::setUpPlanes()
