@@ -72,9 +72,9 @@ QColor FaceCube2D::getColorFromValue(int value) const
 	case RubikFace::Front:
         return QColor(0, 255, 0);
 	case RubikFace::Right:
-        return QColor(255, 165, 0);
+        return QColor(255, 130, 0);
 	case RubikFace::Back:
-        return QColor(0, 0, 255);
+        return QColor(60, 60, 255);
 	case RubikFace::Down:
         return QColor(255, 255, 255);
     }
