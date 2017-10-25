@@ -215,12 +215,14 @@ void MainWindow::validateAndLoadInput()
         controllerRubik.setModel(model);
         QMessageBox messagebox;
         messagebox.setText("Validation stage passed!\nInput: " + QString::fromStdString(model));
+        messagebox.setStyleSheet("background-color:rgb(0, 85, 127);color:rgb(255, 255, 255);selection-color:rgb(255, 255, 255);selection-background-color:rgb(255, 255, 255);");
         messagebox.exec();
     }
     else
     {
         QMessageBox messagebox;
         messagebox.setText("Validation stage not passed! Please make sure the cube has a correct configuration.\nInput: "   + QString::fromStdString(model));
+        messagebox.setStyleSheet("background-color:rgb(0, 85, 127);color:rgb(255, 255, 255);selection-color:rgb(255, 255, 255);selection-background-color:rgb(255, 255, 255);");
         messagebox.exec();
     }
 }
@@ -239,6 +241,7 @@ void MainWindow::openFileButtonClicked()
         {
             QMessageBox messagebox;
             messagebox.setText("Non standard configuration loaded! Make sure the order is URFDLB!\nInput: "   + QString::fromStdString(fileContent));
+            messagebox.setStyleSheet("background-color:rgb(0, 85, 127);color:rgb(255, 255, 255);selection-color:rgb(255, 255, 255);selection-background-color:rgb(255, 255, 255);");
             messagebox.exec();
         }
         else
