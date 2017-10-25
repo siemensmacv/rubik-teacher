@@ -105,6 +105,10 @@ short RubikValidator::cornerParity(cubiecube_t* cubiecube)
 
 bool RubikValidator::operator() ()
 {
+    // check for modified centers
+    if(_cubeString[4] != 'U' || _cubeString[13] != 'R' || _cubeString[22] != 'F' || _cubeString[31] != 'D' || _cubeString[40] != 'L' || _cubeString[49] != 'B')
+        return false;
+
 	int count[6] = { 0 };
 
 	for (int i = 0; i < 54; i++)

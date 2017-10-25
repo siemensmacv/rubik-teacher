@@ -233,7 +233,19 @@ void MainWindow::openFileButtonClicked()
     {
         QTextStream textStream(&inputFile);
         std::string fileContent = textStream.readAll().toStdString();
-        m_inputmodel.getMatrix()->setMatrix(fileContent);
+
+        // check for modified centers
+        if(fileContent[4] != 'U' || fileContent[13] != 'R' || fileContent[22] != 'F' || fileContent[31] != 'D' || fileContent[40] != 'L' || fileContent[49] != 'B')
+        {
+            QMessageBox messagebox;
+            messagebox.setText("Non standard configuration loaded! Make sure the order is URFDLB!\nInput: "   + QString::fromStdString(fileContent));
+            messagebox.exec();
+        }
+        else
+        {
+            m_inputmodel.getMatrix()->setMatrix(fileContent);
+
+        }
     }
 }
 
