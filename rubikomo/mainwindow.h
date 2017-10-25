@@ -32,6 +32,7 @@ private:
     View2D* m_colorinput;
     ControllerRubik controllerRubik;
     ModelRubik m_inputmodel;
+	std::default_random_engine generator;
 
     void connectFlatButtonsToSlots();
     void connectRadioButtonsToSlots();

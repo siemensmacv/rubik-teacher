@@ -244,7 +244,6 @@ void MainWindow::openFileButtonClicked()
         else
         {
             m_inputmodel.getMatrix()->setMatrix(fileContent);
-
         }
     }
 }
@@ -267,12 +266,11 @@ void MainWindow::shuffleRubikCube()
     int whichFunction = 0, whichFaceOfCube = 0, stepsForShuffle = 0;
 
     stepsForShuffle = ui->shuffleSpinBox->value();
-    std::default_random_engine generator;
-    std::uniform_int_distribution<int> distribution1(0,1);
-    std::uniform_int_distribution<int> distribution2(0,5);
 
     for(int i = 1; i <= stepsForShuffle; ++i)
     {
+		std::uniform_int_distribution<int> distribution1(0, 1);
+		std::uniform_int_distribution<int> distribution2(0, 5);
 
         whichFunction = distribution1(generator);
         whichFaceOfCube = distribution2(generator);
