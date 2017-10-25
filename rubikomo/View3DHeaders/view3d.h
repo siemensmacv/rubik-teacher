@@ -44,14 +44,19 @@ public slots:
 
 private:
     void toggleAllButtons(bool toggle);
+    void reset();
+    void refreshCubeColors();
 
     QTimer *timer;
     Ui::MainWindow *m_ui;
 
     void initCube3D();
+
+    Qt3DCore::QEntity *rootEntity;
     Cube3D *theCube;
     ModelRubik* m_model3D;
     QWidget * container;
+    Qt3DExtras::Qt3DWindow *view;
 
 };
 #endif // VIEW3D_H

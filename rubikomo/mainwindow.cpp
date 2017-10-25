@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     controllerRubik->setView3D(m_view3D);
 
+
     ui->gridLayout_3->addWidget(m_view3D->getContainer());
 
     connect(ui->U_PushButton_3D,&QPushButton::clicked,
