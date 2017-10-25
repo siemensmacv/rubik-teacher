@@ -47,6 +47,7 @@ private:
 
     QTimer *timer;
     Ui::MainWindow *m_ui;
+
     void initCube3D();
     Cube3D *theCube;
     ModelRubik* m_model3D;

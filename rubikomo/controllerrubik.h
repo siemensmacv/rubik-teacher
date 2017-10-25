@@ -8,6 +8,7 @@
 class ControllerRubik : public QObject
 {
     Q_OBJECT
+
 public:
     ModelRubik model;
 

@@ -7,9 +7,8 @@ View3D::View3D(ModelRubik *model3D, Ui::MainWindow *ui)
     timer=new QTimer(this);
     connect(timer,&QTimer::timeout,
             this,&View3D::onAnimationEnded);
-    //connect(m_ui->loadButton,&QPushButton::clicked,
-      //      this,&View3D::onInput);
-
+    connect(m_model3D,&ModelRubik::cubeChanged,
+            this,&View3D::onInput);
     initCube3D();
 }
 
@@ -26,7 +25,6 @@ void View3D::initCube3D(){
     view->defaultFrameGraph()->setClearColor(QColor(QRgb(0xAAAAAA)));
     container = QWidget::createWindowContainer(view);
 
-
     // Root entity
     Qt3DCore::QEntity *rootEntity = new Qt3DCore::QEntity;
 
@@ -39,8 +37,8 @@ void View3D::initCube3D(){
     cameraEntity->setViewCenter(QVector3D(0, 0, 0));
 
     // For camera controls
-    Qt3DExtras::QFirstPersonCameraController *camController = new Qt3DExtras::QFirstPersonCameraController(rootEntity);
-    camController->setCamera(cameraEntity);
+    //Qt3DExtras::QFirstPersonCameraController *camController = new Qt3DExtras::QFirstPersonCameraController(rootEntity);
+   // camController->setCamera(cameraEntity);
 
     // Lighting
     Qt3DCore::QEntity *lightEntity = new Qt3DCore::QEntity(rootEntity);
@@ -49,18 +47,29 @@ void View3D::initCube3D(){
     light->setIntensity(1);
     lightEntity->addComponent(light);
     Qt3DCore::QTransform *lightTransform = new Qt3DCore::QTransform(lightEntity);
-    lightTransform->setTranslation(QVector3D(5.0f, 5.0f, 5.0f));
+    lightTransform->setTranslation(QVector3D(0.0f, 0.0f, 5.0f));
     lightEntity->addComponent(lightTransform);
 
     // Lighting 2
     Qt3DCore::QEntity *lightEntity2 = new Qt3DCore::QEntity(rootEntity);
-    Qt3DRender::QPointLight *light2 = new Qt3DRender::QPointLight(lightEntity);
+    Qt3DRender::QPointLight *light2 = new Qt3DRender::QPointLight(lightEntity2);
     light2->setColor("white");
     light2->setIntensity(2);
     lightEntity2->addComponent(light);
-    Qt3DCore::QTransform *lightTransform2 = new Qt3DCore::QTransform(lightEntity);
-    lightTransform2->setTranslation(QVector3D(-5.0f, -5.0f, -5.0f));
+    Qt3DCore::QTransform *lightTransform2 = new Qt3DCore::QTransform(lightEntity2);
+    lightTransform2->setTranslation(QVector3D(5.0f, 0.0f, 0.0f));
     lightEntity2->addComponent(lightTransform2);
+
+    // Lighting 3
+    Qt3DCore::QEntity *lightEntity3 = new Qt3DCore::QEntity(rootEntity);
+    Qt3DRender::QPointLight *light3 = new Qt3DRender::QPointLight(lightEntity3);
+    light3->setColor("white");
+    light3->setIntensity(2);
+    lightEntity3->addComponent(light3);
+    Qt3DCore::QTransform *lightTransform3 = new Qt3DCore::QTransform(lightEntity3);
+    lightTransform3->setTranslation(QVector3D(0.0f, 5.0f, 0.0f));
+    lightEntity3->addComponent(lightTransform3);
+
 
     theCube=new Cube3D(m_model3D,rootEntity);
     // Set root object of the scene
