@@ -40,7 +40,7 @@ private:
 
     void performMove(FormulaStep fs);
 
-    RubikFace fac;
+    RubikFace face;
     void f();
 
 };
