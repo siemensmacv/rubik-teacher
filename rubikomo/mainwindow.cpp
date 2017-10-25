@@ -56,18 +56,42 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->horizontalLayout->insertLayout(0, m_view2D->getLayout());
     ui->gridLayout_3->addWidget(m_view3D->getContainer());
 
-    connectFlatButtonsToSlots();
-    connectRadioButtonsToSlots();
-
-    m_colorinput = new View2D(this, &m_inputmodel, true);
+     m_colorinput = new View2D(this, &m_inputmodel, true);
     ui->horizontalLayout_4->insertLayout(0, m_colorinput->getLayout());
 
-    ui->radioButton_Green->toggle();
+    //ui->radioButton_Green->toggle();
     m_colorinput->setInputColor(RubikFace::Front);
 
     m_viewFormula = new FormulaHandler(ui->gridLayoutFormula, ui->centralWidget, controllerRubik);
     connect(ui->buttonSolve, &QPushButton::clicked, this, &MainWindow::handleSolve);
     connect(this, &MainWindow::formulaChanged, m_viewFormula, &FormulaHandler::FormulaChanged);
+    // push branch to origin
+
+    //widget color
+    yellowButton = new ColorButton(this, QColor(255,255,0));
+    orangeButton = new ColorButton(this, QColor(255,156,0));
+    greenButton = new ColorButton(this, QColor(0,255,0));
+    whiteButton = new ColorButton(this, QColor(255,255,255));
+    redButton = new ColorButton(this, QColor(255,0,0));
+    blueButton = new ColorButton(this, QColor(0,0,255));
+
+	yellowButton->setObjectName("yellowButton");
+	orangeButton->setObjectName("orangeButton");
+	greenButton->setObjectName("greenButton");
+	whiteButton->setObjectName("whiteButton");
+	redButton->setObjectName("redButton");
+	blueButton->setObjectName("blueButton");
+
+    ui->verticalLayout_4->insertWidget(0,yellowButton);
+    ui->verticalLayout_4->insertWidget(0,orangeButton);
+    ui->verticalLayout_4->insertWidget(0,greenButton);
+    ui->verticalLayout_4->insertWidget(0,whiteButton);
+    ui->verticalLayout_4->insertWidget(0,redButton);
+    ui->verticalLayout_4->insertWidget(0,blueButton);
+
+    connectFlatButtonsToSlots();
+    connectWidgetsToSlots();
+
 }
 
 MainWindow::~MainWindow()
@@ -94,14 +118,14 @@ void MainWindow::connectFlatButtonsToSlots()
     connect(ui->shuffleButton, &QPushButton::clicked,this, &MainWindow::shuffleRubikCube);
 }
 
-void MainWindow::connectRadioButtonsToSlots()
+void MainWindow::connectWidgetsToSlots()
 {
-    connect(ui->radioButton_Blue, &QRadioButton::toggled, this, &MainWindow::handleInputRadio);
-    connect(ui->radioButton_Green, &QRadioButton::toggled, this, &MainWindow::handleInputRadio);
-    connect(ui->radioButton_Orange, &QRadioButton::toggled, this, &MainWindow::handleInputRadio);
-    connect(ui->radioButton_Red, &QRadioButton::toggled, this, &MainWindow::handleInputRadio);
-    connect(ui->radioButton_White, &QRadioButton::toggled, this, &MainWindow::handleInputRadio);
-    connect(ui->radioButton_Yellow, &QRadioButton::toggled, this, &MainWindow::handleInputRadio);
+    connect(yellowButton, &ColorButton::mousePressed, this, &MainWindow::handleInputWidget);
+    connect(orangeButton, &ColorButton::mousePressed, this, &MainWindow::handleInputWidget);
+    connect(greenButton, &ColorButton::mousePressed, this, &MainWindow::handleInputWidget);
+    connect(whiteButton, &ColorButton::mousePressed, this, &MainWindow::handleInputWidget);
+    connect(redButton, &ColorButton::mousePressed, this, &MainWindow::handleInputWidget);
+    connect(blueButton, &ColorButton::mousePressed, this, &MainWindow::handleInputWidget);
 }
 
 void MainWindow::handleButton()
@@ -157,30 +181,30 @@ void MainWindow::handleButton()
     }
 }
 
-void MainWindow::handleInputRadio()
+void MainWindow::handleInputWidget()
 {
     QString senderName = sender()->objectName();
-    if(senderName == "radioButton_Blue")
+    if(senderName == "blueButton")
     {
         m_colorinput->setInputColor(RubikFace::Back);
     }
-    else if(senderName == "radioButton_Green")
+    else if(senderName == "greenButton")
     {
         m_colorinput->setInputColor(RubikFace::Front);
     }
-    else if(senderName == "radioButton_Orange")
+    else if(senderName == "orangeButton")
     {
         m_colorinput->setInputColor(RubikFace::Right);
     }
-    else if(senderName == "radioButton_Red")
+    else if(senderName == "redButton")
     {
         m_colorinput->setInputColor(RubikFace::Left);
     }
-    else if(senderName == "radioButton_White")
+    else if(senderName == "whiteButton")
     {
         m_colorinput->setInputColor(RubikFace::Down);
     }
-    else if(senderName == "radioButton_Yellow")
+    else if(senderName == "yellowButton")
     {
         m_colorinput->setInputColor(RubikFace::Up);
     }
@@ -250,6 +274,7 @@ void MainWindow::shuffleRubikCube()
     int whichFunction = 0, whichFaceOfCube = 0, stepsForShuffle = 0;
 
     stepsForShuffle = ui->shuffleSpinBox->value();
+    std::mt19937_64 generator(std::chrono::system_clock::now().time_since_epoch().count());
 
     for(int i = 1; i <= stepsForShuffle; ++i)
     {

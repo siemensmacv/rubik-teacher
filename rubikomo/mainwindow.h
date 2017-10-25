@@ -12,8 +12,11 @@
 #include "rubikvalidator.h"
 #include <QMessageBox>
 #include <random>
+#include <chrono>
 #include "formulahandler.h"
 #include "ckociemba/search.h"
+#include <QWidget>
+#include "colorbutton.h"
 
 namespace Ui {
 class MainWindow;
@@ -35,14 +38,15 @@ private:
     FormulaHandler* m_viewFormula;
     ControllerRubik *controllerRubik;
     ModelRubik m_inputmodel;
-	std::default_random_engine generator;
+
+    ColorButton *yellowButton, *blueButton, *greenButton, *redButton, *orangeButton, *whiteButton;
 
     void connectFlatButtonsToSlots();
-    void connectRadioButtonsToSlots();
+    void connectWidgetsToSlots();
 
 private slots:
     void handleButton();
-    void handleInputRadio();
+    void handleInputWidget();
     void validateAndLoadInput();
     void openFileButtonClicked();
     void saveFileButtonClicked();
