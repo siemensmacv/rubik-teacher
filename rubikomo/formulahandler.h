@@ -33,7 +33,7 @@ private:
     ControllerRubik *mRubikController;
     QLabel *mFormulaStepsLabels[30];
 
-    Formula mFormula;
+    Formula mFormula = "";
 
     void backwardStep();
     void forwardStep();

@@ -8,8 +8,7 @@ FormulaHandler::FormulaHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidg
     : QObject(gridLayoutQWidget),
       mGridLayout{gridLayout},
       mGridLayoutWidget{gridLayoutQWidget},
-      mRubikController{rubikController},
-      mFormula{"U R B"}
+      mRubikController{rubikController}
 {
     initFormula();
 }
@@ -17,7 +16,6 @@ FormulaHandler::FormulaHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidg
 
 FormulaHandler::~FormulaHandler()
 {
-    cleanFormula();
 }
 
 QPushButton* createBitmapButton(QString sPath, QWidget *parent)
@@ -41,12 +39,12 @@ void FormulaHandler::initFormula()
 
     QGridLayout *lGridLayoutButtons = new QGridLayout(mGridLayoutWidget);
 
-    QPushButton *buttonBackward = createBitmapButton(":/icons/playBack.png", mGridLayoutWidget);
+    QPushButton *buttonBackward = createBitmapButton(":/img/resources/playBack.png", mGridLayoutWidget);
     buttonBackward->setVisible(true);
     connect(buttonBackward, &QPushButton::clicked, this, &FormulaHandler::backwardStep);
     lGridLayoutButtons->addWidget(buttonBackward, 0, 1);
 
-    QPushButton *buttonForward = createBitmapButton(":/icons/play.png", mGridLayoutWidget);
+    QPushButton *buttonForward = createBitmapButton(":/img/resources/play.png", mGridLayoutWidget);
     buttonForward->setVisible(true);
     connect(buttonForward, &QPushButton::clicked, this, &FormulaHandler::forwardStep);
     lGridLayoutButtons->addWidget(buttonForward, 0, 2);
@@ -72,6 +70,9 @@ void FormulaHandler::createFormula()
         char desc[3];
         fs.GetDesc(desc);
         QLabel *lLabel = new QLabel(desc);
+        QFont font(lLabel->font());
+        font.setPointSize(14);
+        lLabel->setFont(font);
         mFormulaStepsLabels[i] = lLabel;
         mGridLayoutFormulas->addWidget(lLabel, 0, i + 1);
     }
@@ -90,7 +91,7 @@ void FormulaHandler::backwardStep()
     if (mFormula.bBackwardStep(fs))
     {
         performMove(fs);
-        mFormulaStepsLabels[mFormula.Index()]->setStyleSheet("QLabel { color : black; }");
+        mFormulaStepsLabels[mFormula.Index()]->setStyleSheet("QLabel { color : white; }");
     }
 }
 
