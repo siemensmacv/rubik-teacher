@@ -12,6 +12,7 @@
 #include "rubikvalidator.h"
 #include <QMessageBox>
 #include <random>
+#include <chrono>
 #include "formulahandler.h"
 #include "ckociemba/search.h"
 
@@ -35,7 +36,6 @@ private:
     FormulaHandler* m_viewFormula;
     ControllerRubik controllerRubik;
     ModelRubik m_inputmodel;
-    std::mt19937_64 generator;
 
     void connectFlatButtonsToSlots();
     void connectRadioButtonsToSlots();

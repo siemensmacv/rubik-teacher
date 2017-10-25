@@ -272,6 +272,7 @@ void MainWindow::shuffleRubikCube()
     int whichFunction = 0, whichFaceOfCube = 0, stepsForShuffle = 0;
 
     stepsForShuffle = ui->shuffleSpinBox->value();
+    std::mt19937_64 generator(std::chrono::system_clock::now().time_since_epoch().count());
 
     for(int i = 1; i <= stepsForShuffle; ++i)
     {
