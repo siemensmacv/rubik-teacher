@@ -8,7 +8,8 @@ enum class RubikFace
     Front,
     Down,
 	Left,
-    Back
+    Back,
+    Grey
 };
 
 #ifdef __cplusplus

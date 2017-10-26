@@ -39,6 +39,7 @@ private:
     ControllerRubik *controllerRubik;
     ModelRubik m_inputmodel;
 
+
     ControllerRubik *teachingControllerRubik;
     View3D* m_teachingView3D;
     FormulaHandler* m_teachingViewFormula;
@@ -59,7 +60,7 @@ private slots:
     void shuffleRubikCube();
     void handleSolve();
     void selectFace(RubikFace face);
-    void LoadTeachingInput();
+    void loadTeachingInput();
 
 signals:
     void formulaChanged(Formula);

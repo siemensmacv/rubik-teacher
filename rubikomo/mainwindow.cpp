@@ -19,7 +19,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     controllerRubik->setView3D(m_view3D);
 
-
     ui->gridLayout_3->addWidget(m_view3D->getContainer());
 
     // teaching tab
@@ -29,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->gridLayout_6->addWidget(m_teachingView3D->getContainer());
     m_teachingViewFormula = new FormulaHandler(ui->pushButtonTeachingBackward, ui->pushButtonTeachingForward, ui->gridLayoutTeachingFormula, ui->centralWidget, teachingControllerRubik);
     connect(this, &MainWindow::teachingFormulaChanged, m_teachingViewFormula, &FormulaHandler::FormulaChanged);
-    connect(ui->pushButton_LoadTeaching, &QPushButton::clicked, this, &MainWindow::LoadTeachingInput);
+    connect(ui->pushButton_LoadTeaching, &QPushButton::clicked, this, &MainWindow::loadTeachingInput);
 
     // end teaching tab
 
@@ -309,7 +308,7 @@ void MainWindow::validateAndLoadInput()
     }
 }
 
-void MainWindow::LoadTeachingInput()
+void MainWindow::loadTeachingInput()
 {
     std::string model = "UUUUUUUUUBBBRRRRRRRRRFFFFFFDDDDDDDDDFFFLLLLLLLLLBBBBBB";
     teachingControllerRubik->setModel(model);
