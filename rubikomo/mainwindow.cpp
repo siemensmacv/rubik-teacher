@@ -311,9 +311,9 @@ void MainWindow::validateAndLoadInput()
 
 void MainWindow::LoadTeachingInput()
 {
-    std::string model = "UUUUUUUUUBBBRRRRRRRRRFFFFFFDDDDDDDDDFFFLLLLLLLLLBBBBBB";
+    std::string model = "UFUUUUUURDUUURUURUUUFUFUUFUUDUDDDUDUUUUULUULUURUUBUUBU";
     teachingControllerRubik->setModel(model);
-    Formula formula("U'");
+    Formula formula("R U R'");
     emit teachingFormulaChanged(formula);
 }
 
