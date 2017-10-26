@@ -330,7 +330,7 @@ void MainWindow::validateAndLoadInput()
     if(validator() == true)
     {
         controllerRubik->setModel(model);
-        ui->tabWidget->setCurrentIndex(1);
+        //ui->tabWidget->setCurrentIndex(1);
         QMessageBox messagebox;
         messagebox.setText("Validation stage passed!\nInput: " + QString::fromStdString(model));
         messagebox.setStyleSheet("background-color:rgb(0, 85, 127);color:rgb(255, 255, 255);selection-color:rgb(255, 255, 255);selection-background-color:rgb(255, 255, 255);");
