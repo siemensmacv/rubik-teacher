@@ -17,11 +17,15 @@ public:
     explicit ControllerRubik(QObject *parent = nullptr);
 
     void setView3D(View3D *view3D);
+
     int getMatrixValue(const RubikFace &face, const int &row, const int &column) const;
     void setModel(std::string input);
     std::string getModel();
     void rotateFaceClockwise(const RubikFace &face);
     void rotateFaceCounterClockwise(const RubikFace &face);
+
+    //void rotateFaceClockwiseFrom3D(const RubikFace &face);
+    //void rotateFaceCounterClockwiseFrom3D(const RubikFace &face);
 
 };
 

@@ -22,35 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->gridLayout_3->addWidget(m_view3D->getContainer());
 
-    connect(ui->U_PushButton_3D,&QPushButton::clicked,
-            m_view3D,&View3D::UpC);
-    connect(ui->UR_PushButton_3D,&QPushButton::clicked,
-            m_view3D,&View3D::UpCC);
 
-    connect(ui->D_PushButton_3D,&QPushButton::clicked,
-            m_view3D,&View3D::DownC);
-    connect(ui->DR_PushButton_3D,&QPushButton::clicked,
-            m_view3D,&View3D::DownCC);
-
-    connect(ui->F_PushButton_3D,&QPushButton::clicked,
-            m_view3D,&View3D::FrontC);
-    connect(ui->FR_PushButton_3D,&QPushButton::clicked,
-            m_view3D,&View3D::FrontCC);
-
-    connect(ui->B_PushButton_3D,&QPushButton::clicked,
-            m_view3D,&View3D::BackC);
-    connect(ui->BR_PushButton_3D,&QPushButton::clicked,
-            m_view3D,&View3D::BackCC);
-
-    connect(ui->L_PushButton_3D,&QPushButton::clicked,
-            m_view3D,&View3D::LeftC);
-    connect(ui->LR_PushButton_3D,&QPushButton::clicked,
-            m_view3D,&View3D::LeftCC);
-
-    connect(ui->R_PushButton_3D,&QPushButton::clicked,
-            m_view3D,&View3D::RightC);
-    connect(ui->RR_PushButton_3D,&QPushButton::clicked,
-            m_view3D,&View3D::RightCC);
 
     connect(ui->pushButton_Load, &QPushButton::clicked, this, &MainWindow::validateAndLoadInput);
 
@@ -91,6 +63,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->verticalLayout_4->insertWidget(0,blueButton);
 
     connectFlatButtonsToSlots();
+    connect3DButtonsToSlots();
     connectWidgetsToSlots();
 
 }
@@ -129,10 +102,93 @@ void MainWindow::connectWidgetsToSlots()
     connect(blueButton, &ColorButton::mousePressed, this, &MainWindow::handleInputWidget);
 }
 
+void MainWindow::connect3DButtonsToSlots()
+{
+    connect(ui->U_PushButton_3D,&QPushButton::clicked,
+            this, &MainWindow::handleButton);
+    connect(ui->UR_PushButton_3D,&QPushButton::clicked,
+            this, &MainWindow::handleButton);
+
+    connect(ui->D_PushButton_3D,&QPushButton::clicked,
+            this, &MainWindow::handleButton);
+    connect(ui->DR_PushButton_3D,&QPushButton::clicked,
+            this, &MainWindow::handleButton);
+
+    connect(ui->F_PushButton_3D,&QPushButton::clicked,
+            this, &MainWindow::handleButton);
+    connect(ui->FR_PushButton_3D,&QPushButton::clicked,
+            this, &MainWindow::handleButton);
+
+    connect(ui->B_PushButton_3D,&QPushButton::clicked,
+            this, &MainWindow::handleButton);
+    connect(ui->BR_PushButton_3D,&QPushButton::clicked,
+            this, &MainWindow::handleButton);
+
+    connect(ui->L_PushButton_3D,&QPushButton::clicked,
+            this, &MainWindow::handleButton);
+    connect(ui->LR_PushButton_3D,&QPushButton::clicked,
+            this, &MainWindow::handleButton);
+
+    connect(ui->R_PushButton_3D,&QPushButton::clicked,
+            this, &MainWindow::handleButton);
+    connect(ui->RR_PushButton_3D,&QPushButton::clicked,
+            this, &MainWindow::handleButton);
+}
+
 void MainWindow::handleButton()
 {
     QString senderName = sender()->objectName();
-    if(senderName == "pushButton_U_2D")
+
+    if(senderName == "U_PushButton_3D")
+    {
+        controllerRubik->rotateFaceClockwise(RubikFace::Up);
+    }
+    else if(senderName == "UR_PushButton_3D")
+    {
+        controllerRubik->rotateFaceCounterClockwise(RubikFace::Up);
+    }
+    else if(senderName == "D_PushButton_3D")
+    {
+        controllerRubik->rotateFaceClockwise(RubikFace::Down);
+    }
+    else if(senderName == "DR_PushButton_3D")
+    {
+        controllerRubik->rotateFaceCounterClockwise(RubikFace::Down);
+    }
+    else if(senderName == "F_PushButton_3D")
+    {
+        controllerRubik->rotateFaceClockwise(RubikFace::Front);
+    }
+    else if(senderName == "FR_PushButton_3D")
+    {
+        controllerRubik->rotateFaceCounterClockwise(RubikFace::Front);
+    }
+    else if(senderName == "B_PushButton_3D")
+    {
+        controllerRubik->rotateFaceClockwise(RubikFace::Back);
+    }
+    else if(senderName == "BR_PushButton_3D")
+    {
+        controllerRubik->rotateFaceCounterClockwise(RubikFace::Back);
+    }
+    else if(senderName == "L_PushButton_3D")
+    {
+        controllerRubik->rotateFaceClockwise(RubikFace::Left);
+    }
+    else if(senderName == "LR_PushButton_3D")
+    {
+        controllerRubik->rotateFaceCounterClockwise(RubikFace::Left);
+    }
+    else if(senderName == "R_PushButton_3D")
+    {
+        controllerRubik->rotateFaceClockwise(RubikFace::Right);
+    }
+    else if(senderName == "RR_PushButton_3D")
+    {
+        controllerRubik->rotateFaceCounterClockwise(RubikFace::Right);
+    }
+
+    else if(senderName == "pushButton_U_2D")
     {
         controllerRubik->rotateFaceClockwise(RubikFace::Up);
     }
@@ -180,6 +236,7 @@ void MainWindow::handleButton()
     {
         controllerRubik->rotateFaceCounterClockwise(RubikFace::Right);
     }
+
 }
 
 void MainWindow::handleInputWidget()

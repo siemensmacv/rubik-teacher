@@ -10,6 +10,11 @@ View3D::View3D(ModelRubik *model3D, Ui::MainWindow *ui)
     connect(m_model3D,&ModelRubik::cubeChanged,
             this,&View3D::onInput);
 
+    initScene();
+    initCube3D();
+}
+
+void View3D::initScene(){
     // Root entity
     rootEntity = new Qt3DCore::QEntity();
 
@@ -73,10 +78,7 @@ View3D::View3D(ModelRubik *model3D, Ui::MainWindow *ui)
     // Set root object of the scene
     view->setRootEntity(rootEntity);
 
-    initCube3D();
 }
-
-
 void View3D::onInput(int load)
 {
     if(load==0){
@@ -95,7 +97,6 @@ void View3D::reset(){
 
 void View3D::initCube3D(){
     cubeEntity = new Qt3DCore::QEntity(rootEntity);
-
     theCube=new Cube3D(m_model3D,cubeEntity);
 }
 
@@ -119,6 +120,25 @@ void View3D::toggleAllButtons(bool toggle)
 
     m_ui->R_PushButton_3D->setEnabled(toggle);
     m_ui->RR_PushButton_3D->setEnabled(toggle);
+
+    m_ui->pushButton_U_2D->setEnabled(toggle);
+    m_ui->pushButton_UR_2D->setEnabled(toggle);
+
+    m_ui->pushButton_D_2D->setEnabled(toggle);
+    m_ui->pushButton_DR_2D->setEnabled(toggle);
+
+    m_ui->pushButton_F_2D->setEnabled(toggle);
+    m_ui->pushButton_FR_2D->setEnabled(toggle);
+
+    m_ui->pushButton_B_2D->setEnabled(toggle);
+    m_ui->pushButton_BR_2D->setEnabled(toggle);
+
+    m_ui->pushButton_L_2D->setEnabled(toggle);
+    m_ui->pushButton_LR_2D->setEnabled(toggle);
+
+    m_ui->pushButton_R_2D->setEnabled(toggle);
+    m_ui->pushButton_RR_2D->setEnabled(toggle);
+
 }
 
 QWidget *View3D::getContainer() const

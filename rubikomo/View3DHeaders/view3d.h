@@ -46,6 +46,7 @@ private:
     void toggleAllButtons(bool toggle);
     void reset();
     void refreshCubeColors();
+    void initScene();
 
     QTimer *timer;
     Ui::MainWindow *m_ui;

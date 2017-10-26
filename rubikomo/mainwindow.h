@@ -43,6 +43,7 @@ private:
 
     void connectFlatButtonsToSlots();
     void connectWidgetsToSlots();
+    void connect3DButtonsToSlots();
 
 private slots:
     void handleButton();
