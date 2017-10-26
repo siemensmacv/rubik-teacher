@@ -30,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
     m_teachingView3D = new View3D(&teachingControllerRubik->model,ui);
     teachingControllerRubik->setView3D(m_teachingView3D);
     ui->gridLayout_6->addWidget(m_teachingView3D->getContainer());
-    m_teachingViewFormula = new FormulaHandler(ui->pushButtonTeachingBackward, ui->pushButtonTeachingForward, ui->gridLayoutTeachingFormula, ui->centralWidget, teachingControllerRubik);
+    m_teachingViewFormula = new FormulaHandler(ui->teachingBackwardButton, ui->teachingForwardButton, ui->teachingPlayForwardButton, ui->teachingPlayBackwardButton, ui->gridLayoutTeachingFormula, ui->centralWidget, teachingControllerRubik);
     connect(this, &MainWindow::teachingFormulaChanged, m_teachingViewFormula, &FormulaHandler::FormulaChanged);
     connect(ui->pushButton_LoadTeaching, &QPushButton::clicked, this, &MainWindow::loadTeachingInput);
     connect(ui->resetCameraTeaching,&QPushButton::clicked, m_teachingView3D,&View3D::resetCamera);
@@ -50,7 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
      m_colorinput = new View2D(this, &m_inputmodel, true);
     ui->horizontalLayout_4->insertLayout(0, m_colorinput->getLayout());
 
-    m_viewFormula = new FormulaHandler(ui->backButton,ui->forwardButton,ui->gridLayoutFormula, ui->centralWidget, controllerRubik);
+    m_viewFormula = new FormulaHandler(ui->backButton,ui->forwardButton, ui->playForwardButton, ui->playBackwardButton, ui->gridLayoutFormula, ui->centralWidget, controllerRubik);
     connect(ui->buttonSolve, &QPushButton::clicked, this, &MainWindow::handleSolve);
     connect(this, &MainWindow::formulaChanged, m_viewFormula, &FormulaHandler::FormulaChanged);
 

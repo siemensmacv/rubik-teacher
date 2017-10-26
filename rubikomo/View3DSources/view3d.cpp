@@ -132,9 +132,13 @@ void View3D::toggleAllButtons(bool toggle)
 
     m_ui->backButton->setEnabled(toggle);
     m_ui->forwardButton->setEnabled(toggle);
+    m_ui->playForwardButton->setEnabled(toggle);
+    m_ui->playBackwardButton->setEnabled(toggle);
 
-    m_ui->pushButtonTeachingBackward->setEnabled(toggle);
-    m_ui->pushButtonTeachingForward->setEnabled(toggle);
+    m_ui->teachingBackwardButton->setEnabled(toggle);
+    m_ui->teachingForwardButton->setEnabled(toggle);
+    m_ui->teachingPlayForwardButton->setEnabled(toggle);
+    m_ui->teachingPlayBackwardButton->setEnabled(toggle);
 }
 
 QWidget *View3D::getContainer() const

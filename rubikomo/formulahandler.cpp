@@ -4,10 +4,12 @@
 #include <QStyle>
 #include "controllerrubik.h"
 
-FormulaHandler::FormulaHandler(QPushButton *backButton, QPushButton *forwardButton, QGridLayout *gridLayout, QWidget *gridLayoutQWidget, ControllerRubik *rubikController)
+FormulaHandler::FormulaHandler(QPushButton *backButton, QPushButton *forwardButton, QPushButton *playForwardButton, QPushButton *playBackwardButton, QGridLayout *gridLayout, QWidget *gridLayoutQWidget, ControllerRubik *rubikController)
     : QObject(gridLayoutQWidget),
       mBackButton(backButton),
       mForwardButton(forwardButton),
+      mPlayForwardButton(playForwardButton),
+      mPlayBackwardButton(playBackwardButton),
       mGridLayout{gridLayout},
       mGridLayoutWidget{gridLayoutQWidget},
       mRubikController{rubikController}
@@ -38,15 +40,25 @@ void FormulaHandler::initFormula()
 
     QGridLayout *lGridLayoutButtons = new QGridLayout(mGridLayoutWidget);
 
+    createBitmapButton(mPlayBackwardButton,":/img/resources/backward.png", mGridLayoutWidget);
+    mPlayBackwardButton->setVisible(true);
+    connect(mPlayBackwardButton, &QPushButton::clicked, this, &FormulaHandler::playBackward);
+    lGridLayoutButtons->addWidget(mPlayBackwardButton, 0, 1);
+
     createBitmapButton(mBackButton,":/img/resources/playBack.png", mGridLayoutWidget);
     mBackButton->setVisible(true);
     connect(mBackButton, &QPushButton::clicked, this, &FormulaHandler::backwardStep);
-    lGridLayoutButtons->addWidget(mBackButton, 0, 1);
+    lGridLayoutButtons->addWidget(mBackButton, 0, 2);
 
     createBitmapButton(mForwardButton,":/img/resources/play.png", mGridLayoutWidget);
     mForwardButton->setVisible(true);
     connect(mForwardButton, &QPushButton::clicked, this, &FormulaHandler::forwardStep);
-    lGridLayoutButtons->addWidget(mForwardButton, 0, 2);
+    lGridLayoutButtons->addWidget(mForwardButton, 0, 3);
+
+    createBitmapButton(mPlayForwardButton,":/img/resources/forward.png", mGridLayoutWidget);
+    mPlayForwardButton->setVisible(true);
+    connect(mPlayForwardButton, &QPushButton::clicked, this, &FormulaHandler::playForward);
+    lGridLayoutButtons->addWidget(mPlayForwardButton, 0, 4);
 
     mGridLayout->addLayout(lGridLayoutButtons, 1, 0);
 }
@@ -94,6 +106,18 @@ void FormulaHandler::backwardStep()
     }
 }
 
+void FormulaHandler::playBackward()
+{
+    FormulaStep fs;
+    if (mFormula.bBackwardStep(fs))
+    {
+        performMove(fs);
+        mFormulaStepsLabels[mFormula.Index()]->setStyleSheet("QLabel { color : white; }");
+        int timeToWait = fs.FST() == fs.FST_DOUBLE ? 2020 : 1010;
+        QTimer::singleShot(timeToWait,this,&FormulaHandler::playBackward);
+    }
+}
+
 void FormulaHandler::forwardStep()
 {
     FormulaStep fs;
@@ -101,6 +125,18 @@ void FormulaHandler::forwardStep()
     {
         performMove(fs);
         mFormulaStepsLabels[mFormula.Index() - 1]->setStyleSheet("QLabel { color : red; }");
+    }
+}
+
+void FormulaHandler::playForward()
+{
+    FormulaStep fs;
+    if (mFormula.bForwardStep(fs))
+    {
+        performMove(fs);
+        mFormulaStepsLabels[mFormula.Index() - 1]->setStyleSheet("QLabel { color : red; }");
+        int timeToWait = fs.FST() == fs.FST_DOUBLE ? 2020 : 1010;
+        QTimer::singleShot(timeToWait,this,&FormulaHandler::playForward);
     }
 }
 

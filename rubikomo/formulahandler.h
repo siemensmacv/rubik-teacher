@@ -14,6 +14,8 @@ class FormulaHandler : public QObject
 public:
     explicit FormulaHandler(QPushButton* backButton,
                             QPushButton* forwardButton,
+                            QPushButton* playForwardButton,
+                            QPushButton* playBackwardButton,
                             QGridLayout *gridLayout,
                             QWidget *gridLayoutQWidget,
                             ControllerRubik *rubikController);
@@ -36,11 +38,15 @@ private:
 
     QPushButton* mBackButton;
     QPushButton* mForwardButton;
+    QPushButton* mPlayForwardButton;
+    QPushButton* mPlayBackwardButton;
 
     Formula mFormula = "";
 
     void backwardStep();
     void forwardStep();
+    void playForward();
+    void playBackward();
 
     void performMove(FormulaStep fs);
 
