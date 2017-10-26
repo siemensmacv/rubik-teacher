@@ -366,10 +366,21 @@ void MainWindow::shuffleRubikCube()
 
 void MainWindow::handleSolve()
 {
-    char* sol = solution(const_cast<char*>(controllerRubik->getModel().c_str()), 20, 2000, 0, "cache");
-    controllerRubik->model.setSolution(std::string(sol));
-    if(sol != nullptr)
-        emit formulaChanged(Formula(sol));
+    std::string model = controllerRubik->getModel();
+    if(model != "UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB")
+    {
+        char* sol = solution(const_cast<char*>(model.c_str()), 20, 2000, 0, "cache");
+        controllerRubik->model.setSolution(std::string(sol));
+        if(sol != nullptr)
+            emit formulaChanged(Formula(sol));
+    }
+    else
+    {
+        QMessageBox messagebox;
+        messagebox.setText("The identity cube doesn't have to be solved!");
+        messagebox.setStyleSheet("background-color:rgb(0, 85, 127);color:rgb(255, 255, 255);selection-color:rgb(255, 255, 255);selection-background-color:rgb(255, 255, 255);");
+        messagebox.exec();
+    }
 }
 
 void MainWindow::selectFace(RubikFace face)

@@ -38,7 +38,7 @@ void FaceCube2D::paintEvent(QPaintEvent *pe)
     QString letter = colorEnumToLetter(m_representing);
     QFont font = painter.font();
     painter.setPen(Qt::black);
-    font.setPointSize(12);
+    font.setPointSize(24);
     font.setBold(true);
     painter.setFont(font);
     painter.drawText(mRectMatrix[1][1], Qt::AlignCenter, letter);
