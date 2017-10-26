@@ -53,6 +53,8 @@ private:
     void initCube3D();
 
     Qt3DCore::QEntity *rootEntity;
+    Qt3DCore::QEntity *cubeEntity;
+
     Cube3D *theCube;
     ModelRubik* m_model3D;
     QWidget * container;
