@@ -12,10 +12,11 @@ class FormulaHandler : public QObject
 {
     Q_OBJECT
 public:
-    explicit FormulaHandler(QGridLayout *gridLayout,
+    explicit FormulaHandler(QPushButton* backButton,
+                            QPushButton* forwardButton,
+                            QGridLayout *gridLayout,
                             QWidget *gridLayoutQWidget,
                             ControllerRubik *rubikController);
-
 
     ~FormulaHandler();
 
@@ -32,6 +33,10 @@ private:
     QWidget *mGridLayoutWidget;
     ControllerRubik *mRubikController;
     QLabel *mFormulaStepsLabels[30];
+
+    QPushButton* mBackButton;
+    QPushButton* mForwardButton;
+
 
     Formula mFormula = "";
 

@@ -19,6 +19,7 @@ char colorDigitToLetter(int d);
 char colorEnumToLetter(RubikFace face);
 QColor colorDigitToQColor(int d);
 QColor colorEnumToQColor(RubikFace face);
+RubikFace qColorToEnum(QColor color);
 #ifdef __cplusplus
 }
 #endif

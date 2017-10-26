@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPainter>
 #include <QPaintEvent>
+#include "rubikface.h"
 
 class ColorButton : public QWidget
 {
@@ -11,10 +12,10 @@ class ColorButton : public QWidget
 public:
     explicit ColorButton(QWidget *parent = nullptr, QColor color=QColor(0,0,0));
 
-signals:
-    void mousePressed();
+    void setIsSelected(bool value);
 
-public slots:
+signals:
+    void colorSelected(RubikFace face);
 
 protected:
     virtual void mousePressEvent(QMouseEvent *event) override;
@@ -22,6 +23,7 @@ protected:
 
  private:
     QColor m_color;
+    bool isSelected = false;
 };
 
 #endif // COLORBUTTON_H

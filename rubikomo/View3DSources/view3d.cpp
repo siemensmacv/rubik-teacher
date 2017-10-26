@@ -23,7 +23,7 @@ void View3D::initScene(){
     container = QWidget::createWindowContainer(view);
 
     // Camera
-    Qt3DRender::QCamera *cameraEntity = view->camera();
+    cameraEntity = view->camera();
 
     cameraEntity->lens()->setPerspectiveProjection(45.0f, 16.0f/9.0f, 0.1f, 100.0f);
     cameraEntity->setPosition(QVector3D(5.0f, 5.0f, 5.0f));
@@ -34,50 +34,37 @@ void View3D::initScene(){
     Qt3DExtras::QFirstPersonCameraController *camController = new Qt3DExtras::QFirstPersonCameraController(rootEntity);
     camController->setCamera(cameraEntity);
 
-    // Lighting
+    // Lighting front
+    getLight(QVector3D(0.0f, 0.0f, 5.0f));
+
+    // Lighting 2 right
+    getLight(QVector3D(5.0f, 0.0f, 0.0f));
+
+    // Lighting 3 up
+    getLight(QVector3D(0.0f, 5.0f, 0.0f));
+
+    // Lighting 4 left
+    getLight(QVector3D(-5.0f, 0.0f, 0.0f));
+
+    // Lighting 5 back
+    getLight(QVector3D(0.0f, 0.0f, -5.0f));
+
+    // Lighting 6 down
+    getLight(QVector3D(0.0f, -5.0f, 0.0f));
+
+    // Set root object of the scene
+    view->setRootEntity(rootEntity);
+}
+
+void View3D::getLight(QVector3D position){
     Qt3DCore::QEntity *lightEntity = new Qt3DCore::QEntity(rootEntity);
     Qt3DRender::QPointLight *light = new Qt3DRender::QPointLight(lightEntity);
     light->setColor("white");
     light->setIntensity(1);
     lightEntity->addComponent(light);
     Qt3DCore::QTransform *lightTransform = new Qt3DCore::QTransform(lightEntity);
-    lightTransform->setTranslation(QVector3D(0.0f, 0.0f, 5.0f));
+    lightTransform->setTranslation(position);
     lightEntity->addComponent(lightTransform);
-
-    // Lighting 2
-    Qt3DCore::QEntity *lightEntity2 = new Qt3DCore::QEntity(rootEntity);
-    Qt3DRender::QPointLight *light2 = new Qt3DRender::QPointLight(lightEntity2);
-    light2->setColor("white");
-    light2->setIntensity(1);
-    lightEntity2->addComponent(light);
-    Qt3DCore::QTransform *lightTransform2 = new Qt3DCore::QTransform(lightEntity2);
-    lightTransform2->setTranslation(QVector3D(5.0f, 0.0f, 0.0f));
-    lightEntity2->addComponent(lightTransform2);
-
-    // Lighting 3
-    Qt3DCore::QEntity *lightEntity3 = new Qt3DCore::QEntity(rootEntity);
-    Qt3DRender::QPointLight *light3 = new Qt3DRender::QPointLight(lightEntity3);
-    light3->setColor("white");
-    light3->setIntensity(1);
-    lightEntity3->addComponent(light3);
-    Qt3DCore::QTransform *lightTransform3 = new Qt3DCore::QTransform(lightEntity3);
-    lightTransform3->setTranslation(QVector3D(0.0f, 5.0f, 0.0f));
-    lightEntity3->addComponent(lightTransform3);
-
-
-    // Lighting 4
-    Qt3DCore::QEntity *lightEntity4 = new Qt3DCore::QEntity(rootEntity);
-    Qt3DRender::QPointLight *light4 = new Qt3DRender::QPointLight(lightEntity4);
-    light4->setColor("white");
-    light4->setIntensity(1);
-    lightEntity4->addComponent(light4);
-    Qt3DCore::QTransform *lightTransform4 = new Qt3DCore::QTransform(lightEntity4);
-    lightTransform4->setTranslation(QVector3D(-3.0f, -3.0f, -3.0f));
-    lightEntity4->addComponent(lightTransform4);
-
-    // Set root object of the scene
-    view->setRootEntity(rootEntity);
-
 }
 void View3D::onInput(int load)
 {
@@ -89,7 +76,11 @@ void View3D::onInput(int load)
     }
 }
 
-
+void View3D::resetCamera(){
+    cameraEntity->setPosition(QVector3D(5.0f, 5.0f, 5.0f));
+    cameraEntity->setUpVector(QVector3D(0.0f, 1.0f, 0.0f));
+    cameraEntity->setViewCenter(QVector3D(0.0f, 0.0f, 0.0f));
+}
 void View3D::reset(){
     theCube->resetColors();
 }
@@ -139,6 +130,8 @@ void View3D::toggleAllButtons(bool toggle)
     m_ui->pushButton_R_2D->setEnabled(toggle);
     m_ui->pushButton_RR_2D->setEnabled(toggle);
 
+    m_ui->backButton->setEnabled(toggle);
+    m_ui->forwardButton->setEnabled(toggle);
 }
 
 QWidget *View3D::getContainer() const

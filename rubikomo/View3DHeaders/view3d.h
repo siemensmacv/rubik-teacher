@@ -23,7 +23,6 @@ public:
 
     QWidget *getContainer() const;
 
-    //to be destroyed
 public slots:
     void UpC();//
     void UpCC();
@@ -38,6 +37,8 @@ public slots:
     void LeftC();
     void LeftCC();
 
+    void resetCamera();
+
     void onAnimationEnded();
 
     void onInput(int load);
@@ -47,6 +48,8 @@ private:
     void reset();
     void refreshCubeColors();
     void initScene();
+    void getLight(QVector3D position);
+
 
     QTimer *timer;
     Ui::MainWindow *m_ui;
@@ -55,6 +58,8 @@ private:
 
     Qt3DCore::QEntity *rootEntity;
     Qt3DCore::QEntity *cubeEntity;
+
+    Qt3DRender::QCamera *cameraEntity;
 
     Cube3D *theCube;
     ModelRubik* m_model3D;

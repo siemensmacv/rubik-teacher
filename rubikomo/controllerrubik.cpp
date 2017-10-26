@@ -74,14 +74,3 @@ void ControllerRubik::rotateFaceCounterClockwise(const RubikFace &face)
         break;
     }
 }
-
-//void ControllerRubik::rotateFaceClockwiseFrom3D(const RubikFace &face)
-//{
-//    model.rotateFaceClockwise(face);
-
-//}
-
-//void ControllerRubik::rotateFaceCounterClockwiseFrom3D(const RubikFace &face)
-//{
-//    model.rotateFaceCounterClockwise(face);
-//}

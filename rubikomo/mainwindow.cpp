@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //ui->radioButton_Green->toggle();
     m_colorinput->setInputColor(RubikFace::Front);
 
-    m_viewFormula = new FormulaHandler(ui->gridLayoutFormula, ui->centralWidget, controllerRubik);
+    m_viewFormula = new FormulaHandler(ui->backButton,ui->forwardButton,ui->gridLayoutFormula, ui->centralWidget, controllerRubik);
     connect(ui->buttonSolve, &QPushButton::clicked, this, &MainWindow::handleSolve);
     connect(this, &MainWindow::formulaChanged, m_viewFormula, &FormulaHandler::FormulaChanged);
     // push branch to origin
@@ -66,6 +66,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->verticalLayout_4->insertWidget(0,whiteButton);
     ui->verticalLayout_4->insertWidget(0,redButton);
     ui->verticalLayout_4->insertWidget(0,blueButton);
+
+    connect(yellowButton,&ColorButton::colorSelected,this,&MainWindow::selectFace);
+    connect(redButton,&ColorButton::colorSelected,this,&MainWindow::selectFace);
+    connect(greenButton,&ColorButton::colorSelected,this,&MainWindow::selectFace);
+    connect(orangeButton,&ColorButton::colorSelected,this,&MainWindow::selectFace);
+    connect(blueButton,&ColorButton::colorSelected,this,&MainWindow::selectFace);
+    connect(whiteButton,&ColorButton::colorSelected,this,&MainWindow::selectFace);
 
     connectFlatButtonsToSlots();
     connect3DButtonsToSlots();
@@ -99,16 +106,18 @@ void MainWindow::connectFlatButtonsToSlots()
 
 void MainWindow::connectWidgetsToSlots()
 {
-    connect(yellowButton, &ColorButton::mousePressed, this, &MainWindow::handleInputWidget);
-    connect(orangeButton, &ColorButton::mousePressed, this, &MainWindow::handleInputWidget);
-    connect(greenButton, &ColorButton::mousePressed, this, &MainWindow::handleInputWidget);
-    connect(whiteButton, &ColorButton::mousePressed, this, &MainWindow::handleInputWidget);
-    connect(redButton, &ColorButton::mousePressed, this, &MainWindow::handleInputWidget);
-    connect(blueButton, &ColorButton::mousePressed, this, &MainWindow::handleInputWidget);
+    connect(yellowButton, &ColorButton::colorSelected, this, &MainWindow::handleInputWidget);
+    connect(orangeButton, &ColorButton::colorSelected, this, &MainWindow::handleInputWidget);
+    connect(greenButton, &ColorButton::colorSelected, this, &MainWindow::handleInputWidget);
+    connect(whiteButton, &ColorButton::colorSelected, this, &MainWindow::handleInputWidget);
+    connect(redButton, &ColorButton::colorSelected, this, &MainWindow::handleInputWidget);
+    connect(blueButton, &ColorButton::colorSelected, this, &MainWindow::handleInputWidget);
 }
 
 void MainWindow::connect3DButtonsToSlots()
 {
+    connect(ui->resetCameraButton,&QPushButton::clicked,
+            m_view3D,&View3D::resetCamera);
     connect(ui->U_PushButton_3D,&QPushButton::clicked,
             this, &MainWindow::handleButton);
     connect(ui->UR_PushButton_3D,&QPushButton::clicked,
@@ -366,4 +375,66 @@ void MainWindow::handleSolve()
     controllerRubik->model.setSolution(std::string(sol));
     if(sol != nullptr)
         emit formulaChanged(Formula(sol));
+}
+
+void MainWindow::selectFace(RubikFace face)
+{
+
+    switch(face)
+    {
+
+    case RubikFace::Up:
+        redButton->setIsSelected(false);
+        greenButton->setIsSelected(false);
+        blueButton->setIsSelected(false);
+        orangeButton->setIsSelected(false);
+        whiteButton->setIsSelected(false);
+
+        break;
+
+    case RubikFace::Right:
+        redButton->setIsSelected(false);
+        greenButton->setIsSelected(false);
+        blueButton->setIsSelected(false);
+        yellowButton->setIsSelected(false);
+        whiteButton->setIsSelected(false);
+
+        break;
+
+    case RubikFace::Front:
+        redButton->setIsSelected(false);
+        orangeButton->setIsSelected(false);
+        blueButton->setIsSelected(false);
+        yellowButton->setIsSelected(false);
+        whiteButton->setIsSelected(false);
+
+        break;
+
+    case RubikFace::Down:
+        redButton->setIsSelected(false);
+        greenButton->setIsSelected(false);
+        blueButton->setIsSelected(false);
+        yellowButton->setIsSelected(false);
+        orangeButton->setIsSelected(false);
+
+        break;
+
+    case RubikFace::Left:
+        orangeButton->setIsSelected(false);
+        greenButton->setIsSelected(false);
+        blueButton->setIsSelected(false);
+        yellowButton->setIsSelected(false);
+        whiteButton->setIsSelected(false);
+
+        break;
+
+    case RubikFace::Back:
+        redButton->setIsSelected(false);
+        greenButton->setIsSelected(false);
+        orangeButton->setIsSelected(false);
+        yellowButton->setIsSelected(false);
+        whiteButton->setIsSelected(false);
+
+        break;
+    }
 }

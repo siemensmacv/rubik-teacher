@@ -77,3 +77,25 @@ QColor colorEnumToQColor(RubikFace face)
         return QColor(0, 0, 255);
     }
 }
+
+RubikFace qColorToEnum(QColor color)
+{
+    if(color == QColor(255, 255, 0))
+        return RubikFace::Up;
+
+    if(color == QColor(255, 130, 0))
+        return RubikFace::Right;
+
+    if(color == QColor(0, 255, 0))
+        return RubikFace::Front;
+
+    if(color == QColor(255, 255, 255))
+        return RubikFace::Down;
+
+    if(color == QColor(255, 0, 0))
+        return RubikFace::Left;
+
+    if(color == QColor(0, 0, 255))
+        return RubikFace::Back;
+
+}

@@ -57,6 +57,7 @@ private slots:
     void saveFileButtonClicked();
     void shuffleRubikCube();
     void handleSolve();
+    void selectFace(RubikFace face);
 
 signals:
     void formulaChanged(Formula);
