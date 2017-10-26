@@ -39,6 +39,10 @@ private:
     ControllerRubik *controllerRubik;
     ModelRubik m_inputmodel;
 
+    ControllerRubik *teachingControllerRubik;
+    View3D* m_teachingView3D;
+
+
     ColorButton *yellowButton, *blueButton, *greenButton, *redButton, *orangeButton, *whiteButton;
 
     void connectFlatButtonsToSlots();

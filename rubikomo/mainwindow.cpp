@@ -22,6 +22,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->gridLayout_3->addWidget(m_view3D->getContainer());
 
+    // teaching tab
+    teachingControllerRubik = new ControllerRubik();
+    m_teachingView3D = new View3D(&teachingControllerRubik->model,ui);
+    teachingControllerRubik->setView3D(m_teachingView3D);
+    ui->gridLayout_6->addWidget(m_teachingView3D->getContainer());
 
 
     connect(ui->pushButton_Load, &QPushButton::clicked, this, &MainWindow::validateAndLoadInput);
