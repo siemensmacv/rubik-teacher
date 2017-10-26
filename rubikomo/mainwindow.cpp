@@ -98,7 +98,36 @@ void MainWindow::disableSolve(int index)
 }
 
 void MainWindow::initConfigurations(){
-    addConfiguration("F2L:basic 1","GFGGUGGGRDGGGRGGRGGGFGFGGFGGDGDDDGDGGGGGLGGLGGRGGBGGBG","R U R'");
+
+
+    // Cross                                      //UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB
+    addConfiguration("==========Cross============","UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB","");
+    addConfiguration("Cross: White Up"            ,"GGGGUGGDGGGGGRGGRGGFGGFGGGGGGGDDDGDGGGGGLGGLGGGGGBGGBG","F2");
+    addConfiguration("Cross: White FrontUp"       ,"GGGGUGGFGGGGGRGGRGGDGGFGGGGGGGDDDGDGGGGGLGGLGGGGGBGGBG","U' R' F R");
+    addConfiguration("Cross: White FrontRight"    ,"GGGGUGGGGGGGFRGGRGGGGGFDGGGGGGDDDGDGGGGGLGGLGGGGGBGGBG","D R' D'");
+    addConfiguration("Cross: White FrontLeft"     ,"GGGGUGGGGGGGGRGGRGGGGDFGGGGGGGDDDGDGGGGGLFGLGGGGGBGGBG","D' L D");
+    addConfiguration("Cross: White FrontDown"     ,"GGGGUGGGGGGGGRGGRGGGGGFGGDGGFGDDDGDGGGGGLGGLGGGGGBGGBG","F' D R' D'");
+
+    // F2L                                        //UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB
+    addConfiguration("===========F2L=============","UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB","");
+    addConfiguration("F2L: Basic 1"               ,"GFGGUGGGRDGGGRRGRRGGFFFGFFGDDGDDDDDDGGGLLLLLLGRGBBBBBB","R U R'");
+    addConfiguration("F2L: Basic 2"               ,"GGGGUFGGFRRGGRRGRRGGDFFGFFGDDGDDDDDDGGGLLLLLLGGGBBBBBB","U R U' R'");
+    addConfiguration("F2L: CornerEdgeUp WhiteUp 3","GGGFUGGGDFGGGRRGRRGGRFFGFFGDDGDDDDDDGRGLLLLLLGGGBBBBBB","U2 R U R' U R U' R'");
+    addConfiguration("F2L: CornerDownEdgeUp 1"    ,"GGGGUGGRGGGGGRRRRRGFGFFGFFFDDDDDDDDDGGGLLLLLLGGGBBBBBB","U R U' R' F R' F' R");
+    addConfiguration("F2L: CornerUpEdgeMiddle 6"  ,"GGGGUGGGDFGGRRRGRRGGRFFFFFGDDGDDDDDDGGGLLLLLLGGGBBBBBB","R U R' U' R U R' U' R U R'");
+
+
+    // PLL                                        //UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB
+    addConfiguration("===========PLL=============","UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB","");
+    addConfiguration("PLL: Basic 1"               ,"GUGUUUGUGUGURRRRRRGGGFFFFFFDDDDDDDDDUGULLLLLLGGGBBBBBB","R U R' U R U' R' U R U2 R'");
+    addConfiguration("PLL: Basic 7 (SRune)"       ,"GUGUUUUUGGGURRRRRRGGUFFFFFFDDDDDDDDDGGGLLLLLLGGUBBBBBB","R U R' U R U2 R'");
+    addConfiguration("PLL: 8 T Move"              ,"GGUUUUGGUGGGRRRRRRGUGFFFFFFDDDDDDDDDUGULLLLLLGUGBBBBBB","F R U R' U' F'");
+    addConfiguration("PLL: 9 Extract Sledge"      ,"GGUUUUGGUGGGRRRRRRUUGFFFFFFDDDDDDDDDGGGLLLLLLGUUBBBBBB","R U R' U' R' F R F'");
+
+    // OLL                                        //UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB
+    addConfiguration("===========OLL=============","UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB","");
+    addConfiguration("OLL: U Perm AntiClock"      ,"UUUUUUUUURLRRRRRRRFRFFFFFFFDDDDDDDDDLFLLLLLLLBBBBBBBBB","R U' R U R U R U' R' U' R2");
+    addConfiguration("OLL: Y Move"                ,"UUUUUUUUULRRRRRRRRFFBFFFFFFDDDDDDDDDRBLLLLLLLBLFBBBBBB","F R U' R' U' R U R' F' R U R' U' R' F R F'");
 }
 
 void  MainWindow::addConfiguration(QString labelText,std::string configuration,std::string formula){
