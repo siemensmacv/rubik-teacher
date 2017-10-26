@@ -12,10 +12,10 @@ class FormulaHandler : public QObject
 {
     Q_OBJECT
 public:
-    explicit FormulaHandler(QGridLayout *gridLayout,
+    explicit FormulaHandler(Ui::MainWindow *ui,
+                            QGridLayout *gridLayout,
                             QWidget *gridLayoutQWidget,
                             ControllerRubik *rubikController);
-
 
     ~FormulaHandler();
 
@@ -32,6 +32,7 @@ private:
     QWidget *mGridLayoutWidget;
     ControllerRubik *mRubikController;
     QLabel *mFormulaStepsLabels[30];
+    Ui::MainWindow *m_ui;
 
     Formula mFormula = "";
 

@@ -35,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //ui->radioButton_Green->toggle();
     m_colorinput->setInputColor(RubikFace::Front);
 
-    m_viewFormula = new FormulaHandler(ui->gridLayoutFormula, ui->centralWidget, controllerRubik);
+    m_viewFormula = new FormulaHandler(ui,ui->gridLayoutFormula, ui->centralWidget, controllerRubik);
     connect(ui->buttonSolve, &QPushButton::clicked, this, &MainWindow::handleSolve);
     connect(this, &MainWindow::formulaChanged, m_viewFormula, &FormulaHandler::FormulaChanged);
     // push branch to origin
@@ -104,6 +104,8 @@ void MainWindow::connectWidgetsToSlots()
 
 void MainWindow::connect3DButtonsToSlots()
 {
+    connect(ui->resetCameraButton,&QPushButton::clicked,
+            m_view3D,&View3D::resetCamera);
     connect(ui->U_PushButton_3D,&QPushButton::clicked,
             this, &MainWindow::handleButton);
     connect(ui->UR_PushButton_3D,&QPushButton::clicked,

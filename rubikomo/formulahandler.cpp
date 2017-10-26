@@ -4,8 +4,9 @@
 #include <QStyle>
 #include "controllerrubik.h"
 
-FormulaHandler::FormulaHandler(QGridLayout *gridLayout, QWidget *gridLayoutQWidget, ControllerRubik *rubikController)
+FormulaHandler::FormulaHandler(Ui::MainWindow *ui,QGridLayout *gridLayout, QWidget *gridLayoutQWidget, ControllerRubik *rubikController)
     : QObject(gridLayoutQWidget),
+      m_ui(ui),
       mGridLayout{gridLayout},
       mGridLayoutWidget{gridLayoutQWidget},
       mRubikController{rubikController}
@@ -18,15 +19,12 @@ FormulaHandler::~FormulaHandler()
 {
 }
 
-QPushButton* createBitmapButton(QString sPath, QWidget *parent)
+void createBitmapButton(QPushButton *theButton,QString sPath, QWidget *parent)
 {
     QPixmap pixmap(sPath);
     QIcon buttonIcon(pixmap);
-    QPushButton *button = new QPushButton(parent);
-    button->setIcon(buttonIcon);
-    button->setIconSize(pixmap.rect().size());
-
-    return button;
+    theButton->setIcon(buttonIcon);
+    theButton->setIconSize(pixmap.rect().size());
 }
 
 void FormulaHandler::initFormula()
@@ -39,15 +37,15 @@ void FormulaHandler::initFormula()
 
     QGridLayout *lGridLayoutButtons = new QGridLayout(mGridLayoutWidget);
 
-    QPushButton *buttonBackward = createBitmapButton(":/img/resources/playBack.png", mGridLayoutWidget);
-    buttonBackward->setVisible(true);
-    connect(buttonBackward, &QPushButton::clicked, this, &FormulaHandler::backwardStep);
-    lGridLayoutButtons->addWidget(buttonBackward, 0, 1);
+    createBitmapButton(m_ui->backButton,":/img/resources/playBack.png", mGridLayoutWidget);
+    m_ui->backButton->setVisible(true);
+    connect(m_ui->backButton, &QPushButton::clicked, this, &FormulaHandler::backwardStep);
+    lGridLayoutButtons->addWidget(m_ui->backButton, 0, 1);
 
-    QPushButton *buttonForward = createBitmapButton(":/img/resources/play.png", mGridLayoutWidget);
-    buttonForward->setVisible(true);
-    connect(buttonForward, &QPushButton::clicked, this, &FormulaHandler::forwardStep);
-    lGridLayoutButtons->addWidget(buttonForward, 0, 2);
+    createBitmapButton(m_ui->forwardButton,":/img/resources/play.png", mGridLayoutWidget);
+    m_ui->forwardButton->setVisible(true);
+    connect(m_ui->forwardButton, &QPushButton::clicked, this, &FormulaHandler::forwardStep);
+    lGridLayoutButtons->addWidget(m_ui->forwardButton, 0, 2);
 
     mGridLayout->addLayout(lGridLayoutButtons, 1, 0);
 }
