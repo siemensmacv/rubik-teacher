@@ -138,8 +138,6 @@ bool RubikValidator::operator() ()
 			return false;
 		}
 
-
-
 	int sum = 0;
 	int edgeCount[12] = { 0 };
 	for (int e = 0; e < EDGE_COUNT; e++)
