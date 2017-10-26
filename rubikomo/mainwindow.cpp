@@ -84,6 +84,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
 }
 
+void MainWindow::loadTeachingInput()
+{
+    std::string model = "UFUUUUUURDUUURUURUUUFUFUUFUUDUDDDUDUUUUULUULUURUUBUUBU";
+    teachingControllerRubik->setModel(model);
+    Formula formula("R U R'");
+    emit teachingFormulaChanged(formula);
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -308,14 +316,6 @@ void MainWindow::validateAndLoadInput()
     }
 }
 
-void MainWindow::loadTeachingInput()
-{
-    std::string model = "UFUUUUUURDUUURUURUUUFUFUUFUUDUDDDUDUUUUULUULUURUUBUUBU";
-    teachingControllerRubik->setModel(model);
-    Formula formula("R U R'");
-    emit teachingFormulaChanged(formula);
-}
-
 void MainWindow::openFileButtonClicked()
 {
     QString fileName = QFileDialog::getOpenFileName(this,"Select a text file");
@@ -412,7 +412,6 @@ void MainWindow::selectFace(RubikFace face)
         blueButton->setIsSelected(false);
         orangeButton->setIsSelected(false);
         whiteButton->setIsSelected(false);
-
         break;
 
     case RubikFace::Right:
@@ -421,7 +420,6 @@ void MainWindow::selectFace(RubikFace face)
         blueButton->setIsSelected(false);
         yellowButton->setIsSelected(false);
         whiteButton->setIsSelected(false);
-
         break;
 
     case RubikFace::Front:
@@ -430,7 +428,6 @@ void MainWindow::selectFace(RubikFace face)
         blueButton->setIsSelected(false);
         yellowButton->setIsSelected(false);
         whiteButton->setIsSelected(false);
-
         break;
 
     case RubikFace::Down:
@@ -439,7 +436,6 @@ void MainWindow::selectFace(RubikFace face)
         blueButton->setIsSelected(false);
         yellowButton->setIsSelected(false);
         orangeButton->setIsSelected(false);
-
         break;
 
     case RubikFace::Left:
@@ -448,7 +444,6 @@ void MainWindow::selectFace(RubikFace face)
         blueButton->setIsSelected(false);
         yellowButton->setIsSelected(false);
         whiteButton->setIsSelected(false);
-
         break;
 
     case RubikFace::Back:
@@ -457,7 +452,6 @@ void MainWindow::selectFace(RubikFace face)
         orangeButton->setIsSelected(false);
         yellowButton->setIsSelected(false);
         whiteButton->setIsSelected(false);
-
         break;
     }
 }
