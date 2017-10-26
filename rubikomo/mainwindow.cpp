@@ -33,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->horizontalLayout_4->insertLayout(0, m_colorinput->getLayout());
 
     //ui->radioButton_Green->toggle();
-    m_colorinput->setInputColor(RubikFace::Front);
+    //m_colorinput->setInputColor(RubikFace::Front);
 
     m_viewFormula = new FormulaHandler(ui->backButton,ui->forwardButton,ui->gridLayoutFormula, ui->centralWidget, controllerRubik);
     connect(ui->buttonSolve, &QPushButton::clicked, this, &MainWindow::handleSolve);
