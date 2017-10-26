@@ -33,8 +33,8 @@ private:
     void updateRectMatrix();
     QColor getColorFromValue(int value) const;
 
-    int mBorderWidth = 5;
-    int mFrameSize = 150;
+    int mBorderWidth = 7;
+    int mFrameSize = 250;
     QRect **mRectMatrix;
     ModelRubik *m_model;
     RubikFace m_representing;
