@@ -17,6 +17,10 @@ int main(int argc, char *argv[])
     p.setColor(QPalette::WindowText,QColor(255,255,255));
     a.setPalette(p);
     MainWindow w;
+
+    QPixmap iconImage(":/img/Resources/cubeIcon.png");
+    QIcon icon(iconImage);
+    a.setWindowIcon(icon);
     w.show();
     return a.exec();
 }

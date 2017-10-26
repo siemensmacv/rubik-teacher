@@ -4,5 +4,6 @@
         <file>resources/forward.png</file>
         <file>resources/play.png</file>
         <file>resources/playBack.png</file>
+        <file>Resources/cubeIcon.png</file>
     </qresource>
 </RCC>

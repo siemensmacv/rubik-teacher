@@ -42,7 +42,7 @@
        <enum>QTabWidget::South</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideRight</enum>
@@ -210,7 +210,7 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,0">
           <item>
            <spacer name="horizontalSpacer">
             <property name="orientation">
