@@ -105,6 +105,106 @@ void Cube3D::updateColors(ModelRubik *model3D)
     m_rightFace[1][1]->updateColors(colorEnumToQColor(model3D->getCenter(RubikFace::Right)));
 }
 
+void Cube3D::resetColors()
+{
+    //UPDATE COLORS ( 3 culori ) / 2 edges / 1 centre
+    // 0 = galben, 1= orange, 2= verde, 3=alb, 4=rosu, 5=albastru
+    // Up face
+    m_upFace[0][0]->updateColors(colorDigitToQColor(0),
+                                 colorDigitToQColor(5),
+                                 colorDigitToQColor(4));
+    m_upFace[0][1]->updateColors(colorDigitToQColor(0),
+                                 colorDigitToQColor(5));
+    m_upFace[0][2]->updateColors(colorDigitToQColor(0),
+                                 colorDigitToQColor(5),
+                                 colorDigitToQColor(1));
+
+    m_upFace[1][0]->updateColors(colorDigitToQColor(0),
+                                 colorDigitToQColor(4));
+    m_upFace[1][1]->updateColors(colorEnumToQColor(RubikFace::Up));
+    m_upFace[1][2]->updateColors(colorDigitToQColor(0),
+                                 colorDigitToQColor(1));
+
+
+
+    m_upFace[2][0]->updateColors(colorDigitToQColor(0),
+                                 colorDigitToQColor(2),
+                                 colorDigitToQColor(4));
+    m_upFace[2][1]->updateColors(colorDigitToQColor(0),
+                                 colorDigitToQColor(2));
+    m_upFace[2][2]->updateColors(colorDigitToQColor(0),
+                                 colorDigitToQColor(2),
+                                 colorDigitToQColor(1));
+
+    // Down face
+    m_downFace[0][0]->updateColors(colorDigitToQColor(3),
+                                   colorDigitToQColor(2),
+                                   colorDigitToQColor(4));
+    m_downFace[0][1]->updateColors(colorDigitToQColor(3),
+                                   colorDigitToQColor(2));
+    m_downFace[0][2]->updateColors(colorDigitToQColor(3),
+                                   colorDigitToQColor(2),
+                                   colorDigitToQColor(1));
+
+
+
+    m_downFace[1][0]->updateColors(colorDigitToQColor(3),
+                                   colorDigitToQColor(4));
+    m_downFace[1][1]->updateColors(colorEnumToQColor(RubikFace::Down));
+    m_downFace[1][2]->updateColors(colorDigitToQColor(3),
+                                   colorDigitToQColor(1));
+
+    m_downFace[2][0]->updateColors(colorDigitToQColor(3),
+                                   colorDigitToQColor(5),
+                                   colorDigitToQColor(4));
+    m_downFace[2][1]->updateColors(colorDigitToQColor(3),
+                                   colorDigitToQColor(5));
+    m_downFace[2][2]->updateColors(colorDigitToQColor(3),
+                                   colorDigitToQColor(5),
+                                   colorDigitToQColor(1));
+
+    // 0 = galben, 1= orange, 2= verde, 3=alb, 4=rosu, 5=albastru
+
+    // Front face
+    m_frontFace[1][0]->updateColors(colorDigitToQColor(4),
+                                    colorDigitToQColor(2));
+    m_frontFace[1][1]->updateColors(colorEnumToQColor(RubikFace::Front));
+    m_frontFace[1][2]->updateColors(colorDigitToQColor(1),
+                                    colorDigitToQColor(2));
+
+    // Back face
+    m_backFace[1][0]->updateColors(colorDigitToQColor(1),
+                                   colorDigitToQColor(5));
+    m_backFace[1][1]->updateColors(colorEnumToQColor(RubikFace::Back));
+    m_backFace[1][2]->updateColors(colorDigitToQColor(4),
+                                   colorDigitToQColor(5));
+
+    m_leftFace[1][1]->updateColors(colorEnumToQColor(RubikFace::Left));
+    m_rightFace[1][1]->updateColors(colorEnumToQColor(RubikFace::Right));
+}
+
+Cube3D::~Cube3D()
+{
+//    for(int i=0;i<9;i++)
+//        for(int j=0;j<9;j++)
+//        {
+//            delete m_upFace[i][j];
+//            delete m_downFace[i][j];
+//        }
+
+//    delete m_frontFace[1][0];
+//    delete m_frontFace[1][1];
+//    delete m_frontFace[1][2];
+
+//    delete m_backFace[1][0];
+//    delete m_backFace[1][1];
+//    delete m_backFace[1][2];
+
+//    delete m_leftFace[1][1];
+//    delete m_rightFace[1][1];
+
+}
+
 void Cube3D::initCorners(ModelRubik *model3D)
 {
     m_upFace[0][2]=m_rightFace[0][2]=m_backFace[0][0]=

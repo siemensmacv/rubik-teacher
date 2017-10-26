@@ -26,6 +26,8 @@ public:
     void LeftCC();
 
     void updateColors(ModelRubik* model3D);
+    void resetColors();
+    ~Cube3D();
 
 private:
     void initCorners(ModelRubik *model3D);

@@ -9,24 +9,13 @@ View3D::View3D(ModelRubik *model3D, Ui::MainWindow *ui)
             this,&View3D::onAnimationEnded);
     connect(m_model3D,&ModelRubik::cubeChanged,
             this,&View3D::onInput);
-    initCube3D();
-}
-
-void View3D::onInput(int load)
-{
-    if(load==0)
-        theCube->updateColors(m_model3D);
-}
-
-void View3D::initCube3D(){
-    Qt3DExtras::Qt3DWindow *view = new Qt3DExtras::Qt3DWindow();
-
-
-    view->defaultFrameGraph()->setClearColor(QColor(QRgb(0xAAAAAA)));
-    container = QWidget::createWindowContainer(view);
 
     // Root entity
-    Qt3DCore::QEntity *rootEntity = new Qt3DCore::QEntity;
+    rootEntity = new Qt3DCore::QEntity();
+
+    view = new Qt3DExtras::Qt3DWindow();
+    view->defaultFrameGraph()->setClearColor(QColor(QRgb(0xAAAAAA)));
+    container = QWidget::createWindowContainer(view);
 
     // Camera
     Qt3DRender::QCamera *cameraEntity = view->camera();
@@ -81,10 +70,35 @@ void View3D::initCube3D(){
     lightTransform4->setTranslation(QVector3D(-3.0f, -3.0f, -3.0f));
     lightEntity4->addComponent(lightTransform4);
 
-    theCube=new Cube3D(m_model3D,rootEntity);
     // Set root object of the scene
     view->setRootEntity(rootEntity);
+
+    initCube3D();
 }
+
+
+void View3D::onInput(int load)
+{
+    if(load==0){
+        cubeEntity->setEnabled(false);
+        initCube3D();
+        reset();
+        theCube->updateColors(m_model3D);
+    }
+}
+
+
+void View3D::reset(){
+    theCube->resetColors();
+}
+
+
+void View3D::initCube3D(){
+    cubeEntity = new Qt3DCore::QEntity(rootEntity);
+
+    theCube=new Cube3D(m_model3D,cubeEntity);
+}
+
 
 void View3D::toggleAllButtons(bool toggle)
 {
