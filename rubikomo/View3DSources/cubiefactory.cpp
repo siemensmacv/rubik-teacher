@@ -38,7 +38,6 @@ ICubie* CubieFactory::getCornerCubie(int index, Corner corner, CornerOrientation
     };
 
     newCorner->setUpPlanes();
-//    newCorner->updateColors(corner, cornerOrient);
     return newCorner;
 }
 
@@ -86,7 +85,6 @@ ICubie *CubieFactory::getEdgeCubie(int index, Edge edge, EdgeOrientation edgeOri
     };
 
     newEdge->setUpPlanes();
-//    newEdge->updateColors(edge,edgeOrient);
     return newEdge;
 }
 
@@ -115,6 +113,5 @@ ICubie *CubieFactory::getCentreCubie(int index, RubikFace centre)
         break;
     };
     newCentre->setUpPlanes();
-//    newCentre->updateColors(centre);
     return newCentre;
 }

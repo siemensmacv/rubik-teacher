@@ -23,7 +23,6 @@ public:
 
     QWidget *getContainer() const;
 
-    //to be destroyed
 public slots:
     void UpC();//
     void UpCC();

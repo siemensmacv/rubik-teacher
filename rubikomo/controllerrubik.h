@@ -24,9 +24,6 @@ public:
     void rotateFaceClockwise(const RubikFace &face);
     void rotateFaceCounterClockwise(const RubikFace &face);
 
-    //void rotateFaceClockwiseFrom3D(const RubikFace &face);
-    //void rotateFaceCounterClockwiseFrom3D(const RubikFace &face);
-
 };
 
 #endif // CONTROLLERRUBIK_H

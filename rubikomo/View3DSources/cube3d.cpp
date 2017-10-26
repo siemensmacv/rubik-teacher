@@ -11,9 +11,6 @@ Cube3D::Cube3D(ModelRubik *model3D, Qt3DCore::QEntity *rootEntity)
     };
     root=rootEntity;
 
-    //centre=new Centre3D(rootEntity);
-
-
     m_upFace=alocmatr();
     m_downFace=alocmatr();
     m_frontFace=alocmatr();
@@ -110,6 +107,7 @@ void Cube3D::resetColors()
     //UPDATE COLORS ( 3 culori ) / 2 edges / 1 centre
     // 0 = galben, 1= orange, 2= verde, 3=alb, 4=rosu, 5=albastru
     // Up face
+
     m_upFace[0][0]->updateColors(colorDigitToQColor(0),
                                  colorDigitToQColor(5),
                                  colorDigitToQColor(4));
@@ -124,8 +122,6 @@ void Cube3D::resetColors()
     m_upFace[1][1]->updateColors(colorEnumToQColor(RubikFace::Up));
     m_upFace[1][2]->updateColors(colorDigitToQColor(0),
                                  colorDigitToQColor(1));
-
-
 
     m_upFace[2][0]->updateColors(colorDigitToQColor(0),
                                  colorDigitToQColor(2),
@@ -146,8 +142,6 @@ void Cube3D::resetColors()
                                    colorDigitToQColor(2),
                                    colorDigitToQColor(1));
 
-
-
     m_downFace[1][0]->updateColors(colorDigitToQColor(3),
                                    colorDigitToQColor(4));
     m_downFace[1][1]->updateColors(colorEnumToQColor(RubikFace::Down));
@@ -162,8 +156,6 @@ void Cube3D::resetColors()
     m_downFace[2][2]->updateColors(colorDigitToQColor(3),
                                    colorDigitToQColor(5),
                                    colorDigitToQColor(1));
-
-    // 0 = galben, 1= orange, 2= verde, 3=alb, 4=rosu, 5=albastru
 
     // Front face
     m_frontFace[1][0]->updateColors(colorDigitToQColor(4),
