@@ -22,6 +22,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->gridLayout_3->addWidget(m_view3D->getContainer());
 
+    // teaching tab
+    teachingControllerRubik = new ControllerRubik();
+    m_teachingView3D = new View3D(&teachingControllerRubik->model,ui);
+    teachingControllerRubik->setView3D(m_teachingView3D);
+    ui->gridLayout_6->addWidget(m_teachingView3D->getContainer());
+    m_teachingViewFormula = new FormulaHandler(ui->pushButtonTeachingBackward, ui->pushButtonTeachingForward, ui->gridLayoutTeachingFormula, ui->centralWidget, teachingControllerRubik);
+    connect(this, &MainWindow::teachingFormulaChanged, m_teachingViewFormula, &FormulaHandler::FormulaChanged);
+    connect(ui->pushButton_LoadTeaching, &QPushButton::clicked, this, &MainWindow::LoadTeachingInput);
+
+    // end teaching tab
 
 
     connect(ui->pushButton_Load, &QPushButton::clicked, this, &MainWindow::validateAndLoadInput);
@@ -297,6 +307,14 @@ void MainWindow::validateAndLoadInput()
         messagebox.setStyleSheet("background-color:rgb(0, 85, 127);color:rgb(255, 255, 255);selection-color:rgb(255, 255, 255);selection-background-color:rgb(255, 255, 255);");
         messagebox.exec();
     }
+}
+
+void MainWindow::LoadTeachingInput()
+{
+    std::string model = "UUUUUUUUUBBBRRRRRRRRRFFFFFFDDDDDDDDDFFFLLLLLLLLLBBBBBB";
+    teachingControllerRubik->setModel(model);
+    Formula formula("U'");
+    emit teachingFormulaChanged(formula);
 }
 
 void MainWindow::openFileButtonClicked()
