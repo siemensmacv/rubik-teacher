@@ -132,6 +132,9 @@ void View3D::toggleAllButtons(bool toggle)
 
     m_ui->backButton->setEnabled(toggle);
     m_ui->forwardButton->setEnabled(toggle);
+
+    m_ui->pushButtonTeachingBackward->setEnabled(toggle);
+    m_ui->pushButtonTeachingForward->setEnabled(toggle);
 }
 
 QWidget *View3D::getContainer() const
