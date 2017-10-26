@@ -897,32 +897,12 @@
            </layout>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,0,0,0,0,0">
+           <layout class="QVBoxLayout" name="verticalLayout_6" stretch="6,0,0,1,0,1">
             <property name="spacing">
              <number>4</number>
             </property>
             <item>
              <widget class="QListWidget" name="listWidget"/>
-            </item>
-            <item>
-             <widget class="QPushButton" name="resetCameraTeaching">
-              <property name="text">
-               <string>Reset Camera</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="verticalSpacer_10">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
             </item>
             <item>
              <widget class="QPushButton" name="pushButton_LoadTeaching">
@@ -936,19 +916,6 @@
                <string>Load Tutorial</string>
               </property>
              </widget>
-            </item>
-            <item>
-             <spacer name="verticalSpacer_9">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
             </item>
             <item>
              <layout class="QGridLayout" name="gridLayoutTeachingFormula">
@@ -968,6 +935,39 @@
               </item>
              </layout>
             </item>
+            <item>
+             <spacer name="verticalSpacer_10">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="resetCameraTeaching">
+              <property name="text">
+               <string>Reset Camera</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_9">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
            </layout>
           </item>
          </layout>
@@ -984,7 +984,7 @@
      <x>0</x>
      <y>0</y>
      <width>1186</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="defaultUp">
