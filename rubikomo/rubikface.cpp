@@ -23,6 +23,9 @@ int colorLetterToDigit(char c)
     case 'B':
         face = RubikFace::Back;
         break;
+    case 'G':
+        face = RubikFace::Grey;
+        break;
     }
 
     return static_cast<int>(face);
@@ -50,6 +53,8 @@ char colorEnumToLetter(RubikFace face)
         return 'R';
     case RubikFace::Up:
         return 'U';
+    case RubikFace::Grey:
+        return 'G';
     }
 }
 
@@ -75,6 +80,8 @@ QColor colorEnumToQColor(RubikFace face)
         return QColor(255, 0, 0);
     case RubikFace::Back:
         return QColor(0, 0, 255);
+    case RubikFace::Grey:
+        return QColor(128,128,128);
     }
 }
 
@@ -97,5 +104,8 @@ RubikFace qColorToEnum(QColor color)
 
     if(color == QColor(0, 0, 255))
         return RubikFace::Back;
+
+    if(color == QColor(128,128,128))
+        return RubikFace::Grey;
 
 }

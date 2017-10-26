@@ -4,7 +4,11 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
+
+    initConfigurations();
+    ui->listWidget->setCurrentRow(0);
 
     setWindowState(windowState() & ~(Qt::WindowMinimized | Qt::WindowFullScreen) | Qt::WindowMaximized);
     controllerRubik = new ControllerRubik();
@@ -29,9 +33,14 @@ MainWindow::MainWindow(QWidget *parent) :
     m_teachingViewFormula = new FormulaHandler(ui->pushButtonTeachingBackward, ui->pushButtonTeachingForward, ui->gridLayoutTeachingFormula, ui->centralWidget, teachingControllerRubik);
     connect(this, &MainWindow::teachingFormulaChanged, m_teachingViewFormula, &FormulaHandler::FormulaChanged);
     connect(ui->pushButton_LoadTeaching, &QPushButton::clicked, this, &MainWindow::loadTeachingInput);
+    connect(ui->resetCameraTeaching,&QPushButton::clicked, m_teachingView3D,&View3D::resetCamera);
 
     // end teaching tab
-
+    ui->buttonSolve->setEnabled(false);
+    connect(ui->tabWidget,&QTabWidget::tabBarClicked,this,&MainWindow::disableSolve);
+    connect(ui->tabWidget,&QTabWidget::tabBarClicked,this,&MainWindow::disableSolve);
+    connect(ui->tabWidget,&QTabWidget::tabBarClicked,this,&MainWindow::disableSolve);
+    connect(ui->tabWidget,&QTabWidget::tabBarClicked,this,&MainWindow::disableSolve);
 
     connect(ui->pushButton_Load, &QPushButton::clicked, this, &MainWindow::validateAndLoadInput);
 
@@ -41,13 +50,9 @@ MainWindow::MainWindow(QWidget *parent) :
      m_colorinput = new View2D(this, &m_inputmodel, true);
     ui->horizontalLayout_4->insertLayout(0, m_colorinput->getLayout());
 
-    //ui->radioButton_Green->toggle();
-    //m_colorinput->setInputColor(RubikFace::Front);
-
     m_viewFormula = new FormulaHandler(ui->backButton,ui->forwardButton,ui->gridLayoutFormula, ui->centralWidget, controllerRubik);
     connect(ui->buttonSolve, &QPushButton::clicked, this, &MainWindow::handleSolve);
     connect(this, &MainWindow::formulaChanged, m_viewFormula, &FormulaHandler::FormulaChanged);
-    // push branch to origin
 
     //widget color
     yellowButton = new ColorButton(this, QColor(255,255,0));
@@ -83,12 +88,35 @@ MainWindow::MainWindow(QWidget *parent) :
     connectWidgetsToSlots();
 
 }
+void MainWindow::disableSolve(int index)
+{
 
+    if(index == 3 || index == 0)
+        ui->buttonSolve->setEnabled(false);
+    else
+        ui->buttonSolve->setEnabled(true);
+}
+
+void MainWindow::initConfigurations(){
+    addConfiguration("F2L:basic 1","GFGGUGGGRDGGGRGGRGGGFGFGGFGGDGDDDGDGGGGGLGGLGGRGGBGGBG","R U R'");
+}
+
+void  MainWindow::addConfiguration(QString labelText,std::string configuration,std::string formula){
+
+    ui->listWidget->addItem(labelText);
+    configurations.push_back(configuration);
+    formulas.push_back(formula);
+
+}
 void MainWindow::loadTeachingInput()
 {
-    std::string model = "UFUUUUUURDUUURUURUUUFUFUUFUUDUDDDUDUUUUULUULUURUUBUUBU";
+    std::string model = configurations[ui->listWidget->currentRow()];
+    std::string formulaToShow = formulas[ui->listWidget->currentRow()];
+
+    //std::string model = "UFUUUUUURDUUURUURUUUFUFUUFUUDUDDDUDUUUUULUULUURUUBUUBU";
     teachingControllerRubik->setModel(model);
-    Formula formula("R U R'");
+    //Formula formula("R U R'");
+    Formula formula(formulaToShow);
     emit teachingFormulaChanged(formula);
 }
 
@@ -160,6 +188,7 @@ void MainWindow::connect3DButtonsToSlots()
     connect(ui->RR_PushButton_3D,&QPushButton::clicked,
             this, &MainWindow::handleButton);
 }
+
 
 void MainWindow::handleButton()
 {

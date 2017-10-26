@@ -37,7 +37,6 @@ private:
     QPushButton* mBackButton;
     QPushButton* mForwardButton;
 
-
     Formula mFormula = "";
 
     void backwardStep();

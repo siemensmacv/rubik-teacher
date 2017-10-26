@@ -118,7 +118,7 @@
        <enum>QTabWidget::South</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideRight</enum>
@@ -897,20 +897,17 @@
            </layout>
           </item>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,0,0,0,0">
+           <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,0,0,0,0,0">
             <property name="spacing">
              <number>4</number>
             </property>
             <item>
-             <widget class="QListView" name="listView">
-              <property name="movement">
-               <enum>QListView::Free</enum>
-              </property>
-              <property name="isWrapping" stdset="0">
-               <bool>false</bool>
-              </property>
-              <property name="resizeMode">
-               <enum>QListView::Adjust</enum>
+             <widget class="QListWidget" name="listWidget"/>
+            </item>
+            <item>
+             <widget class="QPushButton" name="resetCameraTeaching">
+              <property name="text">
+               <string>Reset Camera</string>
               </property>
              </widget>
             </item>
@@ -936,7 +933,7 @@
                </sizepolicy>
               </property>
               <property name="text">
-               <string>PushButton</string>
+               <string>Load Tutorial</string>
               </property>
              </widget>
             </item>

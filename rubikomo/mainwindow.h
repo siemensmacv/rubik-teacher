@@ -39,6 +39,8 @@ private:
     ControllerRubik *controllerRubik;
     ModelRubik m_inputmodel;
 
+    QVector<std::string> configurations;
+    QVector<std::string> formulas;
 
     ControllerRubik *teachingControllerRubik;
     View3D* m_teachingView3D;
@@ -47,11 +49,15 @@ private:
 
     ColorButton *yellowButton, *blueButton, *greenButton, *redButton, *orangeButton, *whiteButton;
 
+
+    void initConfigurations();
+    void addConfiguration(QString labelText,std::string configuration,std::string formula);
     void connectFlatButtonsToSlots();
     void connectWidgetsToSlots();
     void connect3DButtonsToSlots();
 
 private slots:
+    void disableSolve(int index);
     void handleButton();
     void handleInputWidget();
     void validateAndLoadInput();
