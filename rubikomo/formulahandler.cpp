@@ -22,8 +22,9 @@ FormulaHandler::~FormulaHandler()
 {
 }
 
-void createBitmapButton(QPushButton *theButton,QString sPath, QWidget *parent)
+void FormulaHandler::createBitmapButton(QWidget *parent, QPushButton *theButton, QString sPath)
 {
+    Q_UNUSED(parent);
     QPixmap pixmap(sPath);
     QIcon buttonIcon(pixmap);
     theButton->setIcon(buttonIcon);
@@ -40,22 +41,22 @@ void FormulaHandler::initFormula()
 
     QGridLayout *lGridLayoutButtons = new QGridLayout(mGridLayoutWidget);
 
-    createBitmapButton(mPlayBackwardButton,":/img/resources/backward.png", mGridLayoutWidget);
+    createBitmapButton(mGridLayoutWidget, mPlayBackwardButton,":/img/resources/backward.png");
     mPlayBackwardButton->setVisible(true);
     connect(mPlayBackwardButton, &QPushButton::clicked, this, &FormulaHandler::playBackward);
     lGridLayoutButtons->addWidget(mPlayBackwardButton, 0, 1);
 
-    createBitmapButton(mBackButton,":/img/resources/playBack.png", mGridLayoutWidget);
+    createBitmapButton(mGridLayoutWidget, mBackButton,":/img/resources/playBack.png");
     mBackButton->setVisible(true);
     connect(mBackButton, &QPushButton::clicked, this, &FormulaHandler::backwardStep);
     lGridLayoutButtons->addWidget(mBackButton, 0, 2);
 
-    createBitmapButton(mForwardButton,":/img/resources/play.png", mGridLayoutWidget);
+    createBitmapButton(mGridLayoutWidget, mForwardButton,":/img/resources/play.png");
     mForwardButton->setVisible(true);
     connect(mForwardButton, &QPushButton::clicked, this, &FormulaHandler::forwardStep);
     lGridLayoutButtons->addWidget(mForwardButton, 0, 3);
 
-    createBitmapButton(mPlayForwardButton,":/img/resources/forward.png", mGridLayoutWidget);
+    createBitmapButton(mGridLayoutWidget, mPlayForwardButton,":/img/resources/forward.png");
     mPlayForwardButton->setVisible(true);
     connect(mPlayForwardButton, &QPushButton::clicked, this, &FormulaHandler::playForward);
     lGridLayoutButtons->addWidget(mPlayForwardButton, 0, 4);

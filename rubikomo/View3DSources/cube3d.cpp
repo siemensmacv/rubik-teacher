@@ -35,71 +35,71 @@ void Cube3D::updateColors(ModelRubik *model3D)
     //UPDATE COLORS ( 3 culori ) / 2 edges / 1 centre
 
     // Up face
-    m_upFace[0][0]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 0, 0)),
-                                 colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 0, 2)),
-                                 colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 0, 0)));
-    m_upFace[0][1]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 0, 1)),
-                                 colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 0, 1)));
-    m_upFace[0][2]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 0, 2)),
-                                 colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 0, 0)),
-                                 colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 0, 2)));
+    m_upFace[0][0]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 0, 0)),
+                                 RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 0, 2)),
+                                 RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 0, 0)));
+    m_upFace[0][1]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 0, 1)),
+                                 RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 0, 1)));
+    m_upFace[0][2]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 0, 2)),
+                                 RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 0, 0)),
+                                 RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 0, 2)));
 
-    m_upFace[1][0]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 1, 0)),
-                                 colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 0, 1)));
-    m_upFace[1][1]->updateColors(colorEnumToQColor(model3D->getCenter(RubikFace::Up)));
-    m_upFace[1][2]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 1, 2)),
-                                 colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 0, 1)));
+    m_upFace[1][0]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 1, 0)),
+                                 RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 0, 1)));
+    m_upFace[1][1]->updateColors(RubikFaceUtils::colorEnumToQColor(model3D->getCenter(RubikFace::Up)));
+    m_upFace[1][2]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 1, 2)),
+                                 RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 0, 1)));
 
-    m_upFace[2][0]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 2, 0)),
-                                 colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 0, 0)),
-                                 colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 0, 2)));
-    m_upFace[2][1]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 2, 1)),
-                                 colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 0, 1)));
-    m_upFace[2][2]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 2, 2)),
-                                 colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 0, 2)),
-                                 colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 0, 0)));
+    m_upFace[2][0]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 2, 0)),
+                                 RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 0, 0)),
+                                 RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 0, 2)));
+    m_upFace[2][1]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 2, 1)),
+                                 RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 0, 1)));
+    m_upFace[2][2]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Up, 2, 2)),
+                                 RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 0, 2)),
+                                 RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 0, 0)));
 
     // Down face
-    m_downFace[0][0]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 0, 0)),
-                                   colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 2, 0)),
-                                   colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 2, 2)));
-    m_downFace[0][1]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 0, 1)),
-                                   colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 2, 1)));
-    m_downFace[0][2]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 0, 2)),
-                                   colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 2, 2)),
-                                   colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 2, 0)));
+    m_downFace[0][0]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 0, 0)),
+                                   RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 2, 0)),
+                                   RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 2, 2)));
+    m_downFace[0][1]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 0, 1)),
+                                   RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 2, 1)));
+    m_downFace[0][2]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 0, 2)),
+                                   RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 2, 2)),
+                                   RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 2, 0)));
 
-    m_downFace[1][0]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 1, 0)),
-                                   colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 2, 1)));
-    m_downFace[1][1]->updateColors(colorEnumToQColor(model3D->getCenter(RubikFace::Down)));
-    m_downFace[1][2]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 1, 2)),
-                                   colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 2, 1)));
+    m_downFace[1][0]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 1, 0)),
+                                   RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 2, 1)));
+    m_downFace[1][1]->updateColors(RubikFaceUtils::colorEnumToQColor(model3D->getCenter(RubikFace::Down)));
+    m_downFace[1][2]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 1, 2)),
+                                   RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 2, 1)));
 
-    m_downFace[2][0]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 2, 0)),
-                                   colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 2, 2)),
-                                   colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 2, 0)));
-    m_downFace[2][1]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 2, 1)),
-                                   colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 2, 1)));
-    m_downFace[2][2]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 2, 2)),
-                                   colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 2, 0)),
-                                   colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 2, 2)));
+    m_downFace[2][0]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 2, 0)),
+                                   RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 2, 2)),
+                                   RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 2, 0)));
+    m_downFace[2][1]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 2, 1)),
+                                   RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 2, 1)));
+    m_downFace[2][2]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Down, 2, 2)),
+                                   RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 2, 0)),
+                                   RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 2, 2)));
 
     // Front face
-    m_frontFace[1][0]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 1, 2)),
-                                    colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 1, 0)));
-    m_frontFace[1][1]->updateColors(colorEnumToQColor(model3D->getCenter(RubikFace::Front)));
-    m_frontFace[1][2]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 1, 0)),
-                                    colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 1, 2)));
+    m_frontFace[1][0]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 1, 2)),
+                                    RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 1, 0)));
+    m_frontFace[1][1]->updateColors(RubikFaceUtils::colorEnumToQColor(model3D->getCenter(RubikFace::Front)));
+    m_frontFace[1][2]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 1, 0)),
+                                    RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Front, 1, 2)));
 
     // Back face
-    m_backFace[1][0]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 1, 2)),
-                                   colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 1, 0)));
-    m_backFace[1][1]->updateColors(colorEnumToQColor(model3D->getCenter(RubikFace::Back)));
-    m_backFace[1][2]->updateColors(colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 1, 0)),
-                                   colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 1, 2)));
+    m_backFace[1][0]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Right, 1, 2)),
+                                   RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 1, 0)));
+    m_backFace[1][1]->updateColors(RubikFaceUtils::colorEnumToQColor(model3D->getCenter(RubikFace::Back)));
+    m_backFace[1][2]->updateColors(RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Left, 1, 0)),
+                                   RubikFaceUtils::colorDigitToQColor(model3D->getMatrixValue(RubikFace::Back, 1, 2)));
 
-    m_leftFace[1][1]->updateColors(colorEnumToQColor(model3D->getCenter(RubikFace::Left)));
-    m_rightFace[1][1]->updateColors(colorEnumToQColor(model3D->getCenter(RubikFace::Right)));
+    m_leftFace[1][1]->updateColors(RubikFaceUtils::colorEnumToQColor(model3D->getCenter(RubikFace::Left)));
+    m_rightFace[1][1]->updateColors(RubikFaceUtils::colorEnumToQColor(model3D->getCenter(RubikFace::Right)));
 }
 
 void Cube3D::resetColors()
@@ -108,71 +108,71 @@ void Cube3D::resetColors()
     // 0 = galben, 1= orange, 2= verde, 3=alb, 4=rosu, 5=albastru
     // Up face
 
-    m_upFace[0][0]->updateColors(colorDigitToQColor(0),
-                                 colorDigitToQColor(5),
-                                 colorDigitToQColor(4));
-    m_upFace[0][1]->updateColors(colorDigitToQColor(0),
-                                 colorDigitToQColor(5));
-    m_upFace[0][2]->updateColors(colorDigitToQColor(0),
-                                 colorDigitToQColor(5),
-                                 colorDigitToQColor(1));
+    m_upFace[0][0]->updateColors(RubikFaceUtils::colorDigitToQColor(0),
+                                 RubikFaceUtils::colorDigitToQColor(5),
+                                 RubikFaceUtils::colorDigitToQColor(4));
+    m_upFace[0][1]->updateColors(RubikFaceUtils::colorDigitToQColor(0),
+                                 RubikFaceUtils::colorDigitToQColor(5));
+    m_upFace[0][2]->updateColors(RubikFaceUtils::colorDigitToQColor(0),
+                                 RubikFaceUtils::colorDigitToQColor(5),
+                                 RubikFaceUtils::colorDigitToQColor(1));
 
-    m_upFace[1][0]->updateColors(colorDigitToQColor(0),
-                                 colorDigitToQColor(4));
-    m_upFace[1][1]->updateColors(colorEnumToQColor(RubikFace::Up));
-    m_upFace[1][2]->updateColors(colorDigitToQColor(0),
-                                 colorDigitToQColor(1));
+    m_upFace[1][0]->updateColors(RubikFaceUtils::colorDigitToQColor(0),
+                                 RubikFaceUtils::colorDigitToQColor(4));
+    m_upFace[1][1]->updateColors(RubikFaceUtils::colorEnumToQColor(RubikFace::Up));
+    m_upFace[1][2]->updateColors(RubikFaceUtils::colorDigitToQColor(0),
+                                 RubikFaceUtils::colorDigitToQColor(1));
 
-    m_upFace[2][0]->updateColors(colorDigitToQColor(0),
-                                 colorDigitToQColor(2),
-                                 colorDigitToQColor(4));
-    m_upFace[2][1]->updateColors(colorDigitToQColor(0),
-                                 colorDigitToQColor(2));
-    m_upFace[2][2]->updateColors(colorDigitToQColor(0),
-                                 colorDigitToQColor(2),
-                                 colorDigitToQColor(1));
+    m_upFace[2][0]->updateColors(RubikFaceUtils::colorDigitToQColor(0),
+                                 RubikFaceUtils::colorDigitToQColor(2),
+                                 RubikFaceUtils::colorDigitToQColor(4));
+    m_upFace[2][1]->updateColors(RubikFaceUtils::colorDigitToQColor(0),
+                                 RubikFaceUtils::colorDigitToQColor(2));
+    m_upFace[2][2]->updateColors(RubikFaceUtils::colorDigitToQColor(0),
+                                 RubikFaceUtils::colorDigitToQColor(2),
+                                 RubikFaceUtils::colorDigitToQColor(1));
 
     // Down face
-    m_downFace[0][0]->updateColors(colorDigitToQColor(3),
-                                   colorDigitToQColor(2),
-                                   colorDigitToQColor(4));
-    m_downFace[0][1]->updateColors(colorDigitToQColor(3),
-                                   colorDigitToQColor(2));
-    m_downFace[0][2]->updateColors(colorDigitToQColor(3),
-                                   colorDigitToQColor(2),
-                                   colorDigitToQColor(1));
+    m_downFace[0][0]->updateColors(RubikFaceUtils::colorDigitToQColor(3),
+                                   RubikFaceUtils::colorDigitToQColor(2),
+                                   RubikFaceUtils::colorDigitToQColor(4));
+    m_downFace[0][1]->updateColors(RubikFaceUtils::colorDigitToQColor(3),
+                                   RubikFaceUtils::colorDigitToQColor(2));
+    m_downFace[0][2]->updateColors(RubikFaceUtils::colorDigitToQColor(3),
+                                   RubikFaceUtils::colorDigitToQColor(2),
+                                   RubikFaceUtils::colorDigitToQColor(1));
 
-    m_downFace[1][0]->updateColors(colorDigitToQColor(3),
-                                   colorDigitToQColor(4));
-    m_downFace[1][1]->updateColors(colorEnumToQColor(RubikFace::Down));
-    m_downFace[1][2]->updateColors(colorDigitToQColor(3),
-                                   colorDigitToQColor(1));
+    m_downFace[1][0]->updateColors(RubikFaceUtils::colorDigitToQColor(3),
+                                   RubikFaceUtils::colorDigitToQColor(4));
+    m_downFace[1][1]->updateColors(RubikFaceUtils::colorEnumToQColor(RubikFace::Down));
+    m_downFace[1][2]->updateColors(RubikFaceUtils::colorDigitToQColor(3),
+                                   RubikFaceUtils::colorDigitToQColor(1));
 
-    m_downFace[2][0]->updateColors(colorDigitToQColor(3),
-                                   colorDigitToQColor(5),
-                                   colorDigitToQColor(4));
-    m_downFace[2][1]->updateColors(colorDigitToQColor(3),
-                                   colorDigitToQColor(5));
-    m_downFace[2][2]->updateColors(colorDigitToQColor(3),
-                                   colorDigitToQColor(5),
-                                   colorDigitToQColor(1));
+    m_downFace[2][0]->updateColors(RubikFaceUtils::colorDigitToQColor(3),
+                                   RubikFaceUtils::colorDigitToQColor(5),
+                                   RubikFaceUtils::colorDigitToQColor(4));
+    m_downFace[2][1]->updateColors(RubikFaceUtils::colorDigitToQColor(3),
+                                   RubikFaceUtils::colorDigitToQColor(5));
+    m_downFace[2][2]->updateColors(RubikFaceUtils::colorDigitToQColor(3),
+                                   RubikFaceUtils::colorDigitToQColor(5),
+                                   RubikFaceUtils::colorDigitToQColor(1));
 
     // Front face
-    m_frontFace[1][0]->updateColors(colorDigitToQColor(4),
-                                    colorDigitToQColor(2));
-    m_frontFace[1][1]->updateColors(colorEnumToQColor(RubikFace::Front));
-    m_frontFace[1][2]->updateColors(colorDigitToQColor(1),
-                                    colorDigitToQColor(2));
+    m_frontFace[1][0]->updateColors(RubikFaceUtils::colorDigitToQColor(4),
+                                    RubikFaceUtils::colorDigitToQColor(2));
+    m_frontFace[1][1]->updateColors(RubikFaceUtils::colorEnumToQColor(RubikFace::Front));
+    m_frontFace[1][2]->updateColors(RubikFaceUtils::colorDigitToQColor(1),
+                                    RubikFaceUtils::colorDigitToQColor(2));
 
     // Back face
-    m_backFace[1][0]->updateColors(colorDigitToQColor(1),
-                                   colorDigitToQColor(5));
-    m_backFace[1][1]->updateColors(colorEnumToQColor(RubikFace::Back));
-    m_backFace[1][2]->updateColors(colorDigitToQColor(4),
-                                   colorDigitToQColor(5));
+    m_backFace[1][0]->updateColors(RubikFaceUtils::colorDigitToQColor(1),
+                                   RubikFaceUtils::colorDigitToQColor(5));
+    m_backFace[1][1]->updateColors(RubikFaceUtils::colorEnumToQColor(RubikFace::Back));
+    m_backFace[1][2]->updateColors(RubikFaceUtils::colorDigitToQColor(4),
+                                   RubikFaceUtils::colorDigitToQColor(5));
 
-    m_leftFace[1][1]->updateColors(colorEnumToQColor(RubikFace::Left));
-    m_rightFace[1][1]->updateColors(colorEnumToQColor(RubikFace::Right));
+    m_leftFace[1][1]->updateColors(RubikFaceUtils::colorEnumToQColor(RubikFace::Left));
+    m_rightFace[1][1]->updateColors(RubikFaceUtils::colorEnumToQColor(RubikFace::Right));
 }
 
 Cube3D::~Cube3D()

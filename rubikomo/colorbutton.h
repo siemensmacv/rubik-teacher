@@ -5,6 +5,7 @@
 #include <QPainter>
 #include <QPaintEvent>
 #include "rubikface.h"
+#include "rubikfaceutils.h"
 
 class ColorButton : public QWidget
 {

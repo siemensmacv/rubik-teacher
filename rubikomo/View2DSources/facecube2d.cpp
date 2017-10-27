@@ -21,6 +21,7 @@ FaceCube2D::~FaceCube2D()
 
 void FaceCube2D::paintEvent(QPaintEvent *pe)
 {
+    Q_UNUSED(pe);
     QPainter painter(this);
     painter.fillRect(rect(), Qt::black);
 
@@ -28,14 +29,14 @@ void FaceCube2D::paintEvent(QPaintEvent *pe)
     {
         for (unsigned j = 0; j < 3; ++j)
         {
-            QColor color = getColorFromValue(m_model->getMatrixValue(m_representing, i, j));
+            QColor color = RubikFaceUtils::colorDigitToQColor(m_model->getMatrixValue(m_representing, i, j));
             painter.setPen(color);
             painter.setBrush(color);
             painter.drawRect(mRectMatrix[i][j]);
         }
     }
 
-    QString letter = colorEnumToLetter(m_representing);
+    QString letter = RubikFaceUtils::colorEnumToLetter(m_representing);
     QFont font = painter.font();
     painter.setPen(Qt::black);
     font.setPointSize(24);
@@ -57,26 +58,6 @@ void FaceCube2D::mousePressEvent(QMouseEvent *event)
                 break;
             }
         }
-    }
-}
-
-QColor FaceCube2D::getColorFromValue(int value) const
-{
-    RubikFace face = static_cast<RubikFace>(value);
-    switch(face)
-    {
-	case RubikFace::Up:
-        return QColor(255, 255, 0);
-	case RubikFace::Left:
-        return QColor(255, 0, 0);
-	case RubikFace::Front:
-        return QColor(0, 255, 0);
-	case RubikFace::Right:
-        return QColor(255, 130, 0);
-	case RubikFace::Back:
-        return QColor(60, 60, 255);
-	case RubikFace::Down:
-        return QColor(255, 255, 255);
     }
 }
 

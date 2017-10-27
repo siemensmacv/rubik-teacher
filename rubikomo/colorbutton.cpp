@@ -10,13 +10,15 @@ ColorButton::ColorButton(QWidget *parent,QColor color) : QWidget(parent), m_colo
 
 void ColorButton::mousePressEvent(QMouseEvent *event)
 {
-    emit colorSelected(qColorToEnum(m_color));
+    Q_UNUSED(event);
+    emit colorSelected(RubikFaceUtils::qColorToEnum(m_color));
     isSelected = true;
     update();
 }
 
 void ColorButton::paintEvent(QPaintEvent *event)
 {
+    Q_UNUSED(event);
     QPainter painter(this);
 
     if(isSelected)

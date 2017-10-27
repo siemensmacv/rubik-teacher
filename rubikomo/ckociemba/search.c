@@ -121,7 +121,7 @@ char* solution(char* facelets, int maxDepth, long timeOut, int useSeparator, con
     int busy = 0;
     int depthPhase1 = 1;
 
-    long tStart = time(NULL);
+    time_t tStart = time(NULL);
 
     // +++++++++++++++++++ Main loop ++++++++++++++++++++++++++++++++++++++++++
     do {

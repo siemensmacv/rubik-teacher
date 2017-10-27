@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FORMULA_H
+#define FORMULA_H
 
 #include "formulastep.h"
 #include <string>
@@ -24,3 +25,5 @@ private:
     int  m_nCount;
     int  m_nIndex;
 };
+
+#endif // FORMULA_H

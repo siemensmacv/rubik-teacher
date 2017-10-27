@@ -1,4 +1,6 @@
-#pragma once
+#ifndef RUBIKFACE_H
+#define RUBIKFACE_H
+
 #include <QColor>
 
 enum class RubikFace
@@ -12,15 +14,4 @@ enum class RubikFace
     Grey
 };
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-int colorLetterToDigit(char c);
-char colorDigitToLetter(int d);
-char colorEnumToLetter(RubikFace face);
-QColor colorDigitToQColor(int d);
-QColor colorEnumToQColor(RubikFace face);
-RubikFace qColorToEnum(QColor color);
-#ifdef __cplusplus
-}
-#endif
+#endif // RUBIKFACE_H

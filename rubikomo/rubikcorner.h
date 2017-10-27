@@ -1,4 +1,6 @@
-#pragma once
+#ifndef RUBIKCORNER_H
+#define RUBIKCORNER_H
+
 #include <string>
 #include <array>
 
@@ -22,3 +24,5 @@ enum class CornerOrientation
 };
 
 static const std::array<std::string, 8> proper_corners = {"UBR", "URF", "UFL", "ULB", "DRB", "DFR", "DLF", "DBL"};
+
+#endif // RUBIKCORNER_H

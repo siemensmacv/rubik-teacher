@@ -8,6 +8,7 @@
 #include "./View3DHeaders/matrixswap.h"
 
 #include <Qt3DCore>
+#include "rubikfaceutils.h"
 
 class Cube3D {
 public:

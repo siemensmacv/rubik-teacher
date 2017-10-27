@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FORMULASTEP_H
+#define FORMULASTEP_H
 
 #include "rubikface.h"
 
@@ -23,3 +24,5 @@ private:
     FormulaStepTypeEnum mFST;
     char mDesc[3];
 };
+
+#endif // FORMULASTEP_H

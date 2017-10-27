@@ -49,7 +49,7 @@ void ModelRubik_Matrix::setMatrix(std::string input)
             col = 0;
             while(col < 3)
             {
-                _matrix[pos/9][row][col] = colorLetterToDigit(input[pos]);
+                _matrix[pos/9][row][col] = RubikFaceUtils::colorLetterToDigit(input[pos]);
                 ++col;
                 ++pos;
             }
@@ -67,7 +67,7 @@ std::string ModelRubik_Matrix::getMatrix()
         {
             for(int col = 0; col < 3; ++col)
             {
-                output += colorDigitToLetter(_matrix[face][row][col]);
+                output += RubikFaceUtils::colorDigitToLetter(_matrix[face][row][col]);
             }
         }
     }
