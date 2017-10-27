@@ -35,7 +35,6 @@ private:
     void updateFrameSize();
     void initRectMatrix();
     void updateRectMatrix();
-    QColor getColorFromValue(int value) const;
 
     int mBorderWidth = 7;
     int mFrameSize = 250;
