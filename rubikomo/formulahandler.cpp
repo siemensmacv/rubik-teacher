@@ -33,13 +33,13 @@ void FormulaHandler::createBitmapButton(QWidget *parent, QPushButton *theButton,
 
 void FormulaHandler::initFormula()
 {
-    mGridLayoutFormulas = new QGridLayout(mGridLayoutWidget);
+    mGridLayoutFormulas = new QGridLayout();
 
     createFormula();
 
     mGridLayout->addLayout(mGridLayoutFormulas, 0, 0);
 
-    QGridLayout *lGridLayoutButtons = new QGridLayout(mGridLayoutWidget);
+    QGridLayout *lGridLayoutButtons = new QGridLayout();
 
     createBitmapButton(mGridLayoutWidget, mPlayBackwardButton,":/img/resources/backward.png");
     mPlayBackwardButton->setVisible(true);

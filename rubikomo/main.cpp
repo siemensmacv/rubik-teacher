@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     a.setPalette(p);
     MainWindow w;
 
-    QPixmap iconImage(":/img/Resources/cubeIcon.png");
+    QPixmap iconImage(":/img/resources/cubeIcon.png");
     QIcon icon(iconImage);
     a.setWindowIcon(icon);
     w.show();

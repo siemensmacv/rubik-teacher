@@ -130,7 +130,7 @@ void MainWindow::initConfigurations(){
     addConfiguration("OLL: Y Move"                ,"UUUUUUUUULRRRRRRRRFFBFFFFFFDDDDDDDDDRBLLLLLLLBLFBBBBBB","F R U' R' U' R U R' F' R U R' U' R' F R F'");
 }
 
-void  MainWindow::addConfiguration(QString labelText,std::string configuration,std::string formula){
+void MainWindow::addConfiguration(QString labelText,std::string configuration,std::string formula){
 
     ui->listWidget->addItem(labelText);
     configurations.push_back(configuration);
