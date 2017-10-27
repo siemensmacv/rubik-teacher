@@ -3,6 +3,7 @@
 
 #include "formulastep.h"
 #include <string>
+#include <QException>
 
 // define a formula with several steps;
 class Formula

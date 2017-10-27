@@ -1,5 +1,4 @@
 #include "formulastep.h"
-#include <string.h>
 
 FormulaStep::FormulaStep( RubikFace face, FormulaStepTypeEnum FST )
     : mFace(face), mFST(FST)

@@ -1,6 +1,4 @@
 #include "formula.h"
-#include <string.h>
-#include <QException>
 
 const int MAX_STEPS = 30;
 

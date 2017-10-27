@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MATRIXSWAP_H
+#define MATRIXSWAP_H
+
 #include "./View3DHeaders/icubie.h"
 
 class MatrixSwap
@@ -248,3 +250,5 @@ public:
 	}
 
 };
+
+#endif // MATRIXSWAP_H

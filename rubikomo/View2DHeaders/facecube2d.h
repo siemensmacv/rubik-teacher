@@ -1,3 +1,6 @@
+#ifndef FACECUBE2D_H
+#define FACECUBE2D_H
+
 #include <QObject>
 #include <QWidget>
 #include <QFrame>
@@ -40,3 +43,5 @@ private:
     ModelRubik *m_model;
     RubikFace m_representing;
 };
+
+#endif // FACECUBE2D_H

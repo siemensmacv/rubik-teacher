@@ -1,5 +1,4 @@
 #include "./View3DHeaders/cube3d.h"
-#include <Qt3DExtras>
 
 Cube3D::Cube3D(ModelRubik *model3D, Qt3DCore::QEntity *rootEntity)
 {

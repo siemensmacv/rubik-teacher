@@ -2,6 +2,7 @@
 #define FORMULASTEP_H
 
 #include "rubikface.h"
+#include <string.h>
 
 // define a formula step
 // each step is defined by one of the face movements and the type
