@@ -1,4 +1,4 @@
-This software uses the ckociemba implementation by muodov, licensed under GPLv2.
+This software uses the ckociemba implementation by muodov, licensed under GPLv2, with the following modifications: removed caching mechanism.
 This software uses Qt, licensed under GPLv3.
 
                     GNU GENERAL PUBLIC LICENSE
