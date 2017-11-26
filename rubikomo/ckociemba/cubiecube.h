@@ -71,6 +71,7 @@ int getURtoDF_standalone(short idx1, short idx2);
 
 void cubiecubeToString(cubiecube_t *cubiecube, char* result);
 void cubiecubeToString2(cubiecube_t* cubiecube, char** result);
+void cubiecubeToString3(char* cubeString, char** result);
 
 #endif
 

@@ -37,14 +37,25 @@ void View2D::initFaceCubes(QWidget *parent)
     mLeftFace  = new FaceCube2D(parent, m_model, RubikFace::Left);
     mBackFace  = new FaceCube2D(parent, m_model, RubikFace::Back);
 
-    gridLayout->addItem(new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding), 0, 0);
-    gridLayout->addWidget(mUpFace,    1, 1);
-    gridLayout->addWidget(mLeftFace,  2, 0);
-    gridLayout->addWidget(mFrontFace, 2, 1);
-    gridLayout->addWidget(mRightFace, 2, 2);
-    gridLayout->addWidget(mBackFace,  2, 3);
-    gridLayout->addWidget(mDownFace,  3, 1);
-    gridLayout->addItem(new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding), 4, 0);
+    QGridLayout *lGridLayoutFaces = new QGridLayout(parent);
+    lGridLayoutFaces->addItem(new QSpacerItem(20, 0, QSizePolicy::Minimum, QSizePolicy::Expanding), 0, 0);
+    lGridLayoutFaces->addWidget(mUpFace,    1, 1);
+    lGridLayoutFaces->addWidget(mLeftFace,  2, 0);
+    lGridLayoutFaces->addWidget(mFrontFace, 2, 1);
+    lGridLayoutFaces->addWidget(mRightFace, 2, 2);
+    lGridLayoutFaces->addWidget(mBackFace,  2, 3);
+    lGridLayoutFaces->addWidget(mDownFace,  3, 1);
+    lGridLayoutFaces->addItem(new QSpacerItem(20, 0, QSizePolicy::Minimum, QSizePolicy::Expanding), 4, 0);
+
+    gridLayout->addLayout(lGridLayoutFaces,  0, 0);
+
+    QGridLayout *lGridLayoutCubieRepresentation = new QGridLayout(parent);
+    for (int i = 0; i < 17; i++)
+    {
+        mLabelCubeCubiecubeRepresentation[i] = new QLabel();
+        lGridLayoutCubieRepresentation->addWidget(mLabelCubeCubiecubeRepresentation[i], i, 0);
+    }
+    gridLayout->addLayout(lGridLayoutCubieRepresentation, 0, 1);
 }
 
 void View2D::refresh()
@@ -55,7 +66,28 @@ void View2D::refresh()
     mDownFace->update();
     mLeftFace->update();
     mBackFace->update();
+    refreshRepresentations();
 }
+
+extern "C" void cubiecubeToString3(char* cubeString, char** result);
+
+void View2D::refreshRepresentations()
+{
+    char stringCube[60];
+    std::string model = m_model->getModel();
+    strcpy_s(stringCube, 60, model.c_str());
+
+    char *cCubieCubeRepresentation[17];
+    cubiecubeToString3(stringCube, cCubieCubeRepresentation);
+    QString sCubieCubeRepresentation;
+    for (int i = 0; i < 17; i++)
+    {
+        sCubieCubeRepresentation = cCubieCubeRepresentation[i];
+        mLabelCubeCubiecubeRepresentation[i]->setText(sCubieCubeRepresentation);
+        free(cCubieCubeRepresentation[i]);
+    }
+}
+
 
 void View2D::onFaceCubeClicked(RubikFace face, int row, int column)
 {

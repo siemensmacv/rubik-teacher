@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QGridLayout>
+#include <QLabel>
 #include <View2DHeaders/facecube2d.h>
 
 class View2D : public QWidget
@@ -20,6 +21,9 @@ private:
         *mFrontFace, *mBackFace;
     int m_inputColor = -1;
     void initFaceCubes(QWidget *parent = nullptr);
+
+    QLabel* mLabelCubeCubiecubeRepresentation[17];
+    void refreshRepresentations();
 
 private slots:
     void refresh();

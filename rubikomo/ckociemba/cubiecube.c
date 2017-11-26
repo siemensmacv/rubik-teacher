@@ -976,3 +976,17 @@ void cubiecubeToString2(cubiecube_t* cubiecube, char** resultArray)
 //        result[index++] = ',';
 //    }
 }
+
+void cubiecubeToString3(char* cubeString, char** result)
+{
+    facecube_t *mFaceCube;
+    cubiecube_t *mCubieCube;
+
+    mFaceCube = get_facecube_fromstring(cubeString);
+    mCubieCube = toCubieCube(mFaceCube);
+
+    cubiecubeToString2(mCubieCube, result);
+
+    free(mFaceCube);
+    free(mCubieCube);
+}
