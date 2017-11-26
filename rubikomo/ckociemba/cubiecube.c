@@ -718,8 +718,8 @@ void edgeToString(cubiecube_t* cubiecube, int index, char* result)
     result[4] = ')';
 }
 
-const int SIZE_CORNER_DESC = 6;
-const int SIZE_EDGE_DESC = 5;
+#define SIZE_CORNER_DESC 6
+#define SIZE_EDGE_DESC 5
 
 void cubiecubeToString(cubiecube_t* cubiecube, char* result)
 {
