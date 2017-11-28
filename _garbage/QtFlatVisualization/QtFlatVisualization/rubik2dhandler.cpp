@@ -340,8 +340,8 @@ void Rubik2DHandler::refreshView()
 
 void Rubik2DHandler::refreshRepresentations()
 {
-    free(mFaceCube);
-    free(mCubieCube);
+    //free(mFaceCube);
+    //free(mCubieCube);
 
     char stringCube[60];
     strcpy_s(stringCube, 60, toString().c_str());
