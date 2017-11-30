@@ -49,13 +49,24 @@ void View2D::initFaceCubes(QWidget *parent)
 
     gridLayout->addLayout(lGridLayoutFaces,  0, 0);
 
-    QGridLayout *lGridLayoutCubieRepresentation = new QGridLayout(parent);
+    QGridLayout *lGridLayoutRepresentations = new QGridLayout(parent);
+    QGridLayout *lGridLayoutCubieRepresentationCKociemba = new QGridLayout(parent);
     for (int i = 0; i < 17; i++)
     {
         mLabelCubeCubiecubeRepresentation[i] = new QLabel();
-        lGridLayoutCubieRepresentation->addWidget(mLabelCubeCubiecubeRepresentation[i], i, 0);
+        lGridLayoutCubieRepresentationCKociemba->addWidget(mLabelCubeCubiecubeRepresentation[i], i, 0);
     }
-    gridLayout->addLayout(lGridLayoutCubieRepresentation, 0, 1);
+    lGridLayoutRepresentations->addLayout(lGridLayoutCubieRepresentationCKociemba, 0, 0);
+
+    QGridLayout *lGridLayoutCubieRepresentationCornerEdges = new QGridLayout(parent);
+    for (int i = 0; i < 17; i++)
+    {
+        mLabelCubeCornerEdgesRepresentation[i] = new QLabel();
+        lGridLayoutCubieRepresentationCornerEdges->addWidget(mLabelCubeCornerEdgesRepresentation[i], i, 0);
+    }
+    lGridLayoutRepresentations->addLayout(lGridLayoutCubieRepresentationCornerEdges, 1, 0);
+
+    gridLayout->addLayout(lGridLayoutRepresentations, 0, 1);
 }
 
 void View2D::refresh()
@@ -84,6 +95,13 @@ void View2D::refreshRepresentations()
     {
         sCubieCubeRepresentation = cCubieCubeRepresentation[i];
         mLabelCubeCubiecubeRepresentation[i]->setText(sCubieCubeRepresentation);
+        free(cCubieCubeRepresentation[i]);
+    }
+    m_model->to3DString2(cCubieCubeRepresentation);
+    for (int i = 0; i < 17; i++)
+    {
+        sCubieCubeRepresentation = cCubieCubeRepresentation[i];
+        mLabelCubeCornerEdgesRepresentation[i]->setText(sCubieCubeRepresentation);
         free(cCubieCubeRepresentation[i]);
     }
 }

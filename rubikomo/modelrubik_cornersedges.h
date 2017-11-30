@@ -28,6 +28,9 @@ public:
     EdgeOrientation getEdgeOrientation(const Edge &position) const;
 
     RubikFace getCenter(const RubikFace &position) const;
+
+    void to3DString2(char** resultArray);
+
 private:
 	void init_corners();
 	void init_edges();
@@ -44,6 +47,10 @@ private:
     bool edgeValueInStandingSlice(int index);
 
     std::string permutateStringForward(std::string input);
+
+    void cornerToString(int index, char* result);
+    void edgeToString(int index, char* result);
+    void toString(char* result);
 
     Corner corner_position[8];
     Edge edge_position[12];

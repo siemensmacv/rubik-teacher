@@ -463,3 +463,278 @@ void ModelRubik_CornersEdges::setCornersEdges(std::string input)
         edge_orientation[pos] = edges_orientation[pos];
     }
 }
+
+
+void ModelRubik_CornersEdges::cornerToString(int index, char* result)
+{
+    Corner corner = corner_position[index];
+    switch (corner)
+    {
+    case Corner::URF: result[0] = 'U'; result[1] = 'R'; result[2] = 'F'; break;
+    case Corner::UFL: result[0] = 'U'; result[1] = 'F'; result[2] = 'L'; break;
+    case Corner::ULB: result[0] = 'U'; result[1] = 'L'; result[2] = 'B'; break;
+    case Corner::UBR: result[0] = 'U'; result[1] = 'B'; result[2] = 'R'; break;
+    case Corner::DFR: result[0] = 'D'; result[1] = 'F'; result[2] = 'R'; break;
+    case Corner::DLF: result[0] = 'D'; result[1] = 'L'; result[2] = 'F'; break;
+    case Corner::DBL: result[0] = 'D'; result[1] = 'B'; result[2] = 'L'; break;
+    case Corner::DRB: result[0] = 'D'; result[1] = 'R'; result[2] = 'B'; break;
+    }
+    result[3] = '(';
+    result[4] = (char)(static_cast<int>(corner_orientation[index]) + 48);
+    result[5] = ')';
+}
+
+void ModelRubik_CornersEdges::edgeToString(int index, char* result)
+{
+    Edge edge = edge_position[index];
+    switch (edge)
+    {
+    case Edge::UR: result[0] = 'U'; result[1] = 'R'; break;
+    case Edge::UF: result[0] = 'U'; result[1] = 'F'; break;
+    case Edge::UL: result[0] = 'U'; result[1] = 'L'; break;
+    case Edge::UB: result[0] = 'U'; result[1] = 'B'; break;
+    case Edge::DR: result[0] = 'D'; result[1] = 'R'; break;
+    case Edge::DF: result[0] = 'D'; result[1] = 'F'; break;
+    case Edge::DL: result[0] = 'D'; result[1] = 'L'; break;
+    case Edge::DB: result[0] = 'D'; result[1] = 'B'; break;
+    case Edge::RF: result[0] = 'R'; result[1] = 'F'; break;
+    case Edge::FL: result[0] = 'F'; result[1] = 'L'; break;
+    case Edge::LB: result[0] = 'L'; result[1] = 'B'; break;
+    case Edge::BR: result[0] = 'B'; result[1] = 'R'; break;
+    }
+    result[2] = '(';
+    result[3] = (char)(static_cast<int>(edge_orientation[index]) + 48);
+    result[4] = ')';
+}
+
+#define SIZE_CORNER_DESC 6
+#define SIZE_EDGE_DESC 5
+#define CORNER_COUNT 8
+#define EDGE_COUNT 12
+
+void ModelRubik_CornersEdges::toString(char* result)
+{
+    int index = 0;
+    result[index++] = 'C';
+    result[index++] = ':';
+    result[index++] = ' ';
+    char cornerDesc[SIZE_CORNER_DESC];
+    for (int i = 0; i < CORNER_COUNT; i++)
+    {
+        cornerToString( i, cornerDesc);
+        for (int j = 0; j < SIZE_CORNER_DESC; j++)
+            result[index + j] = cornerDesc[j];
+        index += SIZE_CORNER_DESC;
+        result[index++] = ',';
+    }
+    // filling edges
+    result[index++] = 'E';
+    result[index++] = ':';
+    result[index++] = ' ';
+    char edgeDesc[SIZE_EDGE_DESC];
+    for (int i = 0; i < EDGE_COUNT; i++)
+    {
+        edgeToString(i, edgeDesc);
+        for (int j = 0; j < SIZE_CORNER_DESC; j++)
+            result[index + j] = edgeDesc[j];
+        index += SIZE_EDGE_DESC;
+        result[index++] = ',';
+    }
+}
+
+void insertChar(char* buffer, char c, int *index, int count)
+{
+    for (int i = 0; i < count; i++)
+        buffer[*index + i] = c;
+    *index += count;
+}
+
+void insertSpaceDashSpace(char* buffer, int *index)
+{
+    buffer[(*index)++] = ' ';
+    buffer[(*index)++] = '-';
+    buffer[(*index)++] = ' ';
+}
+
+void ModelRubik_CornersEdges::to3DString2(char** resultArray)
+{
+    int index;
+    char* result;
+
+    //line 0
+    index = 0;
+    result = resultArray[0] = (char*)malloc(50);
+    insertChar(result, ' ', &index, 4);
+    cornerToString( 3, result + index);
+    index += SIZE_CORNER_DESC;
+    insertSpaceDashSpace(result, &index);
+    edgeToString(0, result + index);
+    index += SIZE_EDGE_DESC;
+    insertSpaceDashSpace(result, &index);
+    cornerToString( 0, result + index);
+    index += SIZE_CORNER_DESC;
+    result[index] = '\0';
+
+    //line 1
+    index = 0;
+    result = resultArray[1] = (char*)malloc(50);
+    insertChar(result, ' ', &index, 5);
+    result[index++] = '/';
+    insertChar(result, ' ', &index, 30);
+    result[index++] = '/';
+    result[index] = '\0';
+
+    //line 2
+    index = 0;
+    result = resultArray[2] = (char*)malloc(50);
+    insertChar(result, ' ', &index, 2);
+    edgeToString(3, result + index);
+    index += SIZE_EDGE_DESC;
+    insertChar(result, ' ', &index, 23);
+    edgeToString(1, result + index);
+    index += SIZE_EDGE_DESC;
+    result[index] = '\0';
+
+
+    //line 3
+    index = 0;
+    result = resultArray[3] = (char*)malloc(50);
+    insertChar(result, ' ', &index, 2);
+    result[index++] = '/';
+    insertChar(result, ' ', &index, 30);
+    result[index++] = '/';
+    result[index] = '\0';
+
+    //line 4
+    index = 0;
+    result = resultArray[4] = (char*)malloc(50);
+    cornerToString( 2, result + index);
+    index += SIZE_CORNER_DESC;
+    insertSpaceDashSpace(result, &index);
+    edgeToString(2, result + index);
+    index += SIZE_EDGE_DESC;
+    insertSpaceDashSpace(result, &index);
+    cornerToString( 1, result + index);
+    index += SIZE_CORNER_DESC;
+    result[index] = '\0';
+
+    //line 5
+    index = 0;
+    result = resultArray[5] = (char*)malloc(50);
+    insertChar(result, ' ', &index, 1);
+    result[index] = '\0';
+
+    //line 6
+    index = 0;
+    result = resultArray[6] = (char*)malloc(50);
+    insertChar(result, ' ', &index, 4);
+    edgeToString(7, result + index);
+    index += SIZE_EDGE_DESC;
+    insertChar(result, '-', &index, 18);
+    edgeToString(4, result + index);
+    index += SIZE_EDGE_DESC;
+    result[index] = '\0';
+
+    //line 7
+    index = 0;
+    result = resultArray[7] = (char*)malloc(50);
+    insertChar(result, ' ', &index, 4);
+    result[index++] = '/';
+    insertChar(result, ' ', &index, 30);
+    result[index++] = '/';
+    result[index] = '\0';
+
+    //line 8
+    index = 0;
+    result = resultArray[8] = (char*)malloc(50);
+    insertChar(result, ' ', &index, 3);
+    result[index++] = '/';
+    insertChar(result, ' ', &index, 30);
+    result[index++] = '/';
+    result[index] = '\0';
+
+
+    //line 9
+    index = 0;
+    result = resultArray[9] = (char*)malloc(50);
+    insertChar(result, ' ', &index, 2);
+    result[index++] = '/';
+    insertChar(result, ' ', &index, 30);
+    result[index++] = '/';
+    result[index] = '\0';
+
+    //line 10
+    index = 0;
+    result = resultArray[10] = (char*)malloc(50);
+    insertChar(result, ' ', &index, 1);
+    edgeToString(6, result + index);
+    index += SIZE_EDGE_DESC;
+    insertChar(result, '-', &index, 18);
+    edgeToString(5, result + index);
+    index += SIZE_EDGE_DESC;
+    result[index] = '\0';
+
+    //line 11
+    index = 0;
+    result = resultArray[11] = (char*)malloc(50);
+    insertChar(result, ' ', &index, 1);
+    result[index] = '\0';
+
+
+    //line 12
+    index = 0;
+    result = resultArray[12] = (char*)malloc(50);
+    insertChar(result, ' ', &index, 4);
+    cornerToString( 7, result + index);
+    index += SIZE_CORNER_DESC;
+    insertSpaceDashSpace(result, &index);
+    edgeToString(8, result + index);
+    index += SIZE_EDGE_DESC;
+    insertSpaceDashSpace(result, &index);
+    cornerToString( 4, result + index);
+    index += SIZE_CORNER_DESC;
+    result[index] = '\0';
+
+    //line 13
+    index = 0;
+    result = resultArray[13] = (char*)malloc(50);
+    insertChar(result, ' ', &index, 5);
+    result[index++] = '/';
+    insertChar(result, ' ', &index, 30);
+    result[index++] = '/';
+    result[index] = '\0';
+
+    //line 14
+    index = 0;
+    result = resultArray[14] = (char*)malloc(50);
+    insertChar(result, ' ', &index, 2);
+    edgeToString(11, result + index);
+    index += SIZE_EDGE_DESC;
+    insertChar(result, ' ', &index, 23);
+    edgeToString(9, result + index);
+    index += SIZE_EDGE_DESC;
+    result[index] = '\0';
+
+
+    //line 15
+    index = 0;
+    result = resultArray[15] = (char*)malloc(50);
+    insertChar(result, ' ', &index, 2);
+    result[index++] = '/';
+    insertChar(result, ' ', &index, 30);
+    result[index++] = '/';
+    result[index] = '\0';
+
+    //line 16
+    index = 0;
+    result = resultArray[16] = (char*)malloc(50);
+    cornerToString( 6, result + index);
+    index += SIZE_CORNER_DESC;
+    insertSpaceDashSpace(result, &index);
+    edgeToString(10, result + index);
+    index += SIZE_EDGE_DESC;
+    insertSpaceDashSpace(result, &index);
+    cornerToString( 5, result + index);
+    index += SIZE_CORNER_DESC;
+    result[index] = '\0';
+}

@@ -23,6 +23,7 @@ private:
     void initFaceCubes(QWidget *parent = nullptr);
 
     QLabel* mLabelCubeCubiecubeRepresentation[17];
+    QLabel* mLabelCubeCornerEdgesRepresentation[17];
     void refreshRepresentations();
 
 private slots:

@@ -33,6 +33,8 @@ public:
 
     RubikFace getCenter(const RubikFace &position) const;
 
+    void to3DString2(char** resultArray);
+
 private:
     ModelRubik_Matrix matrix;
     ModelRubik_CornersEdges corners_edges;

@@ -94,3 +94,8 @@ std::string ModelRubik::nextStepInSolution()
     solution.erase(0, delimiterPosition+1);
     return nextStep;
 }
+
+void ModelRubik::to3DString2(char** resultArray)
+{
+    corners_edges.to3DString2(resultArray);
+}
