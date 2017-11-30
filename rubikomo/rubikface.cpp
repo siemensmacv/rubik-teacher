@@ -39,23 +39,32 @@ char colorDigitToLetter(int d)
 
 char colorEnumToLetter(RubikFace face)
 {
+    char result('\0');
     switch(face)
     {
     case RubikFace::Back:
-        return 'B';
+        result = 'B';
+        break;
     case RubikFace::Down:
-        return 'D';
+        result = 'D';
+        break;
     case RubikFace::Front:
-        return 'F';
+        result = 'F';
+        break;
     case RubikFace::Left:
-        return 'L';
+        result = 'L';
+        break;
     case RubikFace::Right:
-        return 'R';
+        result = 'R';
+        break;
     case RubikFace::Up:
-        return 'U';
+        result = 'U';
+        break;
     case RubikFace::Grey:
-        return 'G';
+        result = 'G';
+        break;
     }
+    return result;
 }
 
 QColor colorDigitToQColor(int d)
@@ -66,23 +75,32 @@ QColor colorDigitToQColor(int d)
 
 QColor colorEnumToQColor(RubikFace face)
 {
+    QColor result = QColor(0,0,0);
     switch(face)
     {
     case RubikFace::Up:
-        return QColor(255, 255, 0);
+        result = QColor(255, 255, 0);
+        break;
     case RubikFace::Right:
-        return QColor(255, 130, 0);
+        result = QColor(255, 130, 0);
+        break;
     case RubikFace::Front:
-        return QColor(0, 255, 0);
+        result = QColor(0, 255, 0);
+        break;
     case RubikFace::Down:
-        return QColor(255, 255, 255);
+        result = QColor(255, 255, 255);
+        break;
     case RubikFace::Left:
-        return QColor(255, 0, 0);
+        result = QColor(255, 0, 0);
+        break;
     case RubikFace::Back:
-        return QColor(0, 0, 255);
+        result = QColor(0, 0, 255);
+        break;
     case RubikFace::Grey:
-        return QColor(128,128,128);
+        result = QColor(128,128,128);
+        break;
     }
+    return result;
 }
 
 RubikFace qColorToEnum(QColor color)
@@ -108,4 +126,5 @@ RubikFace qColorToEnum(QColor color)
     if(color == QColor(128,128,128))
         return RubikFace::Grey;
 
+    return RubikFace::Grey;
 }
