@@ -47,7 +47,6 @@ SOURCES += \
     View3DSources/view3d.cpp \
     View2DSources/view2d.cpp \
     View2DSources/facecube2d.cpp \
-    rubikface.cpp \
     ckociemba/coordcube.c \
     ckociemba/cubiecube.c \
     ckociemba/facecube.c \
@@ -56,7 +55,8 @@ SOURCES += \
     formulahandler.cpp \
     formulastep.cpp \
     View3DSources/axishandler.cpp \
-    colorbutton.cpp
+    colorbutton.cpp \
+    rubikfaceutils.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -95,7 +95,8 @@ HEADERS += \
     formulahandler.h \
     formulastep.h \
     View3DHeaders/axishandler.h \
-    colorbutton.h
+    colorbutton.h \
+    rubikfaceutils.h
 
 FORMS += \
         mainwindow.ui

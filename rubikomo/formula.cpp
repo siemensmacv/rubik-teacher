@@ -1,6 +1,4 @@
 #include "formula.h"
-#include <string.h>
-#include <QException>
 
 const int MAX_STEPS = 30;
 
@@ -10,7 +8,7 @@ Formula::Formula(std::string formula)
 
    int stepindex = 0;
    int charindex = 0;
-   int length = formula.length();
+   size_t length = formula.length();
    while (stepindex < MAX_STEPS && charindex < length)
    {
        cStep[0] = formula[charindex++];

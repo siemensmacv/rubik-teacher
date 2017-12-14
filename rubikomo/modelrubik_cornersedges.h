@@ -1,4 +1,5 @@
-#pragma once
+#ifndef MODELRUBIK_CORNERSEDGES_H
+#define MODELRUBIK_CORNERSEDGES_H
 #include "rubikcorner.h"
 #include "rubikedge.h"
 #include "rubikface.h"
@@ -58,3 +59,5 @@ private:
     CornerOrientation corner_orientation[8];
     EdgeOrientation edge_orientation[12];
 };
+
+#endif // MODELRUBIK_CORNERSEDGES_H

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef RUBIKVALIDATOR_H
+#define RUBIKVALIDATOR_H
+
 #include <string>
 #include <cstdlib>
 
@@ -82,3 +84,5 @@ public:
 	bool operator ()();
 
 };
+
+#endif // RUBIKVALIDATOR_H

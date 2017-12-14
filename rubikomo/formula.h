@@ -1,7 +1,9 @@
-#pragma once
+#ifndef FORMULA_H
+#define FORMULA_H
 
 #include "formulastep.h"
 #include <string>
+#include <QException>
 
 // define a formula with several steps;
 class Formula
@@ -24,3 +26,5 @@ private:
     int  m_nCount;
     int  m_nIndex;
 };
+
+#endif // FORMULA_H

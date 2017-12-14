@@ -1,3 +1,6 @@
+#ifndef FACECUBE2D_H
+#define FACECUBE2D_H
+
 #include <QObject>
 #include <QWidget>
 #include <QFrame>
@@ -10,6 +13,7 @@
 #include <string>
 #include <controllerrubik.h>
 #include <QMouseEvent>
+#include "rubikfaceutils.h"
 
 class FaceCube2D : public QFrame
 {
@@ -17,8 +21,8 @@ class FaceCube2D : public QFrame
 public:
     explicit FaceCube2D(QWidget *parent = nullptr, ModelRubik *model = nullptr, RubikFace representing = RubikFace::Up);
     ~FaceCube2D();
-    virtual void paintEvent(QPaintEvent *pe) override;
-    virtual void mousePressEvent(QMouseEvent *event) override;
+    virtual void paintEvent(QPaintEvent *pe = nullptr) override;
+    virtual void mousePressEvent(QMouseEvent *event = nullptr) override;
 
 public slots:
     void setBorderWidth(int borderWidth);
@@ -31,7 +35,6 @@ private:
     void updateFrameSize();
     void initRectMatrix();
     void updateRectMatrix();
-    QColor getColorFromValue(int value) const;
 
     int mBorderWidth = 7;
     int mFrameSize = 250;
@@ -39,3 +42,5 @@ private:
     ModelRubik *m_model;
     RubikFace m_representing;
 };
+
+#endif // FACECUBE2D_H

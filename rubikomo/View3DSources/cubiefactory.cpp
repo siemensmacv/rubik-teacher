@@ -8,6 +8,8 @@ CubieFactory::CubieFactory(Qt3DCore::QEntity *rootEntity)
 
 ICubie* CubieFactory::getCornerCubie(int index, Corner corner, CornerOrientation cornerOrient)
 {
+    Q_UNUSED(corner);
+    Q_UNUSED(cornerOrient);
     Corner3D* newCorner = new Corner3D(m_rootEntity);
     float scale=1.0f;
     switch(index){
@@ -43,6 +45,8 @@ ICubie* CubieFactory::getCornerCubie(int index, Corner corner, CornerOrientation
 
 ICubie *CubieFactory::getEdgeCubie(int index, Edge edge, EdgeOrientation edgeOrient)
 {
+    Q_UNUSED(edge);
+    Q_UNUSED(edgeOrient);
     Edge3D* newEdge = new Edge3D(m_rootEntity);
     float scale=1.0f;
     switch(index){
@@ -90,6 +94,7 @@ ICubie *CubieFactory::getEdgeCubie(int index, Edge edge, EdgeOrientation edgeOri
 
 ICubie *CubieFactory::getCentreCubie(int index, RubikFace centre)
 {
+    Q_UNUSED(centre);
     Centre3D* newCentre = new Centre3D(m_rootEntity);
     float scale=1.0f;
     switch(index){

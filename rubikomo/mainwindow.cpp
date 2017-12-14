@@ -55,12 +55,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this, &MainWindow::formulaChanged, m_viewFormula, &FormulaHandler::FormulaChanged);
 
     //widget color
-    yellowButton = new ColorButton(this, QColor(255,255,0));
-    orangeButton = new ColorButton(this, QColor(255,156,0));
-    greenButton = new ColorButton(this, QColor(0,255,0));
-    whiteButton = new ColorButton(this, QColor(255,255,255));
-    redButton = new ColorButton(this, QColor(255,0,0));
-    blueButton = new ColorButton(this, QColor(0,0,255));
+    yellowButton = new ColorButton(this, RubikFaceUtils::colorEnumToQColor(RubikFace::Up));
+    orangeButton = new ColorButton(this, RubikFaceUtils::colorEnumToQColor(RubikFace::Right));
+    greenButton = new ColorButton(this, RubikFaceUtils::colorEnumToQColor(RubikFace::Front));
+    whiteButton = new ColorButton(this, RubikFaceUtils::colorEnumToQColor(RubikFace::Down));
+    redButton = new ColorButton(this, RubikFaceUtils::colorEnumToQColor(RubikFace::Left));
+    blueButton = new ColorButton(this, RubikFaceUtils::colorEnumToQColor(RubikFace::Back));
 
 	yellowButton->setObjectName("yellowButton");
 	orangeButton->setObjectName("orangeButton");
@@ -130,7 +130,7 @@ void MainWindow::initConfigurations(){
     addConfiguration("OLL: Y Move"                ,"UUUUUUUUULRRRRRRRRFFBFFFFFFDDDDDDDDDRBLLLLLLLBLFBBBBBB","F R U' R' U' R U R' F' R U R' U' R' F R F'");
 }
 
-void  MainWindow::addConfiguration(QString labelText,std::string configuration,std::string formula){
+void MainWindow::addConfiguration(QString labelText,std::string configuration,std::string formula){
 
     ui->listWidget->addItem(labelText);
     configurations.push_back(configuration);
@@ -460,10 +460,8 @@ void MainWindow::handleSolve()
 
 void MainWindow::selectFace(RubikFace face)
 {
-
     switch(face)
     {
-
     case RubikFace::Up:
         redButton->setIsSelected(false);
         greenButton->setIsSelected(false);

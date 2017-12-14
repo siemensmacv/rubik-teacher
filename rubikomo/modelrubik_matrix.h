@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <vector>
 #include <qstring.h>
+#include "rubikfaceutils.h"
 
 class ModelRubik_Matrix
 {

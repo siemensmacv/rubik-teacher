@@ -3,11 +3,11 @@
 
 #include "./View3DHeaders/icubie.h"
 #include "./View3DHeaders/cubiefactory.h"
-
 #include "modelrubik.h"
 #include "./View3DHeaders/matrixswap.h"
-
 #include <Qt3DCore>
+#include "rubikfaceutils.h"
+#include <Qt3DExtras>
 
 class Cube3D {
 public:

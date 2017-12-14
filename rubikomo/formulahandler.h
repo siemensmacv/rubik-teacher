@@ -50,6 +50,8 @@ private:
 
     void performMove(FormulaStep fs);
 
+    void createBitmapButton(QWidget *parent = nullptr, QPushButton *theButton = nullptr, QString sPath = nullptr);
+
     RubikFace face;
     void f();
 
