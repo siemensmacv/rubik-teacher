@@ -226,38 +226,38 @@ void ModelRubik_CornersEdges::rotateEdgesClockwise(int up, int right, int down, 
     switch (face) {
     case RubikFace::Left:
     case RubikFace::Right:
-        if (edgeValueInMiddleSlice(up))
-            !edge_orientation[up];
-        if (edgeValueInMiddleSlice(right))
-            !edge_orientation[right];
-        if (edgeValueInMiddleSlice(down))
-            !edge_orientation[down];
-        if (edgeValueInMiddleSlice(left))
-            !edge_orientation[left];
+        //if (edgeValueInMiddleSlice(up))
+        //    !edge_orientation[up];
+        //if (edgeValueInMiddleSlice(right))
+        //    !edge_orientation[right];
+        //if (edgeValueInMiddleSlice(down))
+        //    !edge_orientation[down];
+        //if (edgeValueInMiddleSlice(left))
+        //    !edge_orientation[left];
         break;
 
     case RubikFace::Front:
     case RubikFace::Back:
-        if (edgeValueInStandingSlice(up))
+        //if (edgeValueInStandingSlice(up))
             !edge_orientation[up];
-        if (edgeValueInStandingSlice(right))
+        //if (edgeValueInStandingSlice(right))
             !edge_orientation[right];
-        if (edgeValueInStandingSlice(down))
+        //if (edgeValueInStandingSlice(down))
             !edge_orientation[down];
-        if (edgeValueInStandingSlice(left))
+        //if (edgeValueInStandingSlice(left))
             !edge_orientation[left];
         break;
 
     case RubikFace::Up:
     case RubikFace::Down:
-        if (edgeValueInEquatorSlice(up))
-            !edge_orientation[up];
-        if (edgeValueInEquatorSlice(right))
-            !edge_orientation[right];
-        if (edgeValueInEquatorSlice(down))
-            !edge_orientation[down];
-        if (edgeValueInEquatorSlice(left))
-            !edge_orientation[left];
+        //if (edgeValueInEquatorSlice(up))
+        //    !edge_orientation[up];
+        //if (edgeValueInEquatorSlice(right))
+        //    !edge_orientation[right];
+        //if (edgeValueInEquatorSlice(down))
+        //    !edge_orientation[down];
+        //if (edgeValueInEquatorSlice(left))
+        //    !edge_orientation[left];
         break;
 
     default:
@@ -285,38 +285,38 @@ void ModelRubik_CornersEdges::rotateEdgesCounterClockwise(int up, int left, int 
     switch (face) {
     case RubikFace::Left:
     case RubikFace::Right:
-        if (edgeValueInMiddleSlice(up))
-            !edge_orientation[up];
-        if (edgeValueInMiddleSlice(left))
-            !edge_orientation[left];
-        if (edgeValueInMiddleSlice(down))
-            !edge_orientation[down];
-        if (edgeValueInMiddleSlice(right))
-            !edge_orientation[right];
+        //if (edgeValueInMiddleSlice(up))
+        //    !edge_orientation[up];
+        //if (edgeValueInMiddleSlice(left))
+        //    !edge_orientation[left];
+        //if (edgeValueInMiddleSlice(down))
+        //    !edge_orientation[down];
+        //if (edgeValueInMiddleSlice(right))
+        //    !edge_orientation[right];
         break;
 
     case RubikFace::Front:
     case RubikFace::Back:
-        if (edgeValueInStandingSlice(up))
+        //if (edgeValueInStandingSlice(up))
             !edge_orientation[up];
-        if (edgeValueInStandingSlice(left))
+        //if (edgeValueInStandingSlice(left))
             !edge_orientation[left];
-        if (edgeValueInStandingSlice(down))
+        //if (edgeValueInStandingSlice(down))
             !edge_orientation[down];
-        if (edgeValueInStandingSlice(right))
+        //if (edgeValueInStandingSlice(right))
             !edge_orientation[right];
         break;
 
     case RubikFace::Up:
     case RubikFace::Down:
-        if (edgeValueInEquatorSlice(up))
-            !edge_orientation[up];
-        if (edgeValueInEquatorSlice(left))
-            !edge_orientation[left];
-        if (edgeValueInEquatorSlice(down))
-            !edge_orientation[down];
-        if (edgeValueInEquatorSlice(right))
-            !edge_orientation[right];
+        //if (edgeValueInEquatorSlice(up))
+        //    !edge_orientation[up];
+        //if (edgeValueInEquatorSlice(left))
+        //    !edge_orientation[left];
+        //if (edgeValueInEquatorSlice(down))
+        //    !edge_orientation[down];
+        //if (edgeValueInEquatorSlice(right))
+        //    !edge_orientation[right];
         break;
 
     default:
