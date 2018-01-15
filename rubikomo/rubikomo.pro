@@ -56,7 +56,8 @@ SOURCES += \
     formulastep.cpp \
     View3DSources/axishandler.cpp \
     colorbutton.cpp \
-    rubikfaceutils.cpp
+    rubikfaceutils.cpp \
+    Solving/algorithmstep.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -96,7 +97,8 @@ HEADERS += \
     formulastep.h \
     View3DHeaders/axishandler.h \
     colorbutton.h \
-    rubikfaceutils.h
+    rubikfaceutils.h \
+    Solving/algorithmstep.h
 
 FORMS += \
         mainwindow.ui
